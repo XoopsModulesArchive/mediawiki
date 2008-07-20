@@ -58,6 +58,8 @@ function mediawiki_username_xoops2mediawiki($text)
  */
 function mediawiki_username_mediawiki2xoops($text)
 {
+	// for userpages, if the xoops nickname has "_" in it, mediawiki repaces it with a space, and so doesn't find the user.
+	$text = str_replace(" ", "_", $text);
 	return mediawiki_encoding_mediawiki2xoops(preg_replace("/^".preg_quote(MEDIAWIKI_USERPREFIX)."/", "", $text));
 }
 
