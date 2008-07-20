@@ -30,58 +30,6 @@
  * someone logs in who can be authenticated externally.
  */
 class AuthPlugin {
-// Modified for mediawiki for XOOPS - by D.J.
-	
-	var $instance;
-	
-	function AuthPlugin(){
-		$this->instance = true;
-		$GLOBALS["wgHooks"]['AutoAuthenticate'][] = array(&$this, "AutoAuthenticate");
-		$GLOBALS["wgHooks"]['UserLogout'][] = array(&$this, "UserLogout");
-	}
-	
-	function AutoAuthenticate(&$wgUser){
-		$wgUser = new User::newFromSession();;
-		if ( is_object($GLOBALS["xoopsUser"]) ) {
-			$wgUser->mId = $GLOBALS["xoopsUser"]->getVar("uid");
-			$wgUser->mName = mediawiki_encoding_xoops2mediawiki($GLOBALS["xoopsUser"]->getVar("uname"));
-			$wgUser->mEmail = $GLOBALS["xoopsUser"]->getVar("email");
-			$wgUser->mRealName = mediawiki_encoding_xoops2mediawiki($GLOBALS["xoopsUser"]->getVar("name"));
-			if($GLOBALS["xoopsUser"]->isAdmin()){
-				$wgUser->mGroups[] = 'sysop';
-			}
-			$effectiveGroups = array_merge( array( '*', 'user' ), $wgUser->mGroups );
-			$wgUser->mRights = $wgUser->getGroupPermissions( $effectiveGroups );
-		}else{
-			$wgUser->mId = 0;
-		}
-		if ( !isset( $_SESSION['wsUserID'] ) || $_SESSION['wsUserID'] != $wgUser->mId ) {
-			/** Clear client-side caching of pages */
-			$GLOBALS["wgCachePages"] = false;
-		}
-		$_SESSION['wsUserID'] = $wgUser->mId;
-		return true;
-	}
-	
-	function UserLogout(&$wgUser){
-		global $xoopsConfig, $xoopsUser, $_SESSION;
-		
-	    $_SESSION = array();
-	    session_destroy();
-	    if ($xoopsConfig['use_mysession'] && $xoopsConfig['session_name'] != '') {
-	        setcookie($xoopsConfig['session_name'], '', time()- 3600, '/',  '', 0);
-	    }
-	    // clear entry from online users table
-	    if (is_object($xoopsUser)) {
-	        $online_handler =& xoops_gethandler('online');
-	        $online_handler->destroy($wgUser->mId);
-	        unset($xoopsUser);
-	    }
-	    
-	    //redirect_header(XOOPS_URL.'/user.php?op=logout&amp;xoops_redirect='.$_SERVER['REQUEST_URI']);
-	    return true;
-    }
-	
 	/**
 	 * Check whether there exists a user account with the given name.
 	 * The name will be normalized to MediaWiki's requirements, so
