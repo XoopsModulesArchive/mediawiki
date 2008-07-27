@@ -48,7 +48,7 @@ class XoopsAuth extends AuthPlugin {
 	}
 	
 	function AutoAuthenticate(&$wgUser){
-		$wgUser = new User::newFromSession();
+		$wgUser = User::newFromSession();
 		if ( is_object($GLOBALS["xoopsUser"]) ) {
 			$wgUser->mId = $GLOBALS["xoopsUser"]->getVar("uid");
 			$wgUser->mName = mediawiki_encoding_xoops2mediawiki($GLOBALS["xoopsUser"]->getVar("uname"));
