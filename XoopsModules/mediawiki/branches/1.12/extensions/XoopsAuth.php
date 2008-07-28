@@ -27,7 +27,7 @@ if( !defined( 'MEDIAWIKI' ) ) {
 $wgExtensionCredits['other'][] = array(
 
 	"name" => "XoopsAuth",
-	"author" => "Niluge_kiWi and phpp",
+	"author" => "Niluge_kiWi and phppp",
 	"version" => "1.0 - july 2008",
 	"url" => "http://dev.xoops.com",
 	"description" => "xoops auto authentification for 'mediawiki for xoops'"

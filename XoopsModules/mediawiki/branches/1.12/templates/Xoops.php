@@ -126,7 +126,7 @@ class SkinXoops extends skin {
 		$printsheet = htmlspecialchars( "$wgStylePath/common/wikiprintable.css" );
 		$module_header .= "<link rel='stylesheet' type='text/css' $media href='$printsheet' />\n";
 
-		$module_header .= $this->getHeadScripts();
+		$module_header .= $this->getHeadScripts(false); // maybe to set to true...
 		$module_header .= $out->mScripts;
 		$module_header .= $this->getUserStyles();
 
