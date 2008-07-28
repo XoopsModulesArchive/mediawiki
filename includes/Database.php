@@ -512,13 +512,6 @@ class mwDatabase {
 		return $this->$name;
 	}
 
-// Modified for mediawiki for XOOPS - by D.J.
-	/* compatible with XOOPS */
-	function Database( $server = false, $user = false, $password = false, $dbName = false, 
-		$failFunction = false, $flags = 0, $tablePrefix = 'get from global' ) {
-		$this->mwDatabase( $server, $user, $password, $dbName, $failFunction, $flags, $tablePrefix);
-	}
-	
 #------------------------------------------------------------------------------
 # Other functions
 #------------------------------------------------------------------------------
@@ -533,11 +526,12 @@ class mwDatabase {
 	 * @param $flags
 	 * @param $tablePrefix String: database table prefixes. By default use the prefix gave in LocalSettings.php
 	 */
+// apparently useless
 // Modified for mediawiki for XOOPS - by D.J.
-	function mwDatabase( $server = false, $user = false, $password = false, $dbName = false, 
-		$failFunction = false, $flags = 0, $tablePrefix = 'get from global' ) {
-			$this->__construct( $server, $user, $password, $dbName, $failFunction, $flags, $tablePrefix );
-	}
+//	function mwDatabase( $server = false, $user = false, $password = false, $dbName = false, 
+//		$failFunction = false, $flags = 0, $tablePrefix = 'get from global' ) {
+//			$this->__construct( $server, $user, $password, $dbName, $failFunction, $flags, $tablePrefix );
+//	}
 		
 	function __construct( $server = false, $user = false, $password = false, $dbName = false,
 		$failFunction = false, $flags = 0, $tablePrefix = 'get from global' ) {
@@ -752,7 +746,7 @@ class mwDatabase {
 			# logging size most of the time. The substr is really just a sanity check.
 
 			# Who's been wasting my precious column space? -- TS
-			#$profName = 'query: ' . $fname . ' ' . substr( Database::generalizeSQL( $sql ), 0, 255 );
+			#$profName = 'query: ' . $fname . ' ' . substr( mwDatabase::generalizeSQL( $sql ), 0, 255 );
 
 			if ( is_null( $this->getLBInfo( 'master' ) ) ) {
 				$queryProf = 'query: ' . substr( mwDatabase::generalizeSQL( $sql ), 0, 255 );
@@ -1306,7 +1300,7 @@ class mwDatabase {
 	 * Takes same arguments as Database::select()
 	 */
 	
-	function estimateRowCount( $table, $vars='*', $conds='', $fname = 'Database::estimateRowCount', $options = array() ) {
+	function estimateRowCount( $table, $vars='*', $conds='', $fname = 'mwDatabase::estimateRowCount', $options = array() ) {
 		$options['EXPLAIN']=true;
 		$res = $this->select ($table, $vars, $conds, $fname, $options );
 		if ( $res === false )
@@ -2467,5 +2461,5 @@ class ResultWrapper implements Iterator {
 	}
 }
 
+
 endif;
-?>
