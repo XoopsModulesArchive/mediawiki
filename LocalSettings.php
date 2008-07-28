@@ -64,6 +64,8 @@ if ( $wgCommandLineMode ) {
  $wgDisableOutputCompression = true;
 
 $wgSitename         = mediawiki_encoding_xoops2mediawiki($xoopsConfig["sitename"]);
+// Maybe to change...
+$wgLogo = XOOPS_URL."/modules/".MEDIAWIKI_DIRNAME."/images/mediawiki.png";
 
 ## The URL base path to the directory containing the wiki;
 ## defaults for all runtime URL paths are based off of this.
@@ -162,7 +164,7 @@ $wgCacheEpoch = max( $wgCacheEpoch, gmdate( 'YmdHis', @filemtime( __FILE__ ) ) )
 
 // mediawiki for xoops: Auto Authentification
 require_once("extensions/XoopsAuth.php");
-$wgAuth = new AuthPlugin();
+$wgAuth = new XoopsAuth();
 
 // mediawiki for xoops: FKCeditor: port from 1.7.1 to 1.12.0 not tested...
 /* Installing this extension may lead to security and technical problems 

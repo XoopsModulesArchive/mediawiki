@@ -41,7 +41,7 @@ class XoopsAuth extends AuthPlugin {
 	
 	var $instance;
 	
-	function AuthPlugin(){
+	function XoopsAuth(){
 		$this->instance = true;
 		$GLOBALS["wgHooks"]['AutoAuthenticate'][] = array(&$this, "AutoAuthenticate");
 		$GLOBALS["wgHooks"]['UserLogout'][] = array(&$this, "UserLogout");
