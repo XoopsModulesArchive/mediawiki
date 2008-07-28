@@ -42,8 +42,7 @@ function __autoload($className) {
 		'EnhancedChangesList' => 'includes/ChangesList.php',
 		'CoreParserFunctions' => 'includes/CoreParserFunctions.php',
 		'DBObject' => 'includes/Database.php',
-		'Database' => 'includes/Database.php',
-		'mwDatabase' => 'includes/Database.php',
+		'mwDatabase' => 'includes/Database.php', // MediaWiki for Xoops, by Niluge_KiWi 
 		'DatabaseMysql' => 'includes/Database.php',
 		'ResultWrapper' => 'includes/Database.php',
 		'DatabasePostgres' => 'includes/DatabasePostgres.php',
