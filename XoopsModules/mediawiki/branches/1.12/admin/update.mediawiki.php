@@ -55,7 +55,6 @@ require_once( "$IP/includes/MagicWord.php" );
 require_once( "$IP/includes/Namespace.php" );
 require_once( "$IP/includes/ProfilerStub.php" );
 require_once( "$IP/includes/GlobalFunctions.php" );
-require_once( "$IP/includes/Hooks.php" );
 
 require_once( "$IP/maintenance/updaters.inc" );
 header("location: ".XOOPS_URL."/modules/system/admin.php?fct=modulesadmin");	
@@ -71,6 +70,24 @@ header("location: ".XOOPS_URL."/modules/system/admin.php?fct=modulesadmin");
 	chdir( ".." );
 	flush();
 	do_all_updates();
+
+	// tables not removed but useless:
+	// TODO: get the old module version with xoops framework to try to remove exactly what is needed
+	// (and still here after uninstall of mediawiki module, so we have to remove them now)
+	$tables_to_remove = array(
+		// update from 1.6.7
+		"validate",
+		// update from 1.7.1
+		"ipblocks_old"
+	);
+	foreach ($tables_to_remove as $table_name) {
+		if ( $wgDatabase->tableExists( $table_name ) ) {
+			$table_fullname = $wgDatabase->tableName( $table_name );
+			echo "Deleting $table_name...";
+			$wgDatabase->query( "DROP TABLE $table_fullname" );		
+		}
+	}
+
 	chdir( "admin" );
 
 xoops_cp_footer();
