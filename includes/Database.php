@@ -746,14 +746,14 @@ class mwDatabase {
 			# logging size most of the time. The substr is really just a sanity check.
 
 			# Who's been wasting my precious column space? -- TS
-			#$profName = 'query: ' . $fname . ' ' . substr( mwDatabase::generalizeSQL( $sql ), 0, 255 );
+			#$profName = 'query: ' . $fname . ' ' . substr( Database::generalizeSQL( $sql ), 0, 255 );
 
 			if ( is_null( $this->getLBInfo( 'master' ) ) ) {
-				$queryProf = 'query: ' . substr( mwDatabase::generalizeSQL( $sql ), 0, 255 );
-				$totalProf = 'mwDatabase::query';
+				$queryProf = 'query: ' . substr( Database::generalizeSQL( $sql ), 0, 255 );
+				$totalProf = 'Database::query';
 			} else {
-				$queryProf = 'query-m: ' . substr( mwDatabase::generalizeSQL( $sql ), 0, 255 );
-				$totalProf = 'mwDatabase::query-master';
+				$queryProf = 'query-m: ' . substr( Database::generalizeSQL( $sql ), 0, 255 );
+				$totalProf = 'Database::query-master';
 			}
 			wfProfileIn( $totalProf );
 			wfProfileIn( $queryProf );
@@ -876,7 +876,7 @@ class mwDatabase {
 	 * & = filename; reads the file and inserts as a blob
 	 *     (we don't use this though...)
 	 */
-	function prepare( $sql, $func = 'mwDatabase::prepare' ) {
+	function prepare( $sql, $func = 'Database::prepare' ) {
 		/* MySQL doesn't support prepared statements (yet), so just
 		   pack up the query for reference. We'll manually replace
 		   the bits later. */
@@ -909,7 +909,7 @@ class mwDatabase {
 	 * @param string $args ...
 	 */
 	function safeQuery( $query, $args = null ) {
-		$prepared = $this->prepare( $query, 'mwDatabase::safeQuery' );
+		$prepared = $this->prepare( $query, 'Database::safeQuery' );
 		if( !is_array( $args ) ) {
 			# Pull the var args
 			$args = func_get_args();
@@ -1123,7 +1123,7 @@ class mwDatabase {
 	 * This function exists for historical reasons, Database::update() has a more standard
 	 * calling convention and feature set
 	 */
-	function set( $table, $var, $value, $cond, $fname = 'mwDatabase::set' )
+	function set( $table, $var, $value, $cond, $fname = 'Database::set' )
 	{
 		$table = $this->tableName( $table );
 		$sql = "UPDATE $table SET $var = '" .
@@ -1136,7 +1136,7 @@ class mwDatabase {
 	 * Usually aborts on failure
 	 * If errors are explicitly ignored, returns FALSE on failure
 	 */
-	function selectField( $table, $var, $cond='', $fname = 'mwDatabase::selectField', $options = array() ) {
+	function selectField( $table, $var, $cond='', $fname = 'Database::selectField', $options = array() ) {
 		if ( !is_array( $options ) ) {
 			$options = array( $options );
 		}
@@ -1220,7 +1220,7 @@ class mwDatabase {
 	 *                        see Database::makeSelectOptions code for list of supported stuff
 	 * @return mixed Database result resource (feed to Database::fetchObject or whatever), or false on failure
 	 */
-	function select( $table, $vars, $conds='', $fname = 'mwDatabase::select', $options = array() )
+	function select( $table, $vars, $conds='', $fname = 'Database::select', $options = array() )
 	{
 		if( is_array( $vars ) ) {
 			$vars = implode( ',', $vars );
@@ -1279,7 +1279,7 @@ class mwDatabase {
 	 *
 	 * @todo migrate documentation to phpdocumentor format
 	 */
-	function selectRow( $table, $vars, $conds, $fname = 'mwDatabase::selectRow', $options = array() ) {
+	function selectRow( $table, $vars, $conds, $fname = 'Database::selectRow', $options = array() ) {
 		$options['LIMIT'] = 1;
 		$res = $this->select( $table, $vars, $conds, $fname, $options );
 		if ( $res === false )
@@ -1300,7 +1300,7 @@ class mwDatabase {
 	 * Takes same arguments as Database::select()
 	 */
 	
-	function estimateRowCount( $table, $vars='*', $conds='', $fname = 'mwDatabase::estimateRowCount', $options = array() ) {
+	function estimateRowCount( $table, $vars='*', $conds='', $fname = 'Database::estimateRowCount', $options = array() ) {
 		$options['EXPLAIN']=true;
 		$res = $this->select ($table, $vars, $conds, $fname, $options );
 		if ( $res === false )
@@ -1353,7 +1353,7 @@ class mwDatabase {
 	 * Usually aborts on failure
 	 * If errors are explicitly ignored, returns NULL on failure
 	 */
-	function fieldExists( $table, $field, $fname = 'mwDatabase::fieldExists' ) {
+	function fieldExists( $table, $field, $fname = 'Database::fieldExists' ) {
 		$table = $this->tableName( $table );
 		$res = $this->query( 'DESCRIBE '.$table, $fname );
 		if ( !$res ) {
@@ -1376,7 +1376,7 @@ class mwDatabase {
 	 * Usually aborts on failure
 	 * If errors are explicitly ignored, returns NULL on failure
 	 */
-	function indexExists( $table, $index, $fname = 'mwDatabase::indexExists' ) {
+	function indexExists( $table, $index, $fname = 'Database::indexExists' ) {
 		$info = $this->indexInfo( $table, $index, $fname );
 		if ( is_null( $info ) ) {
 			return NULL;
@@ -1390,7 +1390,7 @@ class mwDatabase {
 	 * Get information about an index into an object
 	 * Returns false if the index does not exist
 	 */
-	function indexInfo( $table, $index, $fname = 'mwDatabase::indexInfo' ) {
+	function indexInfo( $table, $index, $fname = 'Database::indexInfo' ) {
 		# SHOW INDEX works in MySQL 3.23.58, but SHOW INDEXES does not.
 		# SHOW INDEX should work for 3.x and up:
 		# http://dev.mysql.com/doc/mysql/en/SHOW_INDEX.html
@@ -1478,7 +1478,7 @@ class mwDatabase {
 	 * Usually aborts on failure
 	 * If errors are explicitly ignored, returns success
 	 */
-	function insert( $table, $a, $fname = 'mwDatabase::insert', $options = array() ) {
+	function insert( $table, $a, $fname = 'Database::insert', $options = array() ) {
 		# No rows to insert, easy just return now
 		if ( !count( $a ) ) {
 			return true;
@@ -1546,7 +1546,7 @@ class mwDatabase {
 	 *                        more of IGNORE, LOW_PRIORITY
 	 * @return bool
 	 */
-	function update( $table, $values, $conds, $fname = 'mwDatabase::update', $options = array() ) {
+	function update( $table, $values, $conds, $fname = 'Database::update', $options = array() ) {
 		$table = $this->tableName( $table );
 		$opts = $this->makeUpdateOptions( $options );
 		$sql = "UPDATE $opts $table SET " . $this->makeList( $values, LIST_SET );
@@ -1567,7 +1567,7 @@ class mwDatabase {
 	 */
 	function makeList( $a, $mode = LIST_COMMA ) {
 		if ( !is_array( $a ) ) {
-			throw new DBUnexpectedError( $this, 'mwDatabase::makeList called with incorrect parameters' );
+			throw new DBUnexpectedError( $this, 'Database::makeList called with incorrect parameters' );
 		}
 
 		$first = true;
@@ -1767,7 +1767,7 @@ class mwDatabase {
 	 *
 	 * @todo migrate comment to phodocumentor format
 	 */
-	function replace( $table, $uniqueIndexes, $rows, $fname = 'mwDatabase::replace' ) {
+	function replace( $table, $uniqueIndexes, $rows, $fname = 'Database::replace' ) {
 		$table = $this->tableName( $table );
 
 		# Single row case
@@ -1803,9 +1803,9 @@ class mwDatabase {
 	 * @param string $joinVar The variable to join on, in the second table.
 	 * @param array $conds Condition array of field names mapped to variables, ANDed together in the WHERE clause
 	 */
-	function deleteJoin( $delTable, $joinTable, $delVar, $joinVar, $conds, $fname = 'mwDatabase::deleteJoin' ) {
+	function deleteJoin( $delTable, $joinTable, $delVar, $joinVar, $conds, $fname = 'Database::deleteJoin' ) {
 		if ( !$conds ) {
-			throw new DBUnexpectedError( $this, 'mwDatabase::deleteJoin() called with empty $conds' );
+			throw new DBUnexpectedError( $this, 'Database::deleteJoin() called with empty $conds' );
 		}
 
 		$delTable = $this->tableName( $delTable );
@@ -1824,7 +1824,7 @@ class mwDatabase {
 	function textFieldSize( $table, $field ) {
 		$table = $this->tableName( $table );
 		$sql = "SHOW COLUMNS FROM $table LIKE \"$field\";";
-		$res = $this->query( $sql, 'mwDatabase::textFieldSize' );
+		$res = $this->query( $sql, 'Database::textFieldSize' );
 		$row = $this->fetchObject( $res );
 		$this->freeResult( $res );
 
@@ -1849,9 +1849,9 @@ class mwDatabase {
 	 *
 	 * Use $conds == "*" to delete all rows
 	 */
-	function delete( $table, $conds, $fname = 'mwDatabase::delete' ) {
+	function delete( $table, $conds, $fname = 'Database::delete' ) {
 		if ( !$conds ) {
-			throw new DBUnexpectedError( $this, 'mwDatabase::delete() called with no conditions' );
+			throw new DBUnexpectedError( $this, 'Database::delete() called with no conditions' );
 		}
 		$table = $this->tableName( $table );
 		$sql = "DELETE FROM $table";
@@ -1868,7 +1868,7 @@ class mwDatabase {
 	 * $conds may be "*" to copy the whole table
 	 * srcTable may be an array of tables.
 	 */
-	function insertSelect( $destTable, $srcTable, $varMap, $conds, $fname = 'mwDatabase::insertSelect',
+	function insertSelect( $destTable, $srcTable, $varMap, $conds, $fname = 'Database::insertSelect',
 		$insertOptions = array(), $selectOptions = array() )
 	{
 		$destTable = $this->tableName( $destTable );
@@ -1950,7 +1950,7 @@ class mwDatabase {
 	 * reached.
 	 */
 	function deadlockLoop() {
-		$myFname = 'mwDatabase::deadlockLoop';
+		$myFname = 'Database::deadlockLoop';
 
 		$this->begin();
 		$args = func_get_args();
@@ -1996,7 +1996,7 @@ class mwDatabase {
 	 * @param integer $timeout the maximum number of seconds to wait for synchronisation
 	 */
 	function masterPosWait( $file, $pos, $timeout ) {
-		$fname = 'mwDatabase::masterPosWait';
+		$fname = 'Database::masterPosWait';
 		wfProfileIn( $fname );
 
 
@@ -2021,7 +2021,7 @@ class mwDatabase {
 	 * Get the position of the master from SHOW SLAVE STATUS
 	 */
 	function getSlavePos() {
-		$res = $this->query( 'SHOW SLAVE STATUS', 'mwDatabase::getSlavePos' );
+		$res = $this->query( 'SHOW SLAVE STATUS', 'Database::getSlavePos' );
 		$row = $this->fetchObject( $res );
 		if ( $row ) {
 			return array( $row->Master_Log_File, $row->Read_Master_Log_Pos );
@@ -2034,7 +2034,7 @@ class mwDatabase {
 	 * Get the position of the master from SHOW MASTER STATUS
 	 */
 	function getMasterPos() {
-		$res = $this->query( 'SHOW MASTER STATUS', 'mwDatabase::getMasterPos' );
+		$res = $this->query( 'SHOW MASTER STATUS', 'Database::getMasterPos' );
 		$row = $this->fetchObject( $res );
 		if ( $row ) {
 			return array( $row->File, $row->Position );
@@ -2046,7 +2046,7 @@ class mwDatabase {
 	/**
 	 * Begin a transaction, committing any previously open transaction
 	 */
-	function begin( $fname = 'mwDatabase::begin' ) {
+	function begin( $fname = 'Database::begin' ) {
 		$this->query( 'BEGIN', $fname );
 		$this->mTrxLevel = 1;
 	}
@@ -2054,7 +2054,7 @@ class mwDatabase {
 	/**
 	 * End a transaction
 	 */
-	function commit( $fname = 'mwDatabase::commit' ) {
+	function commit( $fname = 'Database::commit' ) {
 		$this->query( 'COMMIT', $fname );
 		$this->mTrxLevel = 0;
 	}
@@ -2063,7 +2063,7 @@ class mwDatabase {
 	 * Rollback a transaction.
 	 * No-op on non-transactional databases.
 	 */
-	function rollback( $fname = 'mwDatabase::rollback' ) {
+	function rollback( $fname = 'Database::rollback' ) {
 		$this->query( 'ROLLBACK', $fname, true );
 		$this->mTrxLevel = 0;
 	}
@@ -2072,7 +2072,7 @@ class mwDatabase {
 	 * Begin a transaction, committing any previously open transaction
 	 * @deprecated use begin()
 	 */
-	function immediateBegin( $fname = 'mwDatabase::immediateBegin' ) {
+	function immediateBegin( $fname = 'Database::immediateBegin' ) {
 		$this->begin();
 	}
 
@@ -2080,7 +2080,7 @@ class mwDatabase {
 	 * Commit transaction, if one is open
 	 * @deprecated use commit()
 	 */
-	function immediateCommit( $fname = 'mwDatabase::immediateCommit' ) {
+	function immediateCommit( $fname = 'Database::immediateCommit' ) {
 		$this->commit();
 	}
 
