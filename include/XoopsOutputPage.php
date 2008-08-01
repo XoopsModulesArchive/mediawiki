@@ -50,13 +50,8 @@ class XoopsOutputPage extends OutputPage{
 	 * Initialise private variables
 	 */
 	function XoopsOutputPage() {
-		global $wgInputEncoding, $wgOutputEncoding, $wgEditEncoding;
+		//global $wgInputEncoding, $wgOutputEncoding, $wgEditEncoding;
 
-		/** We speak UTF-8 all the time now, unless some oddities happen */
-		//$wgInputEncoding	= 'UTF-8';
-		$wgOutputEncoding	= empty($GLOBALS["xlanguage"]['charset_base'])?_CHARSET:$GLOBALS["xlanguage"]['charset_base'];
-		//$wgEditEncoding		= '';
-		
 		$this->setTemplate();
 		parent::__construct();
 	}
@@ -142,13 +137,21 @@ class XoopsOutputPage extends OutputPage{
 		global $xoopsCachedTemplate, $xoopsCachedTemplateId;
 		
 		global $wgUser, $wgLang, $wgDebugComments, $wgCookieExpiration;
-		global $wgInputEncoding, $wgOutputEncoding, $wgContLanguageCode;
+		global $wgInputEncoding, $wgOutputEncoding, $wgEditEncoding, $wgContLanguageCode;
 		global $wgDebugRedirects, $wgMimeType, $wgProfiler;
 		global $IP;
 
 		if( $this->mDoNothing ){
 			return;
 		}
+		
+		// moved from XoopsOutputPage() because it was erased by includes/Language.php
+		/** We speak UTF-8 all the time now, unless some oddities happen */
+		/* Niluge KiWi: in fact many websites use local charset */
+		//$wgInputEncoding	= 'UTF-8';
+		$wgOutputEncoding	= empty($GLOBALS["xlanguage"]['charset_base'])?_CHARSET:$GLOBALS["xlanguage"]['charset_base'];
+		//$wgEditEncoding	= '';
+
 		$fname = 'OutputPage::output';
 		wfProfileIn( $fname );
 		$sn = "Xoops";

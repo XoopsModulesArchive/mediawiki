@@ -2043,6 +2043,8 @@ END
 	 */
 	function safeUnicodeInput( $request, $field ) {
 		$text = rtrim( $request->getText( $field ) );
+		// MediaWiki for Xoops, by Niluge_KiWi : TODO: check if it really works everywhere 
+		$text = mediawiki_encoding_xoops2mediawiki($text, true, true);
 		return $request->getBool( 'safemode' )
 			? $this->unmakesafe( $text )
 			: $text;
