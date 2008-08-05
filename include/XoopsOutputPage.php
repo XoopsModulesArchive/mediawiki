@@ -35,7 +35,10 @@
 /**
  * This is not a valid entry point, perform no further processing unless MEDIAWIKI is defined
  */
-if( defined( 'MEDIAWIKI' ) ) {
+if( !defined( 'MEDIAWIKI' ) ) {
+  die();
+}
+require_once($IP."/includes/OutputPage.php");
 
 /**
  * @todo document
@@ -312,7 +315,6 @@ class XoopsOutputPage extends OutputPage{
 		}
 		parent::returnToMain( $auto, $returnto );
 	}
-}
 }
 
 ?>
