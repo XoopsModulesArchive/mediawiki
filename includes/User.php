@@ -319,19 +319,6 @@ class User {
 	 * @static
 	 */
 	static function whoIs( $id ) {
-		// Modified for mediawiki for XOOPS - by D.J.
- 
- 		if(is_object($GLOBALS["xoopsUser"]) && $id == $GLOBALS["xoopsUser"]->getVar("uid")){
- 			$xoopsuser =& $GLOBALS["xoopsUser"];
- 		}else{
- 			$member_handler =& xoops_getHandler("member");
- 			$xoopsuser =& $member_handler->getUser($id);
- 		}
- 		//if(is_object($xoopsuser)) return MEDIAWIKI_USERPREFIX.mediawiki_encoding_xoops2mediawiki($xoopsuser->getVar("uname"));
- 		if(is_object($xoopsuser)) return mediawiki_username_xoops2mediawiki($xoopsuser->getVar("uname"));
- 		else return 0;
-
-
 		$dbr = wfGetDB( DB_SLAVE );
 		return $dbr->selectField( 'user', 'user_name', array( 'user_id' => $id ), 'User::whoIs' );
 	}
@@ -343,21 +330,6 @@ class User {
 	 * @return string Real name of a user
 	 */
 	static function whoIsReal( $id ) {
-		// Modified for mediawiki for XOOPS - by D.J.
- 
- 		if(is_object($GLOBALS["xoopsUser"]) && $id == $GLOBALS["xoopsUser"]->getVar("uid")){
- 			$xoopsuser =& $GLOBALS["xoopsUser"];
- 		}else{
- 			$member_handler =& xoops_getHandler("member");
- 			$xoopsuser =& $member_handler->getUser($id);
- 		}
- 		if(is_object($xoopsuser)) {
- 			$realname = $xoopsuser->getVar("name")?$xoopsuser->getVar("name"):$xoopsuser->getVar("uname");
- 			//return MEDIAWIKI_USERPREFIX.mediawiki_encoding_xoops2mediawiki($realname);
- 			return mediawiki_username_xoops2mediawiki($realname);
- 		}
- 		else return 0;
- 
 		$dbr = wfGetDB( DB_SLAVE );
 		return $dbr->selectField( 'user', 'user_real_name', array( 'user_id' => $id ), __METHOD__ );
 	}
@@ -374,16 +346,6 @@ class User {
 			# Illegal name
 			return null;
 		}
-
-		// Modified for mediawiki for XOOPS - by D.J.
- 		
- 		//$name = preg_replace("/^".preg_quote(MEDIAWIKI_USERPREFIX)."/", "", $name);
- 		$user_handler =& xoops_getHandler("user");
-		$xoopsusers = array_keys($user_handler->getObjects(new Criteria("uname", mediawiki_username_mediawiki2xoops($name)), 1));
- 		if(empty($xoopsusers)) return null;
- 		else return $xoopsusers[0];
- 
-
 		$dbr = wfGetDB( DB_SLAVE );
 		$s = $dbr->selectRow( 'user', array( 'user_id' ), array( 'user_name' => $nt->getText() ), __METHOD__ );
 
@@ -457,13 +419,11 @@ class User {
 	static function isValidUserName( $name ) {
 		global $wgContLang, $wgMaxNameChars;
 
-		// Modified for mediawiki for XOOPS - by D.J.
 		if ( $name == ''
 		|| User::isIP( $name )
 		|| strpos( $name, '/' ) !== false
 		|| strlen( $name ) > $wgMaxNameChars
-		//|| $name != $wgContLang->ucfirst( $name ) 
-		)
+		|| $name != $wgContLang->ucfirst( $name ) )
 			return false;
 
 		// Ensure that the name can't be misresolved as a different title,
@@ -587,8 +547,7 @@ class User {
 	static function getCanonicalName( $name, $validate = 'valid' ) {
 		# Force usernames to capital
 		global $wgContLang;
-// Modified for mediawiki for XOOPS - by D.J.
-		//$name = $wgContLang->ucfirst( $name );
+		$name = $wgContLang->ucfirst( $name );
 
 		# Reject names containing '#'; these will be cleaned up
 		# with title normalisation, but then it's too late to
@@ -731,8 +690,6 @@ class User {
 	 * @deprecated use wfSetupSession()
 	 */
 	function SetupSession() {
-		// Modified for mediawiki for XOOPS - by D.J.
- 		return; 
 		wfSetupSession();
 	}
 
@@ -742,10 +699,6 @@ class User {
 	 * @return true if the user is logged in, false otherwise
 	 */
 	private function loadFromSession() {
-
-		// Modified for mediawiki for XOOPS - by D.J.
- 		return $this->loadFromDatabase();
-
 		global $wgMemc, $wgCookiePrefix;
 
 		if ( isset( $_SESSION['wsUserID'] ) ) {
@@ -850,28 +803,6 @@ class User {
 			while( $row = $dbr->fetchObject( $res ) ) {
 				$this->mGroups[] = $row->ug_group;
 			}
-			
-			// Modified for mediawiki for XOOPS - by D.J.
-	 		if(is_object($GLOBALS["xoopsUser"]) && $this->mId == $GLOBALS["xoopsUser"]->getVar("uid")){
-	 			$xoopsuser =& $GLOBALS["xoopsUser"];
-	 		}else{
-				$member_handler =& xoops_getHandler("member");
-	 			$xoopsuser =& $member_handler->getUser($this->mId);
-	 		}
-	 		
-	 		if ( is_object($xoopsuser) ) {
-	 			$this->mName = mediawiki_username_xoops2mediawiki($xoopsuser->getVar("uname"));
-	 			$this->mEmail = $xoopsuser->getVar("email");
-	 			$realname = $xoopsuser->getVar("name")?$xoopsuser->getVar("name"):$xoopsuser->getVar("uname");
-	 			$this->mRealName = mediawiki_username_xoops2mediawiki($realname);
-	 			if($xoopsuser->isAdmin()){
-	 				$this->mGroups[] = 'sysop';
-	 			}
-	 
-	 			//$effectiveGroups = array_merge( array( '*', 'user' ), $this->mGroups );
-	 			//$this->mRights = $this->getGroupPermissions( $effectiveGroups );
-	 		}
- 
 			return true;
 		} else {
 			# Invalid user_id
@@ -2377,12 +2308,6 @@ class User {
 	 * @public
 	 */
 	function editToken( $salt = '' ) {
-
- 
-		// Modified for mediawiki for XOOPS - by D.J.
- 		// The wsEditToken is not able stored !!!
- 		return true;
-
 		if ( $this->isAnon() ) {
 			return EDIT_TOKEN_SUFFIX;
 		} else {

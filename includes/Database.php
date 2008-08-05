@@ -516,6 +516,14 @@ class mwDatabase {
 # Other functions
 #------------------------------------------------------------------------------
 
+// Modified for mediawiki for XOOPS - by D.J.
+// Used by the xoops_root/class/database/database.php modification
+// Even if this modification could use the mwDatabase constructor instead of this
+	function Database( $server = false, $user = false, $password = false, $dbName = false, 
+		$failFunction = false, $flags = 0, $tablePrefix = 'get from global' ) {
+		$this->__construct( $server, $user, $password, $dbName, $failFunction, $flags, $tablePrefix );
+	}
+
 	/**@{{
 	 * Constructor.
 	 * @param string $server database server host
@@ -526,13 +534,6 @@ class mwDatabase {
 	 * @param $flags
 	 * @param $tablePrefix String: database table prefixes. By default use the prefix gave in LocalSettings.php
 	 */
-// apparently useless
-// Modified for mediawiki for XOOPS - by D.J.
-//	function mwDatabase( $server = false, $user = false, $password = false, $dbName = false, 
-//		$failFunction = false, $flags = 0, $tablePrefix = 'get from global' ) {
-//			$this->__construct( $server, $user, $password, $dbName, $failFunction, $flags, $tablePrefix );
-//	}
-		
 	function __construct( $server = false, $user = false, $password = false, $dbName = false,
 		$failFunction = false, $flags = 0, $tablePrefix = 'get from global' ) {
 

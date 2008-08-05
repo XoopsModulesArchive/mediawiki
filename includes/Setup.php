@@ -234,11 +234,7 @@ $wgRequest->interpolateTitle();
 
 $wgUser = new StubUser;
 $wgLang = new StubUserLang;
-// Modified for mediawiki for XOOPS - by D.J.
-require_once( 'include/XoopsOutputPage.php' );
-
-$wgOut = new XoopsOutputPage();
-
+$wgOut = new StubObject( 'wgOut', 'XoopsOutputPage' ); // MediaWiki for Mediawiki for Xoops, by Niluge_KiWi 
 $wgParser = new StubObject( 'wgParser', $wgParserConf['class'], array( $wgParserConf ) );
 
 $wgMessageCache = new StubObject( 'wgMessageCache', 'MessageCache', 
