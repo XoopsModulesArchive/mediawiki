@@ -53,11 +53,7 @@ class MovePageForm {
 	function MovePageForm( $par ) {
 		global $wgRequest;
 		$target = isset($par) ? $par : $wgRequest->getVal( 'target' );
-// Modified for mediawiki for XOOPS - by D.J.
-		//$this->oldTitle = $wgRequest->getText( 'wpOldTitle', $target );
-		$this->oldTitle = $wgRequest->getText( 'wpOldTitle' );
-		$this->oldTitle = ($this->oldTitle)?$this->oldTitle:$target;
-		
+		$this->oldTitle = $wgRequest->getText( 'wpOldTitle', $target );
 		$this->newTitle = $wgRequest->getText( 'wpNewTitle' );
 		$this->reason = $wgRequest->getText( 'wpReason' );
 		if ( $wgRequest->wasPosted() ) {

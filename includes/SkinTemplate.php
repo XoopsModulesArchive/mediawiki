@@ -846,23 +846,8 @@ class SkinTemplate extends Skin {
 
 		$action = $wgRequest->getText( 'action' );
 
-		// Modified for mediawiki for XOOPS - by D.J.
-  		$nav_urls = array();
-
-		$u = $wgTitle->escapeLocalURL( 'style=x' );
- 		if ( '' != $wgTitle->getFragment() ) {
-			if( $wgTitle->getPrefixedDbkey() == '' ) {
-				$u = '';
-			}
-			$anchor = urlencode( Sanitizer::decodeCharReferences( str_replace( ' ', '_', $wgTitle->getFragment() ) ) );
-			$replacearray = array(
-				'%3A' => ':',
- 				'%' => '.'
- 			);
- 			$u .= '#' . str_replace(array_keys($replacearray),array_values($replacearray),$anchor);
- 		}
- 		$nav_urls['mainpage'] = array('href' => str_replace("&amp;", "&", $u));
-
+		$nav_urls = array();
+		$nav_urls['mainpage'] = array( 'href' => self::makeMainPageUrl() );
 		if( $wgEnableUploads ) {
 			if ($wgUploadNavigationUrl) {
 				$nav_urls['upload'] = array( 'href' => $wgUploadNavigationUrl );
