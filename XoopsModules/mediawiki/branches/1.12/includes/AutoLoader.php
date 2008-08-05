@@ -42,7 +42,7 @@ function __autoload($className) {
 		'EnhancedChangesList' => 'includes/ChangesList.php',
 		'CoreParserFunctions' => 'includes/CoreParserFunctions.php',
 		'DBObject' => 'includes/Database.php',
-		'mwDatabase' => 'includes/Database.php', // MediaWiki for Xoops, by Niluge_KiWi 
+		'mwDatabase' => 'includes/Database.php', // MediaWiki for Mediawiki for Xoops, by Niluge_KiWi 
 		'DatabaseMysql' => 'includes/Database.php',
 		'ResultWrapper' => 'includes/Database.php',
 		'DatabasePostgres' => 'includes/DatabasePostgres.php',
@@ -131,7 +131,7 @@ function __autoload($className) {
 		'MimeMagic' => 'includes/MimeMagic.php',
 		'Namespace' => 'includes/Namespace.php',
 		'FakeMemCachedClient' => 'includes/ObjectCache.php',
-		'OutputPage' => 'includes/OutputPage.php',
+		'XoopsOutputPage' => 'include/XoopsOutputPage.php', // MediaWiki for Mediawiki for Xoops, by Niluge_KiWi 
 		'PageHistory' => 'includes/PageHistory.php',
 		'IndexPager' => 'includes/Pager.php',
 		'ReverseChronologicalPager' => 'includes/Pager.php',
