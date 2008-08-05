@@ -4,35 +4,14 @@
  * @addtogroup SpecialPage
  */
 
-// Modified for mediawiki for XOOPS - by D.J.
 /**
  * constructor
  */
 function wfSpecialUserlogin( $par = '' ) {
 	global $wgRequest;
- 	global $wgAuth, $wgUser;
- 	global $wgArticlePath;
-
 	if( session_id() == '' ) {
 		wfSetupSession();
 	}
-
- 	if(is_object($GLOBALS["xoopsUser"])){
- 		$wgUser = new User();
- 		$wgUser->mId = $GLOBALS["xoopsUser"]->getVar("uid");
- 		$wgUser->loadFromDatabase();
- 		$wgAuth->updateUser( $u );
- 		$wgUser->setCookies();
-		$wgUser->saveSettings();
- 		if($page = $wgRequest->getVal( 'returnto' )) {
- 			$url = str_replace( "$1", urlencode( $page ), $wgArticlePath );
- 			header( "Location: {$url}" );
- 		}
- 	}else{
- 		header("location: ".XOOPS_URL . '/user.php?xoops_redirect=' . urlencode($wgRequest->getRequestURL()));
- 	}
- 	return;
- 	
 
 	$form = new LoginForm( $wgRequest, $par );
 	$form->execute();

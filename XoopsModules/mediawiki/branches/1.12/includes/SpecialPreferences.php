@@ -897,9 +897,7 @@ class PreferencesForm {
 			) . "<tr><td colspan='2'>
 				<input type='button' value=\"" . wfMsg( 'guesstimezone' ) ."\"
 				onclick='javascript:guessTimezone()' id='guesstimezonebutton' style='display:none;' />
-				</td></tr></table><div class='prefsectiontip'>¹" .  wfMsg( 'timezonetext' ) . "</div></fieldset>"
-			// Modified for mediawiki for XOOPS - by D.J.
-			."<div class='prefsectiontip'>" .  wfMsg( 'timezonetext' ) . "</div>
+				</td></tr></table><div class='prefsectiontip'>¹" .  wfMsg( 'timezonetext' ) . "</div></fieldset>
 		</fieldset>\n\n" );
 
 		# Editing

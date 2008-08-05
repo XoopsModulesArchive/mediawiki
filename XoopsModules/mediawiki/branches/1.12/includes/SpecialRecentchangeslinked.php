@@ -18,9 +18,7 @@ function wfSpecialRecentchangeslinked( $par = NULL ) {
 	$fname = 'wfSpecialRecentchangeslinked';
 
 	$days = $wgRequest->getInt( 'days' );
-// Modified for mediawiki for XOOPS - by D.J.
-	//$target = isset($par) ? $par : $wgRequest->getText( 'target' );
-	$target = isset($par) ? $par : $wgRequest->getVal( 'target' );
+	$target = isset($par) ? $par : $wgRequest->getText( 'target' );
 	$hideminor = $wgRequest->getBool( 'hideminor' ) ? 1 : 0;
 
 	$wgOut->setPagetitle( wfMsg( 'recentchangeslinked' ) );
