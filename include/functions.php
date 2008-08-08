@@ -147,5 +147,30 @@ function mediawiki_getStyle()
 	}
 	return intval($style);
 }
+
+
+
+/**
+ * Get the xoops encrypted password.
+ * Update the $wgUser object.
+ * Probably only works with Xoops user, and not users that can be looged in by Xoops with other ways
+ *
+ * @param User object reference
+ * @param int $uid
+ * @return boolean true if $wgUser correctly updated
+ */
+function UpdateMediawikiEncryptedPasswordFromXoopsUser(&$wgUser, $uid) {
+	global $xoopsDB;
+	$sql = 'SELECT pass FROM '.$xoopsDB->prefix('users').' WHERE uid='.$uid;
+	$result = $xoopsDB->query($sql, 1, 0);
+	if ($result) {
+	    	list($encryptedPassword) = $xoopsDB->fetchRow($result);
+		$wgUser->mPassword = $encryptedPassword;
+		$wgUser->mNewpassword = '';
+		$wgUser->mNewpassTime = null;
+		return true;
+	}
+	return false;
+}
 endif;
 ?>

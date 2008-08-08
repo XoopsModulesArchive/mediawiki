@@ -18,7 +18,7 @@ function xoops_module_install_mediawiki(&$module)
 
 function xoops_module_update_mediawiki(&$module, $oldversion = null) 
 {
-	header("location: ".XOOPS_URL."/modules/".$module->getVar("dirname")."/admin/update.mediawiki.php?mid=".$module->getVar("mid"));
+	header("location: ".XOOPS_URL."/modules/".$module->getVar("dirname")."/admin/update.mediawiki.php?mid=".$module->getVar("mid")."&oldversion=".$oldversion);
 	return true;
 }
 ?>
