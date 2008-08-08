@@ -87,11 +87,9 @@ EOT;
 	
 	$tables_to_remove = array();
 	switch ($oldversion) {
-		case 158: //TODO: test everything with this old version
-			break;
+		case 158:
 		case 167: 
 			$tables_to_remove[] = "validate";
-			break;
 		case 171:
 			$tables_to_remove[] = "ipblocks_old";
 			break;
@@ -121,7 +119,7 @@ EOT;
 	 * - update the username if $username_field is set 
 	 *
 	 * @param string $table          : the table name to be updated
-	 * @param string $id_field       : the main id field, or an array of field which permit to identify a unique record//TODO: use always arrays, the code also works with only one item on the array
+	 * @param array $id_fields       : an array of field which permit to identify a unique record
 	 * @param string $uid_field      : the uid field name to be updated
 	 * @param string $username_field : the username field name to be updated
 	 * @param boolean $create_tmp_table : do we have to create the tmp table and copy all the records?(useful if we have several user_id fields to update)
@@ -131,8 +129,8 @@ EOT;
 	/* This array cntains MediaWiki uid and username, and as key the Xoops uid */
 	$xoopsUid2mediawikiUser = array();
 	$member_handler =& xoops_getHandler("member");
-	function mediawikiUpdateUsersFromXoops($table, $id_field, $uid_field, $username_field = false, $create_tmp_table = true) {
-		echo "<br /><br />\nCall:{$table}, ".print_r($id_field).", {$uid_field}, {$username_field}<br />";
+	function mediawikiUpdateUsersFromXoops($table, $id_fields, $uid_field, $username_field = false, $create_tmp_table = true) {
+		echo "<br /><br />\nCall:{$table}, ".print_r($id_fields).", {$uid_field}, {$username_field}<br />";
 		global $wgDatabase, $member_handler, $xoopsUid2mediawikiUser;
 		
 
@@ -161,18 +159,11 @@ EOT;
 		}
 
 		/* We get every record id and user id */		
-		if (is_array($id_field)) {
-			$id_fields_names = implode(", ", $id_field);
-		} else {
-			$id_fields_names = $id_field;
-		}
+		$id_fields_names = implode(", ", $id_fields);
+
 		$sql = 	"SELECT {$id_fields_names}, {$uid_field} FROM {$old_table}";
 
 		$masterloopResult = $wgDatabase->query( $sql, '', true );
-		// (if it is sorted by $id_field, then MediaWiki users will be created in the order of first modification, 
-		//  with auto_increment it should be sorted that way; sorting this table could really be a huge task...)
-
-		
 
 		echo "total number of records to update:".$wgDatabase->numRows($masterloopResult);
 		while ( $values = $wgDatabase->fetchRow( $masterloopResult ) ) {echo "<br />\n";
@@ -188,8 +179,8 @@ EOT;
 			}
 
 			$username = mediawiki_username_xoops2mediawiki($xoopsuser->getVar("uname"));echo "|username:{$username}";
-			/* do the mediawiki user already exist? */
-			if (!isset($xoopsUid2mediawikiUser[$user_id])) {echo "|MW user does not exit";
+			/* do the mediawiki user already exist? and is he not anonymous? */
+			if (!isset($xoopsUid2mediawikiUser[$user_id]) || ($user_id == 0)) {echo "|MW user does not exit";
 				/* we have to create the mediawiki user */
 				/* create the mediawiki user */
 				$wgUser = User::newFromName( $username );
@@ -248,15 +239,12 @@ EOT;
 				$update_username = ", {$username_field}='{$xoopsUid2mediawikiUser[$user_id]['uname']}'";
 			}
 			/* and multi fields unique identification */
-			if (is_array($id_field)) {
-				$where = array();
-				foreach ($id_field as $id) {
-					$where[] = "{$id}='{$values[$id]}'";
-				}
-				$where = implode(" AND ", $where);
-			} else {
-				$where = "{$id_field}='{$values[$id_field]}'";
+			$where = array();
+			foreach ($id_fields as $id) {
+				$where[] = "{$id}='{$values[$id]}'";
 			}
+			$where = implode(" AND ", $where);
+
 			$sql = "UPDATE {$new_table} SET {$uid_field}={$xoopsUid2mediawikiUser[$user_id]['uid']} {$update_username} WHERE {$where}";
 			$result = $wgDatabase->query( $sql, '', true );
 			if (!$result) {
@@ -295,6 +283,7 @@ EOT;
 			/* error during criticial operation, need to stop */
 			die ("ERROR during users update: truncate User table");
 		}
+		//TODO: maybe it was possible to user MediaWiki groups features with old mediawiki for xoops, in this case we have to update this table and not to drop it.
 		$sql = "TRUNCATE TABLE {$wgDatabase->tableName("user_groups")}";
 		$result = $wgDatabase->query( $sql, '', true );
 		if (!$result) {
@@ -311,6 +300,9 @@ EOT;
 				$create_tmp_table = true;
 			}
 			/* we call the ugly function */
+			if (!is_array($params["id"])) {
+				$params["id"] = array($params["id"]);
+			}
 			$result = mediawikiUpdateUsersFromXoops($params["table"], $params["id"], $params["uid"], $params["uname"], $create_tmp_table);
 			
 			if (!$result) {

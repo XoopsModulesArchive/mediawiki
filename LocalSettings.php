@@ -119,6 +119,9 @@ $wgMemCachedServers = array();
 ## To enable image uploads, make sure the 'images' directory
 ## is writable, then set this to true:
 $wgEnableUploads       = true;
+$wgUploadPath       = str_replace( $wgServer, '', XOOPS_UPLOAD_URL )."/".MEDIAWIKI_DIRNAME;
+$wgUploadDirectory  = XOOPS_UPLOAD_PATH."/".MEDIAWIKI_DIRNAME;
+if(!file_exists($wgUploadDirectory)) { mkdir($wgUploadDirectory,0775); } # create if necessary
 #$wgUseImageMagick = true;
 #$wgImageMagickConvertCommand = "/usr/bin/convert";
 
