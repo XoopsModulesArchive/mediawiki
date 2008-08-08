@@ -77,8 +77,8 @@ class XoopsAuth extends AuthPlugin {
 		$wgHooks['PersonalUrls'][] = array(&$this, "PersonalUrls"); /* Hook to replace login link */
 		$wgHooks['UserLogout'][] = array(&$this, "UserLogout");
 
-		// disable registration and sign-in from the wiki front page
-		$wgGroupPermissions['*']['edit'] = false; // MediaWiki 1.5+ Settings
+		// disable registration
+		//$wgGroupPermissions['*']['edit'] = false; // MediaWiki 1.5+ Settings
 		$wgGroupPermissions['*']['createaccount'] = false; // MediaWiki 1.5+ Settings
 	}
 	
@@ -187,7 +187,7 @@ class XoopsAuth extends AuthPlugin {
 		/* link to the Xoops skin */
 		if($GLOBALS['xoopsModuleConfig']["style"] == 0) {
 			$personal_urls['changestyle'] = array(
-				'text' => mediawiki_getStyle()?_MD_MEDIAWIKI_XOOPSMODE:_MD_MEDIAWIKI_MEDIAWIKIMODE,
+				'text' => mediawiki_getStyle()?_MD_MEDIAWIKI_MEDIAWIKIMODE:_MD_MEDIAWIKI_XOOPSMODE,
 				'href' => $wgRequest->appendQuery( "style=".(mediawiki_getStyle()?"m":"x") )
 			);
 		}
@@ -306,9 +306,10 @@ class XoopsAuth extends AuthPlugin {
 	function updateUser( &$user ) {
 
 		if($GLOBALS["xoopsUser"]->isAdmin()){
+			//TODO: maybe add also the "bureaucrat" group
 			$user->addGroup("sysop");
 		}
-		//TODO: check if its the best way to do this
+		//TODO: it seems mediawiki now use an other table for that, so, we have to look at the code, and probably change this
 		$effectiveGroups = array_merge( array( '*', 'user' ), $user->mGroups );
 		$user->mRights = $user->getGroupPermissions( $effectiveGroups );
 		
@@ -316,15 +317,16 @@ class XoopsAuth extends AuthPlugin {
 		$user->setRealName(mediawiki_encoding_xoops2mediawiki($GLOBALS["xoopsUser"]->getVar("name")));
 
 		/* get the xoops encrypted password, only works with Xoops user, and not users that can be looged in by Xoops with other ways */
-		global $xoopsDB;
+		UpdateMediawikiEncryptedPasswordFromXoopsUser(&$user, $GLOBALS["xoopsUser"]->getVar("uid"));		
+		/*global $xoopsDB;
 		$sql = 'SELECT pass FROM '.$xoopsDB->prefix('users').' WHERE uid='.$GLOBALS["xoopsUser"]->getVar("uid");
 		$result = $xoopsDB->query($sql, 1, 0);
 		if ($result) {
             		list($encryptedPassword) = $xoopsDB->fetchRow($result);
-			$u->mPassword = $encryptedPassword;
-			$u->mNewpassword = '';
-			$u->mNewpassTime = null;
-        	}
+			$user->mPassword = $encryptedPassword;
+			$user->mNewpassword = '';
+			$user->mNewpassTime = null;
+        	}*/
 		
 		return true;
 	}
@@ -483,8 +485,9 @@ class XoopsAuth extends AuthPlugin {
 	 */
 	function getCanonicalName( $username ) {
 		//TODO: test, and maybe use mediawiki_username_xoops2mediawiki($username) instead
-		global $wgContLang;
-		return $wgContLang->ucfirst($username);
+		//global $wgContLang;
+		//return $wgContLang->ucfirst($username);
+		return $username;
 	}
 }
 
