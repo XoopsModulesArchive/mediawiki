@@ -786,7 +786,7 @@ CREATE TABLE /*$wgDBprefix*/searchindex (
   FULLTEXT si_title (si_title),
   FULLTEXT si_text (si_text)
 
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 --
 -- Recognized interwiki link prefixes

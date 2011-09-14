@@ -868,7 +868,7 @@ CREATE TABLE /*$wgDBprefix*/searchindex (
   FULLTEXT si_title (si_title),
   FULLTEXT si_text (si_text)
 
-) TYPE=MyISAM, DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM, DEFAULT CHARSET=utf8;
 
 --
 -- Recognized interwiki link prefixes
