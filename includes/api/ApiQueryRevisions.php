@@ -382,7 +382,7 @@ class ApiQueryRevisions extends ApiQueryBase {
 	}
 
 	public function getVersion() {
-		return __CLASS__ . ': $Id: ApiQueryRevisions.php 31259 2008-02-25 14:14:55Z catrope $';
+		return __CLASS__ . ': $Id$';
 	}
 }
 

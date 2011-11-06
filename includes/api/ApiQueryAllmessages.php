@@ -124,6 +124,6 @@ class ApiQueryAllmessages extends ApiQueryBase {
 	}
 
 	public function getVersion() {
-		return __CLASS__ . ': $Id: ApiQueryAllmessages.php 30222 2008-01-28 19:05:26Z catrope $';
+		return __CLASS__ . ': $Id$';
 	}
 }
