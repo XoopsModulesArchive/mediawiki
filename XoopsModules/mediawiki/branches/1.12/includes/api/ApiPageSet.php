@@ -631,7 +631,7 @@ class ApiPageSet extends ApiQueryBase {
 	}
 
 	public function getVersion() {
-		return __CLASS__ . ': $Id: ApiPageSet.php 24935 2007-08-20 08:13:16Z nickj $';
+		return __CLASS__ . ': $Id$';
 	}
 }
 
