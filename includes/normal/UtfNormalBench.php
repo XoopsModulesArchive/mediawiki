@@ -32,7 +32,7 @@ if( isset( $_SERVER['argv'] ) && in_array( '--icu', $_SERVER['argv'] ) ) {
 require_once 'UtfNormalUtil.php';
 require_once 'UtfNormal.php';
 
-define( 'BENCH_CYCLES', 5 );
+define('BENCH_CYCLES', 5 );
 
 if( php_sapi_name() != 'cli' ) {
 	die( "Run me from the command line please.\n" );

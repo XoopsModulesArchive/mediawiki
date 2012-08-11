@@ -4,7 +4,7 @@
  * Fsck for MediaWiki
  */
 
-define( 'CONCAT_HEADER', 'O:27:"concatenatedgziphistoryblob"' );
+define('CONCAT_HEADER', 'O:27:"concatenatedgziphistoryblob"' );
 
 if ( !defined( 'MEDIAWIKI' ) ) {
 	require_once( dirname(__FILE__) . '/../commandLine.inc' );

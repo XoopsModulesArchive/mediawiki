@@ -25,7 +25,7 @@
 
 /** */
 $verbose = true;
-#define( 'PRETTY_UTF8', true );
+#define('PRETTY_UTF8', true );
 
 if( defined( 'PRETTY_UTF8' ) ) {
 	function pretty( $string ) {

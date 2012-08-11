@@ -6,8 +6,8 @@ if ( !isset( $argv[1] ) ) {
 }
 array_shift( $argv );
 
-define( 'MEDIAWIKI', 1 );
-define( 'NOT_REALLY_MEDIAWIKI', 1 );
+define('MEDIAWIKI', 1 );
+define('NOT_REALLY_MEDIAWIKI', 1 );
 
 $IP = dirname( __FILE__ ) . '/../..';
 

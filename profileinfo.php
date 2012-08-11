@@ -46,7 +46,7 @@
 
 $wgDBadminuser = $wgDBadminpassword = $wgDBserver = $wgDBname = $wgEnableProfileInfo = false;
 
-define( 'MW_NO_SETUP', 1 );
+define('MW_NO_SETUP', 1 );
 require_once( './includes/WebStart.php' );
 require_once("./AdminSettings.php");
 require_once( './includes/GlobalFunctions.php' );

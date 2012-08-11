@@ -73,7 +73,7 @@ function code2utf($num){
    return '';
 }
 
-define( 'AJAX_SEARCH_VERSION', 2 );	//AJAX search cache version
+define('AJAX_SEARCH_VERSION', 2 );	//AJAX search cache version
 
 function wfSajaxSearch( $term ) {
 	global $wgContLang, $wgOut, $wgUser, $wgCapitalLinks, $wgMemc;

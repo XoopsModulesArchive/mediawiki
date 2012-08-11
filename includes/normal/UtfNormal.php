@@ -32,15 +32,15 @@ $utfCompatibilityDecomp = NULL;
 /**
  * For using the ICU wrapper
  */
-define( 'UNORM_NONE', 1 );
-define( 'UNORM_NFD',  2 );
-define( 'UNORM_NFKD', 3 );
-define( 'UNORM_NFC',  4 );
-define( 'UNORM_DEFAULT', UNORM_NFC );
-define( 'UNORM_NFKC', 5 );
-define( 'UNORM_FCD',  6 );
+define('UNORM_NONE', 1 );
+define('UNORM_NFD',  2 );
+define('UNORM_NFKD', 3 );
+define('UNORM_NFC',  4 );
+define('UNORM_DEFAULT', UNORM_NFC );
+define('UNORM_NFKC', 5 );
+define('UNORM_FCD',  6 );
 
-define( 'NORMALIZE_ICU', function_exists( 'utf8_normalize' ) );
+define('NORMALIZE_ICU', function_exists( 'utf8_normalize' ) );
 
 /**
  * Unicode normalization routines for working with UTF-8 strings.

@@ -7,7 +7,7 @@
  * to the new table.
  */
 
-define( 'BATCH_SIZE', 100 );
+define('BATCH_SIZE', 100 );
 
 require_once 'commandLine.inc';
 	

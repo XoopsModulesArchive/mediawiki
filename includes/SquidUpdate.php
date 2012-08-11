@@ -203,9 +203,9 @@ class SquidUpdate {
 
 		// FIXME PHP doesn't support these socket constants (include/linux/in.h)
 		if( !defined( "IPPROTO_IP" ) ) {
-			define( "IPPROTO_IP", 0 );
-			define( "IP_MULTICAST_LOOP", 34 );
-			define( "IP_MULTICAST_TTL", 33 );
+			define("IPPROTO_IP", 0 );
+			define("IP_MULTICAST_LOOP", 34 );
+			define("IP_MULTICAST_TTL", 33 );
 		}
 
 		// pfsockopen doesn't work because we need set_sock_opt

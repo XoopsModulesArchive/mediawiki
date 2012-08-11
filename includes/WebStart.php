@@ -63,7 +63,7 @@ unset( $IP );
 # defines a valid entry point. If you put it in includes/Defines.php, then
 # any script that includes it becomes an entry point, thereby defeating
 # its purpose.
-define( 'MEDIAWIKI', true );
+define('MEDIAWIKI', true );
 
 # Start profiler
 require_once( './StartProfiler.php' );

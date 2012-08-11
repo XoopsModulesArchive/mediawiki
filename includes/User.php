@@ -5,13 +5,13 @@
  */
 
 # Number of characters in user_token field
-define( 'USER_TOKEN_LENGTH', 32 );
+define('USER_TOKEN_LENGTH', 32 );
 
 # Serialized record version
-define( 'MW_USER_VERSION', 5 );
+define('MW_USER_VERSION', 5 );
 
 # Some punctuation to prevent editing from broken text-mangling proxies.
-define( 'EDIT_TOKEN_SUFFIX', '+\\' );
+define('EDIT_TOKEN_SUFFIX', '+\\' );
 
 /**
  * Thrown by User::setPassword() on error

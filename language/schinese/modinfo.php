@@ -6,11 +6,11 @@ define("_MI_MEDIAWIKI_NAME","MediaWiki");
 define("_MI_MEDIAWIKI_DESC","MediaWiki For XOOPS Community");
 
 // Configs
-define("_MI_MEDIAWIKI_STYLE", "½çÃæÄ£Ê½");
-define("_MI_MEDIAWIKI_STYLE_DESC", "XoopsÄ£Ê½, MediaWikiÄ£Ê½, ¿ÉÑ¡ÔñÄ£Ê½");
+define("_MI_MEDIAWIKI_STYLE","ï¿½ï¿½ï¿½ï¿½Ä£Ê½");
+define("_MI_MEDIAWIKI_STYLE_DESC","XoopsÄ£Ê½, MediaWikiÄ£Ê½, ï¿½ï¿½Ñ¡ï¿½ï¿½Ä£Ê½");
 
-define("_MI_MEDIAWIKI_BLOCK_SIDEBAR", "MediaWiki µ¼º½");
-define("_MI_MEDIAWIKI_BLOCK_RECENTCHANGES", "MediaWiki ×î½ü¸üÐÂ");
-define("_MI_MEDIAWIKI_BLOCK_TOP", "ÈÈµãÌõÄ¿");
-define("_MI_MEDIAWIKI_BLOCK_HOT", "WikiÈÈµã");
+define("_MI_MEDIAWIKI_BLOCK_SIDEBAR","MediaWiki ï¿½ï¿½ï¿½ï¿½");
+define("_MI_MEDIAWIKI_BLOCK_RECENTCHANGES","MediaWiki ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+define("_MI_MEDIAWIKI_BLOCK_TOP","ï¿½Èµï¿½ï¿½ï¿½Ä¿");
+define("_MI_MEDIAWIKI_BLOCK_HOT","Wikiï¿½Èµï¿½");
 ?>

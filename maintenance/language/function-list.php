@@ -1,7 +1,7 @@
 <?php
 
-define( 'MEDIAWIKI', 1 );
-define( 'NOT_REALLY_MEDIAWIKI', 1 );
+define('MEDIAWIKI', 1 );
+define('NOT_REALLY_MEDIAWIKI', 1 );
 
 class Language {}
 foreach ( glob( 'Language*.php' ) as $file ) {

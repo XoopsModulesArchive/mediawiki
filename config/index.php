@@ -28,11 +28,11 @@ $wgRequestTime = microtime( true );
 
 # Attempt to set up the include path, to fix problems with relative includes
 $IP = dirname( dirname( __FILE__ ) );
-define( 'MW_INSTALL_PATH', $IP );
+define('MW_INSTALL_PATH', $IP );
 
 # Define an entry point and include some files
-define( "MEDIAWIKI", true );
-define( "MEDIAWIKI_INSTALL", true );
+define("MEDIAWIKI", true );
+define("MEDIAWIKI_INSTALL", true );
 
 // Run version checks before including other files
 // so people don't see a scary parse error.
@@ -283,7 +283,7 @@ class ConfigData {
 <?php
 $endl = "
 ";
-define( 'MW_NO_OUTPUT_BUFFER', 1 );
+define('MW_NO_OUTPUT_BUFFER', 1 );
 $conf = new ConfigData;
 
 install_version_checks();
@@ -754,7 +754,7 @@ if( $conf->posted && ( 0 == count( $errs ) ) ) {
 
 		$wgCommandLineMode = true;
 		if (! defined ( 'STDERR' ) )
-			define( 'STDERR', fopen("php://stderr", "wb"));
+			define('STDERR', fopen("php://stderr", "wb"));
 		$wgUseDatabaseMessages = false; /* FIXME: For database failure */
 		require_once( "$IP/includes/Setup.php" );
 		chdir( "config" );

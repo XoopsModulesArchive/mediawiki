@@ -1,6 +1,6 @@
 <?php
-define( 'GS_MAIN', -2 );
-define( 'GS_TALK', -1 );
+define('GS_MAIN', -2 );
+define('GS_TALK', -1 );
 /**
  * Creates a Google sitemap for the site
  *

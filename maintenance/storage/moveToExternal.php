@@ -1,6 +1,6 @@
 <?php
 
-define( 'REPORTING_INTERVAL', 1 );
+define('REPORTING_INTERVAL', 1 );
 
 if ( !defined( 'MEDIAWIKI' ) ) {
 	$optionsWithArgs = array( 'm', 's' );
