@@ -12,7 +12,7 @@
  * usually don't.
  */
  
-define( 'MW_NO_OUTPUT_COMPRESSION', 1 );
+define('MW_NO_OUTPUT_COMPRESSION', 1 );
 require_once( dirname( __FILE__ ) . '/includes/WebStart.php' );
 wfProfileIn( 'img_auth.php' );
 require_once( dirname( __FILE__ ) . '/includes/StreamFile.php' );

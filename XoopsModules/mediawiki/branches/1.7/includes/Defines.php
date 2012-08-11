@@ -7,17 +7,17 @@
 /**
  * Version constants for the benefit of extensions
  */
-define( 'MW_SPECIALPAGE_VERSION', 2 );
+define('MW_SPECIALPAGE_VERSION', 2 );
 
 /**#@+
  * Database related constants
  */
-define( 'DBO_DEBUG', 1 );
-define( 'DBO_NOBUFFER', 2 );
-define( 'DBO_IGNORE', 4 );
-define( 'DBO_TRX', 8 );
-define( 'DBO_DEFAULT', 16 );
-define( 'DBO_PERSISTENT', 32 );
+define('DBO_DEBUG', 1 );
+define('DBO_NOBUFFER', 2 );
+define('DBO_IGNORE', 4 );
+define('DBO_TRX', 8 );
+define('DBO_DEFAULT', 16 );
+define('DBO_PERSISTENT', 32 );
 /**#@-*/
 
 /**#@+
@@ -66,12 +66,12 @@ $wgFeedClasses = array(
 /**#@+
  * Maths constants
  */
-define( 'MW_MATH_PNG',    0 );
-define( 'MW_MATH_SIMPLE', 1 );
-define( 'MW_MATH_HTML',   2 );
-define( 'MW_MATH_SOURCE', 3 );
-define( 'MW_MATH_MODERN', 4 );
-define( 'MW_MATH_MATHML', 5 );
+define('MW_MATH_PNG',    0 );
+define('MW_MATH_SIMPLE', 1 );
+define('MW_MATH_HTML',   2 );
+define('MW_MATH_SOURCE', 3 );
+define('MW_MATH_MODERN', 4 );
+define('MW_MATH_MATHML', 5 );
 /**#@-*/
 
 /**
@@ -103,11 +103,11 @@ $wgAvailableRights = array(
 /**#@+
  * Cache type
  */
-define( 'CACHE_ANYTHING', -1 );  // Use anything, as long as it works
-define( 'CACHE_NONE', 0 );       // Do not cache
-define( 'CACHE_DB', 1 );         // Store cache objects in the DB
-define( 'CACHE_MEMCACHED', 2 );  // MemCached, must specify servers in $wgMemCacheServers
-define( 'CACHE_ACCEL', 3 );      // eAccelerator or Turck, whichever is available
+define('CACHE_ANYTHING', -1 );  // Use anything, as long as it works
+define('CACHE_NONE', 0 );       // Do not cache
+define('CACHE_DB', 1 );         // Store cache objects in the DB
+define('CACHE_MEMCACHED', 2 );  // MemCached, must specify servers in $wgMemCacheServers
+define('CACHE_ACCEL', 3 );      // eAccelerator or Turck, whichever is available
 /**#@-*/
 
 
@@ -116,68 +116,68 @@ define( 'CACHE_ACCEL', 3 );      // eAccelerator or Turck, whichever is availabl
  * Media types.
  * This defines constants for the value returned by Image::getMediaType()
  */
-define( 'MEDIATYPE_UNKNOWN',    'UNKNOWN' );     // unknown format
-define( 'MEDIATYPE_BITMAP',     'BITMAP' );      // some bitmap image or image source (like psd, etc). Can't scale up.
-define( 'MEDIATYPE_DRAWING',    'DRAWING' );     // some vector drawing (SVG, WMF, PS, ...) or image source (oo-draw, etc). Can scale up.
-define( 'MEDIATYPE_AUDIO',      'AUDIO' );       // simple audio file (ogg, mp3, wav, midi, whatever)
-define( 'MEDIATYPE_VIDEO',      'VIDEO' );       // simple video file (ogg, mpg, etc; no not include formats here that may contain executable sections or scripts!)
-define( 'MEDIATYPE_MULTIMEDIA', 'MULTIMEDIA' );  // Scriptable Multimedia (flash, advanced video container formats, etc)
-define( 'MEDIATYPE_OFFICE',     'OFFICE' );      // Office Documents, Spreadsheets (office formats possibly containing apples, scripts, etc)
-define( 'MEDIATYPE_TEXT',       'TEXT' );        // Plain text (possibly containing program code or scripts)
-define( 'MEDIATYPE_EXECUTABLE', 'EXECUTABLE' );  // binary executable
-define( 'MEDIATYPE_ARCHIVE',    'ARCHIVE' );     // archive file (zip, tar, etc)
+define('MEDIATYPE_UNKNOWN',    'UNKNOWN' );     // unknown format
+define('MEDIATYPE_BITMAP',     'BITMAP' );      // some bitmap image or image source (like psd, etc). Can't scale up.
+define('MEDIATYPE_DRAWING',    'DRAWING' );     // some vector drawing (SVG, WMF, PS, ...) or image source (oo-draw, etc). Can scale up.
+define('MEDIATYPE_AUDIO',      'AUDIO' );       // simple audio file (ogg, mp3, wav, midi, whatever)
+define('MEDIATYPE_VIDEO',      'VIDEO' );       // simple video file (ogg, mpg, etc; no not include formats here that may contain executable sections or scripts!)
+define('MEDIATYPE_MULTIMEDIA', 'MULTIMEDIA' );  // Scriptable Multimedia (flash, advanced video container formats, etc)
+define('MEDIATYPE_OFFICE',     'OFFICE' );      // Office Documents, Spreadsheets (office formats possibly containing apples, scripts, etc)
+define('MEDIATYPE_TEXT',       'TEXT' );        // Plain text (possibly containing program code or scripts)
+define('MEDIATYPE_EXECUTABLE', 'EXECUTABLE' );  // binary executable
+define('MEDIATYPE_ARCHIVE',    'ARCHIVE' );     // archive file (zip, tar, etc)
 /**#@-*/
 
 /**#@+
  * Antivirus result codes, for use in $wgAntivirusSetup.
  */
-define( 'AV_NO_VIRUS', 0 );  #scan ok, no virus found
-define( 'AV_VIRUS_FOUND', 1 );  #virus found!
-define( 'AV_SCAN_ABORTED', -1 );  #scan aborted, the file is probably imune
-define( 'AV_SCAN_FAILED', false );  #scan failed (scanner not found or error in scanner)
+define('AV_NO_VIRUS', 0 );  #scan ok, no virus found
+define('AV_VIRUS_FOUND', 1 );  #virus found!
+define('AV_SCAN_ABORTED', -1 );  #scan aborted, the file is probably imune
+define('AV_SCAN_FAILED', false );  #scan failed (scanner not found or error in scanner)
 /**#@-*/
 
 /**#@+
  * Anti-lock flags
  * See DefaultSettings.php for a description
  */
-define( 'ALF_PRELOAD_LINKS', 1 );
-define( 'ALF_PRELOAD_EXISTENCE', 2 );
-define( 'ALF_NO_LINK_LOCK', 4 );
-define( 'ALF_NO_BLOCK_LOCK', 8 );
+define('ALF_PRELOAD_LINKS', 1 );
+define('ALF_PRELOAD_EXISTENCE', 2 );
+define('ALF_NO_LINK_LOCK', 4 );
+define('ALF_NO_BLOCK_LOCK', 8 );
 /**#@-*/
 
 /**#@+
  * Date format selectors; used in user preference storage and by
  * Language::date() and co.
  */
-define( 'MW_DATE_DEFAULT', '0' );
-define( 'MW_DATE_MDY', '1' );
-define( 'MW_DATE_DMY', '2' );
-define( 'MW_DATE_YMD', '3' );
-define( 'MW_DATE_ISO', 'ISO 8601' );
+define('MW_DATE_DEFAULT', '0' );
+define('MW_DATE_MDY', '1' );
+define('MW_DATE_DMY', '2' );
+define('MW_DATE_YMD', '3' );
+define('MW_DATE_ISO', 'ISO 8601' );
 /**#@-*/
 
 /**#@+
  * RecentChange type identifiers
  * This may be obsolete; log items are now used for moves?
  */
-define( 'RC_EDIT', 0);
-define( 'RC_NEW', 1);
-define( 'RC_MOVE', 2);
-define( 'RC_LOG', 3);
-define( 'RC_MOVE_OVER_REDIRECT', 4);
+define('RC_EDIT', 0);
+define('RC_NEW', 1);
+define('RC_MOVE', 2);
+define('RC_LOG', 3);
+define('RC_MOVE_OVER_REDIRECT', 4);
 /**#@-*/
 
 /**#@+
  * Article edit flags
  */
-define( 'EDIT_NEW', 1 );
-define( 'EDIT_UPDATE', 2 );
-define( 'EDIT_MINOR', 4 ); 
-define( 'EDIT_SUPPRESS_RC', 8 );
-define( 'EDIT_FORCE_BOT', 16 );
-define( 'EDIT_DEFER_UPDATES', 32 );
+define('EDIT_NEW', 1 );
+define('EDIT_UPDATE', 2 );
+define('EDIT_MINOR', 4 ); 
+define('EDIT_SUPPRESS_RC', 8 );
+define('EDIT_FORCE_BOT', 16 );
+define('EDIT_DEFER_UPDATES', 32 );
 /**#@-*/
 
 ?>

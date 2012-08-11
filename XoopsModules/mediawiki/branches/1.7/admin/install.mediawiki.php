@@ -3,8 +3,8 @@
 // Author: phppp (D.J.)                                                      //
 // URL: http://xoopsforge.com, http://xoops.org.cn                           //
 // ------------------------------------------------------------------------- //
-define( "MEDIAWIKI", true );
-define( "MEDIAWIKI_INSTALL", true );
+define("MEDIAWIKI", true );
+define("MEDIAWIKI_INSTALL", true );
 include "admin_header.php";
 
 xoops_cp_header();
@@ -29,7 +29,7 @@ xoops_cp_header();
 # http://www.gnu.org/copyleft/gpl.html
 
 $IP = dirname( dirname( __FILE__ ) );
-define( 'MW_INSTALL_PATH', $IP );
+define('MW_INSTALL_PATH', $IP );
 //$sep = PATH_SEPARATOR;
 $sep = strtoupper(substr(PHP_OS,0,3)=='WIN')?';':':';
 if( !@ini_set( "include_path", ".$sep$IP$sep$IP/includes$sep$IP/languages" ) ) {

@@ -12,11 +12,11 @@ define("MEDIAWIKI_DATABASE", 1);
  */
 
 /** Number of times to re-try an operation in case of deadlock */
-define( 'DEADLOCK_TRIES', 4 );
+define('DEADLOCK_TRIES', 4 );
 /** Minimum time to wait before retry, in microseconds */
-define( 'DEADLOCK_DELAY_MIN', 500000 );
+define('DEADLOCK_DELAY_MIN', 500000 );
 /** Maximum time to wait before retry */
-define( 'DEADLOCK_DELAY_MAX', 1500000 );
+define('DEADLOCK_DELAY_MAX', 1500000 );
 
 /******************************************************************************
  * Utility classes

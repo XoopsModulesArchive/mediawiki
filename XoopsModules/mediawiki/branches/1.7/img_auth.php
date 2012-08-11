@@ -8,7 +8,7 @@
  * support PATH_INFO, CGI-based configurations generally don't.
  */
 # Valid web server entry point, enable includes
-define( 'MEDIAWIKI', true );
+define('MEDIAWIKI', true );
 
 if ( isset( $_REQUEST['GLOBALS'] ) ) {
 	echo '<a href="http://www.hardened-php.net/index.76.html">$GLOBALS overwrite vulnerability</a>';

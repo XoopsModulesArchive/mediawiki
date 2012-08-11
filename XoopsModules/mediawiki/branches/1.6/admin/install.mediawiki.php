@@ -3,8 +3,8 @@
 // Author: phppp (D.J.)                                                      //
 // URL: http://xoopsforge.com, http://xoops.org.cn                           //
 // ------------------------------------------------------------------------- //
-define( "MEDIAWIKI", true );
-define( "MEDIAWIKI_INSTALL", true );
+define("MEDIAWIKI", true );
+define("MEDIAWIKI_INSTALL", true );
 include "admin_header.php";
 
 xoops_cp_header();

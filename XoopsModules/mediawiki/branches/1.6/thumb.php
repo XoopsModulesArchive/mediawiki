@@ -5,14 +5,14 @@
  * If the file exists, we make do with abridged MediaWiki initialisation.
  */
 
-define( 'MEDIAWIKI', true );
+define('MEDIAWIKI', true );
 unset( $IP );
 if ( isset( $_REQUEST['GLOBALS'] ) ) {
 	echo '<a href="http://www.hardened-php.net/index.76.html">$GLOBALS overwrite vulnerability</a>';
 	die( -1 );
 }
 
-define( 'MW_NO_OUTPUT_BUFFER', true );
+define('MW_NO_OUTPUT_BUFFER', true );
 
 require_once( './includes/Defines.php' );
 require_once( './LocalSettings.php' );

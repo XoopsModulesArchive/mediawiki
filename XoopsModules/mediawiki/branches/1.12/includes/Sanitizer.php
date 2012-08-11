@@ -27,7 +27,7 @@
  * Regular expression to match various types of character references in
  * Sanitizer::normalizeCharReferences and Sanitizer::decodeCharReferences
  */
-define( 'MW_CHAR_REFS_REGEX',
+define('MW_CHAR_REFS_REGEX',
 	'/&([A-Za-z0-9\x80-\xff]+);
 	 |&\#([0-9]+);
 	 |&\#x([0-9A-Za-z]+);
@@ -41,7 +41,7 @@ define( 'MW_CHAR_REFS_REGEX',
  */
 $attrib = '[A-Za-z0-9]';
 $space = '[\x09\x0a\x0d\x20]';
-define( 'MW_ATTRIBS_REGEX',
+define('MW_ATTRIBS_REGEX',
 	"/(?:^|$space)($attrib+)
 	  ($space*=$space*
 		(?:

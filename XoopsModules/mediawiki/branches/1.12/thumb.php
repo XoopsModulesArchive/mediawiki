@@ -5,7 +5,7 @@
  *
  * @addtogroup Media
  */
-define( 'MW_NO_OUTPUT_COMPRESSION', 1 );
+define('MW_NO_OUTPUT_COMPRESSION', 1 );
 require_once( './includes/WebStart.php' );
 
 $wgTrivialMimeDetection = true; //don't use fancy mime detection, just check the file extension for jpg/gif/png.

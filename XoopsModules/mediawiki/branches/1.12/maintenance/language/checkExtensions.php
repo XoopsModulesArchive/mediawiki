@@ -34,7 +34,7 @@
 # TODO: let users set parameters to configure checklanguage.inc
 
 // Filename for the extension i18n files database:
-define( 'EXT_I18N_DB', 'i18n.db' );
+define('EXT_I18N_DB', 'i18n.db' );
 
 $optionsWithArgs = array( 'extdir', 'lang' );
 

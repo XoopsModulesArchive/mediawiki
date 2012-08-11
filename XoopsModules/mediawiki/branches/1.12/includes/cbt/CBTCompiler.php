@@ -13,18 +13,18 @@ require_once( dirname( __FILE__ ) . '/CBTProcessor.php' );
  * Push a value onto the stack 
  * Argument 1: value
  */
-define( 'CBT_PUSH', 1 );
+define('CBT_PUSH', 1 );
 
 /**
  * Pop, concatenate argument, push
  * Argument 1: value
  */
-define( 'CBT_CAT', 2 );
+define('CBT_CAT', 2 );
 
 /**
  * Concatenate where the argument is on the stack, instead of immediate
  */
-define( 'CBT_CATS', 3 );
+define('CBT_CATS', 3 );
 
 /**
  * Call a function, push the return value onto the stack and put it in the cache
@@ -32,12 +32,12 @@ define( 'CBT_CATS', 3 );
  *
  * The arguments to the function are on the stack
  */
-define( 'CBT_CALL', 4 );
+define('CBT_CALL', 4 );
 
 /**
  * Pop, htmlspecialchars, push
  */
-define( 'CBT_HX', 5 );
+define('CBT_HX', 5 );
 
 class CBTOp {
 	var $opcode;

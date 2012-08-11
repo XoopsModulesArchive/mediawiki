@@ -1,6 +1,6 @@
 <?php
-define("_MD_MEDIAWIKI_XOOPSMODE", "切换到XOOPS模式");
-define("_MD_MEDIAWIKI_MEDIAWIKIMODE", "切换到MediaWiki模式");
+define("_MD_MEDIAWIKI_XOOPSMODE","切换到XOOPS模式");
+define("_MD_MEDIAWIKI_MEDIAWIKIMODE","切换到MediaWiki模式");
 
 /*
  * A function used by UtfNormal.php to clean up invalid UTF-8 sequences

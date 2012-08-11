@@ -34,7 +34,7 @@ function &mediawiki_search($queryarray, $andor, $limit, $offset, $userid)
 	
 	global $wgContLang;
 	if(!defined('MEDIAWIKI')):
-	define( 'MEDIAWIKI', true );
+	define('MEDIAWIKI', true );
 	require_once XOOPS_ROOT_PATH."/modules/mediawiki/LocalSettings.php";
 	require_once XOOPS_ROOT_PATH."/modules/mediawiki/includes/GlobalFunctions.php";
 	require_once XOOPS_ROOT_PATH."/modules/mediawiki/include/functions.php";

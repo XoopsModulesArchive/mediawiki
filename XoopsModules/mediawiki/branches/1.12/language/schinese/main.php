@@ -1,6 +1,6 @@
 <?php
-define("_MD_MEDIAWIKI_XOOPSMODE", "ÇÐ»»µ½XOOPSÄ£Ê½");
-define("_MD_MEDIAWIKI_MEDIAWIKIMODE", "ÇÐ»»µ½MediaWikiÄ£Ê½");
+define("_MD_MEDIAWIKI_XOOPSMODE","ï¿½Ð»ï¿½ï¿½ï¿½XOOPSÄ£Ê½");
+define("_MD_MEDIAWIKI_MEDIAWIKIMODE","ï¿½Ð»ï¿½ï¿½ï¿½MediaWikiÄ£Ê½");
 
 
 /*

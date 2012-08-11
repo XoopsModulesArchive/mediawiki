@@ -7,10 +7,10 @@
 /**
  *
  */
-define( 'MSG_LOAD_TIMEOUT', 60);
-define( 'MSG_LOCK_TIMEOUT', 10);
-define( 'MSG_WAIT_TIMEOUT', 10);
-define( 'MSG_CACHE_VERSION', 1 );
+define('MSG_LOAD_TIMEOUT', 60);
+define('MSG_LOCK_TIMEOUT', 10);
+define('MSG_WAIT_TIMEOUT', 10);
+define('MSG_CACHE_VERSION', 1 );
 
 /**
  * Message cache

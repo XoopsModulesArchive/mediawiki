@@ -26,7 +26,7 @@ $optionsWithArgs = array( 's', 'd', 'e' );
 $profiling = false;
 
 if ( $profiling ) {
-	define( 'MW_CMDLINE_CALLBACK', 'wfSetupDump' );
+	define('MW_CMDLINE_CALLBACK', 'wfSetupDump' );
 	function wfSetupDump() {
 		global $wgProfiling, $wgProfileToDatabase, $wgProfileSampleRate;
 		$wgProfiling = true;
@@ -39,7 +39,7 @@ require_once( "commandLine.inc" );
 require_once( "dumpHTML.inc" );
 
 error_reporting( E_ALL & (~E_NOTICE) );
-define( 'CHUNK_SIZE', 50 );
+define('CHUNK_SIZE', 50 );
 
 if ( !empty( $options['s'] ) ) {
 	$start = $options['s'];
