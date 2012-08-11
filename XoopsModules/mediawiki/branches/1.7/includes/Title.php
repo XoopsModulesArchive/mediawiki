@@ -8,7 +8,7 @@
 /** */
 require_once( 'normal/UtfNormal.php' );
 
-define ( 'GAID_FOR_UPDATE', 1 );
+define( 'GAID_FOR_UPDATE', 1 );
 
 # Title::newFromTitle maintains a cache to avoid
 # expensive re-normalization of commonly used titles.
