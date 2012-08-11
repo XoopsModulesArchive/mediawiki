@@ -11,18 +11,18 @@ require_once( 'Database.php' );
 
 # Valid database indexes
 # Operation-based indexes
-define( 'DB_SLAVE', -1 );     # Read from the slave (or only server)
-define( 'DB_MASTER', -2 );    # Write to master (or only server)
-define( 'DB_LAST', -3 );     # Whatever database was used last
+define('DB_SLAVE', -1 );     # Read from the slave (or only server)
+define('DB_MASTER', -2 );    # Write to master (or only server)
+define('DB_LAST', -3 );     # Whatever database was used last
 
 # Obsolete aliases
-define( 'DB_READ', -1 );
-define( 'DB_WRITE', -2 );
+define('DB_READ', -1 );
+define('DB_WRITE', -2 );
 
 
 # Scale polling time so that under overload conditions, the database server
 # receives a SHOW STATUS query at an average interval of this many microseconds
-define( 'AVG_STATUS_POLL', 2000 );
+define('AVG_STATUS_POLL', 2000 );
 
 
 /**

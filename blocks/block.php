@@ -6,7 +6,7 @@
  */
 
 if(!defined('MEDIAWIKI')):
-define( 'MEDIAWIKI', true );
+define('MEDIAWIKI', true );
 require_once XOOPS_ROOT_PATH."/modules/mediawiki/includes/Defines.php";
 require_once XOOPS_ROOT_PATH."/modules/mediawiki/LocalSettings.php";
 require_once XOOPS_ROOT_PATH."/modules/mediawiki/includes/GlobalFunctions.php";

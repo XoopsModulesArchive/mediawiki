@@ -15,8 +15,8 @@ if (!$wgCachedMessageArrays) {
 # NOTE: cweri après "NOTE:" po des racsegnes so des ratournaedjes
 # k' i gn a.
 
-define( 'MW_DATE_WLN_LONG',  MW_DATE_DMY );
-define( 'MW_DATE_WLN_SHORT', '4' );
+define('MW_DATE_WLN_LONG',  MW_DATE_DMY );
+define('MW_DATE_WLN_SHORT', '4' );
 
 class LanguageWa extends LanguageUtf8 {
 	private $mMessagesWa, $mNamespaceNamesWa = null;

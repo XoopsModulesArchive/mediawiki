@@ -790,10 +790,10 @@ class Revision {
 /**
  * Aliases for backwards compatibility with 1.6
  */
-define( 'MW_REV_DELETED_TEXT', Revision::DELETED_TEXT );
-define( 'MW_REV_DELETED_COMMENT', Revision::DELETED_COMMENT );
-define( 'MW_REV_DELETED_USER', Revision::DELETED_USER );
-define( 'MW_REV_DELETED_RESTRICTED', Revision::DELETED_RESTRICTED );
+define('MW_REV_DELETED_TEXT', Revision::DELETED_TEXT );
+define('MW_REV_DELETED_COMMENT', Revision::DELETED_COMMENT );
+define('MW_REV_DELETED_USER', Revision::DELETED_USER );
+define('MW_REV_DELETED_RESTRICTED', Revision::DELETED_RESTRICTED );
 
 
 ?>

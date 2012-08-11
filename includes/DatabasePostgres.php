@@ -148,7 +148,7 @@ class DatabasePostgres extends Database {
 				print "<li>Failed to set search_path</li>\n";
 				return false;
 			}
-			define( "POSTGRES_SEARCHPATH", $path );
+			define("POSTGRES_SEARCHPATH", $path );
 		}
 
 		return $this->mConn;

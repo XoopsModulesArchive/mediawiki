@@ -13,18 +13,18 @@ define("MEDIAWIKI_DATABASE", 1);
  */
 
 /** See Database::makeList() */
-define( 'LIST_COMMA', 0 );
-define( 'LIST_AND', 1 );
-define( 'LIST_SET', 2 );
-define( 'LIST_NAMES', 3);
-define( 'LIST_OR', 4);
+define('LIST_COMMA', 0 );
+define('LIST_AND', 1 );
+define('LIST_SET', 2 );
+define('LIST_NAMES', 3);
+define('LIST_OR', 4);
 
 /** Number of times to re-try an operation in case of deadlock */
-define( 'DEADLOCK_TRIES', 4 );
+define('DEADLOCK_TRIES', 4 );
 /** Minimum time to wait before retry, in microseconds */
-define( 'DEADLOCK_DELAY_MIN', 500000 );
+define('DEADLOCK_DELAY_MIN', 500000 );
 /** Maximum time to wait before retry */
-define( 'DEADLOCK_DELAY_MAX', 1500000 );
+define('DEADLOCK_DELAY_MAX', 1500000 );
 
 class DBObject {
 	var $mData;

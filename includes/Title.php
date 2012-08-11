@@ -8,14 +8,14 @@
 /** */
 require_once( 'normal/UtfNormal.php' );
 
-define( 'GAID_FOR_UPDATE', 1 );
+define('GAID_FOR_UPDATE', 1 );
 
 # Title::newFromTitle maintains a cache to avoid
 # expensive re-normalization of commonly used titles.
 # On a batch operation this can become a memory leak
 # if not bounded. After hitting this many titles,
 # reset the cache.
-define( 'MW_TITLECACHE_MAX', 1000 );
+define('MW_TITLECACHE_MAX', 1000 );
 
 /**
  * Title class
