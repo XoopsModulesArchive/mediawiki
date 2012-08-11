@@ -9,10 +9,10 @@ require_once( 'Database.php' );
 require_once( 'Article.php' );
 
 /** @+ */
-define( 'MW_REV_DELETED_TEXT',       1 );
-define( 'MW_REV_DELETED_COMMENT',    2 );
-define( 'MW_REV_DELETED_USER',       4 );
-define( 'MW_REV_DELETED_RESTRICTED', 8 );
+define('MW_REV_DELETED_TEXT',       1 );
+define('MW_REV_DELETED_COMMENT',    2 );
+define('MW_REV_DELETED_USER',       4 );
+define('MW_REV_DELETED_RESTRICTED', 8 );
 /** @- */
 
 /**

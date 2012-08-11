@@ -10,7 +10,7 @@ $numServers = count( $wgDBservers );
 foreach ( $wgLoadBalancer->mServers as $i => $server ) {
 	$wgLoadBalancer->mServers[$i]['flags'] |= DBO_DEBUG;
 }*/
-define( 'REPORTING_INTERVAL', 1000 );
+define('REPORTING_INTERVAL', 1000 );
 
 if ( isset( $args[0] ) ) {
 	desyncFixPage( $args[0] );

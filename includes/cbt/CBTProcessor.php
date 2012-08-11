@@ -6,10 +6,10 @@
  * compatibility purposes later, where the C++ extension is not available.
  */
 
-define( 'CBT_WHITE', " \t\r\n" );
-define( 'CBT_BRACE', '{}' );
-define( 'CBT_DELIM', CBT_WHITE . CBT_BRACE );
-define( 'CBT_DEBUG', 0 );
+define('CBT_WHITE', " \t\r\n" );
+define('CBT_BRACE', '{}' );
+define('CBT_DELIM', CBT_WHITE . CBT_BRACE );
+define('CBT_DEBUG', 0 );
 
 $GLOBALS['cbtExecutingGenerated'] = 0;
 

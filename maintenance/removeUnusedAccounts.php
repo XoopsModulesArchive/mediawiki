@@ -9,8 +9,8 @@
  * @author Rob Church <robchur@gmail.com>
  */
 
-define( 'ACTION_REPORT', 0 );
-define( 'ACTION_DELETE', 1 );
+define('ACTION_REPORT', 0 );
+define('ACTION_DELETE', 1 );
 $options = array( 'delete','help' );
 require_once( 'commandLine.inc' );
 require_once( 'userFunctions.inc' );

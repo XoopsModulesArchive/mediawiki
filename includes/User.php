@@ -11,10 +11,10 @@
 require_once( 'WatchedItem.php' );
 
 # Number of characters in user_token field
-define( 'USER_TOKEN_LENGTH', 32 );
+define('USER_TOKEN_LENGTH', 32 );
 
 # Serialized record version
-define( 'MW_USER_VERSION', 3 );
+define('MW_USER_VERSION', 3 );
 
 /**
  *

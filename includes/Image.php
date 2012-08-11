@@ -18,7 +18,7 @@ if ($wgShowEXIF)
 /**
  * Bump this number when serialized cache records may be incompatible.
  */
-define( 'MW_IMAGE_VERSION', 1 );
+define('MW_IMAGE_VERSION', 1 );
 
 /**
  * Class to represent an image

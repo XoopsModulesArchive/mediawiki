@@ -28,15 +28,15 @@ $wgRequestTime = microtime();
 
 # Attempt to set up the include path, to fix problems with relative includes
 $IP = dirname( dirname( __FILE__ ) );
-define( 'MW_INSTALL_PATH', $IP );
+define('MW_INSTALL_PATH', $IP );
 $sep = PATH_SEPARATOR;
 if( !ini_set( "include_path", ".$sep$IP$sep$IP/includes$sep$IP/languages" ) ) {
 	set_include_path( ".$sep$IP$sep$IP/includes$sep$IP/languages" );
 }
 
 # Define an entry point and include some files
-define( "MEDIAWIKI", true );
-define( "MEDIAWIKI_INSTALL", true );
+define("MEDIAWIKI", true );
+define("MEDIAWIKI_INSTALL", true );
 require_once( "includes/Defines.php" );
 require_once( "includes/DefaultSettings.php" );
 require_once( "includes/MagicWord.php" );

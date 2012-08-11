@@ -16,7 +16,7 @@ require_once( 'ImageGallery.php' );
  * changes in an incompatible way, so the parser cache
  * can automatically discard old data.
  */
-define( 'MW_PARSER_VERSION', '1.6.0' );
+define('MW_PARSER_VERSION', '1.6.0' );
 
 /**
  * Variable substitution O(N^2) attack
@@ -28,32 +28,32 @@ define( 'MW_PARSER_VERSION', '1.6.0' );
  * attack back to O(N).
  */
 
-define( 'MAX_INCLUDE_REPEAT', 100 );
-define( 'MAX_INCLUDE_SIZE', 1000000 ); // 1 Million
+define('MAX_INCLUDE_REPEAT', 100 );
+define('MAX_INCLUDE_SIZE', 1000000 ); // 1 Million
 
-define( 'RLH_FOR_UPDATE', 1 );
+define('RLH_FOR_UPDATE', 1 );
 
 # Allowed values for $mOutputType
-define( 'OT_HTML', 1 );
-define( 'OT_WIKI', 2 );
-define( 'OT_MSG' , 3 );
+define('OT_HTML', 1 );
+define('OT_WIKI', 2 );
+define('OT_MSG' , 3 );
 
 # string parameter for extractTags which will cause it
 # to strip HTML comments in addition to regular
 # <XML>-style tags. This should not be anything we
 # may want to use in wikisyntax
-define( 'STRIP_COMMENTS', 'HTMLCommentStrip' );
+define('STRIP_COMMENTS', 'HTMLCommentStrip' );
 
 # Constants needed for external link processing
-define( 'HTTP_PROTOCOLS', 'http:\/\/|https:\/\/' );
+define('HTTP_PROTOCOLS', 'http:\/\/|https:\/\/' );
 # Everything except bracket, space, or control characters
-define( 'EXT_LINK_URL_CLASS', '[^][<>"\\x00-\\x20\\x7F]' );
+define('EXT_LINK_URL_CLASS', '[^][<>"\\x00-\\x20\\x7F]' );
 # Including space
-define( 'EXT_LINK_TEXT_CLASS', '[^\]\\x00-\\x1F\\x7F]' );
-define( 'EXT_IMAGE_FNAME_CLASS', '[A-Za-z0-9_.,~%\\-+&;#*?!=()@\\x80-\\xFF]' );
-define( 'EXT_IMAGE_EXTENSIONS', 'gif|png|jpg|jpeg' );
-define( 'EXT_LINK_BRACKETED',  '/\[(\b(' . wfUrlProtocols() . ')'.EXT_LINK_URL_CLASS.'+) *('.EXT_LINK_TEXT_CLASS.'*?)\]/S' );
-define( 'EXT_IMAGE_REGEX',
+define('EXT_LINK_TEXT_CLASS', '[^\]\\x00-\\x1F\\x7F]' );
+define('EXT_IMAGE_FNAME_CLASS', '[A-Za-z0-9_.,~%\\-+&;#*?!=()@\\x80-\\xFF]' );
+define('EXT_IMAGE_EXTENSIONS', 'gif|png|jpg|jpeg' );
+define('EXT_LINK_BRACKETED',  '/\[(\b(' . wfUrlProtocols() . ')'.EXT_LINK_URL_CLASS.'+) *('.EXT_LINK_TEXT_CLASS.'*?)\]/S' );
+define('EXT_IMAGE_REGEX',
 	'/^('.HTTP_PROTOCOLS.')'.  # Protocol
 	'('.EXT_LINK_URL_CLASS.'+)\\/'.  # Hostname and path
 	'('.EXT_IMAGE_FNAME_CLASS.'+)\\.((?i)'.EXT_IMAGE_EXTENSIONS.')$/S' # Filename

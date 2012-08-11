@@ -6,7 +6,7 @@ if( php_sapi_name() != 'cli' ) {
 }
 
 error_reporting( E_ALL );
-define( "MEDIAWIKI", true );
+define("MEDIAWIKI", true );
 
 set_include_path( get_include_path() . PATH_SEPARATOR . 'PHPUnit' );
 set_include_path( get_include_path() . PATH_SEPARATOR . '..' );

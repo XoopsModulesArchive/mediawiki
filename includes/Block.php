@@ -7,9 +7,9 @@
 /**
  * Some globals
  */
-define( 'EB_KEEP_EXPIRED', 1 );
-define( 'EB_FOR_UPDATE', 2 );
-define( 'EB_RANGE_ONLY', 4 );
+define('EB_KEEP_EXPIRED', 1 );
+define('EB_FOR_UPDATE', 2 );
+define('EB_RANGE_ONLY', 4 );
 
 /**
  * The block class

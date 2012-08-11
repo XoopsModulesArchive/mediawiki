@@ -25,14 +25,14 @@
 /** */
 require_once( 'Revision.php' );
 
-define( 'MW_EXPORT_FULL',     0 );
-define( 'MW_EXPORT_CURRENT',  1 );
+define('MW_EXPORT_FULL',     0 );
+define('MW_EXPORT_CURRENT',  1 );
 
-define( 'MW_EXPORT_BUFFER',   0 );
-define( 'MW_EXPORT_STREAM',   1 );
+define('MW_EXPORT_BUFFER',   0 );
+define('MW_EXPORT_STREAM',   1 );
 
-define( 'MW_EXPORT_TEXT',     0 );
-define( 'MW_EXPORT_STUB',     1 );
+define('MW_EXPORT_TEXT',     0 );
+define('MW_EXPORT_STUB',     1 );
 
 
 /**
