@@ -1,0 +1,23 @@
+<!-- phppp (D.J.): http://xoopsforge.com; http://xoops.org.cn -->
+<div style="padding: 5px 2px;">
+<ul><{$smarty.const._MB_MEDIAWIKI_RECENTCHANGES}>
+<{foreach item=rc from=$block.changes}>
+<li>
+<a href="<{$rc.link}>" title="<{$rc.desc}>"><{$rc.title}></a>, 
+<{if $rc.author}><{$rc.author}>,<{/if}> 
+<{$rc.time}> 
+<{if $rc.new}><span style="color: red; font-size: 80%; padding-left: 2px;">New!</span><{/if}>
+</li>
+<{/foreach}>
+</ul>
+</div>
+
+<div style="padding: 5px 2px;">
+<ul><{$smarty.const._MB_MEDIAWIKI_TOP}>
+<{foreach item=rc from=$block.top}>
+<li>
+<a href="<{$rc.link}>" title="<{$rc.title}>"><{$rc.title}></a> (<{$rc.count}>) 
+</li>
+<{/foreach}>
+</ul>
+</div>
