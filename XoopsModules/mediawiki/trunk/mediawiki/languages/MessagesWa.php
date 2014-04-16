@@ -245,7 +245,7 @@ Loukîz a $1.',
 #
 'error' => 'Aroke',
 'databaseerror' => 'Åk n\' a nén stî avou l\' båze di dnêyes',
-'dberrortext' => 'Åk n\' a nén stî avou l\' sintacse do cweraedje del båze di dnêyes. 
+'dberrortext' => 'Åk n\' a nén stî avou l\' sintacse do cweraedje del båze di dnêyes.
 Çoula pout esse cåze d\' on bug dins l\' programe.
 Li dierin cweraedje del båze di dnêyes di sayî esteut:
 <blockquote><tt>$1</tt></blockquote>
@@ -281,7 +281,7 @@ Fonccion: $1<br />
 Cweraedje: $2',
 'viewsource' => 'Vey côde sourdant',
 'viewsourcefor' => 'po $1',
-'protectedtext' => 'Cisse pådje chal a stî protedjeye siconte des candjmints; 
+'protectedtext' => 'Cisse pådje chal a stî protedjeye siconte des candjmints;
 i gn a sacwantès råjhons po çoula, loukîz
 [[{{ns:project}}:Pådje protedjeye]] s\' i vs plait.
 
@@ -460,9 +460,9 @@ Rissayîz s\' i vs plait. Si çoula n\' va todi nén, sayîz di vs dislodjî eye
 'editingcomment' => 'Candjant $1 (comintaire)',
 'editconflict' => 'Conflit inte deus candjmints: $1',
 'explainconflict' => 'Ene sakî a candjî l\' pådje do tins ki vos estîz a scrire.
-Li boesse di tecse do dzeur mostere li tecse del pådje come il est 
+Li boesse di tecse do dzeur mostere li tecse del pådje come il est
 pol moumint sol sierveu. Li tecse da vosse est sol boesse di tecse do dzo.
-Les diferinces sont håynêyes å mitan. Vos dvoz mete vos candjmints dins 
+Les diferinces sont håynêyes å mitan. Vos dvoz mete vos candjmints dins
 l\' tecse d\' asteure (å dzeur) si vos lez vloz co evoyî.
 <b>Seulmint</b> li tecse do dzeur serè candjî cwand vos clitchroz sol
 boton «Schaper l\' pådje».<br />',
@@ -478,8 +478,8 @@ dvèt esse dizo l\' licince $2 (loukîz $1 po pus di racsegnes).
 Si vos n\' voloz nén ki vosse tecse poye esse candjî eyet
 spårdou pa tot l\' minme kî, adon nel evoyîz nén chal.
 <br />
-Vos nos acertinez eto ki vos avoz scrît l\' tecse 
-vos-minme, oudonbén l\' avoz copyî d\' on sourdant libe 
+Vos nos acertinez eto ki vos avoz scrît l\' tecse
+vos-minme, oudonbén l\' avoz copyî d\' on sourdant libe
 (dominne publik ou on sourdant pareymint libe).
 <br />
 <strong>N\' EVOYÎZ NÉN DES TECSES DIZO ABONDROETS SINS PERMISSION!</strong>',
@@ -488,8 +488,8 @@ polèt esse esse candjîs ou disfacés pa des ôtes contribouweus.
 Si vos n\' voloz nén scrire des årtikes ki polèt esse
 candjîs pa des ôtes, adon nels evoyîz nén chal.
 <br />
-Vos nos acertinez eto ki vos avoz scrît l\' tecse 
-vos-minme, oudonbén l\' avoz copyî d\' on sourdant libe 
+Vos nos acertinez eto ki vos avoz scrît l\' tecse
+vos-minme, oudonbén l\' avoz copyî d\' on sourdant libe
 (voeyoz $1 po pus di racsegnes).
 <br />
 <strong>N\' EVOYÎZ NÉN DES TECSES DIZO ABONDROETS SINS PERMISSION!</strong>',
@@ -1002,7 +1002,7 @@ Do côp, c\' est nén possibe di lyi evoyî èn emile.',
 'watchnologintext' => 'I vs fåt esse [[{{ns:special}}:Userlogin|elodjî]] po pleur candjî vosse djivêye des pådjes a shuve.',
 'addedwatch' => 'Radjouté ås shuvous',
 'addedwatchtext' => 'Li pådje «$1» a stî radjoutêye a vosse [[{{ns:special}}:Watchlist|djivêye des pådjes a shuve]].
-Tos les candjmints k\' i gn årè di cisse pådje chal, 
+Tos les candjmints k\' i gn årè di cisse pådje chal,
 eyet di si pådje di copene, seront håynés chal, eyet li pådje serè metowe e \'\'\'cråssès letes\'\'\'
 el [[{{ns:special}}:Recentchanges|djivêye des dierins candjmints]] po k\' ça soeye pus åjhey por vos del rimårker.
 
@@ -1097,8 +1097,8 @@ djivêye des dierins disfaçaedjes.',
 'imagereverted' => 'Li rmetaedje del modêye di dvant a stî comifåt.',
 'cantrollback' => 'Dji n\' sai disfé les candjmints; li dierin contribouweu est li seu oteur po cist årtike ci.',
 'alreadyrolled' => 'Dji n\' sai disfé li dierin candjmint di [[$1]]
-fwait pa [[{{ns:user}}:$2|$2]] ([[{{ns:user_talk}}:$2|Copene]]); 
-ene sakî d\' ôte a ddja candjî l\' årtike ou ddja rmetou l\' modêye di dvant. 
+fwait pa [[{{ns:user}}:$2|$2]] ([[{{ns:user_talk}}:$2|Copene]]);
+ene sakî d\' ôte a ddja candjî l\' årtike ou ddja rmetou l\' modêye di dvant.
 
 Li dierin candjmint a stî fwait pa [[{{ns:user}}:$3|$3]] ([[{{ns:user_talk}}:$3|Copene]]).',
 #   only shown if there is an edit comment
@@ -1144,7 +1144,7 @@ Si ene novele pådje avou l\' minme no a stî askepieye dispoy li disfaçaedje
 di cisse chal, les rapexheyès modêyes seront metowes e l\' istwere mins
 c\' est l\' modêye do moumint, et nén l\' cisse rapexheye, ki
 srè håynêye.',
-'undeletehistorynoadmin' => 'Cist årtike a stî disfacé. Li råjhon do 
+'undeletehistorynoadmin' => 'Cist årtike a stî disfacé. Li råjhon do
 disfaçaedje est dnêye chal pa dzo, avou les detays des uzeus k\' ont
 candjî l\' pådje divant do disfaçaedje. Li tecse di ces modêyes disfacêyes
 ni pout esse veyou ki des manaedjeus.',
@@ -1176,7 +1176,6 @@ Loukîz l\' [[{{ns:special}}:Log/delete|djournå des disfaçaedjes]] po ene djiv
 'sp-contributions-oldest' => 'Prumîs ovraedjes',
 'sp-contributions-newer'  => '$1 di dvant',
 'sp-contributions-older'  => '$1 shuvants',
-
 
 # What links here
 #
@@ -1590,7 +1589,6 @@ est raptiti. Les ôtes seront catchîs.
 'exif-orientation-1' => 'Normå', # 0th row: top; 0th column: left
 'exif-orientation-3' => 'Tourné di 180°', # 0th row: bottom; 0th column: right
 
-
 'exif-xyresolution-i' => '$1 dpi',
 'exif-xyresolution-c' => '$1 dpc',
 
@@ -1636,13 +1634,10 @@ est raptiti. Les ôtes seront catchîs.
 
 'exif-scenetype-1' => 'On poitrait saetchî directumint',
 
-
-
 'exif-whitebalance-0' => 'Balance di blancs otomatike',
 'exif-whitebalance-1' => 'Balance di blancs al mwin',
 
 'exif-scenecapturetype-3' => 'Sinne di nute',
-
 
 'exif-contrast-0' => 'Normå',
 'exif-contrast-1' => 'Doûs',
@@ -1667,8 +1662,6 @@ est raptiti. Les ôtes seront catchîs.
 // Pseudotags used for GPSLongitudeRef and GPSDestLongitudeRef
 'exif-gpslongitude-e' => 'Londjitude Ess',
 'exif-gpslongitude-w' => 'Londjitude Ouwess',
-
-
 
 // Pseudotags used for GPSSpeedRef and GPSDestDistanceRef
 'exif-gpsspeed-k' => 'km/h',
@@ -1850,7 +1843,7 @@ Il a stî ecripté avou l\' clé publike des manaedjeus do vôtaedje:
 <pre>$2</pre>
 
 Vosse bultins ecripté est chal pa dzo. Tos les bultins ecriptés polèt
-esse publicmint veyous so [[Special:Boardvote/dump]]. 
+esse publicmint veyous so [[Special:Boardvote/dump]].
 
 <pre>$3</pre>
 
@@ -1859,7 +1852,7 @@ esse publicmint veyous so [[Special:Boardvote/dump]].
 * [[Special:Boardvote/list|Djivêye des vôtaedjes dedja fwaits]]
 * [[Special:Boardvote/dump|Djiveye des bultins]] (tchaeke bultin est on blok ecripté)',
 'boardvote_intro' => '<p>
-Bénvnowe å prumî vôtaedje po les manaedjeus del fondåcion Wikimedia. 
+Bénvnowe å prumî vôtaedje po les manaedjeus del fondåcion Wikimedia.
 Li vôtaedje c\' est po tchoezi deus djins ki cåzront å consey des manaedjeus po les contribouweus des diferins pordjets Wikimedia k\' overnut félmint po lzès fé viker:
 on <strong>rprezintant des mimbes ki sont des contribouweus actifs</strong>,
 eyet on <strong>rprezintant des uzeus volontaires</strong>.
@@ -2026,5 +2019,3 @@ eyet l\' tecse seré ratourné d\' après l\' espåce di lomaedje MediaWiki',
 ###########
 
 );
-
-?>

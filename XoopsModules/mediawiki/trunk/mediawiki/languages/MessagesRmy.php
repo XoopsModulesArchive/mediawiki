@@ -299,4 +299,3 @@ ta[\'ca-nstab-category\'] = new Array(\'c\',\'Dikh i kategoriya\');',
 'namespacesall'         => 'savore',
 'deletedwhileediting'   => 'Dikh: Kadaya patrin sas khosli de kana shirdyas (astardyas) te editisares la!',
 );
-?>

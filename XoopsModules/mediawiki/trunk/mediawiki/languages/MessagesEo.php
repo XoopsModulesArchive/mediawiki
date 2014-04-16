@@ -27,7 +27,7 @@ $wgAllMessagesEo = array(
 'tog-fancysig'          => 'Simpla subskribo (sen aŭtomata ligo)',
 'tog-externaleditor'    => 'Uzu defaŭlte eksteran tekstprilaborilon',
 'tog-externaldiff'      => 'Uzu defaŭlte eksteran ŝanĝmontrilon',
-'tog-showjumplinks'     => 'Ebligi alirligojn "salti al" 
+'tog-showjumplinks'     => 'Ebligi alirligojn "salti al"
 <!-- Bonvolu kontroli ĉu ĝustas la traduko de : Enable "jump to" accessibility links -->',
 'tog-watchlisthideown'  => 'Kaŝu miajn redaktojn de la atentaro',
 'tog-watchlisthidebots' => 'Kaŝu bot-redaktojn de la atentaro',
@@ -396,7 +396,7 @@ Se vi konservos vian redakton, ĉiuj ŝanĝoj faritaj post tiu versio perdiĝos.
 Vi ankaŭ ĵuras, ke vi mem verkis la tekston, aŭ ke vi kopiis ĝin el fonto senkopirajta.
 <strong>NE UZU KOPIRAJTAJN VERKOJN SENPERMESE!</strong>',
 'copyrightwarning2'     => 'Bonvolu noti ke ĉiuj kontribuoj al {{SITENAME}} povas esti reredaktita, ŝanĝita aŭ forigita de aliaj kontribuantoj. Se vi ne deziras ke viaj verkoj estu senkompate reredaktitaj, ne publikigu ilin ĉi tie.  <br />
-Vi ankaŭ promesu al ni ke vi verkis tion mem aŭ kopiis el publika domajno aŭ simila libera fonto (vidu $1 por detaloj). 
+Vi ankaŭ promesu al ni ke vi verkis tion mem aŭ kopiis el publika domajno aŭ simila libera fonto (vidu $1 por detaloj).
 <strong>NE PROPONU KOPIRAJTITAJN VERKOJN SEN PERMESO! </strong>',
 'longpagewarning'       => '<strong>AVERTO: Tiu ĉi paĝo longas $1 kilobitokojn; kelkaj retumiloj
 povas fuŝi redaktante paĝojn je longo proksime aŭ preter 32kb.
@@ -964,7 +964,7 @@ Bonvolu certigu, ke vi efektive intencas tion fari.',
 <br />Ne forgesu malŝlosi ĝin post kiam vi finos la riparadon.',
 'unlockdbsuccesstext'   => 'La datumaro de {{SITENAME}} estas malŝlosita.',
 'makesysoptitle'        => 'Igu uzanton administranto',
-'makesysoptext'         => 'Ĉi formularo estas uzita de burokratoj por igi ordinarajn uzantojn administrantoj. 
+'makesysoptext'         => 'Ĉi formularo estas uzita de burokratoj por igi ordinarajn uzantojn administrantoj.
 Bonvlolu tajpi la nomon de la uzanto en la skatoleton kaj premu la butonon por igi la uzanton administranto.',
 'makesysopname'         => 'Nomo de la uzanto :',
 'makesysopsubmit'       => 'Igu ĉi uzanton administranto',
@@ -1098,10 +1098,10 @@ La celartikolo "[[$1]]" jam ekzistas. Ĉu vi volas forigi ĝin por krei spacon p
 'markedaspatrolledtext' => 'La elektita versio estas markita kiel patrolita.',
 'rcpatroldisabled'      => 'Patrolado de lastaj ŝanĝoj malaktivigita',
 'rcpatroldisabledtext'  => 'La funkcio patrolado de la lastaj ŝanĝoj estas nun malaktivigita.',
-'Monobook.js'           => '/* iletikedoj kaj rektaj klavoj */   
+'Monobook.js'           => '/* iletikedoj kaj rektaj klavoj */
  var ta = new Object();
  ta[\'pt-userpage\'] = new Array(\'.\',\'Mia uzantopaĝo\');
- ta[\'pt-anonuserpage\'] = new Array(\'.\',\'La uzantopaĝo por la IP adreso sub kiu vi estas redaktanta\');  
+ ta[\'pt-anonuserpage\'] = new Array(\'.\',\'La uzantopaĝo por la IP adreso sub kiu vi estas redaktanta\');
  ta[\'pt-mytalk\'] = new Array(\'n\',\'Mia diskutpaĝo\');
  ta[\'pt-anontalk\'] = new Array(\'n\',\'Diskuto pri redaktoj sub tiu ĉi IP adreso\');
  ta[\'pt-preferences\'] = new Array(\'\',\'Miaj preferoj\');
@@ -1113,7 +1113,7 @@ La celartikolo "[[$1]]" jam ekzistas. Ĉu vi volas forigi ĝin por krei spacon p
  ta[\'ca-talk\'] = new Array(\'t\',\'Diskuto pri la artikolo\');
  ta[\'ca-edit\'] = new Array(\'e\',\'Vi povas redakti tiun ĉi paĝon. Bv uzi la antaŭvidbutonon antaŭ ol konservi.\');
  ta[\'ca-addsection\'] = new Array(\'+\',\'Aldonu komenton al tiu diskuto.\');
- ta[\'ca-viewsource\'] = new Array(\'e\',\'Tiu paĝo estas protektita. Vi povas nur rigardi ties fonton.\'); 
+ ta[\'ca-viewsource\'] = new Array(\'e\',\'Tiu paĝo estas protektita. Vi povas nur rigardi ties fonton.\');
  ta[\'ca-history\'] = new Array(\'h\',\'Antaŭaj versioj de tiu ĉi paĝo.\');
  ta[\'ca-protect\'] = new Array(\'=\',\'Protektu tiun ĉi paĝon\');
  ta[\'ca-delete\'] = new Array(\'d\',\'Forigu tiun ĉi paĝon\');
@@ -1187,7 +1187,7 @@ La celartikolo "[[$1]]" jam ekzistas. Ĉu vi volas forigi ĝin por krei spacon p
 'confirmemail_success'  => 'Via retadreso estas konfirmita. Vi povas nun ensaluti kaj ĝui la vikion.',
 'confirmemail_loggedin' => 'Via retadreso estas nun konfirmita.',
 'confirmemail_error'    => 'Io misokazis dum konservo de via konfirmo.',
-'confirmemail_body'     => 'Iu, verŝajne vi ĉe la IP-adreso $1, enregistrigis per tiu 
+'confirmemail_body'     => 'Iu, verŝajne vi ĉe la IP-adreso $1, enregistrigis per tiu
 ĉi retpoŝtadreso la konton "$2" ĉe {{SITENAME}}.
 
 Malfermu tiun ĉi ligon en via retumilo, por konfirmi ke la
@@ -1220,4 +1220,3 @@ $1',
 'articletitles'         => 'Artikoloj komencante de \'\'$1\'\'',
 'hideresults'           => 'Kaŝu rezultojn',
 );
-?>

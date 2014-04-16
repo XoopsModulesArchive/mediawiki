@@ -9,14 +9,14 @@
  * @author Rob Church <robchur@gmail.com>
  * @todo More efficient cleanup of text records
  */
- 
+
 $options = array( 'report', 'help' );
-require_once( 'commandLine.inc' );
-require_once( 'deleteOrphanedRevisions.inc.php' );
+require_once 'commandLine.inc';
+require_once 'deleteOrphanedRevisions.inc.php';
 echo( "Delete Orphaned Revisions\n" );
 
 if( isset( $options['help'] ) )
-	showUsage();
+    showUsage();
 
 $report = isset( $options['report'] );
 
@@ -31,15 +31,15 @@ $res = $dbw->query( $sql, 'deleteOrphanedRevisions' );
 
 # Stash 'em all up for deletion (if needed)
 while( $row = $dbw->fetchObject( $res ) )
-	$revisions[] = $row->rev_id;
+    $revisions[] = $row->rev_id;
 $dbw->freeResult( $res );
 $count = count( $revisions );
 echo( "found {$count}.\n" );
 
 # Nothing to do?
-if( $report || $count == 0 ) {
-	$dbw->immediateCommit();
-	exit();
+if ($report || $count == 0) {
+    $dbw->immediateCommit();
+    exit();
 }
 
 # Delete each revision
@@ -49,7 +49,5 @@ echo( "done.\n" );
 
 # Close the transaction and call the script to purge unused text records
 $dbw->immediateCommit();
-require_once( 'purgeOldText.inc' );
+require_once 'purgeOldText.inc';
 PurgeRedundantText( true );
-
-?>

@@ -1201,8 +1201,8 @@ $NEWPAGE
  ta[\'p-search\'] = new Array(\'f\',\'ウィキ内を検索\');
  ta[\'p-logo\'] = new Array(\'\',\'メインページ\');
  ta[\'n-mainpage\'] = new Array(\'z\',\'メインページに移動\');
- ta[\'n-portal\'] = new Array(\'\',\'このプロジェクトについて、あなたのできることを探す場所です\'); 
- ta[\'n-currentevents\'] = new Array(\'\',\'最近の出来事\'); 
+ ta[\'n-portal\'] = new Array(\'\',\'このプロジェクトについて、あなたのできることを探す場所です\');
+ ta[\'n-currentevents\'] = new Array(\'\',\'最近の出来事\');
  ta[\'n-recentchanges\'] = new Array(\'r\',\'最近更新が行われたページの一覧\');
  ta[\'n-randompage\'] = new Array(\'x\',\'ランダムに記事を選んで表示\');
  ta[\'n-help\'] = new Array(\'\',\'ヘルプ・使い方\');
@@ -1508,7 +1508,7 @@ $3
 もし {{SITENAME}} について身に覚えがない場合は、リンクを開かないでください。
 確認用コードは $4 に期限切れになります。
 
--- 
+--
 {{SITENAME}}
 {{SERVER}}/',
 'tryexact'              => '一致する項目を検索',
@@ -1542,4 +1542,3 @@ $1',
 'hideresults'           => '結果を隠す',
 'loginlanguagelabel'    => '言語: $1',
 );
-?>

@@ -28,96 +28,104 @@
  * @package MediaWiki
  * @subpackage Search
  */
-class SearchTsearch2 extends SearchEngine {
-	var $strictMatching = false;
+class SearchTsearch2 extends SearchEngine
+{
+    var $strictMatching = false;
 
-	function SearchTsearch2( &$db ) {
-		$this->db =& $db;
-		$this->mRanking = true;
-	}
+    function SearchTsearch2( &$db )
+    {
+        $this->db =& $db;
+        $this->mRanking = true;
+    }
 
-	function getIndexField( $fulltext ) {
-		return $fulltext ? 'si_text' : 'si_title';
-	}
+    function getIndexField( $fulltext )
+    {
+        return $fulltext ? 'si_text' : 'si_title';
+    }
 
-	function parseQuery( $filteredText, $fulltext ) {
-		global $wgContLang;
-		$lc = SearchEngine::legalSearchChars();
-		$searchon = '';
-		$this->searchTerms = array();
+    function parseQuery( $filteredText, $fulltext )
+    {
+        global $wgContLang;
+        $lc = SearchEngine::legalSearchChars();
+        $searchon = '';
+        $this->searchTerms = array();
 
-		# FIXME: This doesn't handle parenthetical expressions.
-		if( preg_match_all( '/([-+<>~]?)(([' . $lc . ']+)(\*?)|"[^"]*")/',
-			  $filteredText, $m, PREG_SET_ORDER ) ) {
-			foreach( $m as $terms ) {
-				if( $searchon !== '' ) $searchon .= ' ';
-				if( $this->strictMatching && ($terms[1] == '') ) {
-					$terms[1] = '+';
-				}
-				$searchon .= $terms[1] . $wgContLang->stripForSearch( $terms[2] );
-				if( !empty( $terms[3] ) ) {
-					$regexp = preg_quote( $terms[3], '/' );
-					if( $terms[4] ) $regexp .= "[0-9A-Za-z_]+";
-				} else {
-					$regexp = preg_quote( str_replace( '"', '', $terms[2] ), '/' );
-				}
-				$this->searchTerms[] = $regexp;
-			}
-			wfDebug( "Would search with '$searchon'\n" );
-			wfDebug( "Match with /\b" . implode( '\b|\b', $this->searchTerms ) . "\b/\n" );
-		} else {
-			wfDebug( "Can't understand search query '{$this->filteredText}'\n" );
-		}
+        # FIXME: This doesn't handle parenthetical expressions.
+        if( preg_match_all( '/([-+<>~]?)(([' . $lc . ']+)(\*?)|"[^"]*")/',
+              $filteredText, $m, PREG_SET_ORDER ) ) {
+            foreach ($m as $terms) {
+                if( $searchon !== '' ) $searchon .= ' ';
+                if ( $this->strictMatching && ($terms[1] == '') ) {
+                    $terms[1] = '+';
+                }
+                $searchon .= $terms[1] . $wgContLang->stripForSearch( $terms[2] );
+                if ( !empty( $terms[3] ) ) {
+                    $regexp = preg_quote( $terms[3], '/' );
+                    if( $terms[4] ) $regexp .= "[0-9A-Za-z_]+";
+                } else {
+                    $regexp = preg_quote( str_replace( '"', '', $terms[2] ), '/' );
+                }
+                $this->searchTerms[] = $regexp;
+            }
+            wfDebug( "Would search with '$searchon'\n" );
+            wfDebug( "Match with /\b" . implode( '\b|\b', $this->searchTerms ) . "\b/\n" );
+        } else {
+            wfDebug( "Can't understand search query '{$this->filteredText}'\n" );
+        }
 
-		$searchon = preg_replace('/(\s+)/','&',$searchon);
-		$searchon = $this->db->strencode( $searchon );
-		return $searchon;
-	}
+        $searchon = preg_replace('/(\s+)/','&',$searchon);
+        $searchon = $this->db->strencode( $searchon );
 
-	function queryRanking($filteredTerm, $fulltext) {
-		$field = $this->getIndexField( $fulltext );
-		$searchon = $this->parseQuery($filteredTerm,$fulltext);
-		if ($this->mRanking)
-			return " ORDER BY rank($field,to_tsquery('$searchon')) DESC";
-		else
-			return "";
-	}
+        return $searchon;
+    }
+
+    function queryRanking($filteredTerm, $fulltext)
+    {
+        $field = $this->getIndexField( $fulltext );
+        $searchon = $this->parseQuery($filteredTerm,$fulltext);
+        if ($this->mRanking)
+            return " ORDER BY rank($field,to_tsquery('$searchon')) DESC";
+        else
+            return "";
+    }
 
 
-	function queryMain( $filteredTerm, $fulltext ) {
-		$match = $this->parseQuery( $filteredTerm, $fulltext );
-		$field = $this->getIndexField( $fulltext );
-		$cur = $this->db->tableName( 'cur' );
-		$searchindex = $this->db->tableName( 'searchindex' );
-		return 'SELECT cur_id, cur_namespace, cur_title, cur_text ' .
-			"FROM $cur,$searchindex " .
-			'WHERE cur_id=si_page AND ' .
-			" $field @@ to_tsquery ('$match') " ;
-	}
+    function queryMain( $filteredTerm, $fulltext )
+    {
+        $match = $this->parseQuery( $filteredTerm, $fulltext );
+        $field = $this->getIndexField( $fulltext );
+        $cur = $this->db->tableName( 'cur' );
+        $searchindex = $this->db->tableName( 'searchindex' );
 
-	function update( $id, $title, $text ) {
-	        $dbw=& wfGetDB(DB_MASTER);
-		$searchindex = $dbw->tableName( 'searchindex' );
-		$sql = "DELETE FROM $searchindex WHERE si_page={$id}";
-		$dbw->query($sql,"SearchTsearch2:update");
-		$sql = "INSERT INTO $searchindex (si_page,si_title,si_text) ".
-			" VALUES ( $id, to_tsvector('".
-				$dbw->strencode($title).
-				"'),to_tsvector('".
-				$dbw->strencode( $text)."')) ";
-		$dbw->query($sql,"SearchTsearch2:update");
-	}
+        return 'SELECT cur_id, cur_namespace, cur_title, cur_text ' .
+            "FROM $cur,$searchindex " .
+            'WHERE cur_id=si_page AND ' .
+            " $field @@ to_tsquery ('$match') " ;
+    }
 
-	function updateTitle($id,$title) {
-	        $dbw=& wfGetDB(DB_MASTER);
-	        $searchindex = $dbw->tableName( 'searchindex' );
-	        $sql = "UPDATE $searchindex SET si_title=to_tsvector('" .
-	                  $db->strencode( $title ) .
-	                  "') WHERE si_page={$id}";
+    function update( $id, $title, $text )
+    {
+            $dbw=& wfGetDB(DB_MASTER);
+        $searchindex = $dbw->tableName( 'searchindex' );
+        $sql = "DELETE FROM $searchindex WHERE si_page={$id}";
+        $dbw->query($sql,"SearchTsearch2:update");
+        $sql = "INSERT INTO $searchindex (si_page,si_title,si_text) ".
+            " VALUES ( $id, to_tsvector('".
+                $dbw->strencode($title).
+                "'),to_tsvector('".
+                $dbw->strencode( $text)."')) ";
+        $dbw->query($sql,"SearchTsearch2:update");
+    }
 
-	        $dbw->query( $sql, "SearchMySQL4::updateTitle" );
-	}
+    function updateTitle($id,$title)
+    {
+            $dbw=& wfGetDB(DB_MASTER);
+            $searchindex = $dbw->tableName( 'searchindex' );
+            $sql = "UPDATE $searchindex SET si_title=to_tsvector('" .
+                      $db->strencode( $title ) .
+                      "') WHERE si_page={$id}";
+
+            $dbw->query( $sql, "SearchMySQL4::updateTitle" );
+    }
 
 }
-
-?>

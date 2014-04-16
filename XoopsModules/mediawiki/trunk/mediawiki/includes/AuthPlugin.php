@@ -35,249 +35,270 @@
  *
  * @package MediaWiki
  */
-class AuthPlugin {
+class AuthPlugin
+{
 // Modified for mediawiki for XOOPS - by D.J.
-	
-	var $instance;
-	
-	function AuthPlugin(){
-		$this->instance = true;
-		$GLOBALS["wgHooks"]['AutoAuthenticate'][] = array(&$this, "AutoAuthenticate");
-		$GLOBALS["wgHooks"]['UserLogout'][] = array(&$this, "UserLogout");
-	}
-	
-	function AutoAuthenticate(&$wgUser){
-		$wgUser = new User();
-		if ( is_object($GLOBALS["xoopsUser"]) ) {
-			$wgUser->mId = $GLOBALS["xoopsUser"]->getVar("uid");
-			$wgUser->mName = mediawiki_encoding_xoops2mediawiki($GLOBALS["xoopsUser"]->getVar("uname"));
-			$wgUser->mEmail = $GLOBALS["xoopsUser"]->getVar("email");
-			$wgUser->mRealName = mediawiki_encoding_xoops2mediawiki($GLOBALS["xoopsUser"]->getVar("name"));
-			if($GLOBALS["xoopsUser"]->isAdmin()){
-				$wgUser->mGroups[] = 'sysop';
-			}
-			$effectiveGroups = array_merge( array( '*', 'user' ), $wgUser->mGroups );
-			$wgUser->mRights = $wgUser->getGroupPermissions( $effectiveGroups );
-		}else{
-			$wgUser->mId = 0;
-		}
-		if ( !isset( $_SESSION['wsUserID'] ) || $_SESSION['wsUserID'] != $wgUser->mId ) {
-			/** Clear client-side caching of pages */
-			$GLOBALS["wgCachePages"] = false;
-		}
-		$_SESSION['wsUserID'] = $wgUser->mId;
-	}
-	
-	function UserLogout(&$wgUser){
-		global $xoopsConfig, $xoopsUser, $_SESSION;
-		
-	    $_SESSION = array();
-	    session_destroy();
-	    if ($xoopsConfig['use_mysession'] && $xoopsConfig['session_name'] != '') {
-	        setcookie($xoopsConfig['session_name'], '', time()- 3600, '/',  '', 0);
-	    }
-	    // clear entry from online users table
-	    if (is_object($xoopsUser)) {
-	        $online_handler =& xoops_gethandler('online');
-	        $online_handler->destroy($wgUser->mId);
-	        unset($xoopsUser);
-	    }
-	    
-	    //redirect_header(XOOPS_URL.'/user.php?op=logout&amp;xoops_redirect='.$_SERVER['REQUEST_URI']);
-	    return true;
+
+    var $instance;
+
+    function AuthPlugin()
+    {
+        $this->instance = true;
+        $GLOBALS["wgHooks"]['AutoAuthenticate'][] = array(&$this, "AutoAuthenticate");
+        $GLOBALS["wgHooks"]['UserLogout'][] = array(&$this, "UserLogout");
     }
-	
-	/**
-	 * Check whether there exists a user account with the given name.
-	 * The name will be normalized to MediaWiki's requirements, so
-	 * you might need to munge it (for instance, for lowercase initial
-	 * letters).
-	 *
-	 * @param $username String: username.
-	 * @return bool
-	 * @public
-	 */
-	function userExists( $username ) {
-		# Override this!
-		return false;
-	}
 
-	/**
-	 * Check if a username+password pair is a valid login.
-	 * The name will be normalized to MediaWiki's requirements, so
-	 * you might need to munge it (for instance, for lowercase initial
-	 * letters).
-	 *
-	 * @param $username String: username.
-	 * @param $password String: user password.
-	 * @return bool
-	 * @public
-	 */
-	function authenticate( $username, $password ) {
-		# Override this!
-		return false;
-	}
+    function AutoAuthenticate(&$wgUser)
+    {
+        $wgUser = new User();
+        if ( is_object($GLOBALS["xoopsUser"]) ) {
+            $wgUser->mId = $GLOBALS["xoopsUser"]->getVar("uid");
+            $wgUser->mName = mediawiki_encoding_xoops2mediawiki($GLOBALS["xoopsUser"]->getVar("uname"));
+            $wgUser->mEmail = $GLOBALS["xoopsUser"]->getVar("email");
+            $wgUser->mRealName = mediawiki_encoding_xoops2mediawiki($GLOBALS["xoopsUser"]->getVar("name"));
+            if ($GLOBALS["xoopsUser"]->isAdmin()) {
+                $wgUser->mGroups[] = 'sysop';
+            }
+            $effectiveGroups = array_merge( array( '*', 'user' ), $wgUser->mGroups );
+            $wgUser->mRights = $wgUser->getGroupPermissions( $effectiveGroups );
+        } else {
+            $wgUser->mId = 0;
+        }
+        if ( !isset( $_SESSION['wsUserID'] ) || $_SESSION['wsUserID'] != $wgUser->mId ) {
+            /** Clear client-side caching of pages */
+            $GLOBALS["wgCachePages"] = false;
+        }
+        $_SESSION['wsUserID'] = $wgUser->mId;
+    }
 
-	/**
-	 * Modify options in the login template.
-	 *
-	 * @param $template UserLoginTemplate object.
-	 * @public
-	 */
-	function modifyUITemplate( &$template ) {
-		# Override this!
-		$template->set( 'usedomain', false );
-	}
+    function UserLogout(&$wgUser)
+    {
+        global $xoopsConfig, $xoopsUser, $_SESSION;
 
-	/**
-	 * Set the domain this plugin is supposed to use when authenticating.
-	 *
-	 * @param $domain String: authentication domain.
-	 * @public
-	 */
-	function setDomain( $domain ) {
-		$this->domain = $domain;
-	}
+        $_SESSION = array();
+        session_destroy();
+        if ($xoopsConfig['use_mysession'] && $xoopsConfig['session_name'] != '') {
+            setcookie($xoopsConfig['session_name'], '', time()- 3600, '/',  '', 0);
+        }
+        // clear entry from online users table
+        if (is_object($xoopsUser)) {
+            $online_handler =& xoops_gethandler('online');
+            $online_handler->destroy($wgUser->mId);
+            unset($xoopsUser);
+        }
 
-	/**
-	 * Check to see if the specific domain is a valid domain.
-	 *
-	 * @param $domain String: authentication domain.
-	 * @return bool
-	 * @public
-	 */
-	function validDomain( $domain ) {
-		# Override this!
-		return true;
-	}
+        //redirect_header(XOOPS_URL.'/user.php?op=logout&amp;xoops_redirect='.$_SERVER['REQUEST_URI']);
+        return true;
+    }
 
-	/**
-	 * When a user logs in, optionally fill in preferences and such.
-	 * For instance, you might pull the email address or real name from the
-	 * external user database.
-	 *
-	 * The User object is passed by reference so it can be modified; don't
-	 * forget the & on your function declaration.
-	 *
-	 * @param User $user
-	 * @public
-	 */
-	function updateUser( &$user ) {
-		# Override this and do something
-		return true;
-	}
+    /**
+     * Check whether there exists a user account with the given name.
+     * The name will be normalized to MediaWiki's requirements, so
+     * you might need to munge it (for instance, for lowercase initial
+     * letters).
+     *
+     * @param $username String: username.
+     * @return bool
+     * @public
+     */
+    function userExists( $username )
+    {
+        # Override this!
 
+        return false;
+    }
 
-	/**
-	 * Return true if the wiki should create a new local account automatically
-	 * when asked to login a user who doesn't exist locally but does in the
-	 * external auth database.
-	 *
-	 * If you don't automatically create accounts, you must still create
-	 * accounts in some way. It's not possible to authenticate without
-	 * a local account.
-	 *
-	 * This is just a question, and shouldn't perform any actions.
-	 *
-	 * @return bool
-	 * @public
-	 */
-	function autoCreate() {
-		return false;
-	}
+    /**
+     * Check if a username+password pair is a valid login.
+     * The name will be normalized to MediaWiki's requirements, so
+     * you might need to munge it (for instance, for lowercase initial
+     * letters).
+     *
+     * @param $username String: username.
+     * @param $password String: user password.
+     * @return bool
+     * @public
+     */
+    function authenticate( $username, $password )
+    {
+        # Override this!
 
-	/**
-	 * Can users change their passwords?
-	 *
-	 * @return bool
-	 */
-	function allowPasswordChange() {
-		return true;
-	}
+        return false;
+    }
 
-	/**
-	 * Set the given password in the authentication database.
-	 * Return true if successful.
-	 *
-	 * @param $password String: password.
-	 * @return bool
-	 * @public
-	 */
-	function setPassword( $password ) {
-		return true;
-	}
+    /**
+     * Modify options in the login template.
+     *
+     * @param $template UserLoginTemplate object.
+     * @public
+     */
+    function modifyUITemplate( &$template )
+    {
+        # Override this!
+        $template->set( 'usedomain', false );
+    }
 
-	/**
-	 * Update user information in the external authentication database.
-	 * Return true if successful.
-	 *
-	 * @param $user User object.
-	 * @return bool
-	 * @public
-	 */
-	function updateExternalDB( $user ) {
-		return true;
-	}
+    /**
+     * Set the domain this plugin is supposed to use when authenticating.
+     *
+     * @param $domain String: authentication domain.
+     * @public
+     */
+    function setDomain( $domain )
+    {
+        $this->domain = $domain;
+    }
 
-	/**
-	 * Check to see if external accounts can be created.
-	 * Return true if external accounts can be created.
-	 * @return bool
-	 * @public
-	 */
-	function canCreateAccounts() {
-		return false;
-	}
+    /**
+     * Check to see if the specific domain is a valid domain.
+     *
+     * @param $domain String: authentication domain.
+     * @return bool
+     * @public
+     */
+    function validDomain( $domain )
+    {
+        # Override this!
 
-	/**
-	 * Add a user to the external authentication database.
-	 * Return true if successful.
-	 *
-	 * @param User $user
-	 * @param string $password
-	 * @return bool
-	 * @public
-	 */
-	function addUser( $user, $password ) {
-		return true;
-	}
+        return true;
+    }
+
+    /**
+     * When a user logs in, optionally fill in preferences and such.
+     * For instance, you might pull the email address or real name from the
+     * external user database.
+     *
+     * The User object is passed by reference so it can be modified; don't
+     * forget the & on your function declaration.
+     *
+     * @param User $user
+     * @public
+     */
+    function updateUser( &$user )
+    {
+        # Override this and do something
+
+        return true;
+    }
 
 
-	/**
-	 * Return true to prevent logins that don't authenticate here from being
-	 * checked against the local database's password fields.
-	 *
-	 * This is just a question, and shouldn't perform any actions.
-	 *
-	 * @return bool
-	 * @public
-	 */
-	function strict() {
-		return false;
-	}
+    /**
+     * Return true if the wiki should create a new local account automatically
+     * when asked to login a user who doesn't exist locally but does in the
+     * external auth database.
+     *
+     * If you don't automatically create accounts, you must still create
+     * accounts in some way. It's not possible to authenticate without
+     * a local account.
+     *
+     * This is just a question, and shouldn't perform any actions.
+     *
+     * @return bool
+     * @public
+     */
+    function autoCreate()
+    {
+        return false;
+    }
 
-	/**
-	 * When creating a user account, optionally fill in preferences and such.
-	 * For instance, you might pull the email address or real name from the
-	 * external user database.
-	 *
-	 * The User object is passed by reference so it can be modified; don't
-	 * forget the & on your function declaration.
-	 *
-	 * @param $user User object.
-	 * @public
-	 */
-	function initUser( &$user ) {
-		# Override this to do something.
-	}
+    /**
+     * Can users change their passwords?
+     *
+     * @return bool
+     */
+    function allowPasswordChange()
+    {
+        return true;
+    }
 
-	/**
-	 * If you want to munge the case of an account name before the final
-	 * check, now is your chance.
-	 */
-	function getCanonicalName( $username ) {
-		return $username;
-	}
+    /**
+     * Set the given password in the authentication database.
+     * Return true if successful.
+     *
+     * @param $password String: password.
+     * @return bool
+     * @public
+     */
+    function setPassword( $password )
+    {
+        return true;
+    }
+
+    /**
+     * Update user information in the external authentication database.
+     * Return true if successful.
+     *
+     * @param $user User object.
+     * @return bool
+     * @public
+     */
+    function updateExternalDB( $user )
+    {
+        return true;
+    }
+
+    /**
+     * Check to see if external accounts can be created.
+     * Return true if external accounts can be created.
+     * @return bool
+     * @public
+     */
+    function canCreateAccounts()
+    {
+        return false;
+    }
+
+    /**
+     * Add a user to the external authentication database.
+     * Return true if successful.
+     *
+     * @param  User   $user
+     * @param  string $password
+     * @return bool
+     * @public
+     */
+    function addUser( $user, $password )
+    {
+        return true;
+    }
+
+
+    /**
+     * Return true to prevent logins that don't authenticate here from being
+     * checked against the local database's password fields.
+     *
+     * This is just a question, and shouldn't perform any actions.
+     *
+     * @return bool
+     * @public
+     */
+    function strict()
+    {
+        return false;
+    }
+
+    /**
+     * When creating a user account, optionally fill in preferences and such.
+     * For instance, you might pull the email address or real name from the
+     * external user database.
+     *
+     * The User object is passed by reference so it can be modified; don't
+     * forget the & on your function declaration.
+     *
+     * @param $user User object.
+     * @public
+     */
+    function initUser( &$user )
+    {
+        # Override this to do something.
+    }
+
+    /**
+     * If you want to munge the case of an account name before the final
+     * check, now is your chance.
+     */
+    function getCanonicalName( $username )
+    {
+        return $username;
+    }
 }
-
-?>

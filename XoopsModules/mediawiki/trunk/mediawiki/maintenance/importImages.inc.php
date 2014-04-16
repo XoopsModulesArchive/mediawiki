@@ -15,23 +15,25 @@
  * @param $exts Array of extensions to search for
  * @return mixed Array of filenames on success, or false on failure
  */
-function findFiles( $dir, $exts ) {
-	if( is_dir( $dir ) ) {
-		if( $dhl = opendir( $dir ) ) {
-			while( ( $file = readdir( $dhl ) ) !== false ) {
-				if( is_file( $dir . '/' . $file ) ) {
-					list( $name, $ext ) = splitFilename( $dir . '/' . $file );
-					if( array_search( strtolower( $ext ), $exts ) !== false )
-						$files[] = $dir . '/' . $file;
-				}
-			}
-			return $files;
-		} else {
-			return false;
-		}
-	} else {
-		return false;
-	}
+function findFiles( $dir, $exts )
+{
+    if ( is_dir( $dir ) ) {
+        if ( $dhl = opendir( $dir ) ) {
+            while ( ( $file = readdir( $dhl ) ) !== false ) {
+                if ( is_file( $dir . '/' . $file ) ) {
+                    list( $name, $ext ) = splitFilename( $dir . '/' . $file );
+                    if( array_search( strtolower( $ext ), $exts ) !== false )
+                        $files[] = $dir . '/' . $file;
+                }
+            }
+
+            return $files;
+        } else {
+            return false;
+        }
+    } else {
+        return false;
+    }
 }
 
 /**
@@ -40,12 +42,14 @@ function findFiles( $dir, $exts ) {
  * @param $filename Filename
  * @return array
  */
-function splitFilename( $filename ) {
-	$parts = explode( '.', $filename );
-	$ext = $parts[ count( $parts ) - 1 ];
-	unset( $parts[ count( $parts ) - 1 ] );
-	$fname = implode( '.', $parts );
-	return array( $fname, $ext );
+function splitFilename( $filename )
+{
+    $parts = explode( '.', $filename );
+    $ext = $parts[ count( $parts ) - 1 ];
+    unset( $parts[ count( $parts ) - 1 ] );
+    $fname = implode( '.', $parts );
+
+    return array( $fname, $ext );
 }
 
 /**
@@ -54,14 +58,12 @@ function splitFilename( $filename ) {
  *
  * @param $hash Part of an image hash, e.g. /f/fd/
  */
-function makeHashPath( $hash ) {
-	global $wgUploadDirectory;
-	$parts = explode( '/', substr( $hash, 1, strlen( $hash ) - 2 ) );
-	if( !is_dir( $wgUploadDirectory . '/' . $parts[0] ) )
-		mkdir( $wgUploadDirectory . '/' . $parts[0] );
-	if( !is_dir( $wgUploadDirectory . '/' . $hash ) )
-		mkdir( $wgUploadDirectory . '/' . $hash );
+function makeHashPath( $hash )
+{
+    global $wgUploadDirectory;
+    $parts = explode( '/', substr( $hash, 1, strlen( $hash ) - 2 ) );
+    if( !is_dir( $wgUploadDirectory . '/' . $parts[0] ) )
+        mkdir( $wgUploadDirectory . '/' . $parts[0] );
+    if( !is_dir( $wgUploadDirectory . '/' . $hash ) )
+        mkdir( $wgUploadDirectory . '/' . $hash );
 }
-
-
-?>

@@ -699,7 +699,7 @@ Això resulta en un promig de \'\'\'$5\'\'\' edicions per pàgina,
 i \'\'\'$6\'\'\' visites per edició.
 
 La mida de la [http://meta.wikimedia.org/wiki/Help:Job_queue cua de treballs] és \'\'\'$7\'\'\'.',
-'userstatstext'         => 'Hi ha \'\'\'$1\'\'\' usuaris registrats, dels quals 
+'userstatstext'         => 'Hi ha \'\'\'$1\'\'\' usuaris registrats, dels quals
 \'\'\'$2\'\'\' (o \'\'\'$4%\'\'\') són administradors (vegeu $3).',
 'disambiguations'       => 'Pàgines de desambiguació',
 'disambiguationspage'   => 'Template:Desambiguació',
@@ -1056,53 +1056,53 @@ L\'article de destí, "[[$1]]", ja existeix. Voleu esborrar-lo per fer lloc per 
 'markedaspatrollederrortext'=> 'Cal que especifiqueu una revisió per a marcar-la com a vigilada.',
 'Monobook.js'           => '/* tooltips and access keys */
  var ta = new Object();
- ta[\'pt-userpage\'] = new Array(\'.\',\'La vostra pàgina d\'usuari.\'); 
- ta[\'pt-anonuserpage\'] = new Array(\'.\',\'La pàgina d\'usuari per la ip que utilitzeu\'); 
- ta[\'pt-mytalk\'] = new Array(\'n\',\'La vostra pàgina de discussió.\'); 
- ta[\'pt-anontalk\'] = new Array(\'n\',\'Discussió sobre les edicions per aquesta adreça ip.\'); 
- ta[\'pt-preferences\'] = new Array(\'\',\'Les vostres preferències.\'); 
- ta[\'pt-watchlist\'] = new Array(\'l\',\'La llista de pàgines de les que estau vigilant els canvis.\'); 
- ta[\'pt-mycontris\'] = new Array(\'y\',\'Llista de les vostres contribucions.\'); 
- ta[\'pt-login\'] = new Array(\'o\',\'Us animem a registrar-vos, però no és obligatori.\'); 
- ta[\'pt-anonlogin\'] = new Array(\'o\',\'Us animem a registrar-vos, però no és obligatori.\'); 
- ta[\'pt-logout\'] = new Array(\'o\',\'Finalitza la sessió d\'usuari\'); 
- ta[\'ca-talk\'] = new Array(\'t\',\'Discussió sobre el contingut d\'aquesta pàgina.\'); 
- ta[\'ca-edit\'] = new Array(\'e\',\'Podeu editar aquesta pàgina. Si us plau, previsualitzeu abans de desar.\'); 
- ta[\'ca-addsection\'] = new Array(\'+\',\'Afegeix un comentari a aquesta discussió.\'); 
- ta[\'ca-viewsource\'] = new Array(\'e\',\'Aquesta pàgina està protegida. Podeu veure el seu codi font.\'); 
- ta[\'ca-history\'] = new Array(\'h\',\'Versions antigues d\'aquesta pàgina.\'); 
- ta[\'ca-protect\'] = new Array(\'=\',\'Protegeix aquesta pàgina.\'); 
- ta[\'ca-delete\'] = new Array(\'d\',\'Esborra aquesta pàgina.\'); 
- ta[\'ca-undelete\'] = new Array(\'d\',\'Restaura les edicions fetes a aquesta pàgina abans de que fos esborrada.\'); 
- ta[\'ca-move\'] = new Array(\'m\',\'Reanomena aquesta pàgina.\'); 
- ta[\'ca-watch\'] = new Array(\'w\',\'Afegiu aquesta pàgina a la vostra llista de seguiment.\'); 
- ta[\'ca-unwatch\'] = new Array(\'w\',\'Llevau aquesta pàgina de la vostra llista de seguiment.\'); 
- ta[\'search\'] = new Array(\'f\',\'Cerca aquesta viqui.\'); 
- ta[\'p-logo\'] = new Array(\'\',\'Pàgina principal\'); 
- ta[\'n-mainpage\'] = new Array(\'z\',\'Visiteu la pàgina principal.\'); 
- ta[\'n-portal\'] = new Array(\'\',\'Sobre el projecte, què podeu fer, on podeu trobar coses.\'); 
- ta[\'n-currentevents\'] = new Array(\'\',\'Per trobar informació general sobre l\'actualitat.\'); 
- ta[\'n-recentchanges\'] = new Array(\'r\',\'La llista de canvis recents a la wiki.\'); 
- ta[\'n-randompage\'] = new Array(\'x\',\'Vés a una pàgina aleatòria.\'); 
- ta[\'n-help\'] = new Array(\'\',\'El lloc per esbrinar.\'); 
- ta[\'n-sitesupport\'] = new Array(\'\',\'Feu-nos una donació.\'); 
- ta[\'t-whatlinkshere\'] = new Array(\'j\',\'Llista de totes les pàgines viqui que enllacen ací.\'); 
- ta[\'t-recentchangeslinked\'] = new Array(\'k\',\'Canvis recents a pàgines que enllacen amb aquesta pàgina.\'); 
- ta[\'feed-rss\'] = new Array(\'\',\'RSS feed for this page\'); 
- ta[\'feed-atom\'] = new Array(\'\',\'Atom feed for this page\'); 
- ta[\'t-contributions\'] = new Array(\'\',\'Vegeu la llista de contribucions d\'aquest usuari.\'); 
- ta[\'t-emailuser\'] = new Array(\'\',\'Envia un correu en aquest usuari.\'); 
- ta[\'t-upload\'] = new Array(\'u\',\'Càrrega d\'imatges o altres fitxers.\'); 
- ta[\'t-specialpages\'] = new Array(\'q\',\'Llista de totes les pàgines especials.\'); 
- ta[\'ca-nstab-main\'] = new Array(\'c\',\'Vegeu el contingut de la pàgina.\'); 
- ta[\'ca-nstab-user\'] = new Array(\'c\',\'Vegeu la pàgina de l\'usuari.\'); 
- ta[\'ca-nstab-media\'] = new Array(\'c\',\'View the media page\'); 
- ta[\'ca-nstab-special\'] = new Array(\'\',\'Aquesta pàgina és una pàgina especial, no podeu editar-la.\'); 
- ta[\'ca-nstab-project\'] = new Array(\'a\',\'View the project page\'); 
- ta[\'ca-nstab-image\'] = new Array(\'c\',\'View the image page\'); 
- ta[\'ca-nstab-mediawiki\'] = new Array(\'c\',\'Vegeu el missatge de sistema.\'); 
- ta[\'ca-nstab-template\'] = new Array(\'c\',\'Vegeu la plantilla.\'); 
- ta[\'ca-nstab-help\'] = new Array(\'c\',\'Vegeu la pàgina d\'ajuda.\'); 
+ ta[\'pt-userpage\'] = new Array(\'.\',\'La vostra pàgina d\'usuari.\');
+ ta[\'pt-anonuserpage\'] = new Array(\'.\',\'La pàgina d\'usuari per la ip que utilitzeu\');
+ ta[\'pt-mytalk\'] = new Array(\'n\',\'La vostra pàgina de discussió.\');
+ ta[\'pt-anontalk\'] = new Array(\'n\',\'Discussió sobre les edicions per aquesta adreça ip.\');
+ ta[\'pt-preferences\'] = new Array(\'\',\'Les vostres preferències.\');
+ ta[\'pt-watchlist\'] = new Array(\'l\',\'La llista de pàgines de les que estau vigilant els canvis.\');
+ ta[\'pt-mycontris\'] = new Array(\'y\',\'Llista de les vostres contribucions.\');
+ ta[\'pt-login\'] = new Array(\'o\',\'Us animem a registrar-vos, però no és obligatori.\');
+ ta[\'pt-anonlogin\'] = new Array(\'o\',\'Us animem a registrar-vos, però no és obligatori.\');
+ ta[\'pt-logout\'] = new Array(\'o\',\'Finalitza la sessió d\'usuari\');
+ ta[\'ca-talk\'] = new Array(\'t\',\'Discussió sobre el contingut d\'aquesta pàgina.\');
+ ta[\'ca-edit\'] = new Array(\'e\',\'Podeu editar aquesta pàgina. Si us plau, previsualitzeu abans de desar.\');
+ ta[\'ca-addsection\'] = new Array(\'+\',\'Afegeix un comentari a aquesta discussió.\');
+ ta[\'ca-viewsource\'] = new Array(\'e\',\'Aquesta pàgina està protegida. Podeu veure el seu codi font.\');
+ ta[\'ca-history\'] = new Array(\'h\',\'Versions antigues d\'aquesta pàgina.\');
+ ta[\'ca-protect\'] = new Array(\'=\',\'Protegeix aquesta pàgina.\');
+ ta[\'ca-delete\'] = new Array(\'d\',\'Esborra aquesta pàgina.\');
+ ta[\'ca-undelete\'] = new Array(\'d\',\'Restaura les edicions fetes a aquesta pàgina abans de que fos esborrada.\');
+ ta[\'ca-move\'] = new Array(\'m\',\'Reanomena aquesta pàgina.\');
+ ta[\'ca-watch\'] = new Array(\'w\',\'Afegiu aquesta pàgina a la vostra llista de seguiment.\');
+ ta[\'ca-unwatch\'] = new Array(\'w\',\'Llevau aquesta pàgina de la vostra llista de seguiment.\');
+ ta[\'search\'] = new Array(\'f\',\'Cerca aquesta viqui.\');
+ ta[\'p-logo\'] = new Array(\'\',\'Pàgina principal\');
+ ta[\'n-mainpage\'] = new Array(\'z\',\'Visiteu la pàgina principal.\');
+ ta[\'n-portal\'] = new Array(\'\',\'Sobre el projecte, què podeu fer, on podeu trobar coses.\');
+ ta[\'n-currentevents\'] = new Array(\'\',\'Per trobar informació general sobre l\'actualitat.\');
+ ta[\'n-recentchanges\'] = new Array(\'r\',\'La llista de canvis recents a la wiki.\');
+ ta[\'n-randompage\'] = new Array(\'x\',\'Vés a una pàgina aleatòria.\');
+ ta[\'n-help\'] = new Array(\'\',\'El lloc per esbrinar.\');
+ ta[\'n-sitesupport\'] = new Array(\'\',\'Feu-nos una donació.\');
+ ta[\'t-whatlinkshere\'] = new Array(\'j\',\'Llista de totes les pàgines viqui que enllacen ací.\');
+ ta[\'t-recentchangeslinked\'] = new Array(\'k\',\'Canvis recents a pàgines que enllacen amb aquesta pàgina.\');
+ ta[\'feed-rss\'] = new Array(\'\',\'RSS feed for this page\');
+ ta[\'feed-atom\'] = new Array(\'\',\'Atom feed for this page\');
+ ta[\'t-contributions\'] = new Array(\'\',\'Vegeu la llista de contribucions d\'aquest usuari.\');
+ ta[\'t-emailuser\'] = new Array(\'\',\'Envia un correu en aquest usuari.\');
+ ta[\'t-upload\'] = new Array(\'u\',\'Càrrega d\'imatges o altres fitxers.\');
+ ta[\'t-specialpages\'] = new Array(\'q\',\'Llista de totes les pàgines especials.\');
+ ta[\'ca-nstab-main\'] = new Array(\'c\',\'Vegeu el contingut de la pàgina.\');
+ ta[\'ca-nstab-user\'] = new Array(\'c\',\'Vegeu la pàgina de l\'usuari.\');
+ ta[\'ca-nstab-media\'] = new Array(\'c\',\'View the media page\');
+ ta[\'ca-nstab-special\'] = new Array(\'\',\'Aquesta pàgina és una pàgina especial, no podeu editar-la.\');
+ ta[\'ca-nstab-project\'] = new Array(\'a\',\'View the project page\');
+ ta[\'ca-nstab-image\'] = new Array(\'c\',\'View the image page\');
+ ta[\'ca-nstab-mediawiki\'] = new Array(\'c\',\'Vegeu el missatge de sistema.\');
+ ta[\'ca-nstab-template\'] = new Array(\'c\',\'Vegeu la plantilla.\');
+ ta[\'ca-nstab-help\'] = new Array(\'c\',\'Vegeu la pàgina d\'ajuda.\');
  ta[\'ca-nstab-category\'] = new Array(\'c\',\'Vegeu la pàgina de la categoria.\');',
 'previousdiff'          => '← Ves a la diferència prèvia',
 'nextdiff'              => 'Vés a la pròxima diferència →',
@@ -1202,4 +1202,3 @@ $1',
 'displaytitle'          => '(Enllaça a aquesta pàgina com [[$1]])',
 'loginlanguagelabel'    => 'Llengua: $1',
 );
-?>

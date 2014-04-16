@@ -171,7 +171,7 @@ $wgAllMessagesNl = array(
 'sysoptitle'            => 'Beheerdersrechten vereist',
 'sysoptext'             => 'De gevraagde handeling kan alleen uitgevoerd worden door beheerders. Zie $1.',
 'developertitle'        => 'Ontwikkelaarsrechten vereist',
-'developertext'         => 'De handeling die u wilt uitvoeren is alleen beschikbaar 
+'developertext'         => 'De handeling die u wilt uitvoeren is alleen beschikbaar
 voor gebruikers met de rol "ontwikkelaar".
 Zie $1.',
 'badaccess'             => 'Geen toestemming',
@@ -435,7 +435,7 @@ Probeer het opnieuw. Als het dan nog niet lukt, meldt u dan af en weer aan.</str
 'explainconflict'       => 'Een andere gebruiker heeft deze pagina bewerkt sinds u met uw bewerking bent begonnen.
 In het bovenste deel van het venster staat de tekst van de huidige pagina.
 Uw bewerking staat nog in het onderste gedeelte.
-U dient uw bewerkingen in te voegen in de bestaande tekst. 
+U dient uw bewerkingen in te voegen in de bestaande tekst.
 <b>Alleen</b> de tekst in het bovenste gedeelte wordt opgeslagen als u op "Pagina opslaan" klikt.<br />',
 'yourtext'              => 'Uw tekst',
 'storedversion'         => 'Opgeslagen versie',
@@ -740,7 +740,7 @@ Een afbeelding kunt u als volgt toevoegen: <tt><nowiki>[[Image:$1|thumb|Beschrij
 'sitestats'             => 'Statistieken betreffende {{SITENAME}} NL',
 'userstats'             => 'Gebruikerstatistieken',
 'sitestatstext'         => 'In de database staan \'\'\'$1\'\'\' pagina\'s, inclusief overlegpagina\'s, pagina\'s over {{SITENAME}}, beginnetjes, doorverwijzingen en andere pagina\'s die waarschijnlijk geen content zijn.
-Er zijn waarschijnlijk \'\'\'$2\'\'\' pagina\'s met echte content. 
+Er zijn waarschijnlijk \'\'\'$2\'\'\' pagina\'s met echte content.
 
 Er zijn \'\'\'$8\'\'\' bestanden toegevoegd.
 
@@ -931,7 +931,7 @@ Feedback en andere assistentie:
 'rollbacklink'          => 'terugdraaien',
 'rollbackfailed'        => 'Ongedaan maken van wijzigingen mislukt.',
 'cantrollback'          => 'Ongedaan maken van wijzigingen onmogelijk: deze pagina heeft slechts 1 auteur.',
-'alreadyrolled'         => 'Het is niet mogelijk om de bewerking van de pagina [[$1]] door [[User:$2|$2]] ([[User talk:$2|overleg]]) ongedaan te maken. Iemand anders heeft deze pagina al bewerkt of hersteld naar een eerdere versie. 
+'alreadyrolled'         => 'Het is niet mogelijk om de bewerking van de pagina [[$1]] door [[User:$2|$2]] ([[User talk:$2|overleg]]) ongedaan te maken. Iemand anders heeft deze pagina al bewerkt of hersteld naar een eerdere versie.
 
 De meest recente bewerking is gemaakt door [[User:$3|$3]] ([[User talk:$3|overleg]]).',
 'editcomment'           => 'Bewerkingssamenvatting: "<i>$1</i>".',
@@ -1115,7 +1115,7 @@ Kies a.u.b. een andere paginanaam.',
 'movereason'            => 'Reden',
 'revertmove'            => 'Terugdraaien',
 'delete_and_move'       => 'Verwijderen en hernoemen',
-'delete_and_move_text'  => '==Verwijdering nodig== 
+'delete_and_move_text'  => '==Verwijdering nodig==
 Onder de naam "[[$1]]" bestaat al een pagina. Wilt u het verwijderen om plaats te maken voor de te hernoemen pagina?',
 'delete_and_move_confirm'=> 'Ja, verwijder de pagina',
 'delete_and_move_reason'=> 'Verwijderd in verband met hernoeming',
@@ -1128,7 +1128,7 @@ Geef in het onderstaande veld de namen van de te exporteren pagina\'s op, één 
 
 In het laatste geval kunt u ook een link gebruiken, bijvoorbeeld [[Special:Export/{{Mediawiki:Mainpage}}]] voor de pagina {{Mediawiki:Mainpage}}.',
 'exportcuronly'         => 'Alleen de actuele versie, niet de voorgeschiedenis',
-'exportnohistory'       => '---- 
+'exportnohistory'       => '----
 \'\'\'NB:\'\'\' het exporteren van de gehele geschiedenis is uitgeschakeld wegens prestatieredenen.',
 'export-submit'         => 'Exporteer',
 'allmessages'           => 'Systeemteksten',
@@ -1560,4 +1560,3 @@ $1',
 'displaytitle'          => '(Link naar deze pagina als [[$1]])',
 'loginlanguagelabel'    => 'Taal: $1',
 );
-?>

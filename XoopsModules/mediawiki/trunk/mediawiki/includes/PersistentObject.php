@@ -42,9 +42,10 @@
 
 $wgPersistentObjects = array();
 
-class PersistentObject {
-	function PersistentObject( &$obj ) {
-		$wgPersistentObjects[] = $obj;
-	}
+class PersistentObject
+{
+    function PersistentObject( &$obj )
+    {
+        $wgPersistentObjects[] = $obj;
+    }
 }
-?>

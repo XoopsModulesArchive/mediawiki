@@ -5,7 +5,7 @@
 // ------------------------------------------------------------------------- //
 define( "MEDIAWIKI", true );
 define( "MEDIAWIKI_INSTALL", true );
-include "admin_header.php";
+include 'admin_header.php';
 
 xoops_cp_header();
 
@@ -37,37 +37,36 @@ $IP = dirname( dirname( __FILE__ ) );
 define( 'MW_INSTALL_PATH', $IP );
 //$sep = PATH_SEPARATOR;
 $sep = strtoupper(substr(PHP_OS,0,3)=='WIN')?';':':';
-if( !@ini_set( "include_path", ".$sep$IP$sep$IP/includes$sep$IP/languages" ) ) {
-	set_include_path( ".$sep$IP$sep$IP/includes$sep$IP/languages" );
+if ( !@ini_set( "include_path", ".$sep$IP$sep$IP/includes$sep$IP/languages" ) ) {
+    set_include_path( ".$sep$IP$sep$IP/includes$sep$IP/languages" );
 }
 
 
 // Run version checks before including other files
 // so people don't see a scary parse error.
-require_once( "install-utils.inc" );
+require_once 'install-utils.inc';
 install_version_checks();
 
-require_once( "includes/Defines.php" );
-require_once( "LocalSettings.php" );
+require_once 'includes/Defines.php';
+require_once 'LocalSettings.php';
 //require_once( "includes/DefaultSettings.php" );
-require_once( "includes/MagicWord.php" );
-require_once( "includes/Namespace.php" );
+require_once 'includes/MagicWord.php';
+require_once 'includes/Namespace.php';
 
-require_once( "maintenance/updaters.inc" );
-header("location: ".XOOPS_URL."/modules/system/admin.php?fct=modulesadmin");	
+require_once 'maintenance/updaters.inc';
+header("location: ".XOOPS_URL."/modules/system/admin.php?fct=modulesadmin");
 
-	chdir( ".." );
-	$wgCommandLineMode = true;
-	$wgUseDatabaseMessages = false;	/* FIXME: For database failure */
-	require_once( "includes/Setup.php" );
-	chdir( "admin" );
+    chdir( ".." );
+    $wgCommandLineMode = true;
+    $wgUseDatabaseMessages = false;	/* FIXME: For database failure */
+    require_once 'includes/Setup.php';
+    chdir( "admin" );
 
-	$wgDatabase = mwDatabase::newFromParams( $wgDBserver, $wgDBuser, $wgDBpassword, "", 1 );
+    $wgDatabase = mwDatabase::newFromParams( $wgDBserver, $wgDBuser, $wgDBpassword, "", 1 );
 
-	chdir( ".." );
-	flush();
-	do_all_updates();
-	chdir( "admin" );
+    chdir( ".." );
+    flush();
+    do_all_updates();
+    chdir( "admin" );
 
 xoops_cp_footer();
-?>

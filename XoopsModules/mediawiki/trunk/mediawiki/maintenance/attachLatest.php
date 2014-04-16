@@ -25,7 +25,7 @@
  * @subpackage Maintenance
  */
 
-require_once( 'commandLine.inc' );
+require_once 'commandLine.inc';
 
 $fixit = isset( $options['fix'] );
 $fname = 'attachLatest';
@@ -33,41 +33,39 @@ $fname = 'attachLatest';
 echo "Looking for pages with page_latest set to 0...\n";
 $dbw =& wfGetDB( DB_MASTER );
 $result = $dbw->select( 'page',
-	array( 'page_id', 'page_namespace', 'page_title' ),
-	array( 'page_latest' => 0 ),
-	$fname );
+    array( 'page_id', 'page_namespace', 'page_title' ),
+    array( 'page_latest' => 0 ),
+    $fname );
 
 $n = 0;
-while( $row = $dbw->fetchObject( $result ) ) {
-	$pageId = intval( $row->page_id );
-	$title = Title::makeTitle( $row->page_namespace, $row->page_title );
-	$name = $title->getPrefixedText();
-	$latestTime = $dbw->selectField( 'revision',
-		'MAX(rev_timestamp)',
-		array( 'rev_page' => $pageId ),
-		$fname );
-	if( !$latestTime ) {
-		echo "$wgDBname $pageId [[$name]] can't find latest rev time?!\n";
-		continue;
-	}
+while ( $row = $dbw->fetchObject( $result ) ) {
+    $pageId = intval( $row->page_id );
+    $title = Title::makeTitle( $row->page_namespace, $row->page_title );
+    $name = $title->getPrefixedText();
+    $latestTime = $dbw->selectField( 'revision',
+        'MAX(rev_timestamp)',
+        array( 'rev_page' => $pageId ),
+        $fname );
+    if (!$latestTime) {
+        echo "$wgDBname $pageId [[$name]] can't find latest rev time?!\n";
+        continue;
+    }
 
-	$revision = Revision::loadFromTimestamp( $dbw, $title, $latestTime );
-	if( is_null( $revision ) ) {
-		echo "$wgDBname $pageId [[$name]] latest time $latestTime, can't find revision id\n";
-		continue;
-	}
-	$id = $revision->getId();
-	echo "$wgDBname $pageId [[$name]] latest time $latestTime, rev id $id\n";
-	if( $fixit ) {
-		$article = new Article( $title );
-		$article->updateRevisionOn( $dbw, $revision );
-	}
-	$n++;
+    $revision = Revision::loadFromTimestamp( $dbw, $title, $latestTime );
+    if ( is_null( $revision ) ) {
+        echo "$wgDBname $pageId [[$name]] latest time $latestTime, can't find revision id\n";
+        continue;
+    }
+    $id = $revision->getId();
+    echo "$wgDBname $pageId [[$name]] latest time $latestTime, rev id $id\n";
+    if ($fixit) {
+        $article = new Article( $title );
+        $article->updateRevisionOn( $dbw, $revision );
+    }
+    $n++;
 }
 $dbw->freeResult( $result );
 echo "Done! Processed $n pages.\n";
-if( !$fixit ) {
-	echo "This was a dry run; rerun with --fix to update page_latest.\n";
+if (!$fixit) {
+    echo "This was a dry run; rerun with --fix to update page_latest.\n";
 }
-
-?>

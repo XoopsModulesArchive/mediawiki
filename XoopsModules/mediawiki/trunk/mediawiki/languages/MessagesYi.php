@@ -362,45 +362,47 @@ ta["ca-nstab-template"]     = ["c", "צפו בתבנית"];
 ta["ca-nstab-help"]         = ["c", "באזוכט די הילף בלעטער"];
 ta["ca-nstab-category"]     = ["c", "באזוכט די קאטעגאריע בלעטער"];
 
-function bidiSwitchSetup() {
-	var editform = document.getElementById("wpTextbox1");
-	if (editform == null) {
-		return;
-	}
-	
-	bidiAddButton(editform, "Default", function(style) {
-		style.direction = "inherit";
-		style.unicodeBidi = "inherit";
-	});
-	bidiAddButton(editform, "dir=ltr", function(style) {
-		style.direction = "ltr";
-	});
-	bidiAddButton(editform, "dir=rtl", function(style) {
-		style.direction = "rtl";
-	});
-	bidiAddButton(editform, "bidi=normal", function(style) {
-		style.unicodeBidi = "normal";
-	});
-	bidiAddButton(editform, "bidi=override", function(style) {
-		style.unicodeBidi = "bidi-override";
-	});
+function bidiSwitchSetup()
+{
+    var editform = document.getElementById("wpTextbox1");
+    if (editform == null) {
+        return;
+    }
+
+    bidiAddButton(editform, "Default", function(style) {
+        style.direction = "inherit";
+        style.unicodeBidi = "inherit";
+    });
+    bidiAddButton(editform, "dir=ltr", function(style) {
+        style.direction = "ltr";
+    });
+    bidiAddButton(editform, "dir=rtl", function(style) {
+        style.direction = "rtl";
+    });
+    bidiAddButton(editform, "bidi=normal", function(style) {
+        style.unicodeBidi = "normal";
+    });
+    bidiAddButton(editform, "bidi=override", function(style) {
+        style.unicodeBidi = "bidi-override";
+    });
 }
 
-function bidiAddButton(before, label, action) {
-	var button = document.createElement("input");
-	button.type = "button";
-	button.value = label;
-	button.onclick = function(event) {
-		var box = document.getElementById("wpTextbox1");
-		if (box == null) {
-			alert("Broken! Edit box missing.");
-		} else {
-			//var style = document.getOverrideStyle(box, null);
-			var style = box.style;
-			action(style);
-		}
-	}
-	before.parentNode.insertBefore(button, before);
+function bidiAddButton(before, label, action)
+{
+    var button = document.createElement("input");
+    button.type = "button";
+    button.value = label;
+    button.onclick = function(event) {
+        var box = document.getElementById("wpTextbox1");
+        if (box == null) {
+            alert("Broken! Edit box missing.");
+        } else {
+            //var style = document.getOverrideStyle(box, null);
+            var style = box.style;
+            action(style);
+        }
+    }
+    before.parentNode.insertBefore(button, before);
 }
 
 hookEvent(\'load\', bidiSwitchSetup);
@@ -420,4 +422,3 @@ hookEvent(\'load\', bidiSwitchSetup);
 'confirm_purge'         => '<span dir="ltr">Clear the cache of this page?</span> $1',
 'confirm_purge_button'  => 'יאָ',
 );
-?>

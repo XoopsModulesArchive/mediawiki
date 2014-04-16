@@ -19,45 +19,42 @@
 $wgForceLoadBalancing = (getenv('MW_BALANCE') ? true : false);
 $wgUseNormalUser = (getenv('MW_WIKIUSER') ? true : false);
 if (getenv('MW_PROFILING')) {
-	define('MW_CMDLINE_CALLBACK', 'wfSetProfiling');
+    define('MW_CMDLINE_CALLBACK', 'wfSetProfiling');
 }
 function wfSetProfiling() { $GLOBALS['wgProfiling'] = true; }
 
 $optionsWithArgs = array( 'd' );
 
 /** */
-require_once( "commandLine.inc" );
+require_once 'commandLine.inc';
 
 if ( isset( $options['d'] ) ) {
-	$d = $options['d'];
-	if ( $d > 0 ) {
-		$wgDebugLogFile = '/dev/stdout';
-	}
-	if ( $d > 1 ) {
-		foreach ( $wgLoadBalancer->mServers as $i => $server ) {
-			$wgLoadBalancer->mServers[$i]['flags'] |= DBO_DEBUG;
-		}
-	}
-	if ( $d > 2 ) {
-		$wgDebugFunctionEntry = true;
-	}
+    $d = $options['d'];
+    if ($d > 0) {
+        $wgDebugLogFile = '/dev/stdout';
+    }
+    if ($d > 1) {
+        foreach ($wgLoadBalancer->mServers as $i => $server) {
+            $wgLoadBalancer->mServers[$i]['flags'] |= DBO_DEBUG;
+        }
+    }
+    if ($d > 2) {
+        $wgDebugFunctionEntry = true;
+    }
 }
 
-
 while ( ( $line = readconsole( '> ' ) ) !== false ) {
-	$val = eval( $line . ";" );
-	if( is_null( $val ) ) {
-		echo "\n";
-	} elseif( is_string( $val ) || is_numeric( $val ) ) {
-		echo "$val\n";
-	} else {
-		var_dump( $val );
-	}
-	if ( function_exists( "readline_add_history" ) ) {
-		readline_add_history( $line );
-	}
+    $val = eval( $line . ";" );
+    if ( is_null( $val ) ) {
+        echo "\n";
+    } elseif ( is_string( $val ) || is_numeric( $val ) ) {
+        echo "$val\n";
+    } else {
+        var_dump( $val );
+    }
+    if ( function_exists( "readline_add_history" ) ) {
+        readline_add_history( $line );
+    }
 }
 
 print "\n";
-
-?>

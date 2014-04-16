@@ -5,6 +5,5 @@
 // changed on a subsequent page view.
 // see http://mail.wikipedia.org/pipermail/wikitech-l/2006-January/033660.html
 
-require_once( "LanguageSr_ec.php" );
-require_once( "LanguageConverter.php" );
-?>
+require_once 'LanguageSr_ec.php';
+require_once 'LanguageConverter.php';

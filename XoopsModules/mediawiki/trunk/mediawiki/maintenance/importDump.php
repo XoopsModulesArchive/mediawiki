@@ -24,118 +24,129 @@
 
 $optionsWithArgs = array( 'report' );
 
-require_once( 'commandLine.inc' );
-require_once( 'SpecialImport.php' );
+require_once 'commandLine.inc';
+require_once 'SpecialImport.php';
 
-class BackupReader {
-	var $reportingInterval = 100;
-	var $reporting = true;
-	var $pageCount = 0;
-	var $revCount  = 0;
-	var $dryRun    = false;
+class BackupReader
+{
+    var $reportingInterval = 100;
+    var $reporting = true;
+    var $pageCount = 0;
+    var $revCount  = 0;
+    var $dryRun    = false;
 
-	function BackupReader() {
-		$this->stderr = fopen( "php://stderr", "wt" );
-	}
+    function BackupReader()
+    {
+        $this->stderr = fopen( "php://stderr", "wt" );
+    }
 
-	function reportPage( $page ) {
-		$this->pageCount++;
-	}
+    function reportPage( $page )
+    {
+        $this->pageCount++;
+    }
 
-	function handleRevision( $rev ) {
-		$title = $rev->getTitle();
-		if (!$title) {
-			$this->progress( "Got bogus revision with null title!" );
-			return;
-		}
-		$display = $title->getPrefixedText();
-		$timestamp = $rev->getTimestamp();
-		#echo "$display $timestamp\n";
+    function handleRevision( $rev )
+    {
+        $title = $rev->getTitle();
+        if (!$title) {
+            $this->progress( "Got bogus revision with null title!" );
 
-		$this->revCount++;
-		$this->report();
+            return;
+        }
+        $display = $title->getPrefixedText();
+        $timestamp = $rev->getTimestamp();
+        #echo "$display $timestamp\n";
 
-		if( !$this->dryRun ) {
-			call_user_func( $this->importCallback, $rev );
-		}
-	}
+        $this->revCount++;
+        $this->report();
 
-	function report( $final = false ) {
-		if( $final xor ( $this->pageCount % $this->reportingInterval == 0 ) ) {
-			$this->showReport();
-		}
-	}
+        if (!$this->dryRun) {
+            call_user_func( $this->importCallback, $rev );
+        }
+    }
 
-	function showReport() {
-		if( $this->reporting ) {
-			$delta = wfTime() - $this->startTime;
-			if( $delta ) {
-				$rate = $this->pageCount / $delta;
-				$revrate = $this->revCount / $delta;
-			} else {
-				$rate = '-';
-				$revrate = '-';
-			}
-			$this->progress( "$this->pageCount ($rate pages/sec $revrate revs/sec)" );
-		}
-	}
+    function report( $final = false )
+    {
+        if ( $final xor ( $this->pageCount % $this->reportingInterval == 0 ) ) {
+            $this->showReport();
+        }
+    }
 
-	function progress( $string ) {
-		fwrite( $this->stderr, $string . "\n" );
-	}
+    function showReport()
+    {
+        if ($this->reporting) {
+            $delta = wfTime() - $this->startTime;
+            if ($delta) {
+                $rate = $this->pageCount / $delta;
+                $revrate = $this->revCount / $delta;
+            } else {
+                $rate = '-';
+                $revrate = '-';
+            }
+            $this->progress( "$this->pageCount ($rate pages/sec $revrate revs/sec)" );
+        }
+    }
 
-	function importFromFile( $filename ) {
-		if( preg_match( '/\.gz$/', $filename ) ) {
-			$filename = 'compress.zlib://' . $filename;
-		}
-		$file = fopen( $filename, 'rt' );
-		return $this->importFromHandle( $file );
-	}
+    function progress( $string )
+    {
+        fwrite( $this->stderr, $string . "\n" );
+    }
 
-	function importFromStdin() {
-		$file = fopen( 'php://stdin', 'rt' );
-		return $this->importFromHandle( $file );
-	}
+    function importFromFile( $filename )
+    {
+        if ( preg_match( '/\.gz$/', $filename ) ) {
+            $filename = 'compress.zlib://' . $filename;
+        }
+        $file = fopen( $filename, 'rt' );
 
-	function importFromHandle( $handle ) {
-		$this->startTime = wfTime();
+        return $this->importFromHandle( $file );
+    }
 
-		$source = new ImportStreamSource( $handle );
-		$importer = new WikiImporter( $source );
+    function importFromStdin()
+    {
+        $file = fopen( 'php://stdin', 'rt' );
 
-		$importer->setPageCallback( array( &$this, 'reportPage' ) );
-		$this->importCallback =  $importer->setRevisionCallback(
-			array( &$this, 'handleRevision' ) );
+        return $this->importFromHandle( $file );
+    }
 
-		return $importer->doImport();
-	}
+    function importFromHandle( $handle )
+    {
+        $this->startTime = wfTime();
+
+        $source = new ImportStreamSource( $handle );
+        $importer = new WikiImporter( $source );
+
+        $importer->setPageCallback( array( &$this, 'reportPage' ) );
+        $this->importCallback =  $importer->setRevisionCallback(
+            array( &$this, 'handleRevision' ) );
+
+        return $importer->doImport();
+    }
 }
 
-if( wfReadOnly() ) {
-	wfDie( "Wiki is in read-only mode; you'll need to disable it for import to work.\n" );
+if ( wfReadOnly() ) {
+    wfDie( "Wiki is in read-only mode; you'll need to disable it for import to work.\n" );
 }
 
 $reader = new BackupReader();
-if( isset( $options['quiet'] ) ) {
-	$reader->reporting = false;
+if ( isset( $options['quiet'] ) ) {
+    $reader->reporting = false;
 }
-if( isset( $options['report'] ) ) {
-	$reader->reportingInterval = intval( $options['report'] );
+if ( isset( $options['report'] ) ) {
+    $reader->reportingInterval = intval( $options['report'] );
 }
-if( isset( $options['dry-run'] ) ) {
-	$reader->dryRun = true;
+if ( isset( $options['dry-run'] ) ) {
+    $reader->dryRun = true;
 }
 
-if( isset( $args[0] ) ) {
-	$result = $reader->importFromFile( $args[0] );
+if ( isset( $args[0] ) ) {
+    $result = $reader->importFromFile( $args[0] );
 } else {
-	$result = $reader->importFromStdin();
+    $result = $reader->importFromStdin();
 }
 
-if( WikiError::isError( $result ) ) {
-	echo $result->getMessage() . "\n";
+if ( WikiError::isError( $result ) ) {
+    echo $result->getMessage() . "\n";
 } else {
-	echo "Done!\n";
+    echo "Done!\n";
 }
-
-?>

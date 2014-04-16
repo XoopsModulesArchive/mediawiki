@@ -270,7 +270,7 @@ Bitte ignorier diä E-Mail, wenn du s nit selber ongfordert hesch. S alt Passwor
 'noemail'               => 'Dr Benutzer "$1" het kei E-Mail-Adress ongebe.',
 'passwordsent'          => 'Ä zytwilligs Passwort isch on d E-Mail-Adress vum Benutzer "$1" gschickt worre.
 Bitte meld dich domit ô, wenns bekumme hesch.',
-'eauthentsent'          => 'Es Bestätigungs-Mail isch a die Adrässe gschickt worde, wo du hesch aaggä. 
+'eauthentsent'          => 'Es Bestätigungs-Mail isch a die Adrässe gschickt worde, wo du hesch aaggä.
 
 Bevor das wyteri Mails yber d {{SITENAME}}-Mailfunktion a die Adrässe gschickt wärde, muesch du d Instruktionen i däm Mail befolge, für z bestätige, das es würklech dys isch.',
 'mailerror'             => 'Fähler bim Sende vun de Mail: $1',
@@ -796,4 +796,3 @@ $1
 </div>',
 'youhavenewmessagesmulti'=> 'Si hen neui Nochrichte: $1',
 );
-?>

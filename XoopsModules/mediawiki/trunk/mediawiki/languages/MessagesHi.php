@@ -1,6 +1,5 @@
 <?php
 
-
 /* private */ $wgAllMessagesHi = array(
 
 # Dates
@@ -97,6 +96,3 @@ Don't forget to personalize your {{SITENAME}} preferences.",
 
 ## ....... more messages .....
 );
-
-
-?>

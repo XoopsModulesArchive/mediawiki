@@ -27,69 +27,74 @@
   * @subpackage Language
   */
 
-require_once( 'LanguageUtf8.php' );
+require_once 'LanguageUtf8.php';
 
 if (!$wgCachedMessageArrays) {
-	require_once('MessagesEl.php');
+    require_once 'MessagesEl.php';
 }
 
-class LanguageEl extends LanguageUtf8 {
-	private $mMessagesEl, $mNamespaceNamesEl = null;
-	
-	function __construct() {
-		parent::__construct();
+class LanguageEl extends LanguageUtf8
+{
+    private $mMessagesEl, $mNamespaceNamesEl = null;
 
-		global $wgAllMessagesEl;
-		$this->mMessagesEl =& $wgAllMessagesEl;
+    function __construct()
+    {
+        parent::__construct();
 
-		global $wgMetaNamespace;
-		$this->mNamespaceNamesEl = array(
-			NS_MEDIA            => 'Μέσον',
-			NS_SPECIAL          => 'Ειδικό',
-			NS_MAIN	            => '',
-			NS_TALK	            => 'Συζήτηση',
-			NS_USER             => 'Χρήστης',
-			NS_USER_TALK        => 'Συζήτηση_χρήστη',
-			NS_PROJECT          => $wgMetaNamespace,
-			NS_PROJECT_TALK     => $wgMetaNamespace . '_συζήτηση',
-			NS_IMAGE            => 'Εικόνα',
-			NS_IMAGE_TALK       => 'Συζήτηση_εικόνας',
-			NS_MEDIAWIKI        => 'MediaWiki',
-			NS_MEDIAWIKI_TALK   => 'MediaWiki_talk',
-			NS_TEMPLATE         => 'Πρότυπο',
-			NS_TEMPLATE_TALK    => 'Συζήτηση_προτύπου',
-			NS_HELP             => 'Βοήθεια',
-			NS_HELP_TALK        => 'Συζήτηση_βοήθειας',
-			NS_CATEGORY         => 'Κατηγορία',
-			NS_CATEGORY_TALK    => 'Συζήτηση_κατηγορίας',
-		);
+        global $wgAllMessagesEl;
+        $this->mMessagesEl =& $wgAllMessagesEl;
 
-	}
+        global $wgMetaNamespace;
+        $this->mNamespaceNamesEl = array(
+            NS_MEDIA            => 'Μέσον',
+            NS_SPECIAL          => 'Ειδικό',
+            NS_MAIN	            => '',
+            NS_TALK	            => 'Συζήτηση',
+            NS_USER             => 'Χρήστης',
+            NS_USER_TALK        => 'Συζήτηση_χρήστη',
+            NS_PROJECT          => $wgMetaNamespace,
+            NS_PROJECT_TALK     => $wgMetaNamespace . '_συζήτηση',
+            NS_IMAGE            => 'Εικόνα',
+            NS_IMAGE_TALK       => 'Συζήτηση_εικόνας',
+            NS_MEDIAWIKI        => 'MediaWiki',
+            NS_MEDIAWIKI_TALK   => 'MediaWiki_talk',
+            NS_TEMPLATE         => 'Πρότυπο',
+            NS_TEMPLATE_TALK    => 'Συζήτηση_προτύπου',
+            NS_HELP             => 'Βοήθεια',
+            NS_HELP_TALK        => 'Συζήτηση_βοήθειας',
+            NS_CATEGORY         => 'Κατηγορία',
+            NS_CATEGORY_TALK    => 'Συζήτηση_κατηγορίας',
+        );
 
-	function getNamespaces() {
-		return $this->mNamespaceNamesEl + parent::getNamespaces();
-	}
+    }
 
-	function getMessage( $key ) {
-		if( isset( $this->mMessagesEl[$key] ) ) {
-			return $this->mMessagesEl[$key];
-		} else {
-			return parent::getMessage( $key );
-		}
-	}
+    function getNamespaces()
+    {
+        return $this->mNamespaceNamesEl + parent::getNamespaces();
+    }
 
-	function getAllMessages() {
-		return $this->mMessagesEl;
-	}
+    function getMessage( $key )
+    {
+        if ( isset( $this->mMessagesEl[$key] ) ) {
+            return $this->mMessagesEl[$key];
+        } else {
+            return parent::getMessage( $key );
+        }
+    }
 
-	function fallback8bitEncoding() {
-		return 'iso-8859-7';
-	}
+    function getAllMessages()
+    {
+        return $this->mMessagesEl;
+    }
 
-	function separatorTransformTable() {
-		return array(',' => '.', '.' => ',' );
-	}
+    function fallback8bitEncoding()
+    {
+        return 'iso-8859-7';
+    }
+
+    function separatorTransformTable()
+    {
+        return array(',' => '.', '.' => ',' );
+    }
 
 }
-
-?>

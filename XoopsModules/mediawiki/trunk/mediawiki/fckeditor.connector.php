@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * FCKeditor adapter for XOOPS
  *
@@ -15,4 +15,3 @@ include_once $mainfile;
 
 define("XOOPS_FCK_FOLDER", $xoopsModule->getVar("dirname"));
 include XOOPS_ROOT_PATH."/class/xoopseditor/FCKeditor/editor/filemanager/browser/default/connectors/php/connector.php";
-?>

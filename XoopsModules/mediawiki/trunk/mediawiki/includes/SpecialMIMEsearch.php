@@ -14,142 +14,150 @@
  * @package MediaWiki
  * @subpackage SpecialPage
  */
-class MIMEsearchPage extends QueryPage {
-	var $major, $minor;
+class MIMEsearchPage extends QueryPage
+{
+    var $major, $minor;
 
-	function MIMEsearchPage( $major, $minor ) {
-		$this->major = $major;
-		$this->minor = $minor;
-	}
+    function MIMEsearchPage( $major, $minor )
+    {
+        $this->major = $major;
+        $this->minor = $minor;
+    }
 
-	function getName() { return 'MIMEsearch'; }
+    function getName() { return 'MIMEsearch'; }
 
-	/**
-	 * Due to this page relying upon extra fields being passed in the SELECT it
-	 * will fail if it's set as expensive and misermode is on
-	 */
-	function isExpensive() { return true; }
-	function isSyndicated() { return false; }
+    /**
+     * Due to this page relying upon extra fields being passed in the SELECT it
+     * will fail if it's set as expensive and misermode is on
+     */
+    function isExpensive() { return true; }
+    function isSyndicated() { return false; }
 
-	function linkParameters() {
-		$arr = array( $this->major, $this->minor );
-		$mime = implode( '/', $arr );
-		return array( 'mime' => $mime );
-	}
+    function linkParameters()
+    {
+        $arr = array( $this->major, $this->minor );
+        $mime = implode( '/', $arr );
 
-	function getSQL() {
-		$dbr =& wfGetDB( DB_SLAVE );
-		$image = $dbr->tableName( 'image' );
-		$major = $dbr->addQuotes( $this->major );
-		$minor = $dbr->addQuotes( $this->minor );
+        return array( 'mime' => $mime );
+    }
 
-		return
-			"SELECT 'MIMEsearch' AS type,
-				" . NS_IMAGE . " AS namespace,
-				img_name AS title,
-				img_major_mime AS value,
+    function getSQL()
+    {
+        $dbr =& wfGetDB( DB_SLAVE );
+        $image = $dbr->tableName( 'image' );
+        $major = $dbr->addQuotes( $this->major );
+        $minor = $dbr->addQuotes( $this->minor );
 
-				img_size,
-				img_width,
-				img_height,
-				img_user_text,
-				img_timestamp
-			FROM $image
-			WHERE img_major_mime = $major AND img_minor_mime = $minor
-			";
-	}
+        return
+            "SELECT 'MIMEsearch' AS type,
+                " . NS_IMAGE . " AS namespace,
+                img_name AS title,
+                img_major_mime AS value,
 
-	function formatResult( $skin, $result ) {
-		global $wgContLang, $wgLang;
+                img_size,
+                img_width,
+                img_height,
+                img_user_text,
+                img_timestamp
+            FROM $image
+            WHERE img_major_mime = $major AND img_minor_mime = $minor
+            ";
+    }
 
-		$nt = Title::makeTitle( $result->namespace, $result->title );
-		$text = $wgContLang->convert( $nt->getText() );
-		$plink = $skin->makeLink( $nt->getPrefixedText(), $text );
+    function formatResult( $skin, $result )
+    {
+        global $wgContLang, $wgLang;
 
-		$download = $skin->makeMediaLink( $nt->getText(), 'fuck me!', wfMsgHtml( 'download' ) );
-		$bytes = wfMsgExt( 'nbytes', array( 'parsemag', 'escape'),
-			$wgLang->formatNum( $result->img_size ) );
-		$dimensions = wfMsg( 'widthheight', $wgLang->formatNum( $result->img_width ),
-			$wgLang->formatNum( $result->img_height ) );
-		$user = $skin->makeLinkObj( Title::makeTitle( NS_USER, $result->img_user_text ), $result->img_user_text );
-		$time = $wgLang->timeanddate( $result->img_timestamp );
+        $nt = Title::makeTitle( $result->namespace, $result->title );
+        $text = $wgContLang->convert( $nt->getText() );
+        $plink = $skin->makeLink( $nt->getPrefixedText(), $text );
 
-		return "($download) $plink . . $dimensions . . $bytes . . $user . . $time";
-	}
+        $download = $skin->makeMediaLink( $nt->getText(), 'fuck me!', wfMsgHtml( 'download' ) );
+        $bytes = wfMsgExt( 'nbytes', array( 'parsemag', 'escape'),
+            $wgLang->formatNum( $result->img_size ) );
+        $dimensions = wfMsg( 'widthheight', $wgLang->formatNum( $result->img_width ),
+            $wgLang->formatNum( $result->img_height ) );
+        $user = $skin->makeLinkObj( Title::makeTitle( NS_USER, $result->img_user_text ), $result->img_user_text );
+        $time = $wgLang->timeanddate( $result->img_timestamp );
+
+        return "($download) $plink . . $dimensions . . $bytes . . $user . . $time";
+    }
 }
 
 /**
  * constructor
  */
-function wfSpecialMIMEsearch( $par = null ) {
-	global $wgRequest, $wgTitle, $wgOut;
+function wfSpecialMIMEsearch( $par = null )
+{
+    global $wgRequest, $wgTitle, $wgOut;
 
-	$mime = isset( $par ) ? $par : $wgRequest->getText( 'mime' );
+    $mime = isset( $par ) ? $par : $wgRequest->getText( 'mime' );
 
-	$wgOut->addHTML(
-		wfElement( 'form',
-			array(
-				'id' => 'specialmimesearch',
-				'method' => 'get',
-				'action' => $wgTitle->escapeLocalUrl()
-			),
-			null
-		) .
-			wfOpenElement( 'label' ) .
-				wfMsgHtml( 'mimetype' ) .
-				wfElement( 'input', array(
-						'type' => 'text',
-						'size' => 20,
-						'name' => 'mime',
-						'value' => $mime
-					),
-					''
-				) .
-				' ' .
-				wfElement( 'input', array(
-						'type' => 'submit',
-						'value' => wfMsg( 'ilsubmit' )
-					),
-					''
-				) .
-			wfCloseElement( 'label' ) .
-		wfCloseElement( 'form' )
-	);
+    $wgOut->addHTML(
+        wfElement( 'form',
+            array(
+                'id' => 'specialmimesearch',
+                'method' => 'get',
+                'action' => $wgTitle->escapeLocalUrl()
+            ),
+            null
+        ) .
+            wfOpenElement( 'label' ) .
+                wfMsgHtml( 'mimetype' ) .
+                wfElement( 'input', array(
+                        'type' => 'text',
+                        'size' => 20,
+                        'name' => 'mime',
+                        'value' => $mime
+                    ),
+                    ''
+                ) .
+                ' ' .
+                wfElement( 'input', array(
+                        'type' => 'submit',
+                        'value' => wfMsg( 'ilsubmit' )
+                    ),
+                    ''
+                ) .
+            wfCloseElement( 'label' ) .
+        wfCloseElement( 'form' )
+    );
 
-	list( $major, $minor ) = wfSpecialMIMEsearchParse( $mime );
-	if ( $major == '' or $minor == '' or !wfSpecialMIMEsearchValidType( $major ) )
-		return;
-	$wpp = new MIMEsearchPage( $major, $minor );
+    list( $major, $minor ) = wfSpecialMIMEsearchParse( $mime );
+    if ( $major == '' or $minor == '' or !wfSpecialMIMEsearchValidType( $major ) )
+        return;
+    $wpp = new MIMEsearchPage( $major, $minor );
 
-	list( $limit, $offset ) = wfCheckLimits();
-	$wpp->doQuery( $offset, $limit );
+    list( $limit, $offset ) = wfCheckLimits();
+    $wpp->doQuery( $offset, $limit );
 }
 
-function wfSpecialMIMEsearchParse( $str ) {
-	wfSuppressWarnings();
-	list( $major, $minor ) = explode( '/', $str, 2 );
-	wfRestoreWarnings();
+function wfSpecialMIMEsearchParse( $str )
+{
+    wfSuppressWarnings();
+    list( $major, $minor ) = explode( '/', $str, 2 );
+    wfRestoreWarnings();
 
-	return array(
-		ltrim( $major, ' ' ),
-		rtrim( $minor, ' ' )
-	);
+    return array(
+        ltrim( $major, ' ' ),
+        rtrim( $minor, ' ' )
+    );
 }
 
-function wfSpecialMIMEsearchValidType( $type ) {
-	// From maintenance/tables.sql => img_major_mime
-	$types = array(
-		'unknown',
-		'application',
-		'audio',
-		'image',
-		'text',
-		'video',
-		'message',
-		'model',
-		'multipart'
-	);
+function wfSpecialMIMEsearchValidType( $type )
+{
+    // From maintenance/tables.sql => img_major_mime
+    $types = array(
+        'unknown',
+        'application',
+        'audio',
+        'image',
+        'text',
+        'video',
+        'message',
+        'model',
+        'multipart'
+    );
 
-	return in_array( $type, $types );
+    return in_array( $type, $types );
 }
-?>

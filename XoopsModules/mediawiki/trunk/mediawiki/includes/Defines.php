@@ -59,8 +59,8 @@ define('NS_CATEGORY_TALK', 15);
  * $wgOut->isSyndicated() is true
  */
 $wgFeedClasses = array(
-	'rss' => 'RSSFeed',
-	'atom' => 'AtomFeed',
+    'rss' => 'RSSFeed',
+    'atom' => 'AtomFeed',
 );
 
 /**#@+
@@ -81,23 +81,23 @@ define( 'MW_MATH_MATHML', 5 );
  * @todo Is this necessary?
  */
 $wgAvailableRights = array(
-	'block',
-	'bot',
-	'createaccount',
-	'delete',
-	'edit',
-	'editinterface',
-	'import',
-	'importupload',
-	'move',
-	'patrol',
-	'protect',
-	'read',
-	'rollback',
-	'siteadmin',
-	'unwatchedpages',
-	'upload',
-	'userrights',
+    'block',
+    'bot',
+    'createaccount',
+    'delete',
+    'edit',
+    'editinterface',
+    'import',
+    'importupload',
+    'move',
+    'patrol',
+    'protect',
+    'read',
+    'rollback',
+    'siteadmin',
+    'unwatchedpages',
+    'upload',
+    'userrights',
 );
 
 /**#@+
@@ -109,8 +109,6 @@ define( 'CACHE_DB', 1 );         // Store cache objects in the DB
 define( 'CACHE_MEMCACHED', 2 );  // MemCached, must specify servers in $wgMemCacheServers
 define( 'CACHE_ACCEL', 3 );      // eAccelerator or Turck, whichever is available
 /**#@-*/
-
-
 
 /**#@+
  * Media types.
@@ -174,10 +172,8 @@ define( 'RC_MOVE_OVER_REDIRECT', 4);
  */
 define( 'EDIT_NEW', 1 );
 define( 'EDIT_UPDATE', 2 );
-define( 'EDIT_MINOR', 4 ); 
+define( 'EDIT_MINOR', 4 );
 define( 'EDIT_SUPPRESS_RC', 8 );
 define( 'EDIT_FORCE_BOT', 16 );
 define( 'EDIT_DEFER_UPDATES', 32 );
 /**#@-*/
-
-?>

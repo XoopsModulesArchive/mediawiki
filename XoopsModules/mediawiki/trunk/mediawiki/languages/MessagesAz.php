@@ -238,7 +238,6 @@ $wgAllMessagesAz = array(
 'yourdiff' => 'Fərqlər ',
 'templatesused' => 'Bu səhifədə istifadə edilmiş şablonlar:',
 
-
 # History pages
 #
 'revhistory' => 'Versiya tarixçəsi',
@@ -310,7 +309,6 @@ Açıqlama: (hh) = hal-hazırkı versiya ilə olan fərqlər,
 'addgroup' => 'Bir qrup əlavə edin.',
 'userrights-lookup-user' => 'İstifadəçi qruplarını idarə et',
 'userrights-user-editname' => 'İstifadəçi adınızı yazın:',
-
 
 # Recent changes
 #
@@ -387,7 +385,6 @@ That comes to \'\'\'$5\'\'\' average edits per page, and \'\'\'$6\'\'\' views pe
 Hal-hazırda [http://meta.wikimedia.org/wiki/Help:Job_queue job queue] sayı: \'\'\'$7\'\'\'.',
 'userstats' => 'İstifadəçi statistika',
 'userstatstext' => 'Hal-hazırda \'\'\'$1\'\'\' istifadəçi, \'\'\'2\'\'\' (və ya \'\'\'4%\'\'\') tanesi idarəçi. (baxınız $3).',
-
 
 'doubleredirects' => 'İkiqat istiqamətləndirmələr',
 'brokenredirects' => 'Xətalı istiqamətləndirmə',
@@ -492,7 +489,6 @@ Hal-hazırda [http://meta.wikimedia.org/wiki/Help:Job_queue job queue] sayı: \'
 'undelete' => 'Silinmiş səhifələri göstər',
 'viewdeletedpage' => 'Silinmiş səhifələri göstər',
 
-
 # Namespace form on various pages
 'namespace' => 'Adlar fəzası:',
 'invert' => 'Seçilən xaricindəkiləri',
@@ -554,7 +550,6 @@ Hal-hazırda [http://meta.wikimedia.org/wiki/Help:Job_queue job queue] sayı: \'
 'allmessagescurrent' => 'İndiki mətn',
 'allmessagestext' => 'Sistem mə\'lumatların siyahısı MediaWiki: namespace.',
 
-
 # Metadata
 
 # Attribution
@@ -603,7 +598,7 @@ ta[\'n-currentevents\'] = new Array(\'\',\'Gündəki xəbərlər ilə əlaqəli 
 ta[\'n-recentchanges\'] = new Array(\'r\',\'Bu Wikidə Son dəyişikliklər siyahəsi.\');
 ta[\'n-randompage\'] = new Array(\'x\',\'Bir təsadufi, necə gəldi, məqaləyə baxin\');
 ta[\'n-help\'] = new Array(\'\',\'Yardım almaq üçün.\');
-ta[\'n-sitesupport\'] = new Array(\'\',\'Maddi kömək\'); 
+ta[\'n-sitesupport\'] = new Array(\'\',\'Maddi kömək\');
 ta[\'t-whatlinkshere\'] = new Array(\'j\',\'Wikidə bu məqaləyə bağlantilar\');
 ta[\'t-recentchangeslinked\'] = new Array(\'k\',\'Bu məqaləyə ayid başqa səhifələrdə yeni dəyişikliklər \');
 ta[\'feed-rss\'] = new Array(\'\',\'RSS feed for this page\');
@@ -637,7 +632,6 @@ ta[\'ca-nstab-category\'] = new Array(\'c\',\'View the category page\');
 
 'newimages' => 'Yeni faylların siyahısı',
 
-
 # 'all' in various places, this might be different for inflected languages
 'imagelistall' => 'bütün',
 'watchlistall1' => 'hamısını',
@@ -656,4 +650,3 @@ ta[\'ca-nstab-category\'] = new Array(\'c\',\'View the category page\');
 'createarticle' => 'Məqalə yarat',
 
 );
-?>

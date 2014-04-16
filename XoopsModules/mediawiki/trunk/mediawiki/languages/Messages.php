@@ -1,6 +1,5 @@
 <?php
 
-
 #-------------------------------------------------------------------
 # Default messages
 #-------------------------------------------------------------------
@@ -112,7 +111,6 @@ parent class in order maintain consistency across languages.
 'category' => 'category',
 'category_header' => 'Articles in category "$1"',
 'subcategories' => 'Subcategories',
-
 
 'linktrail'		=> '/^([a-z]+)(.*)$/sD',
 'linkprefix'		=> '/^(.*?)([a-zA-Z\x80-\xff]+)$/sD',
@@ -543,7 +541,7 @@ public domain or similar free resource (see $1 for details).
 'longpagewarning' => "<strong>WARNING: This page is $1 kilobytes long; some
 browsers may have problems editing pages approaching or longer than 32kb.
 Please consider breaking the page into smaller sections.</strong>",
-'longpageerror' => "<strong>ERROR: The text you have submitted is $1 kilobytes 
+'longpageerror' => "<strong>ERROR: The text you have submitted is $1 kilobytes
 long, which is longer than the maximum of $2 kilobytes. It cannot be saved.</strong>",
 'readonlywarning' => '<strong>WARNING: The database has been locked for maintenance,
 so you will not be able to save your edits right now. You may wish to cut-n-paste
@@ -917,7 +915,7 @@ this old version, (rev) = revert to this old version.
 This includes \"talk\" pages, pages about {{SITENAME}}, minimal \"stub\"
 pages, redirects, and others that probably don't qualify as content pages.
 Excluding those, there are '''$2''' pages that are probably legitimate
-content pages. 
+content pages.
 
 '''$8''' files have been uploaded.
 
@@ -938,7 +936,6 @@ The [http://meta.wikimedia.org/wiki/Help:Job_queue job queue] length is '''$7'''
 
 'brokenredirects'	=> 'Broken redirects',
 'brokenredirectstext'	=> 'The following redirects link to non-existent pages:',
-
 
 # Miscellaneous special pages
 #
@@ -1004,7 +1001,6 @@ about books you are looking for.",
 'alllogstext'	=> 'Combined display of upload, deletion, protection, blocking, and sysop logs.
 You can narrow down the view by selecting a log type, the user name, or the affected page.',
 'logempty' => 'No matching items in log.',
-
 
 # Special:Allpages
 'nextpage'          => 'Next page ($1)',
@@ -1190,7 +1186,6 @@ page protection levels. Here are the current settings for the page <strong>$1</s
 'restriction-edit' => 'Edit',
 'restriction-move' => 'Move',
 
-
 # Undelete
 'undelete' => 'View deleted pages',
 'undeletepage' => 'View and restore deleted pages',
@@ -1224,7 +1219,7 @@ before deletion. The actual text of these deleted revisions is only available to
 Consult the [[Special:Log/delete|deletion log]] for a record of recent deletions and restorations.",
 
 # Namespace form on various pages
-'namespace' => 'Namespace:',
+'namespace' => 'MWNamespace:',
 'invert' => 'Invert selection',
 
 # Contributions
@@ -1245,7 +1240,6 @@ Consult the [[Special:Log/delete|deletion log]] for a record of recent deletions
 'sp-contributions-newer'  => 'Newer $1',
 'sp-contributions-older'  => 'Older $1',
 'sp-contributions-newbies-sub' => 'For newbies',
-
 
 # What links here
 #
@@ -1309,7 +1303,6 @@ the list of currently operational bans and blocks.',
 'sorbs'         => 'SORBS DNSBL',
 'sorbsreason'   => 'Your IP address is listed as an open proxy in the [http://www.sorbs.net SORBS] DNSBL.',
 'sorbs_create_account_reason' => 'Your IP address is listed as an open proxy in the [http://www.sorbs.net SORBS] DNSBL. You cannot create an account',
-
 
 # Developer tools
 #
@@ -1445,7 +1438,6 @@ In the latter case you can also use a link, e.g. [[{{ns:Special}}:Export/{{int:m
 'allmessagesfilter' => 'Message name filter:',
 'allmessagesmodified' => 'Show only modified',
 
-
 # Thumbnails
 
 'thumbnail-more'	=> 'Enlarge',
@@ -1484,7 +1476,6 @@ All transwiki import actions are logged at the [[Special:Log/import|import log]]
 'import-logentry-upload-detail' => '$1 revision(s)',
 'import-logentry-interwiki' => 'transwikied $1',
 'import-logentry-interwiki-detail' => '$1 revision(s) from $2',
-
 
 # Keyboard access keys for power users
 'accesskey-search' => 'f',
@@ -2011,7 +2002,6 @@ $1
 'trackbacklink' => 'Trackback',
 'trackbackdeleteok' => 'The trackback was successfully deleted.',
 
-
 # delete conflict
 
 'deletedwhileediting' => 'Warning: This page has been deleted after you started editing!',
@@ -2056,5 +2046,3 @@ Please confirm that really want to recreate this page.',
 * Nederlands|nl",
 
 );
-
-?>

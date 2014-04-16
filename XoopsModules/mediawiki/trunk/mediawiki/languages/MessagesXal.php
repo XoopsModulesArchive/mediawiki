@@ -1,6 +1,5 @@
 <?php
 
-
 /* private */ $wgAllMessagesXal = array(
 
 'edit' => 'Чиклх',
@@ -17,7 +16,6 @@
 'categories1' => 'Янз',
 'category' => 'Янз',
 
-
 'createaccount' => 'Выль вики-авторлэн регистрациез',
 'login' => 'Оруллһн',
 'mycontris' => 'Мини өгүллһдүд',
@@ -25,6 +23,3 @@
 'preferences' => 'Дурллһн',
 
 );
-
-
-?>

@@ -1515,4 +1515,3 @@ $1',
 'hideresults'           => 'Sakrij rezultate',
 'displaytitle'          => '(Poveznice na ovu stranicu trebaju biti pod naslovom [[$1]])',
 );
-?>

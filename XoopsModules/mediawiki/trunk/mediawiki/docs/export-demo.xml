@@ -4,17 +4,17 @@
 <siteinfo>
   <!-- Site name, as set in $wgSitename -->
   <sitename>DemoWiki</sitename>
-  
+
   <!-- Forgot where you got this set? -->
   <base>http://example.com/wiki/Main_Page</base>
-  
+
   <!-- Source software version -->
   <generator>MediaWiki 1.5.0</generator>
-  
+
   <!-- Title case sensitivity options of the wiki this data came from -->
   <!-- May be 'first-letter', 'case-sensitive', or 'case-insensitive' -->
   <case>first-letter</case>
-  
+
   <!-- Defined namespace keys on the source wiki. -->
   <!-- Titles can be substring-split to obtain the symbolic numeric key -->
   <namespaces>
@@ -44,17 +44,17 @@
   <!-- Titles are listed here in text form, with namespace prefix   -->
   <!-- if any, and spaces rather than the underscores used in URLs. -->
   <title>Page title</title>
-  
+
   <!-- The page's immutable page_id number in the source database.  -->
   <!-- Page ID numbers are kept across page moves, but may change   -->
   <!-- if a page is deleted and recreated.                          -->
   <id>1</id>
-  
+
   <!-- If restricted, the ACL is listed here raw. -->
   <restrictions>edit=sysop:move=sysop</restrictions>
-  
+
   <!-- With a series of revision records... -->
-  
+
   <!-- Remember this is XML; if you must use a regex-based extractor -->
   <!-- in place of a standard XML parser, be very careful.           -->
   <!-- * Don't forget to decode character entities!                  -->
@@ -64,14 +64,14 @@
     <!-- Unique revision ID number (rev_id) in the source database.  -->
     <!-- This number uniquely identifies the revision on that wiki.  -->
     <id>100</id>
-    
+
     <timestamp>2001-01-15T13:15:00Z</timestamp>
     <contributor><username>Foobar</username><id>42</id></contributor>
     <minor />
     <comment>I have just one thing to say!</comment>
     <text xml:space="preserve">A bunch of [[text]] here.</text>
   </revision>
-  
+
   <revision>
     <timestamp>2001-01-15T13:10:27Z</timestamp>
     <contributor><ip>10.0.0.2</ip></contributor>

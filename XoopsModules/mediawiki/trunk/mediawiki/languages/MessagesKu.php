@@ -105,7 +105,7 @@ $wgAllMessagesKu = array(
 'copyright'             => 'Ji bo naverokê $1 derbas dibe.',
 'protectedpage'         => 'Rûpela parastî',
 'administrators'        => 'Project:Koordînasyon',
-'sysoptext'             => 'Çalakiya ku te xwest bi tenê bikarhêneran bi mafên "sysop" dikarin çêkin. 
+'sysoptext'             => 'Çalakiya ku te xwest bi tenê bikarhêneran bi mafên "sysop" dikarin çêkin.
 Binêre $1.',
 'badaccess'             => 'Eror li bi dest Hînan',
 'ok'                    => 'Temam',
@@ -211,7 +211,7 @@ Tu dikarî {{SITENAME}} niha weke bikarhênerekî nediyarkirî bikarbînî, yan 
 'showdiff'              => 'Guherandinê nîşan bide',
 'anoneditwarning'       => 'Tu ne têketî. Navnîşana IP ya te wê di dîroka guherandina vê rûpelê de bê tomar kirin.',
 'blockedtitle'          => 'Bikarhêner hat asteng kirin',
-'blockedtext'           => 'Navê bikarhêner an jî navnîşana IP ya te ji aliyê $1 hat asteng kirin. Sedema vê ev  e:<br />\'\'$2\'\'<br />Tu dikarî bi $1 an yek ji [[Project:Koordînator|koordînatorên din]] re ser vê blokê guftûgo bikî. 
+'blockedtext'           => 'Navê bikarhêner an jî navnîşana IP ya te ji aliyê $1 hat asteng kirin. Sedema vê ev  e:<br />\'\'$2\'\'<br />Tu dikarî bi $1 an yek ji [[Project:Koordînator|koordînatorên din]] re ser vê blokê guftûgo bikî.
 
 Têbînî: Tu nikarî fonksiyona "Ji vê bikarhêner re E-mail bişîne" bi kar bîne eger te navnîşana email a xwe di "[[Special:Preferences|Tercîhên min]]" de nenivîsand.
 
@@ -330,7 +330,7 @@ $2 Ragihandinan nîşan bide   Lêbigere: $3 $9',
 'uploadbtn'             => 'Dosyayê barbike',
 'uploadnologin'         => 'Xwe qeyd nekir',
 'uploadnologintext'     => 'Ji bo barkirina wêneyan divê ku tu [[Special:Userlogin|têkevî]].',
-'uploadtext'            => 'Berê tu wêneyên nû bar bikî, ji bo dîtin an vedîtina wêneyên ku ji xwe hene binêre: [[Special:Imagelist|lîsteya wêneyên barkirî]]. Herwisa wêneyên ku hatine barkirin an jî jê birin li vir dikarî bibînî: [[Special:Log/upload|reşahiya barkiriyan]]. 
+'uploadtext'            => 'Berê tu wêneyên nû bar bikî, ji bo dîtin an vedîtina wêneyên ku ji xwe hene binêre: [[Special:Imagelist|lîsteya wêneyên barkirî]]. Herwisa wêneyên ku hatine barkirin an jî jê birin li vir dikarî bibînî: [[Special:Log/upload|reşahiya barkiriyan]].
 
 Yek ji lînkên jêr ji bo bikarhînana wêne an faylê di gotarê de bikar bihîne:
 
@@ -380,7 +380,7 @@ Heke ev dosya wêneyek be, bi vî rengî bi kar bîne:
 'userstats'             => 'Statistîkên bikarhêneran',
 'sitestatstext'         => 'Di \'\'database\'\' de \'\'\'$1\'\'\' rûpel hene.
 Tê de rûpelên guftûgoyê, rûpelên der barê {{SITENAME}}, rûpelên pir kurt (stub), rûpelên ragihandinê (redirect) û rûpelên din ku qey ne gotar in hene.
-Derve wan, \'\'\'$2\'\'\' rûpel hene ku qey \'\'\'gotarên rewa\'\'\' ne. 
+Derve wan, \'\'\'$2\'\'\' rûpel hene ku qey \'\'\'gotarên rewa\'\'\' ne.
 
 \'\'\'$8\'\'\' dosya hatin barkirin.
 
@@ -450,7 +450,7 @@ Dirêjahiya [http://meta.wikimedia.org/wiki/Help:Job_queue job queue] \'\'\'$7\'
 'addedwatch'            => 'Hat îlawekirinî listeya şopandinê',
 'addedwatchtext'        => 'Rûpela "$1" çû ser [[Special:Watchlist|lîsteya te ya şopandinê]].
 Li dahatû de her guhartoyek li wê rûpelê û rûpela guftûgo ya wê were kirin li vir dêt nîşan dan,
- 
+
 Li rûpela [[Special:Recentchanges|Guherandinên dawî]] jî ji bo hasan dîtina wê, ew rûpel bi \'\'\'Nivîsa estûr\'\'\' dê nîşan dayîn.
 
 
@@ -541,7 +541,7 @@ Guhartoya dawî bi [[User:$3|$3]] ([[User talk:$3|guftûgo]]).',
 'makesysopname'         => 'Navê bikarhêner:',
 'rightsnone'            => '(tune)',
 'movepage'              => 'Vê rûpelê bigerîne',
-'movepagetalktext'      => 'Rûpela \'\'\'guftûgoyê giredayî ji vê rûpelê re wê bê gerandin jî. 
+'movepagetalktext'      => 'Rûpela \'\'\'guftûgoyê giredayî ji vê rûpelê re wê bê gerandin jî.
 \'\'\'Îstisna:\'\'\'
 *You are moving the page across namespaces,
 *A non-empty talk page already exists under the new name, or
@@ -574,11 +574,11 @@ da bikarî navê wê rûpelê biguherînî.',
 'importnotext'          => 'Vala an nivîs tune',
 'tooltip-diff'          => 'Show which changes you made to the text. [alt-d]',
 'tooltip-compareselectedversions'=> 'Cudatiyên guhartoyên hilbijartî yên vê rûpelê bibîne. [alt-v]',
-'Monobook.css'          => '*.rtl 
+'Monobook.css'          => '*.rtl
  {
   dir:rtl;
   text-align:right;
-  font-family: "Tahoma", "Unikurd Web", "Arial Unicode MS", "DejaVu Sans", "Lateef", "Scheherazade", "ae_Rasheeq", sans-serif, sans; 
+  font-family: "Tahoma", "Unikurd Web", "Arial Unicode MS", "DejaVu Sans", "Lateef", "Scheherazade", "ae_Rasheeq", sans-serif, sans;
  }
 
  /*Make the site more suitable for Soranî users */
@@ -600,7 +600,7 @@ da bikarî navê wê rûpelê biguherînî.',
    font-size: 0.9em;
    text-decoration: none;
    border: thin #006699 outset;
-   padding: 0 0.1em 0em 0.1em; 
+   padding: 0 0.1em 0em 0.1em;
  }
  #my-buttons a:hover, #my-buttons a:active {
    background-color: #bbccdd;
@@ -689,47 +689,49 @@ da bikarî navê wê rûpelê biguherînî.',
  ta[\'ca-nstab-category\'] = new Array(\'c\',\'View the category page\');
 
 /*RTL and LTR*/
- function bidiSwitchSetup() {
- 	var editform = document.getElementById("wpTextbox1");
- 	if (editform == null) {
- 		return;
- 	}
- 	
- 	bidiAddButton(editform, "Default", function(style) {
- 		style.direction = "inherit";
- 		style.unicodeBidi = "inherit";
- 	});
- 	bidiAddButton(editform, "dir=ltr", function(style) {
- 		style.direction = "ltr";
- 	});
- 	bidiAddButton(editform, "dir=rtl", function(style) {
- 		style.direction = "rtl";
- 	});
- 	bidiAddButton(editform, "bidi=normal", function(style) {
- 		style.unicodeBidi = "normal";
- 	});
- 	bidiAddButton(editform, "bidi=override", function(style) {
- 		style.unicodeBidi = "bidi-override";
- 	});
+ function bidiSwitchSetup()
+ {
+     var editform = document.getElementById("wpTextbox1");
+     if (editform == null) {
+         return;
+     }
+
+     bidiAddButton(editform, "Default", function(style) {
+         style.direction = "inherit";
+         style.unicodeBidi = "inherit";
+     });
+     bidiAddButton(editform, "dir=ltr", function(style) {
+         style.direction = "ltr";
+     });
+     bidiAddButton(editform, "dir=rtl", function(style) {
+         style.direction = "rtl";
+     });
+     bidiAddButton(editform, "bidi=normal", function(style) {
+         style.unicodeBidi = "normal";
+     });
+     bidiAddButton(editform, "bidi=override", function(style) {
+         style.unicodeBidi = "bidi-override";
+     });
  }
- 
- function bidiAddButton(before, label, action) {
- 	var button = document.createElement("input");
- 	button.type = "button";
- 	button.value = label;
- 	button.onclick = function(event) {
- 		var box = document.getElementById("wpTextbox1");
- 		if (box == null) {
- 			alert("Broken! Edit box missing.");
- 		} else {
- 			//var style = document.getOverrideStyle(box, null);
- 			var style = box.style;
- 			action(style);
- 		}
- 	}
- 	before.parentNode.insertBefore(button, before);
+
+ function bidiAddButton(before, label, action)
+ {
+     var button = document.createElement("input");
+     button.type = "button";
+     button.value = label;
+     button.onclick = function(event) {
+         var box = document.getElementById("wpTextbox1");
+         if (box == null) {
+             alert("Broken! Edit box missing.");
+         } else {
+             //var style = document.getOverrideStyle(box, null);
+             var style = box.style;
+             action(style);
+         }
+     }
+     before.parentNode.insertBefore(button, before);
  }
- 
+
  hookEvent(\'load\', bidiSwitchSetup);',
 'previousdiff'          => '← Ciyawaziya pêştir',
 'nextdiff'              => 'Ciyawaziya paştir →',
@@ -748,4 +750,3 @@ da bikarî navê wê rûpelê biguherînî.',
 'confirm_purge_button'  => 'Temam',
 'loginlanguagelabel'    => 'Ziman: $1',
 );
-?>

@@ -228,7 +228,7 @@ Controlla per favore il nome digitato, oppure usa il modulo qui sotto per creare
 'wrongpasswordempty'    => 'La password inseria xè voda. Riproa.',
 'mailmypassword'        => 'Spediscimi una nuova password in posta elettronica',
 'passwordremindertext'  => 'Qualcuno (probabilmente ti, con indirizso IP $1) gà richiesto l\'invio de na nova password de acezso a {{SITENAME}} ($4).
-La password par l\'utente "$2" xè stà impostà a "$3". 
+La password par l\'utente "$2" xè stà impostà a "$3".
 Xè opportuno eseguire n\'acezso quanto prima e cambiare ła password immediatamente.',
 'noemail'               => 'Nessuna casella e-mail risulta registrata per l\'Utente "$1".',
 'passwordsent'          => 'Una nuova password è stata inviata alla casella e-mail registrata per l\'Utente "$1".
@@ -316,7 +316,7 @@ Se non te voli che i to scriti vengna modificà senzsa pietà, alora non inserir
 Sapi che te stè promettendo che te stè inserendo un testo scrito de to pugno, o copià da na fonte de pubblico dominio o similarmente libera (vedi $1 par i dettagli).
 <strong>NON INSERIRE OPERE PROTETTE DA COPYRIGHT SENZSA PERMESSO!</strong>',
 'longpagewarning'       => '<strong>ATENZSION: Sta paxèna xè longa $1 kilobyte; alcuni browser podaria prexentar dei problemi ne ła modifega de paxèna che se aviçina o supera i 32 KB. Valuta l\'opportunità de sudividere ła paxèna in sezsion pì piccołe.</strong>',
-'longpageerror'         => '<strong>ERROR: The text you have submitted is $1 kilobytes 
+'longpageerror'         => '<strong>ERROR: The text you have submitted is $1 kilobytes
 long, which is longer than the maximum of $2 kilobytes. It cannot be saved.</strong>',
 'protectedpagewarning'  => '<strong>ATENZSION:  Sta paxèna xè sta protetta e soło i aministradori i pode modificarla. Varda, par essere sicuro ła [[Project:Guida a le paxène protette|Guida a le paxène protette]].</strong>',
 'semiprotectedpagewarning'=> '\'\'\'Nota:\'\'\' Sta paxèna xè stà blocà in modo che solo i utenti registrai i poda modefegarla.',
@@ -759,7 +759,7 @@ Per cortesia, conferma che questo è effettivamente quanto tu intendi ora effett
 <br />Ricordati di rimuovere il blocco non appena avrai terminatoi le tue manutenzioni.',
 'unlockdbsuccesstext'   => ' Il database di {{SITENAME}} è stato sbloccato.',
 'makesysoptitle'        => 'Rendi aministradore un utente',
-'makesysoptext'         => 'Sto form xè usà dai burocrati par far diventare amistradori i utenti normali. 
+'makesysoptext'         => 'Sto form xè usà dai burocrati par far diventare amistradori i utenti normali.
 Scrivi el nome de l\'utente ne la caseła e struca el botón par far diventare aministradore un utente.',
 'makesysopname'         => 'Nome dell\'utente:',
 'makesysopsubmit'       => 'Fa diventar sto utente un aministrador',
@@ -920,7 +920,7 @@ Tute łe operazsion de importazsion trans-wiki łe xè registrae nel [[Special:L
  ta[\'ca-nstab-media\'] = new Array(\'c\',\'Vedi la paxèna de el file multimediale\');
  ta[\'ca-nstab-special\'] = new Array(\'\',\'Sta quà xè na paxèna speciale, non la pode essere modificà.\');
  ta[\'ca-nstab-project\'] = new Array(\'a\',\'Varda la paxèna del projeto\');
- ta[\'ca-nstab-image\'] = new Array(\'c\',\'Varda la paxèna dell\'imagine\'); 
+ ta[\'ca-nstab-image\'] = new Array(\'c\',\'Varda la paxèna dell\'imagine\');
  ta[\'ca-nstab-mediawiki\'] = new Array(\'c\',\'Varda el messajo de sistema\');
  ta[\'ca-nstab-template\'] = new Array(\'c\',\'Varda el template\');
  ta[\'ca-nstab-help\'] = new Array(\'c\',\'Varda la paxèna de aiuto\');
@@ -1133,16 +1133,16 @@ Tute łe operazsion de importazsion trans-wiki łe xè registrae nel [[Special:L
 'confirmemail_loggedin' => 'El to indirizso email xè stà confermà.',
 'confirmemail_error'    => 'Qualcosa l\'è andà storto nel salvar la to conferma.',
 'confirmemail_subject'  => '{{SITENAME}}: email par la conferma dell\'indirizso',
-'confirmemail_body'     => 'Qualcuno, probabilmente ti stesso dall\'indirizso IP $1, ga registrà n\'account "$2" con sto indirizso e-mail su {{SITENAME}}. 
+'confirmemail_body'     => 'Qualcuno, probabilmente ti stesso dall\'indirizso IP $1, ga registrà n\'account "$2" con sto indirizso e-mail su {{SITENAME}}.
 
-Par confermar che deto account realmente el te apartegne e poder attivar łe opzsioni relative a łe e-mail su {{SITENAME}}, apri el cołegamento seguente con el to browser: 
+Par confermar che deto account realmente el te apartegne e poder attivar łe opzsioni relative a łe e-mail su {{SITENAME}}, apri el cołegamento seguente con el to browser:
 
-$3 
+$3
 
 Se l\'account *non* xè el tuo, non visitare el cołegamento. El codexe de conferma scadrà a łe $4.',
 'createarticle'         => 'Crea voçe',
 'deletedwhileediting'   => 'Attenzsion: Sta paxèna xè stà scancełà dopo che te ghè scominzsià a modificarla!',
-'confirmrecreate'       => 'L\'utente [[User:$1|$1]] ([[User talk:$1|discussion]]) ga scancełà sta voçe dopo che te ghè inizsià a modificarla, con ła seguente motivazsion: \'\'$2\'\' 
+'confirmrecreate'       => 'L\'utente [[User:$1|$1]] ([[User talk:$1|discussion]]) ga scancełà sta voçe dopo che te ghè inizsià a modificarla, con ła seguente motivazsion: \'\'$2\'\'
 Per favore conferma che te vołi veramente ricrear sta voçe.',
 'tooltip-recreate'      => 'Ricrea ła paxèna anca se xè stà scancełà',
 'confirm_purge'         => 'Vóto scancełar ła cache in sta paxèna?
@@ -1154,4 +1154,3 @@ $1',
 'hideresults'           => 'Hide results',
 'displaytitle'          => '(Par i cołegamenti a sta paxèna, usare [[$1]])',
 );
-?>

@@ -353,7 +353,7 @@ Adresa dumneavoastră IP este $3.
 
 Dacă nu înţelegeţi motivul blocării vă invităm să consultaţi [[Project:Blocare|regulamentul de blocare]]. În cazul în care vă consideraţi nedreptăţit îl puteţi contacta pe $1 sau pe unul dintre ceilalţi [[Project:Administratori|administratori]] pentru a explica situaţia.
 
-\'\'\'Blocarea nu se referă la citirea paginilor {{SITENAME}}, ci doar la modificarea lor.\'\'\' 
+\'\'\'Blocarea nu se referă la citirea paginilor {{SITENAME}}, ci doar la modificarea lor.\'\'\'
 
 Pentru a afla cînd vă expiră blocarea căutaţi-vă numele de utilizator sau adresa IP în [[Special:Ipblocklist|lista de utilizatori blocaţi]].',
 'blockedoriginalsource' => 'Sursa pentru \'\'\'$1\'\'\' apare mai jos:',
@@ -385,7 +385,7 @@ Pentru a afla cînd vă expiră blocarea căutaţi-vă numele de utilizator sau 
 'previewnote'           => 'Aceasta este doar o previzualizare! Pentru a salva pagina în forma actuală, descrieţi succint modificările efectuate şi apăsaţi butonul <strong>Salvează pagina</strong>.',
 'session_fail_preview'  => '<strong>Ne pare rău! Nu am putut procesa modificarea dumneavoastră din cauza pierderii datelor sesiunii. Vă rugăm să încercaţi din nou. Dacă tot nu funcţionează, încercaţi să închideţi sesiunea şi să vă autentificaţi din nou.</strong>',
 'previewconflict'       => 'Această pre-vizualizare reflectă textul din caseta de sus, respectiv felul în care va arăta articolul dacă alegeţi să-l salvaţi acum.',
-'session_fail_preview_html'=> '<strong>Ne pare rău! Modificările tale nu au putut fi procesate din cauza pierderii datelor sesiunii.</strong> 
+'session_fail_preview_html'=> '<strong>Ne pare rău! Modificările tale nu au putut fi procesate din cauza pierderii datelor sesiunii.</strong>
 
 \'\'Deoarece acest wiki are activat raw HTML, previzualizarea este ascunsă ca măsură de precauţie împotriva atacurilor JavaScript.\'\'
 
@@ -1023,7 +1023,7 @@ baza de date atunci când vei încheia operaţiunile de întreţinere.',
 Nu uita să o deblochezi după ce termini operaţiunile administrative pentru care ai blocat-o.',
 'unlockdbsuccesstext'   => 'Baza de date a fost deblocată.',
 'makesysoptitle'        => 'Fă dintr-un utilizator un administrator',
-'makesysoptext'         => 'Acest formular este utilizat de birocraţi pentru a transforma utilizatori de rând în administratori. 
+'makesysoptext'         => 'Acest formular este utilizat de birocraţi pentru a transforma utilizatori de rând în administratori.
 Tastează numele utilizatorului în cutie şi apasă butonul pentru a face din utilizator un administrator',
 'makesysopname'         => 'Numele utilizatorului:',
 'makesysopsubmit'       => 'Fă din acest utilizator un administrator',
@@ -1567,4 +1567,3 @@ Vă rugăm să confirmaţi faptul că într-adevăr doriţi să recreaţi acest 
 'displaytitle'          => '(Legătură la această pagină ca [[$1]])',
 'loginlanguagelabel'    => 'Limba: $1',
 );
-?>

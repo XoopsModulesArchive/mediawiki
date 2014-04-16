@@ -1,6 +1,5 @@
 <?php
 
-
 #-------------------------------------------------------------------
 # Default messages
 #-------------------------------------------------------------------
@@ -619,7 +618,6 @@ Grupper som ikke er valgt, vil ikke blive ændret. Du kan ophæve valget af en g
 'group-steward-name'    => 'Steward',
 'group-steward-desc'    => 'Fuld adgang',
 
-
 # Recent changes
 #
 "changes" => "ændringer",
@@ -799,7 +797,6 @@ angives i paranteser efter den fejlagtige stavemåde (sådan her).",
 "missinglanguagelinkstext"      => "Disse artikler har <i>ikke</i> nogen
 henvisning til den samme artikel i $1. Omdirigeringer og underartikler er
 <i>ikke</i> vist.",
-
 
 # Miscellaneous special pages
 #
@@ -1371,7 +1368,6 @@ ta[\'ca-nstab-category\'] = new Array(\'c\',\'Se kategorisiden\');',
 'newimages' => 'Galleri med de nyeste billeder',
 'noimages'  => 'Ingenting at se.',
 
-
 # labels for User: and Title: on Special:Log pages
 'specialloguserlabel' => 'Bruger:',
 'speciallogtitlelabel' => 'Titel:',
@@ -1393,6 +1389,3 @@ ta[\'ca-nstab-category\'] = new Array(\'c\',\'Se kategorisiden\');',
 'namespacesall' => 'alle',
 
 );
-
-
-?>

@@ -8,287 +8,295 @@
  */
 
 if( !defined( 'MEDIAWIKI' ) )
-	die( -1 );
+    die( -1 );
 
 /**
  * @todo document
  * @package MediaWiki
  * @subpackage Skins
  */
-class SkinStandard extends Skin {
+class SkinStandard extends Skin
+{
+    /**
+     *
+     */
+    function getHeadScripts()
+    {
+        global $wgStylePath, $wgJsMimeType;
 
-	/**
-	 *
-	 */
-	function getHeadScripts() {
-		global $wgStylePath, $wgJsMimeType;
+        $s = parent::getHeadScripts();
+        if ( 3 == $this->qbSetting() ) { # Floating left
+            $s .= "<script language='javascript' type='$wgJsMimeType' " .
+              "src='{$wgStylePath}/common/sticky.js'></script>\n";
+        }
 
-		$s = parent::getHeadScripts();
-		if ( 3 == $this->qbSetting() ) { # Floating left
-			$s .= "<script language='javascript' type='$wgJsMimeType' " .
-			  "src='{$wgStylePath}/common/sticky.js'></script>\n";
-		}
-		return $s;
-	}
+        return $s;
+    }
 
-	/**
-	 *
-	 */
-	function getUserStyles() {
-		global $wgStylePath;
-		$s = '';
-		if ( 3 == $this->qbSetting() ) { # Floating left
-			$s .= "<style type='text/css'>\n" .
-			  "@import '{$wgStylePath}/common/quickbar.css';\n</style>\n";
-		} else if ( 4 == $this->qbSetting() ) { # Floating right
-			$s .= "<style type='text/css'>\n" .
-			  "@import '{$wgStylePath}/common/quickbar-right.css';\n</style>\n";
-		}
-		$s .= parent::getUserStyles();
-		return $s;
-	}
+    /**
+     *
+     */
+    function getUserStyles()
+    {
+        global $wgStylePath;
+        $s = '';
+        if ( 3 == $this->qbSetting() ) { # Floating left
+            $s .= "<style type='text/css'>\n" .
+              "@import '{$wgStylePath}/common/quickbar.css';\n</style>\n";
+        } elseif ( 4 == $this->qbSetting() ) { # Floating right
+            $s .= "<style type='text/css'>\n" .
+              "@import '{$wgStylePath}/common/quickbar-right.css';\n</style>\n";
+        }
+        $s .= parent::getUserStyles();
 
-	/**
-	 *
-	 */
-	function doGetUserStyles() {
-		global $wgStylePath;
+        return $s;
+    }
 
-		$s = parent::doGetUserStyles();
-		$qb = $this->qbSetting();
+    /**
+     *
+     */
+    function doGetUserStyles()
+    {
+        global $wgStylePath;
 
-		if ( 2 == $qb ) { # Right
-			$s .= "#quickbar { position: absolute; top: 4px; right: 4px; " .
-			  "border-left: 2px solid #000000; }\n" .
-			  "#article { margin-left: 4px; margin-right: 152px; }\n";
-		} else if ( 1 == $qb || 3 == $qb ) {
-			$s .= "#quickbar { position: absolute; top: 4px; left: 4px; " .
-			  "border-right: 1px solid gray; }\n" .
-			  "#article { margin-left: 152px; margin-right: 4px; }\n";
-		} else if ( 4 == $qb) {
-			$s .= "#quickbar { border-right: 1px solid gray; }\n" .
-			  "#article { margin-right: 152px; margin-left: 4px; }\n";
-		}
-		return $s;
-	}
+        $s = parent::doGetUserStyles();
+        $qb = $this->qbSetting();
 
-	/**
-	 *
-	 */
-	function getBodyOptions() {
-		$a = parent::getBodyOptions();
+        if (2 == $qb) { # Right
+            $s .= "#quickbar { position: absolute; top: 4px; right: 4px; " .
+              "border-left: 2px solid #000000; }\n" .
+              "#article { margin-left: 4px; margin-right: 152px; }\n";
+        } elseif (1 == $qb || 3 == $qb) {
+            $s .= "#quickbar { position: absolute; top: 4px; left: 4px; " .
+              "border-right: 1px solid gray; }\n" .
+              "#article { margin-left: 152px; margin-right: 4px; }\n";
+        } elseif (4 == $qb) {
+            $s .= "#quickbar { border-right: 1px solid gray; }\n" .
+              "#article { margin-right: 152px; margin-left: 4px; }\n";
+        }
 
-		if ( 3 == $this->qbSetting() ) { # Floating left
-			$qb = "setup(\"quickbar\")";
-			if($a["onload"]) {
-				$a["onload"] .= ";$qb";
-			} else {
-				$a["onload"] = $qb;
-			}
-		}
-		return $a;
-	}
+        return $s;
+    }
 
-	function doAfterContent() {
-		global $wgContLang;
-		$fname =  'SkinStandard::doAfterContent';
-		wfProfileIn( $fname );
-		wfProfileIn( $fname.'-1' );
+    /**
+     *
+     */
+    function getBodyOptions()
+    {
+        $a = parent::getBodyOptions();
 
-		$s = "\n</div><br style=\"clear:both\" />\n";
-		$s .= "\n<div id='footer'>";
-		$s .= '<table border="0" cellspacing="0"><tr>';
+        if ( 3 == $this->qbSetting() ) { # Floating left
+            $qb = "setup(\"quickbar\")";
+            if ($a["onload"]) {
+                $a["onload"] .= ";$qb";
+            } else {
+                $a["onload"] = $qb;
+            }
+        }
 
-		wfProfileOut( $fname.'-1' );
-		wfProfileIn( $fname.'-2' );
+        return $a;
+    }
 
-		$qb = $this->qbSetting();
-		$shove = ($qb != 0);
-		$left = ($qb == 1 || $qb == 3);
-		if($wgContLang->isRTL()) $left = !$left;
+    function doAfterContent()
+    {
+        global $wgContLang;
+        $fname =  'SkinStandard::doAfterContent';
+        wfProfileIn( $fname );
+        wfProfileIn( $fname.'-1' );
 
-		if ( $shove && $left ) { # Left
-				$s .= $this->getQuickbarCompensator();
-		}
-		wfProfileOut( $fname.'-2' );
-		wfProfileIn( $fname.'-3' );
-		$l = $wgContLang->isRTL() ? 'right' : 'left';
-		$s .= "<td class='bottom' align='$l' valign='top'>";
+        $s = "\n</div><br style=\"clear:both\" />\n";
+        $s .= "\n<div id='footer'>";
+        $s .= '<table border="0" cellspacing="0"><tr>';
 
-		$s .= $this->bottomLinks();
-		$s .= "\n<br />" . $this->mainPageLink()
-		  . ' | ' . $this->aboutLink()
-		  . ' | ' . $this->specialLink( 'recentchanges' )
-		  . ' | ' . $this->searchForm()
-		  . '<br /><span id="pagestats">' . $this->pageStats() . '</span>';
+        wfProfileOut( $fname.'-1' );
+        wfProfileIn( $fname.'-2' );
 
-		$s .= "</td>";
-		if ( $shove && !$left ) { # Right
-			$s .= $this->getQuickbarCompensator();
-		}
-		$s .= "</tr></table>\n</div>\n</div>\n";
+        $qb = $this->qbSetting();
+        $shove = ($qb != 0);
+        $left = ($qb == 1 || $qb == 3);
+        if($wgContLang->isRTL()) $left = !$left;
 
-		wfProfileOut( $fname.'-3' );
-		wfProfileIn( $fname.'-4' );
-		if ( 0 != $qb ) { $s .= $this->quickBar(); }
-		wfProfileOut( $fname.'-4' );
-		wfProfileOut( $fname );
-		return $s;
-	}
+        if ($shove && $left) { # Left
+                $s .= $this->getQuickbarCompensator();
+        }
+        wfProfileOut( $fname.'-2' );
+        wfProfileIn( $fname.'-3' );
+        $l = $wgContLang->isRTL() ? 'right' : 'left';
+        $s .= "<td class='bottom' align='$l' valign='top'>";
 
-	function quickBar() {
-		global $wgOut, $wgTitle, $wgUser, $wgRequest, $wgContLang;
-		global $wgEnableUploads, $wgRemoteUploads;
+        $s .= $this->bottomLinks();
+        $s .= "\n<br />" . $this->mainPageLink()
+          . ' | ' . $this->aboutLink()
+          . ' | ' . $this->specialLink( 'recentchanges' )
+          . ' | ' . $this->searchForm()
+          . '<br /><span id="pagestats">' . $this->pageStats() . '</span>';
 
-		$fname =  'Skin::quickBar';
-		wfProfileIn( $fname );
+        $s .= "</td>";
+        if ($shove && !$left) { # Right
+            $s .= $this->getQuickbarCompensator();
+        }
+        $s .= "</tr></table>\n</div>\n</div>\n";
 
-		$action = $wgRequest->getText( 'action' );
-		$wpPreview = $wgRequest->getBool( 'wpPreview' );
-		$tns=$wgTitle->getNamespace();
+        wfProfileOut( $fname.'-3' );
+        wfProfileIn( $fname.'-4' );
+        if (0 != $qb) { $s .= $this->quickBar(); }
+        wfProfileOut( $fname.'-4' );
+        wfProfileOut( $fname );
 
-		$s = "\n<div id='quickbar'>";
-		$s .= "\n" . $this->logoText() . "\n<hr class='sep' />";
+        return $s;
+    }
 
-		$sep = "\n<br />";
+    function quickBar()
+    {
+        global $wgOut, $wgTitle, $wgUser, $wgRequest, $wgContLang;
+        global $wgEnableUploads, $wgRemoteUploads;
 
-		# Use the first heading from the Monobook sidebar as the "browse" section
-		$bar = $this->buildSidebar();
-		$browseLinks = reset( $bar );
+        $fname =  'Skin::quickBar';
+        wfProfileIn( $fname );
 
-		foreach ( $browseLinks as $link ) {
-			if ( $link['text'] != '-' ) {
-				$s .= "<a href=\"{$link['href']}\">" .
-					htmlspecialchars( $link['text'] ) . '</a>' . $sep;
-			}
-		}
+        $action = $wgRequest->getText( 'action' );
+        $wpPreview = $wgRequest->getBool( 'wpPreview' );
+        $tns=$wgTitle->getNamespace();
 
-		if( $wgUser->isLoggedIn() ) {
-			$s.= $this->specialLink( 'watchlist' ) ;
-			$s .= $sep . $this->makeKnownLink( $wgContLang->specialPage( 'Contributions' ),
-				wfMsg( 'mycontris' ), 'target=' . wfUrlencode($wgUser->getName() ) );
-		}
-		// only show watchlist link if logged in
-		$s .= "\n<hr class='sep' />";
-		$articleExists = $wgTitle->getArticleId();
-		if ( $wgOut->isArticle() || $action =='edit' || $action =='history' || $wpPreview) {
-			if($wgOut->isArticle()) {
-				$s .= '<strong>' . $this->editThisPage() . '</strong>';
-			} else { # backlink to the article in edit or history mode
-				if($articleExists){ # no backlink if no article
-					switch($tns) {
-						case 0:
-						$text = wfMsg('articlepage');
-						break;
-						case 1:
-						$text = wfMsg('viewtalkpage');
-						break;
-						case 2:
-						$text = wfMsg('userpage');
-						break;
-						case 3:
-						$text = wfMsg('viewtalkpage');
-						break;
-						case 4:
-						$text = wfMsg('projectpage');
-						break;
-						case 5:
-						$text = wfMsg('viewtalkpage');
-						break;
-						case 6:
-						$text = wfMsg('imagepage');
-						break;
-						case 7:
-						$text = wfMsg('viewtalkpage');
-						break;
-						default:
-						$text= wfMsg('articlepage');
-					}
+        $s = "\n<div id='quickbar'>";
+        $s .= "\n" . $this->logoText() . "\n<hr class='sep' />";
 
-					$link = $wgTitle->getText();
-					if ($nstext = $wgContLang->getNsText($tns) ) { # add namespace if necessary
-						$link = $nstext . ':' . $link ;
-					}
+        $sep = "\n<br />";
 
-					$s .= $this->makeLink( $link, $text );
-				} elseif( $wgTitle->getNamespace() != NS_SPECIAL ) {
-					# we just throw in a "New page" text to tell the user that he's in edit mode,
-					# and to avoid messing with the separator that is prepended to the next item
-					$s .= '<strong>' . wfMsg('newpage') . '</strong>';
-				}
+        # Use the first heading from the Monobook sidebar as the "browse" section
+        $bar = $this->buildSidebar();
+        $browseLinks = reset( $bar );
 
-			}
+        foreach ($browseLinks as $link) {
+            if ($link['text'] != '-') {
+                $s .= "<a href=\"{$link['href']}\">" .
+                    htmlspecialchars( $link['text'] ) . '</a>' . $sep;
+            }
+        }
 
-			# "Post a comment" link
-			if( ( $wgTitle->isTalkPage() || $wgOut->showNewSectionLink() ) && $action != 'edit' && !$wpPreview )
-				$s .= '<br />' . $this->makeKnownLinkObj( $wgTitle, wfMsg( 'postcomment' ), 'action=edit&section=new' );
-			
-			#if( $tns%2 && $action!='edit' && !$wpPreview) {
-				#$s.= '<br />'.$this->makeKnownLink($wgTitle->getPrefixedText(),wfMsg('postcomment'),'action=edit&section=new');
-			#}
+        if ( $wgUser->isLoggedIn() ) {
+            $s.= $this->specialLink( 'watchlist' ) ;
+            $s .= $sep . $this->makeKnownLink( $wgContLang->specialPage( 'Contributions' ),
+                wfMsg( 'mycontris' ), 'target=' . wfUrlencode($wgUser->getName() ) );
+        }
+        // only show watchlist link if logged in
+        $s .= "\n<hr class='sep' />";
+        $articleExists = $wgTitle->getArticleId();
+        if ( $wgOut->isArticle() || $action =='edit' || $action =='history' || $wpPreview) {
+            if ($wgOut->isArticle()) {
+                $s .= '<strong>' . $this->editThisPage() . '</strong>';
+            } else { # backlink to the article in edit or history mode
+                if ($articleExists) { # no backlink if no article
+                    switch ($tns) {
+                        case 0:
+                        $text = wfMsg('articlepage');
+                        break;
+                        case 1:
+                        $text = wfMsg('viewtalkpage');
+                        break;
+                        case 2:
+                        $text = wfMsg('userpage');
+                        break;
+                        case 3:
+                        $text = wfMsg('viewtalkpage');
+                        break;
+                        case 4:
+                        $text = wfMsg('projectpage');
+                        break;
+                        case 5:
+                        $text = wfMsg('viewtalkpage');
+                        break;
+                        case 6:
+                        $text = wfMsg('imagepage');
+                        break;
+                        case 7:
+                        $text = wfMsg('viewtalkpage');
+                        break;
+                        default:
+                        $text= wfMsg('articlepage');
+                    }
 
-			/*
-			watching could cause problems in edit mode:
-			if user edits article, then loads "watch this article" in background and then saves
-			article with "Watch this article" checkbox disabled, the article is transparently
-			unwatched. Therefore we do not show the "Watch this page" link in edit mode
-			*/
-			if ( $wgUser->isLoggedIn() && $articleExists) {
-				if($action!='edit' && $action != 'submit' )
-				{
-					$s .= $sep . $this->watchThisPage();
-				}
-				if ( $wgTitle->userCanEdit() )
-					$s .= $sep . $this->moveThisPage();
-			}
-			if ( $wgUser->isAllowed('delete') and $articleExists ) {
-				$s .= $sep . $this->deleteThisPage() .
-				$sep . $this->protectThisPage();
-			}
-			$s .= $sep . $this->talkLink();
-			if ($articleExists && $action !='history') {
-				$s .= $sep . $this->historyLink();
-			}
-			$s.=$sep . $this->whatLinksHere();
+                    $link = $wgTitle->getText();
+                    if ($nstext = $wgContLang->getNsText($tns) ) { # add namespace if necessary
+                        $link = $nstext . ':' . $link ;
+                    }
 
-			if($wgOut->isArticleRelated()) {
-				$s .= $sep . $this->watchPageLinksLink();
-			}
+                    $s .= $this->makeLink( $link, $text );
+                } elseif ( $wgTitle->getNamespace() != NS_SPECIAL ) {
+                    # we just throw in a "New page" text to tell the user that he's in edit mode,
+                    # and to avoid messing with the separator that is prepended to the next item
+                    $s .= '<strong>' . wfMsg('newpage') . '</strong>';
+                }
 
-			if ( NS_USER == $wgTitle->getNamespace()
-				|| $wgTitle->getNamespace() == NS_USER_TALK ) {
+            }
 
-				$id=User::idFromName($wgTitle->getText());
-				$ip=User::isIP($wgTitle->getText());
+            # "Post a comment" link
+            if( ( $wgTitle->isTalkPage() || $wgOut->showNewSectionLink() ) && $action != 'edit' && !$wpPreview )
+                $s .= '<br />' . $this->makeKnownLinkObj( $wgTitle, wfMsg( 'postcomment' ), 'action=edit&section=new' );
 
-				if($id||$ip) {
-					$s .= $sep . $this->userContribsLink();
-				}
-				if( $this->showEmailUser( $id ) ) {
-					$s .= $sep . $this->emailUserLink();
-				}
-			}
-			$s .= "\n<br /><hr class='sep' />";
-		}
+            #if ($tns%2 && $action!='edit' && !$wpPreview) {
+                #$s.= '<br />'.$this->makeKnownLink($wgTitle->getPrefixedText(),wfMsg('postcomment'),'action=edit&section=new');
+            #}
 
-		if ( $wgUser->isLoggedIn() && ( $wgEnableUploads || $wgRemoteUploads ) ) {
-			$s .= $this->specialLink( 'upload' ) . $sep;
-		}
-		$s .= $this->specialLink( 'specialpages' )
-		  . $sep . $this->bugReportsLink();
+            /*
+            watching could cause problems in edit mode:
+            if user edits article, then loads "watch this article" in background and then saves
+            article with "Watch this article" checkbox disabled, the article is transparently
+            unwatched. Therefore we do not show the "Watch this page" link in edit mode
+            */
+            if ( $wgUser->isLoggedIn() && $articleExists) {
+                if ($action!='edit' && $action != 'submit') {
+                    $s .= $sep . $this->watchThisPage();
+                }
+                if ( $wgTitle->userCanEdit() )
+                    $s .= $sep . $this->moveThisPage();
+            }
+            if ( $wgUser->isAllowed('delete') and $articleExists ) {
+                $s .= $sep . $this->deleteThisPage() .
+                $sep . $this->protectThisPage();
+            }
+            $s .= $sep . $this->talkLink();
+            if ($articleExists && $action !='history') {
+                $s .= $sep . $this->historyLink();
+            }
+            $s.=$sep . $this->whatLinksHere();
 
-		global $wgSiteSupportPage;
-		if( $wgSiteSupportPage ) {
-			$s .= "\n<br /><a href=\"" . htmlspecialchars( $wgSiteSupportPage ) .
-			  '" class="internal">' . wfMsg( 'sitesupport' ) . '</a>';
-		}
+            if ($wgOut->isArticleRelated()) {
+                $s .= $sep . $this->watchPageLinksLink();
+            }
 
-		$s .= "\n<br /></div>\n";
-		wfProfileOut( $fname );
-		return $s;
-	}
+            if ( NS_USER == $wgTitle->getNamespace()
+                || $wgTitle->getNamespace() == NS_USER_TALK ) {
 
+                $id=User::idFromName($wgTitle->getText());
+                $ip=User::isIP($wgTitle->getText());
+
+                if ($id||$ip) {
+                    $s .= $sep . $this->userContribsLink();
+                }
+                if ( $this->showEmailUser( $id ) ) {
+                    $s .= $sep . $this->emailUserLink();
+                }
+            }
+            $s .= "\n<br /><hr class='sep' />";
+        }
+
+        if ( $wgUser->isLoggedIn() && ( $wgEnableUploads || $wgRemoteUploads ) ) {
+            $s .= $this->specialLink( 'upload' ) . $sep;
+        }
+        $s .= $this->specialLink( 'specialpages' )
+          . $sep . $this->bugReportsLink();
+
+        global $wgSiteSupportPage;
+        if ($wgSiteSupportPage) {
+            $s .= "\n<br /><a href=\"" . htmlspecialchars( $wgSiteSupportPage ) .
+              '" class="internal">' . wfMsg( 'sitesupport' ) . '</a>';
+        }
+
+        $s .= "\n<br /></div>\n";
+        wfProfileOut( $fname );
+
+        return $s;
+    }
 
 }
-
-?>

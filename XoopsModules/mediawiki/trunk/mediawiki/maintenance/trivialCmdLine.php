@@ -5,7 +5,7 @@
  */
 
 /** */
-require_once( "commandLine.inc" );
+require_once 'commandLine.inc';
 # print "DB name: $wgDBname\n";
 # print "DB user: $wgDBuser\n";
 # print "DB password: $wgDBpassword\n";
@@ -17,5 +17,3 @@ $page = $dbr->tableName( 'page' );
 $res = $dbr->query( "SELECT MAX(page_id) as m FROM $page" );
 $row = $dbr->fetchObject( $res );
 print "Max page_id: {$row->m}\n";
-
-?>

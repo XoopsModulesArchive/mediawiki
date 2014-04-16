@@ -193,7 +193,7 @@ Molimo Vas da potvrdite da stvarno želite da ponovo napravite ovaj članak.',
 'copyrightpage' => '{{ns:4}}:Autorska_prava',
 'copyrightpagename' => '{{SITENAME}} autorska prava',
 'copyrightwarning' => 'Za sve priloge poslate na projekat {{SITENAME}} smatramo da su objavljeni pod $2 (konsultujte $1 za detalje).
-Ukoliko ne želite da vaši članci budu podložni izmjenama i slobodnom rasturanju i objavljivanju, 
+Ukoliko ne želite da vaši članci budu podložni izmjenama i slobodnom rasturanju i objavljivanju,
 nemojte ih slati ovdje. Takođe, slanje članka podrazumijeva i vašu izjavu da ste ga napisali sami, ili da ste ga kopirali iz izvora u javnom domenu ili sličnog slobodnog izvora.
 
 <strong>NEMOJTE SLATI RAD ZAŠTIĆEN AUTORSKIM PRAVIMA BEZ DOZVOLE AUTORA!</strong>',
@@ -1054,6 +1054,3 @@ Pretraga: $2',
 'yourrealname' => 'Vaše pravo ime *',
 'yourtext' => 'Vaš tekst',
 );
-
-
-?>

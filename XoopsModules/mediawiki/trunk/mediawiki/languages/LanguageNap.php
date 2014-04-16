@@ -5,18 +5,18 @@
   * @subpackage Language
   */
 
-require_once( 'LanguageIt.php' );
+require_once 'LanguageIt.php';
 
-class LanguageNap extends LanguageIt {
+class LanguageNap extends LanguageIt
+{
+    function getFallbackLanguage()
+    {
+        return 'it';
+    }
 
-	function getFallbackLanguage() {
-		return 'it';
-	}
-
-	function getAllMessages() {
-		return null;
-	}
+    function getAllMessages()
+    {
+        return null;
+    }
 
 }
-
-?>

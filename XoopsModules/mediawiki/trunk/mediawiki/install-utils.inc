@@ -134,7 +134,7 @@ function table_exists( $db ) {
 function field_info( $table, $field ) {
 	$res = mysql_query( "SELECT * FROM $table LIMIT 1" );
 	$n = mysql_num_fields( $res );
-	for( $i = 0; $i < $n; $i++ ) {
+	for( $i = 0; $i < $n; ++$i ) {
 		$meta = mysql_fetch_field( $res, $i );
 		if( $field == $meta->name ) {
 			return $meta;

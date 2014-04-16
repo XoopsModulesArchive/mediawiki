@@ -8,5 +8,3 @@ define("_MB_MEDIAWIKI_TOP", "Most revisions");
 define("_MB_MEDIAWIKI_HOT", "Hot contents");
 define("_MB_MEDIAWIKI_RANDOM", "Random pages");
 define("_MB_MEDIAWIKI_HELP", "Help");
-
-?>

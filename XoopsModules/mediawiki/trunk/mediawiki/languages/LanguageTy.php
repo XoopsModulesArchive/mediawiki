@@ -13,16 +13,16 @@
 
 require_once 'LanguageFr.php';
 
-class LanguageTy extends LanguageFr {
+class LanguageTy extends LanguageFr
+{
+    function getFallbackLanguage()
+    {
+        return 'fr';
+    }
 
-	function getFallbackLanguage() {
-		return 'fr';
-	}
-
-	function getAllMessages() {
-		return null;
-	}
+    function getAllMessages()
+    {
+        return null;
+    }
 
 }
-
-?>

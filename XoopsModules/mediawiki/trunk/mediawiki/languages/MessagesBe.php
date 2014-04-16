@@ -577,5 +577,3 @@ $wgAllMessagesBe = array(
 'yourrealname' => 'Сапраўднае імя *',
 'yourtext' => 'Ваш тэкст',
 );
-
-?>

@@ -3,4 +3,3 @@
 global $wgAllMessagesJv;
 $wgAllMessagesJv = array(
 );
-?>

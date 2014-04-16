@@ -13,16 +13,16 @@
 
 require_once 'LanguageEs.php';
 
-class LanguageAy extends LanguageEs {
+class LanguageAy extends LanguageEs
+{
+    function getFallbackLanguage()
+    {
+        return 'es';
+    }
 
-	function getFallbackLanguage() {
-		return 'es';
-	}
-
-	function getAllMessages() {
-		return null;
-	}
+    function getAllMessages()
+    {
+        return null;
+    }
 
 }
-
-?>

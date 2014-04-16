@@ -610,7 +610,6 @@ They should link to the appropriate topic instead.<br />A page is treated as dis
 'missinglanguagelinksbutton'    => "یافتن پیوندهای زبانی گم‌شده برای",
 'missinglanguagelinkstext'      => "این مقاله‌ها به همتایشان در $1 پیوند <i>ندارند</i>. Redirects و زیرصفحه‌ها نشان داده <i>نشده‌اند</i>.",
 
-
 # Miscellaneous special pages
 #
 'orphans'		=> "صفحات یتیم",
@@ -709,7 +708,6 @@ $3...
 'wlnote' 			=> "در زیر آخرین $1 تغییر در $2 ساعت آخر آمده است.",
 'wlshowlast' 		=> "نمایش آخرین $1 ساعت $2 روز $3",
 'wlsaved'			=> "این نسخه‌ی ذخیره‌شده‌ای از فهرست تعقیبات شما است.",
-
 
 # Delete/protect/revert
 #
@@ -891,6 +889,3 @@ by [[User:$2|$2]] ([[User talk:$2|Talk]]); someone else has edited or rolled bac
 'mw_math_modern' => "توصیه برای مرورگرهای امروزی",
 
 );
-
-
-?>

@@ -306,6 +306,3 @@ $wgAllMessagesCsb = array(
 'yourpassword' => 'Twòja parola',
 'yourrealname' => 'Twòje jistné miono*',
 );
-
-
-?>

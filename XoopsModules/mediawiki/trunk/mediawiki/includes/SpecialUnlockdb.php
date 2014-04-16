@@ -8,24 +8,26 @@
 /**
  *
  */
-function wfSpecialUnlockdb() {
-	global $wgUser, $wgOut, $wgRequest;
+function wfSpecialUnlockdb()
+{
+    global $wgUser, $wgOut, $wgRequest;
 
-	if ( ! $wgUser->isAllowed('siteadmin') ) {
-		$wgOut->developerRequired();
-		return;
-	}
-	$action = $wgRequest->getVal( 'action' );
-	$f = new DBUnlockForm();
+    if ( ! $wgUser->isAllowed('siteadmin') ) {
+        $wgOut->developerRequired();
 
-	if ( "success" == $action ) {
-		$f->showSuccess();
-	} else if ( "submit" == $action && $wgRequest->wasPosted() &&
-		$wgUser->matchEditToken( $wgRequest->getVal( 'wpEditToken' ) ) ) {
-		$f->doSubmit();
-	} else {
-		$f->showForm( "" );
-	}
+        return;
+    }
+    $action = $wgRequest->getVal( 'action' );
+    $f = new DBUnlockForm();
+
+    if ("success" == $action) {
+        $f->showSuccess();
+    } elseif ( "submit" == $action && $wgRequest->wasPosted() &&
+        $wgUser->matchEditToken( $wgRequest->getVal( 'wpEditToken' ) ) ) {
+        $f->doSubmit();
+    } else {
+        $f->showForm( "" );
+    }
 }
 
 /**
@@ -33,73 +35,76 @@ function wfSpecialUnlockdb() {
  * @package MediaWiki
  * @subpackage SpecialPage
  */
-class DBUnlockForm {
-	function showForm( $err )
-	{
-		global $wgOut, $wgUser;
+class DBUnlockForm
+{
+    function showForm( $err )
+    {
+        global $wgOut, $wgUser;
 
-		$wgOut->setPagetitle( wfMsg( "unlockdb" ) );
-		$wgOut->addWikiText( wfMsg( "unlockdbtext" ) );
+        $wgOut->setPagetitle( wfMsg( "unlockdb" ) );
+        $wgOut->addWikiText( wfMsg( "unlockdbtext" ) );
 
-		if ( "" != $err ) {
-			$wgOut->setSubtitle( wfMsg( "formerror" ) );
-			$wgOut->addHTML( '<p class="error">' . htmlspecialchars( $err ) . "</p>\n" );
-		}
-		$lc = htmlspecialchars( wfMsg( "unlockconfirm" ) );
-		$lb = htmlspecialchars( wfMsg( "unlockbtn" ) );
-		$titleObj = Title::makeTitle( NS_SPECIAL, "Unlockdb" );
-		$action = $titleObj->escapeLocalURL( "action=submit" );
-		$token = htmlspecialchars( $wgUser->editToken() );
+        if ("" != $err) {
+            $wgOut->setSubtitle( wfMsg( "formerror" ) );
+            $wgOut->addHTML( '<p class="error">' . htmlspecialchars( $err ) . "</p>\n" );
+        }
+        $lc = htmlspecialchars( wfMsg( "unlockconfirm" ) );
+        $lb = htmlspecialchars( wfMsg( "unlockbtn" ) );
+        $titleObj = Title::makeTitle( NS_SPECIAL, "Unlockdb" );
+        $action = $titleObj->escapeLocalURL( "action=submit" );
+        $token = htmlspecialchars( $wgUser->editToken() );
 
-		$wgOut->addHTML( <<<END
+        $wgOut->addHTML( <<<END
 
 <form id="unlockdb" method="post" action="{$action}">
 <table border="0">
-	<tr>
-		<td align="right">
-			<input type="checkbox" name="wpLockConfirm" />
-		</td>
-		<td align="left">{$lc}</td>
-	</tr>
-	<tr>
-		<td>&nbsp;</td>
-		<td align="left">
-			<input type="submit" name="wpLock" value="{$lb}" />
-		</td>
-	</tr>
+    <tr>
+        <td align="right">
+            <input type="checkbox" name="wpLockConfirm" />
+        </td>
+        <td align="left">{$lc}</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td align="left">
+            <input type="submit" name="wpLock" value="{$lb}" />
+        </td>
+    </tr>
 </table>
 <input type="hidden" name="wpEditToken" value="{$token}" />
 </form>
 END
 );
 
-	}
+    }
 
-	function doSubmit() {
-		global $wgOut, $wgRequest, $wgReadOnlyFile;
+    function doSubmit()
+    {
+        global $wgOut, $wgRequest, $wgReadOnlyFile;
 
-		$wpLockConfirm = $wgRequest->getCheck( 'wpLockConfirm' );
-		if ( ! $wpLockConfirm ) {
-			$this->showForm( wfMsg( "locknoconfirm" ) );
-			return;
-		}
-		if ( @! unlink( $wgReadOnlyFile ) ) {
-			$wgOut->showFileDeleteError( $wgReadOnlyFile );
-			return;
-		}
-		$titleObj = Title::makeTitle( NS_SPECIAL, "Unlockdb" );
-		$success = $titleObj->getFullURL( "action=success" );
-		$wgOut->redirect( $success );
-	}
+        $wpLockConfirm = $wgRequest->getCheck( 'wpLockConfirm' );
+        if (! $wpLockConfirm) {
+            $this->showForm( wfMsg( "locknoconfirm" ) );
 
-	function showSuccess() {
-		global $wgOut;
-		global $ip;
+            return;
+        }
+        if ( @! unlink( $wgReadOnlyFile ) ) {
+            $wgOut->showFileDeleteError( $wgReadOnlyFile );
 
-		$wgOut->setPagetitle( wfMsg( "unlockdb" ) );
-		$wgOut->setSubtitle( wfMsg( "unlockdbsuccesssub" ) );
-		$wgOut->addWikiText( wfMsg( "unlockdbsuccesstext", $ip ) );
-	}
+            return;
+        }
+        $titleObj = Title::makeTitle( NS_SPECIAL, "Unlockdb" );
+        $success = $titleObj->getFullURL( "action=success" );
+        $wgOut->redirect( $success );
+    }
+
+    function showSuccess()
+    {
+        global $wgOut;
+        global $ip;
+
+        $wgOut->setPagetitle( wfMsg( "unlockdb" ) );
+        $wgOut->setSubtitle( wfMsg( "unlockdbsuccesssub" ) );
+        $wgOut->addWikiText( wfMsg( "unlockdbsuccesstext", $ip ) );
+    }
 }
-
-?>

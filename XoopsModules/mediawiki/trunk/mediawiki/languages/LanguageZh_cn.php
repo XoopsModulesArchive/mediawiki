@@ -3,62 +3,60 @@
   * @package MediaWiki
   * @subpackage Language
   */
-require_once( "LanguageUtf8.php" );
+require_once 'LanguageUtf8.php';
 /* private */ $wgNamespaceNamesZh_cn = array(
-	NS_MEDIA            => "Media",
-	NS_SPECIAL          => "Special",
-	NS_MAIN             => "",
-	NS_TALK             => "Talk",
-	NS_USER             => "User",
-	NS_USER_TALK        => "User_talk",
-	NS_PROJECT          => $wgMetaNamespace,
-	NS_PROJECT_TALK     => $wgMetaNamespace . "_talk",
-	NS_IMAGE            => "Image",
-	NS_IMAGE_TALK       => "Image_talk",
-	NS_MEDIAWIKI        => "MediaWiki",
-	NS_MEDIAWIKI_TALK   => "MediaWiki_talk",
-	NS_TEMPLATE         => "Template",
-	NS_TEMPLATE_TALK    => "Template_talk",
-	NS_HELP             => "Help",
-	NS_HELP_TALK        => "Help_talk",
-	NS_CATEGORY         => "Category",
-	NS_CATEGORY_TALK    => "Category_talk"
+    NS_MEDIA            => "Media",
+    NS_SPECIAL          => "Special",
+    NS_MAIN             => "",
+    NS_TALK             => "Talk",
+    NS_USER             => "User",
+    NS_USER_TALK        => "User_talk",
+    NS_PROJECT          => $wgMetaNamespace,
+    NS_PROJECT_TALK     => $wgMetaNamespace . "_talk",
+    NS_IMAGE            => "Image",
+    NS_IMAGE_TALK       => "Image_talk",
+    NS_MEDIAWIKI        => "MediaWiki",
+    NS_MEDIAWIKI_TALK   => "MediaWiki_talk",
+    NS_TEMPLATE         => "Template",
+    NS_TEMPLATE_TALK    => "Template_talk",
+    NS_HELP             => "Help",
+    NS_HELP_TALK        => "Help_talk",
+    NS_CATEGORY         => "Category",
+    NS_CATEGORY_TALK    => "Category_talk"
 
 ) + $wgNamespaceNamesEn;
 
 /* private */ $wgQuickbarSettingsZh_cn = array(
-	"无", /* "None" */
-	"左侧固定", /* "Fixed left" */
-	"右侧固定", /* "Fixed right" */
-	"左侧漂移" /* "Floating left" */
+    "无", /* "None" */
+    "左侧固定", /* "Fixed left" */
+    "右侧固定", /* "Fixed right" */
+    "左侧漂移" /* "Floating left" */
 );
 
 /* private */ $wgSkinNamesZh_cn = array(
-	'standard' => "标准",
-	'nostalgia' => "怀旧",
-	'cologneblue' => "科隆香水蓝",
-	'davinci' => 'DaVinci',
-	'mono' => 'Mono',
-	'monobook' => 'MonoBook',
-	'myskin' => 'MySkin',
-	'chick' => 'Chick'
+    'standard' => "标准",
+    'nostalgia' => "怀旧",
+    'cologneblue' => "科隆香水蓝",
+    'davinci' => 'DaVinci',
+    'mono' => 'Mono',
+    'monobook' => 'MonoBook',
+    'myskin' => 'MySkin',
+    'chick' => 'Chick'
 ) + $wgSkinNamesEn;
-
 
 # Whether to use user or default setting in Language::date()
 
 /* private */ $wgDateFormatsZh_cn = array(
-	MW_DATE_DEFAULT => '没有预设',
-	MW_DATE_MDY => '16:12, 01 15, 2001',
-	MW_DATE_DMY => '16:12, 15 01 2001',
-	MW_DATE_YMD => '16:12, 2001 01 15',
-	MW_DATE_ISO => '2001-01-15 16:12:34'
+    MW_DATE_DEFAULT => '没有预设',
+    MW_DATE_MDY => '16:12, 01 15, 2001',
+    MW_DATE_DMY => '16:12, 15 01 2001',
+    MW_DATE_YMD => '16:12, 2001 01 15',
+    MW_DATE_ISO => '2001-01-15 16:12:34'
 );
 
 /* private */ $wgUserTogglesZh_cn = array(
-	'nolangconversion',
+    'nolangconversion',
 ) + $wgUserTogglesEn;
-
 
 /* private */ $wgAllMessagesZh_cn = array(
 # User preference toggles
@@ -135,7 +133,6 @@ require_once( "LanguageUtf8.php" );
 "category" => "分类",
 "category_header" => "类别”$1“中的条目",
 "subcategories" => "次级分类",
-
 
 'linktrail'		=> '/^([a-z]+)(.*)$/sD',
 'linkprefix'		=> '/^(.*?)([a-zA-Z\x80-\xff]+)$/sD',
@@ -346,7 +343,6 @@ Query: $2
 
 你可以查看拷贝该页源码:",
 'sqlhidden' => '(SQL query hidden)',
-
 
 # 登录与登出
 #
@@ -702,8 +698,6 @@ Unselected groups will not be changed. You can deselect a group with CTRL + Left
 'group-steward-name'    => 'Steward',
 'group-steward-desc'    => 'Full access',
 
-
-
 # Recent changes
 #
 "changes" => "更改",
@@ -853,7 +847,6 @@ Unselected groups will not be changed. You can deselect a group with CTRL + Left
 "missinglanguagelinksbutton"    => "寻找没有该语言的页面",
 "missinglanguagelinkstext"      => "这些条目<i>没有</i>链接到$1。
 重定向页与副页<b>并没有</b>包括在内。",
-
 
 # Miscellaneous special pages
 #
@@ -1164,7 +1157,6 @@ the list of currently operational bans and blocks.',
 'sorbs'         => 'SORBS DNSBL',
 'sorbsreason'   => 'Your IP address is listed as an open proxy in the [http://www.sorbs.net SORBS] DNSBL.',
 'sorbs_create_account_reason' => 'Your IP address is listed as an open proxy in the [http://www.sorbs.net SORBS] DNSBL. You cannot create an account',
-
 
 # Developer tools
 #
@@ -1519,7 +1511,6 @@ ta[\'ca-nstab-category\'] = new Array(\'c\',\'View the category page\');
 # Metadata
 'metadata' => 'Metadata',
 
-
 # external editor support
 'edit-externally' => 'Edit this file using an external application',
 'edit-externally-help' => 'See the [http://meta.wikimedia.org/wiki/Help:External_editors setup instructions] for more information.',
@@ -1584,110 +1575,124 @@ $1
 
 );
 
-class LanguageZh_cn extends LanguageUtf8 {
+class LanguageZh_cn extends LanguageUtf8
+{
+    function getUserToggles()
+    {
+        global $wgUserTogglesZh_cn;
 
-	function getUserToggles() {
-		global $wgUserTogglesZh_cn;
-		return $wgUserTogglesZh_cn;
-	}
+        return $wgUserTogglesZh_cn;
+    }
 
-	function getNamespaces() {
-		global $wgNamespaceNamesZh_cn;
-		return $wgNamespaceNamesZh_cn;
-	}
+    function getNamespaces()
+    {
+        global $wgNamespaceNamesZh_cn;
+
+        return $wgNamespaceNamesZh_cn;
+    }
+
+    function getNsIndex( $text )
+    {
+        global $wgNamespaceNamesZh_cn;
+
+        foreach ($wgNamespaceNamesZh_cn as $i => $n) {
+            if ( 0 == strcasecmp( $n, $text ) ) { return $i; }
+        }
+        # Aliases
+        if ( 0 == strcasecmp( "特殊", $text ) ) { return -1; }
+        if ( 0 == strcasecmp( "", $text ) ) { return ; }
+        if ( 0 == strcasecmp( "对话", $text ) ) { return 1; }
+        if ( 0 == strcasecmp( "用户", $text ) ) { return 2; }
+        if ( 0 == strcasecmp( "用户对话", $text ) ) { return 3; }
+        if ( 0 == strcasecmp( "Wikipedia_对话", $text ) ) { return 5; }
+        if ( 0 == strcasecmp( "图像", $text ) ) { return 6; }
+        if ( 0 == strcasecmp( "图像对话", $text ) ) { return 7; }
+
+        return false;
+    }
+
+    function getQuickbarSettings()
+    {
+        global $wgQuickbarSettingsZh_cn;
+
+        return $wgQuickbarSettingsZh_cn;
+    }
+
+    function getSkinNames()
+    {
+        global $wgSkinNamesZh_cn;
+
+        return $wgSkinNamesZh_cn;
+    }
+
+    function date( $ts, $adj = false )
+    {
+        if ($adj) { $ts = $this->userAdjust( $ts ); }
+
+        $d = substr( $ts, 0, 4 ) . "年" .
+          $this->getMonthAbbreviation( substr( $ts, 4, 2 ) ) .
+          (0 + substr( $ts, 6, 2 )) . "日";
+
+        return $d;
+    }
+
+    function timeanddate( $ts, $adj = false )
+    {
+        return $this->time( $ts, $adj ) . " " . $this->date( $ts, $adj );
+    }
+
+    function getMessage( $key )
+    {
+        global $wgAllMessagesZh_cn;
+        if( isset( $wgAllMessagesZh_cn[$key] ) )
+
+            return $wgAllMessagesZh_cn[$key];
+        else
+            return parent::getMessage( $key );
+    }
+
+    # inherit default iconv(), ucfirst(), checkTitleEncoding()
+
+    function stripForSearch( $string )
+    {
+        # MySQL fulltext index doesn't grok utf-8, so we
+        # need to fold cases and convert to hex
+        # we also separate characters as "words"
+        if ( function_exists( 'mb_strtolower' ) ) {
+            return preg_replace(
+                "/([\\xc0-\\xff][\\x80-\\xbf]*)/e",
+                "' U8' . bin2hex( \"$1\" )",
+                mb_strtolower( $string ) );
+        } else {
+            global $wikiLowerChars;
+
+            return preg_replace(
+                "/([\\xc0-\\xff][\\x80-\\xbf]*)/e",
+                "' U8' . bin2hex( strtr( \"\$1\", \$wikiLowerChars ) )",
+                $string );
+        }
+    }
+
+    function checkTitleEncoding( $s )
+    {
+        global $wgInputEncoding;
+
+        # Check for UTF-8 URLs; Internet Explorer produces these if you
+        # type non-ASCII chars in the URL bar or follow unescaped links.
+        $ishigh = preg_match( '/[\x80-\xff]/', $s);
+        $isutf = ($ishigh ? preg_match( '/^([\x00-\x7f]|[\xc0-\xdf][\x80-\xbf]|' .
+                 '[\xe0-\xef][\x80-\xbf]{2}|[\xf0-\xf7][\x80-\xbf]{3})+$/', $s ) : true );
 
 
-	function getNsIndex( $text ) {
-		global $wgNamespaceNamesZh_cn;
+        if ($isutf) {
+            return @$this->iconv( 'UTF-8', $wgInputEncoding, $s );
+        } else {
+            return mediawiki_encoding_xoops2mediawiki($s);
+        }
 
-		foreach ( $wgNamespaceNamesZh_cn as $i => $n ) {
-			if ( 0 == strcasecmp( $n, $text ) ) { return $i; }
-		}
-		# Aliases
-		if ( 0 == strcasecmp( "特殊", $text ) ) { return -1; }
-		if ( 0 == strcasecmp( "", $text ) ) { return ; }
-		if ( 0 == strcasecmp( "对话", $text ) ) { return 1; }
-		if ( 0 == strcasecmp( "用户", $text ) ) { return 2; }
-		if ( 0 == strcasecmp( "用户对话", $text ) ) { return 3; }
-		if ( 0 == strcasecmp( "Wikipedia_对话", $text ) ) { return 5; }
-		if ( 0 == strcasecmp( "图像", $text ) ) { return 6; }
-		if ( 0 == strcasecmp( "图像对话", $text ) ) { return 7; }
-		return false;
-	}
+        # Other languages can safely leave this function, or replace
+        # it with one to detect and convert another legacy encoding.
 
-	function getQuickbarSettings() {
-		global $wgQuickbarSettingsZh_cn;
-		return $wgQuickbarSettingsZh_cn;
-	}
-
-	function getSkinNames() {
-		global $wgSkinNamesZh_cn;
-		return $wgSkinNamesZh_cn;
-	}
-
-	function date( $ts, $adj = false ) {
-		if ( $adj ) { $ts = $this->userAdjust( $ts ); }
-
-		$d = substr( $ts, 0, 4 ) . "年" .
-		  $this->getMonthAbbreviation( substr( $ts, 4, 2 ) ) .
-		  (0 + substr( $ts, 6, 2 )) . "日";
-		return $d;
-	}
-
-	function timeanddate( $ts, $adj = false ) {
-		return $this->time( $ts, $adj ) . " " . $this->date( $ts, $adj );
-	}
-
-	function getMessage( $key ) {
-		global $wgAllMessagesZh_cn;
-		if( isset( $wgAllMessagesZh_cn[$key] ) )
-			return $wgAllMessagesZh_cn[$key];
-		else
-			return parent::getMessage( $key );
-	}
-
-	# inherit default iconv(), ucfirst(), checkTitleEncoding()
-
-	function stripForSearch( $string ) {
-		# MySQL fulltext index doesn't grok utf-8, so we
-		# need to fold cases and convert to hex
-		# we also separate characters as "words"
-		if( function_exists( 'mb_strtolower' ) ) {
-			return preg_replace(
-				"/([\\xc0-\\xff][\\x80-\\xbf]*)/e",
-				"' U8' . bin2hex( \"$1\" )",
-				mb_strtolower( $string ) );
-		} else {
-			global $wikiLowerChars;
-			return preg_replace(
-				"/([\\xc0-\\xff][\\x80-\\xbf]*)/e",
-				"' U8' . bin2hex( strtr( \"\$1\", \$wikiLowerChars ) )",
-				$string );
-		}
-	}
-
-	function checkTitleEncoding( $s ) {
-		global $wgInputEncoding;
-
-		# Check for UTF-8 URLs; Internet Explorer produces these if you
-		# type non-ASCII chars in the URL bar or follow unescaped links.
-		$ishigh = preg_match( '/[\x80-\xff]/', $s);
-		$isutf = ($ishigh ? preg_match( '/^([\x00-\x7f]|[\xc0-\xdf][\x80-\xbf]|' .
-		         '[\xe0-\xef][\x80-\xbf]{2}|[\xf0-\xf7][\x80-\xbf]{3})+$/', $s ) : true );
-		        
-		       
-		if( $isutf ){
-			return @$this->iconv( 'UTF-8', $wgInputEncoding, $s );
-		}else{
-			return mediawiki_encoding_xoops2mediawiki($s);
-		}
-		
-
-		# Other languages can safely leave this function, or replace
-		# it with one to detect and convert another legacy encoding.
-		return $s;
-	}
+        return $s;
+    }
 }
-
-
-?>

@@ -15,5 +15,3 @@ $wgAllMessagesUdm = array(
 'nstab-user' => 'викиавтор',
 'preferences' => 'настройкаос',
 );
-
-?>

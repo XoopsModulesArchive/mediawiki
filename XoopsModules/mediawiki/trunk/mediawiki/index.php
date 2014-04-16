@@ -7,16 +7,16 @@ $wgRequestTime = microtime(true);
 
 # getrusage() does not exist on the Microsoft Windows platforms, catching this
 if ( function_exists ( 'getrusage' ) ) {
-	$wgRUstart = getrusage();
+    $wgRUstart = getrusage();
 } else {
-	$wgRUstart = array();
+    $wgRUstart = array();
 }
 
 unset( $IP );
 @ini_set( 'allow_url_fopen', 0 ); # For security...
 
 if ( isset( $_REQUEST['GLOBALS'] ) ) {
-	die( '<a href="http://www.hardened-php.net/index.76.html">$GLOBALS overwrite vulnerability</a>');
+    die( '<a href="http://www.hardened-php.net/index.76.html">$GLOBALS overwrite vulnerability</a>');
 }
 
 # Valid web server entry point, enable includes.
@@ -27,60 +27,60 @@ if ( isset( $_REQUEST['GLOBALS'] ) ) {
 define( 'MEDIAWIKI', true );
 
 # Load up some global defines.
-require_once( './includes/Defines.php' );
+require_once './includes/Defines.php';
 
 # LocalSettings.php is the per site customization file. If it does not exit
 # the wiki installer need to be launched or the generated file moved from
 # ./config/ to ./
-if( !file_exists( 'LocalSettings.php' ) ) {
-	$IP = '.';
-	require_once( 'includes/DefaultSettings.php' ); # used for printing the version
+if ( !file_exists( 'LocalSettings.php' ) ) {
+    $IP = '.';
+    require_once 'includes/DefaultSettings.php'; # used for printing the version
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
-	<head>
-		<title>MediaWiki <?php echo $wgVersion ?></title>
-		<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
-		<style type='text/css' media='screen, projection'>
-			html, body {
-				color: #000;
-				background-color: #fff;
-				font-family: sans-serif;
-				text-align: center;
-			}
+    <head>
+        <title>MediaWiki <?php echo $wgVersion ?></title>
+        <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+        <style type='text/css' media='screen, projection'>
+            html, body {
+                color: #000;
+                background-color: #fff;
+                font-family: sans-serif;
+                text-align: center;
+            }
 
-			h1 {
-				font-size: 150%;
-			}
-		</style>
-	</head>
-	<body>
-		<img src='skins/common/images/mediawiki.png' alt='The MediaWiki logo' />
+            h1 {
+                font-size: 150%;
+            }
+        </style>
+    </head>
+    <body>
+        <img src='skins/common/images/mediawiki.png' alt='The MediaWiki logo' />
 
-		<h1>MediaWiki <?php echo $wgVersion ?></h1>
-		<div class='error'>
-		<?php
-		if ( file_exists( 'config/LocalSettings.php' ) ) {
-			echo( 'To complete the installation, move <tt>config/LocalSettings.php</tt> to the parent directory.' );
-		} else {
-			echo( 'Please <a href="config/index.php" title="setup">setup the wiki</a> first.' );
-		}
-		?>
+        <h1>MediaWiki <?php echo $wgVersion ?></h1>
+        <div class='error'>
+        <?php
+        if ( file_exists( 'config/LocalSettings.php' ) ) {
+            echo( 'To complete the installation, move <tt>config/LocalSettings.php</tt> to the parent directory.' );
+        } else {
+            echo( 'Please <a href="config/index.php" title="setup">setup the wiki</a> first.' );
+        }
+        ?>
 
-		</div>
-	</body>
+        </div>
+    </body>
 </html>
 <?php
-	die();
+    die();
 }
 
 # Include this site setttings
-require_once( './LocalSettings.php' );
+require_once './LocalSettings.php';
 # Prepare MediaWiki
-require_once( 'includes/Setup.php' );
+require_once 'includes/Setup.php';
 
 # Initialize MediaWiki base class
-require_once( "includes/Wiki.php" );
+require_once 'includes/Wiki.php';
 $mediaWiki = new MediaWiki();
 
 wfProfileIn( 'main-misc-setup' );
@@ -93,18 +93,18 @@ $title = $wgRequest->getVal( 'title' );
 #
 # Send Ajax requests to the Ajax dispatcher.
 #
-if ( $wgUseAjax && $action == 'ajax' ) {
-	require_once( 'AjaxDispatcher.php' );
+if ($wgUseAjax && $action == 'ajax') {
+    require_once 'AjaxDispatcher.php';
 
-	$dispatcher = new AjaxDispatcher();
-	$dispatcher->performAction();
+    $dispatcher = new AjaxDispatcher();
+    $dispatcher->performAction();
 
-	exit;
+    exit;
 }
 
 $wgTitle = $mediaWiki->checkInitialQueries( $title,$action,$wgOut, $wgRequest, $wgContLang );
 if ($wgTitle == NULL) {
-	unset( $wgTitle );
+    unset( $wgTitle );
 }
 
 wfProfileOut( 'main-misc-setup' );
@@ -121,10 +121,9 @@ $mediaWiki->setVal( 'UseExternalEditor', $wgUseExternalEditor );
 $mediaWiki->setVal( 'DisabledActions', $wgDisabledActions );
 
 $wgArticle = $mediaWiki->initialize ( $wgTitle, $wgOut, $wgUser, $wgRequest );
-$mediaWiki->finalCleanup ( $wgDeferredUpdateList, $wgLoadBalancer, $wgOut );
 
+$mediaWiki->finalCleanup ( $wgDeferredUpdateList, $wgLoadBalancer, $wgOut );
 # Not sure when $wgPostCommitUpdateList gets set, so I keep this separate from finalCleanup
 $mediaWiki->doUpdates( $wgPostCommitUpdateList );
 
 $mediaWiki->restInPeace( $wgLoadBalancer );
-?>

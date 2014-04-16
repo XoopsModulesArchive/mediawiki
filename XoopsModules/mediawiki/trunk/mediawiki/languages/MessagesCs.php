@@ -1,6 +1,5 @@
 <?php
 
-
 /* private */ $wgAllMessagesCs = array(
 
 # Části textu používané různými stránkami:
@@ -972,7 +971,7 @@ na wiki: $PAGEEDITOR_WIKI
 
 Dokud stránku nenavštívíte, nebudou vám zasílána další oznámení o změnách této stránky, případně do doby, než vynulujete příznaky ve svém seznamu sledovaných stránek.
 
-	S pozdravem váš zasílač hlášení {{grammar:2sg|{{SITENAME}}}}
+    S pozdravem váš zasílač hlášení {{grammar:2sg|{{SITENAME}}}}
 
 --
 Pro změnu nastavení navštivte
@@ -1834,6 +1833,3 @@ Opravdu si přejete znovu tento článek založit?',
 # DISPLAYTITLE
 'displaytitle' => '(Na tuto stránku odkazujte pomocí [[$1]])',
 );
-
-
-?>

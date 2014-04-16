@@ -158,7 +158,7 @@ Zuug $1.',
 'databaseerror'         => 'Databasefout',
 'dberrortext'           => 'Bie \'t zeuke is \'n syntaxfout in de database opgetreje.
 Dit kint zien veroorzaak door \'n óngeljige zeukactie (zuug $5),
-of \'t duujt op \'n fout in de software. 
+of \'t duujt op \'n fout in de software.
 De lètste zeukpoeging in de database waor:
 <blockquote><tt>$1</tt></blockquote>
 vanoet de functie "<tt>$2</tt>".
@@ -282,7 +282,7 @@ Your IP address is $3. Please include this address in any queries you make.',
 'accmailtitle'          => 'Wachwaord versjtuurd.',
 'accmailtext'           => '\'t Wachwaord veur \'$1\' is nao $2 versjtuurd.',
 'newarticle'            => '(Nuuj)',
-'newarticletext'        => 'De höbs \'ne link gevolg nao \'n pazjena die nog neet besjteit. 
+'newarticletext'        => 'De höbs \'ne link gevolg nao \'n pazjena die nog neet besjteit.
 Type in de box hiejónger óm de pazjena te beginne (zuug de [[Help:Contents|helppazjena]] veur mier informatie). Es te hie per óngelök terech bis gekómme, klik dan op de \'\'\'trök\'\'\'-knóp van diene browser.',
 'anontalkpagetext'      => '----\'\'Dit is de euverlikpazjena veur \'ne anonieme gebroeker dae nog gein account haet aangemak of dae \'t neet gebroek. Daorom gebroeke v\'r \'t [[IP adres]] om de gebroeker te identificere. Dat adres kint weure gedeild doer miedere gebroekers. As e \'ne anonieme gebroeker bis en de höbs \'t geveul dat \'r onrillevante commentare aan dich gericht zint, kins e \'t biste [[Special:Userlogin|\'n account crëere of inlogge]] om toekomstige verwarring mit angere anonieme gebroekers te veurkomme.\'\'',
 'noarticletext'         => '(Dees pazjena bevat op \'t moment gein teks)',
@@ -348,7 +348,7 @@ De beluifs ós ouch dats te dezen tèks zelf höbs gesjreve, of gekopieerd van \
 'showingresultsnum'     => 'Hieonger de <b>$3</b> resultate vanaaf #<b>$2</b>.',
 'nonefound'             => '<strong>Lèt op:</strong> \'n zeukopdrach kan mislökke door \'t gebroek van (in \'t Ingelsj) väöl veurkómmende wäörd wie "of" en "be", die neet geïndexeerd zint, of door versjillende zeukterme tegeliek op te gaeve (de kries dan allein pazjena\'s te zeen woerin alle opgegaeve terme veurkómme).',
 'powersearch'           => 'Zeuke',
-'powersearchtext'       => '   
+'powersearchtext'       => '
  Zeuk in naomroemdes :<br />
 $1<br />
 $2 Toen redirects   Zeuk: $3 $9',
@@ -414,7 +414,7 @@ $2 Toen redirects   Zeuk: $3 $9',
 'uploadnologin'         => 'Neet aangemèld',
 'uploadnologintext'     => 'De mos [[Special:Userlogin|zien aangemèld]] om besjtande te uploade.',
 'uploaderror'           => 'upload fout',
-'uploadtext'            => 'Gebroek \'t óngersjtaonde formuleer óm besjtande op te laje. Óm ierder opgelaje besjtande te bekieke of te zeuke, gank nao de [[Special:Imagelist|lies van opgelaje besjtande]]. Uploads en verwiederinge waere ouch biegehauwte in \'t [[Special:Log/upload|uploadlogbook]]. 
+'uploadtext'            => 'Gebroek \'t óngersjtaonde formuleer óm besjtande op te laje. Óm ierder opgelaje besjtande te bekieke of te zeuke, gank nao de [[Special:Imagelist|lies van opgelaje besjtande]]. Uploads en verwiederinge waere ouch biegehauwte in \'t [[Special:Log/upload|uploadlogbook]].
 
 Gebroek óm \'n plaetje of \'n besjtand in \'n pazjena op te numme \'ne link in de vörm:
 * \'\'\'<nowiki>[[</nowiki>{{ns:Image}}<nowiki>:Besjtand.jpg]]</nowiki>\'\'\'
@@ -554,7 +554,7 @@ Op eder raegel vings te de ierste redirectpazjena, de twiede redirectpazjena en 
 'watchnologintext'      => 'De mós [[Special:Userlogin|aangemèld]] zeen veur \'t verangere van dien volglies.',
 'addedwatch'            => 'Aan volglies toegeveug',
 'addedwatchtext'        => 'De pazjena "$1" is aan dien [[Special:Watchlist|volglies]] toegeveug.
-Toekomstige verangeringe aan deze pazjena en de biebehurende euverlikpazjena weure hie vermèld. 
+Toekomstige verangeringe aan deze pazjena en de biebehurende euverlikpazjena weure hie vermèld.
 Ouch versjiene gevolgde pazjena\'s in \'t <b>vet</b> in de [[Special:Recentchanges|liest van recènte verangeringe]]. <!-- zodat u ze eenvoudiger kan opmerken.-->
 
 <!-- huh? Wen se ein pazjena van dien volgliest wils haole mos e op "sjtop volge"  -- pagina wenst te verwijderen van uw volgliest klik dan op "Van volgliest verwijderen" in de menubalk. -->',
@@ -631,7 +631,7 @@ Commentaar en wiejer assistentie:
 'rollbacklink'          => 'Trukdrieje',
 'cantrollback'          => 'Trökdrejje van verangeringe neet meugelik: Dit artikel haet mer einen auteur.',
 'alreadyrolled'         => '\'t Is neet meugelik óm de lèste verangering van [[$1]]
-door [[User:$2|$2]] ([[User talk:$2|euverlik]]) óngedaon te make. Emes angers haet de pazjena al hersjtèld of haet \'n anger bewèrking gedaon. 
+door [[User:$2|$2]] ([[User talk:$2|euverlik]]) óngedaon te make. Emes angers haet de pazjena al hersjtèld of haet \'n anger bewèrking gedaon.
 
 De lèste bewèrking is gedaon door [[User:$3|$3]] ([[User talk:$3|euverlik]]).',
 'editcomment'           => '\'t Bewirkingscommentair waor: "<i>$1</i>".',
@@ -899,4 +899,3 @@ Bevèsteg estebleef dats te dees pazjena ech obbenuujts wils make.',
 
 $1',
 );
-?>

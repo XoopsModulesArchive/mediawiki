@@ -41,7 +41,7 @@ class DumpHTML {
 
 	# List of raw pages used in the current article
 	var $rawPages;
-	
+
 	# Skin to use
 	var $skin = 'dumphtml';
 
@@ -610,7 +610,7 @@ ENDTEXT;
 		$length = count( $chars );
 		$dir = '';
 
-		for ( $i = 0; $i < $this->depth; $i++ ) {
+		for ( $i = 0; $i < $this->depth; ++$i ) {
 			if ( $i ) {
 				$dir .= '/';
 			}

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $wgAllMessagesSv = array(
 'tog-underline'         => 'Stryk under länkar',
@@ -401,9 +401,9 @@ Du lovar oss också att du skrev texten själv, eller kopierade från kulturellt
 <strong>LÄGG INTE UT UPPHOVSRÄTTSSKYDDAT MATERIAL HÄR UTAN TILLÅTELSE!</strong>',
 'longpagewarning'       => 'Om du använder en väldigt gammal webbläsare kan du ha problem med att redigera den här artikeln, eftersom vissa äldre webbläsare inte klarar artiklar större än 32 kB, och den här är $1 kB.',
 'longpageerror'         => '<strong>FEL: Texten som du försöker spara är $1 kilobyte, vilket är mer än det maximalt tillåtna $2 kilobyte. Den kan inte sparas.</strong>',
-'readonlywarning'       => '<strong>VARNING: Databasen är tillfälligt låst för underhåll. Du kommer inte att kunna spara 
+'readonlywarning'       => '<strong>VARNING: Databasen är tillfälligt låst för underhåll. Du kommer inte att kunna spara
 dina ändringar just nu. Det kan vara klokt att kopiera över texten till din egen dator, tills databasen är upplåst igen.</strong>',
-'protectedpagewarning'  => '<strong>VARNING:  Den här sidan har låsts så att bara administratörer kan redigera den. 
+'protectedpagewarning'  => '<strong>VARNING:  Den här sidan har låsts så att bara administratörer kan redigera den.
 Försäkra dig om att du följer riktlinjerna för redigering av skyddade sidor.</strong>',
 'semiprotectedpagewarning'=> '\'\'\'Observera:\'\'\' Denna sida har delvis låsts så att endast registrerade användare kan redigera den.',
 'templatesused'         => 'Mallar som används på den här sidan:',
@@ -616,7 +616,7 @@ Alla tider visas efter serverns tid (UTC).
 'successfulupload'      => 'Uppladdningen lyckades',
 'fileuploaded'          => 'Filen "$1" laddades upp korrekt.
 Följ länken ($2) till beskrivningssidan, och fyll där i
-information om filen: var den kommer ifrån, 
+information om filen: var den kommer ifrån,
 när den skapades, vem som gjort den, om själva innehållet, och så mycket om möjligt annat du vet om den.',
 'uploadwarning'         => 'Uppladdningsvarning',
 'savefile'              => 'Spara fil',
@@ -722,7 +722,7 @@ Sedan denna wiki startades har sidor visats totalt <b>$3</b> gånger, och <b>$4<
 'intl'                  => 'Interwiki-länkar',
 'move'                  => 'Flytta',
 'movethispage'          => 'Flytta denna sida',
-'unusedimagestext'      => '<p>Lägg märke till att andra hemsidor kan länka till bilder 
+'unusedimagestext'      => '<p>Lägg märke till att andra hemsidor kan länka till bilder
 med en direkt URL, och kan därför bli listade här trots att de används kontinuerligt.',
 'unusedcategoriestext'  => 'Dessa existerande kategorier innehåller inga artiklar eller underkategorier.',
 'booksources'           => 'Bokkällor',
@@ -779,7 +779,7 @@ i "Från"-fältet i detta meddelande, så mottagaren har möjlighet att svara.',
 'watchnologin'          => 'Du är inte inloggad',
 'watchnologintext'      => 'Du måste vara [[{{ns:special}}:Userlogin|inloggad]] för att kunna göra ändringar i din övervakningslista.',
 'addedwatch'            => 'Tillagd på övervakningslistan',
-'addedwatchtext'        => 'Sidan "[[:$1|$1]]" har satts upp på din [[{{ns:special}}:Watchlist|övervakningslista]]. 
+'addedwatchtext'        => 'Sidan "[[:$1|$1]]" har satts upp på din [[{{ns:special}}:Watchlist|övervakningslista]].
 Framtida ändringar av den här sidan och dess diskussionssida kommer att listas där, och sidan kommer att markeras med \'\'\'fet stil\'\'\' i [[{{ns:special}}:Recentchanges|listan över de senaste ändringarna]] för att synas bättre.<br /><br />
 Om du inte längre vill att sidan skall finnas på din övervakningslista, klicka på  "avbevaka" uppe till höger.',
 'removedwatch'          => 'Borttagen från övervakningslista',
@@ -850,7 +850,7 @@ detta leder till, och att det följer {{SITENAME}}s allmänna riktlinjer.',
 'protectedarticle'      => 'skyddade [[$1]]',
 'unprotectedarticle'    => 'tog bort skydd av $1',
 'protectsub'            => '(Skyddar "$1")',
-'confirmprotecttext'    => 'Genom att skrivskydda en sida låser du den så att den inte kan redigeras av besökare. I grunden strider detta mot tanken bakom {{SITENAME}} och ska därför användas restriktivt. 
+'confirmprotecttext'    => 'Genom att skrivskydda en sida låser du den så att den inte kan redigeras av besökare. I grunden strider detta mot tanken bakom {{SITENAME}} och ska därför användas restriktivt.
 
 Vill du skrivskydda denna sida?',
 'confirmprotect'        => 'Bekräfta skrivskydd av sida',
@@ -872,8 +872,8 @@ Vill du skrivskydda denna sida?',
 'undeletepage'          => 'Visa och återställ borttagna sidor',
 'viewdeletedpage'       => 'Visa raderade sidor',
 'undeletepagetext'      => 'Följande sidor har blivit borttagna, men finns fortfarande i ett arkiv och kan återställas. Arkivet kan ibland rensas på gamla versioner.',
-'undeleteextrahelp'     => '* För att återställa alla versioner, välj \'\'\'Återställ\'\'\' utan att kryssa i några rutor. 
-* För att återställa bara vissa versioner, kryssa i de kryssrutor som hör till de versioner som ska återställas och välj \'\'\'Återställ\'\'\'. 
+'undeleteextrahelp'     => '* För att återställa alla versioner, välj \'\'\'Återställ\'\'\' utan att kryssa i några rutor.
+* För att återställa bara vissa versioner, kryssa i de kryssrutor som hör till de versioner som ska återställas och välj \'\'\'Återställ\'\'\'.
 * \'\'\'Rensa\'\'\' tömmer kommentarfältet och kryssrutorna.',
 'undeletearticle'       => 'Återställ borttagen artikel',
 'undeleterevisions'     => '$1 versioner arkiverade',
@@ -994,7 +994,7 @@ Skriv användarens namn i rutan och tryck på knappen för att göra användaren
 'movepagebtn'           => 'Flytta sidan',
 'pagemovedsub'          => 'Flyttningen lyckades',
 'pagemovedtext'         => 'Sidan "<span class="plainlinks">[{{fullurl:<nowiki>$1</nowiki>|redirect=no}} $1]</span>" flyttad till "[[:$2|$2]]". [[{{ns:special}}:Whatlinkshere/<nowiki>$2</nowiki>|Kontrollera]] gärna att flytten inte orsakat några dubbla omdirigeringar.',
-'articleexists'         => 'Antingen existerar redan en sida med det namnet, eller så har du valt ett namn som inte är tillåtet. 
+'articleexists'         => 'Antingen existerar redan en sida med det namnet, eller så har du valt ett namn som inte är tillåtet.
 Välj något annat namn istället.',
 'talkexists'            => 'Sidan flyttades, men eftersom en annan diskussionssida redan fanns på destinationen kunde diskussionssidan inte flyttas med. Försök att manuellt sammanfoga de bägge diskusionssidornas innehåll till en sida.',
 'movedto'               => 'flyttad till',
@@ -1014,7 +1014,7 @@ Välj något annat namn istället.',
 'selfmove'              => 'Ursprungstitel och destinationstitel är identiska. Sidan kan inte flyttas till sig självt.',
 'immobile_namespace'    => 'Det går inte att flytta artiklar till den namnrymd du angivit, då denna ej kan utökas.',
 'export'                => 'Exportsidor',
-'exporttext'            => 'Du kan exportera texten och redigeringshistorik från en sida, eller flera sidor, till XML-format. I framtiden kommer det att finnas funktioner för att sedan importera filerna till någon annan wiki som kör mjukvaran MediaWiki. 
+'exporttext'            => 'Du kan exportera texten och redigeringshistorik från en sida, eller flera sidor, till XML-format. I framtiden kommer det att finnas funktioner för att sedan importera filerna till någon annan wiki som kör mjukvaran MediaWiki.
 
 För att exportera artiklar, skriv in dess titel (uppslagsordet) i rutan nedan. Skriv namnet på en artikel per rad.',
 'exportcuronly'         => 'Inkludera endast den nuvarande versionen, inte hela historien',
@@ -1402,4 +1402,3 @@ $1',
 'hideresults'           => 'Göm resultat',
 'displaytitle'          => '(Länka till denna sida som [[:$1|$1]])',
 );
-?>

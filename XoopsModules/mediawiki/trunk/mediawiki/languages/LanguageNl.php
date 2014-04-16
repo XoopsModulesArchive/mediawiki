@@ -5,97 +5,108 @@
  * @subpackage Language
  */
 
-require_once( 'LanguageUtf8.php' );
+require_once 'LanguageUtf8.php';
 
 if (!$wgCachedMessageArrays) {
-	require_once('MessagesNl.php');
+    require_once 'MessagesNl.php';
 }
 
-class LanguageNl extends LanguageUtf8 {
-	private $mMessagesNl, $mNamespaceNamesNl = null;
+class LanguageNl extends LanguageUtf8
+{
+    private $mMessagesNl, $mNamespaceNamesNl = null;
 
-	private $mQuickbarSettingsNl = array(
-		'Uitgeschakeld', 'Links vast', 'Rechts vast', 'Links zwevend'
-	);
-	
-	private $mSkinNamesNl = array(
-		'standard' => 'Standaard',
-		'nostalgia' => 'Nostalgie',
-		'cologneblue' => 'Keuls blauw',
-	);
+    private $mQuickbarSettingsNl = array(
+        'Uitgeschakeld', 'Links vast', 'Rechts vast', 'Links zwevend'
+    );
 
-	function __construct() {
-		parent::__construct();
+    private $mSkinNamesNl = array(
+        'standard' => 'Standaard',
+        'nostalgia' => 'Nostalgie',
+        'cologneblue' => 'Keuls blauw',
+    );
 
-		global $wgAllMessagesNl;
-		$this->mMessagesNl =& $wgAllMessagesNl;
+    function __construct()
+    {
+        parent::__construct();
 
-		global $wgMetaNamespace;
-		$this->mNamespaceNamesNl = array(
-			NS_MEDIA          => 'Media',
-			NS_SPECIAL        => 'Speciaal',
-			NS_MAIN           => '',
-			NS_TALK           => 'Overleg',
-			NS_USER           => 'Gebruiker',
-			NS_USER_TALK      => 'Overleg_gebruiker',
-			NS_PROJECT        => $wgMetaNamespace,
-			NS_PROJECT_TALK   => 'Overleg_' . $wgMetaNamespace,
-			NS_IMAGE          => 'Afbeelding',
-			NS_IMAGE_TALK     => 'Overleg_afbeelding',
-			NS_MEDIAWIKI      => 'MediaWiki',
-			NS_MEDIAWIKI_TALK => 'Overleg_MediaWiki',
-			NS_TEMPLATE       => 'Sjabloon',
-			NS_TEMPLATE_TALK  => 'Overleg_sjabloon',
-			NS_HELP           => 'Help',
-			NS_HELP_TALK      => 'Overleg_help',
-			NS_CATEGORY       => 'Categorie',
-			NS_CATEGORY_TALK  => 'Overleg_categorie'
-		);
-	}
+        global $wgAllMessagesNl;
+        $this->mMessagesNl =& $wgAllMessagesNl;
 
-	function getNamespaces() {
-		return $this->mNamespaceNamesNl + parent::getNamespaces();
-	}
+        global $wgMetaNamespace;
+        $this->mNamespaceNamesNl = array(
+            NS_MEDIA          => 'Media',
+            NS_SPECIAL        => 'Speciaal',
+            NS_MAIN           => '',
+            NS_TALK           => 'Overleg',
+            NS_USER           => 'Gebruiker',
+            NS_USER_TALK      => 'Overleg_gebruiker',
+            NS_PROJECT        => $wgMetaNamespace,
+            NS_PROJECT_TALK   => 'Overleg_' . $wgMetaNamespace,
+            NS_IMAGE          => 'Afbeelding',
+            NS_IMAGE_TALK     => 'Overleg_afbeelding',
+            NS_MEDIAWIKI      => 'MediaWiki',
+            NS_MEDIAWIKI_TALK => 'Overleg_MediaWiki',
+            NS_TEMPLATE       => 'Sjabloon',
+            NS_TEMPLATE_TALK  => 'Overleg_sjabloon',
+            NS_HELP           => 'Help',
+            NS_HELP_TALK      => 'Overleg_help',
+            NS_CATEGORY       => 'Categorie',
+            NS_CATEGORY_TALK  => 'Overleg_categorie'
+        );
+    }
 
-	function getQuickbarSettings() {
-		return $this->mQuickbarSettingsNl;
-	}
+    function getNamespaces()
+    {
+        return $this->mNamespaceNamesNl + parent::getNamespaces();
+    }
 
-	function getSkinNames() {
-		return $this->mSkinNamesNl + parent::getSkinNames();
-	}
+    function getQuickbarSettings()
+    {
+        return $this->mQuickbarSettingsNl;
+    }
 
-	function getMessage( $key ) {
-		if( isset( $this->mMessagesNl[$key] ) ) {
-			return $this->mMessagesNl[$key];
-		} else {
-			return parent::getMessage( $key );
-		}
-	}
+    function getSkinNames()
+    {
+        return $this->mSkinNamesNl + parent::getSkinNames();
+    }
 
-	function getAllMessages() {
-		return $this->mMessagesNl;
-	}
+    function getMessage( $key )
+    {
+        if ( isset( $this->mMessagesNl[$key] ) ) {
+            return $this->mMessagesNl[$key];
+        } else {
+            return parent::getMessage( $key );
+        }
+    }
 
-	function timeBeforeDate( ) {
-		return false;
-	}
+    function getAllMessages()
+    {
+        return $this->mMessagesNl;
+    }
 
-	function timeDateSeparator( $format ) {
-		return ' ';
-	}
+    function timeBeforeDate( )
+    {
+        return false;
+    }
 
-	function formatMonth( $month, $format ) {
-		return $this->getMonthAbbreviation( $month );
-	}
+    function timeDateSeparator( $format )
+    {
+        return ' ';
+    }
 
-	function separatorTransformTable() {
-		return array(',' => '.', '.' => ',' );
-	}
+    function formatMonth( $month, $format )
+    {
+        return $this->getMonthAbbreviation( $month );
+    }
 
-	function linkTrail() {
-		return '/^([a-zäöüïëéèà]+)(.*)$/sDu';
-	}
+    function separatorTransformTable()
+    {
+        return array(',' => '.', '.' => ',' );
+    }
+
+    function linkTrail()
+    {
+        return '/^([a-zäöüïëéèà]+)(.*)$/sDu';
+    }
 
 }
-?>

@@ -2,11 +2,11 @@
 
 $wgNoDBParam = true;
 
-require_once( "commandLine.inc" );
-require_once( "rebuildInterwiki.inc" );
-require_once( "languages/Names.php" );
+require_once 'commandLine.inc';
+require_once 'rebuildInterwiki.inc';
+require_once 'languages/Names.php';
 if ( count( $args ) != 3 ) {
-	wfDie( "Usage: php addwiki.php <language> <site> <dbname>\n" );
+    wfDie( "Usage: php addwiki.php <language> <site> <dbname>\n" );
 }
 
 addWiki( $args[0], $args[1], $args[2] );
@@ -15,51 +15,51 @@ addWiki( $args[0], $args[1], $args[2] );
 
 function addWiki( $lang, $site, $dbName )
 {
-	global $IP, $wgLanguageNames, $wgDefaultExternalStore;
+    global $IP, $wgLanguageNames, $wgDefaultExternalStore;
 
-	$name = $wgLanguageNames[$lang];
+    $name = $wgLanguageNames[$lang];
 
-	$dbw =& wfGetDB( DB_WRITE );
-	$common = "/home/wikipedia/common";
-	$maintenance = "$IP/maintenance";
+    $dbw =& wfGetDB( DB_WRITE );
+    $common = "/home/wikipedia/common";
+    $maintenance = "$IP/maintenance";
 
-	print "Creating database $dbName for $lang.$site\n";
-	
-	# Set up the database
-	$dbw->query( "SET table_type=Innodb" );
-	$dbw->query( "CREATE DATABASE $dbName" );
-	$dbw->selectDB( $dbName );
+    print "Creating database $dbName for $lang.$site\n";
 
-	print "Initialising tables\n";
-	dbsource( "$maintenance/tables.sql", $dbw );
-	dbsource( "$IP/extensions/OAI/update_table.sql", $dbw );
-	$dbw->query( "INSERT INTO site_stats(ss_row_id) VALUES (1)" );
+    # Set up the database
+    $dbw->query( "SET table_type=Innodb" );
+    $dbw->query( "CREATE DATABASE $dbName" );
+    $dbw->selectDB( $dbName );
 
-	# Initialise external storage
-	if ( $wgDefaultExternalStore && preg_match( '!^DB://(.*)$!', $wgDefaultExternalStore, $m ) ) {
-		print "Initialising external storage...\n";
-		require_once( 'ExternalStoreDB.php' );
-		global $wgDBuser, $wgDBpassword, $wgExternalServers;
-		$cluster = $m[1];
-		
-		# Hack
-		$wgExternalServers[$cluster][0]['user'] = $wgDBuser;
-		$wgExternalServers[$cluster][0]['password'] = $wgDBpassword;
-		
-		$store = new ExternalStoreDB;
-		$extdb =& $store->getMaster( $cluster );
-		$extdb->query( "SET table_type=InnoDB" );
-		$extdb->query( "CREATE DATABASE $dbName" );
-		$extdb->selectDB( $dbName );
-		dbsource( "$maintenance/storage/blobs.sql", $extdb );
-		$extdb->immediateCommit();
-	}
+    print "Initialising tables\n";
+    dbsource( "$maintenance/tables.sql", $dbw );
+    dbsource( "$IP/extensions/OAI/update_table.sql", $dbw );
+    $dbw->query( "INSERT INTO site_stats(ss_row_id) VALUES (1)" );
 
-	$wgTitle = Title::newMainPage();
-	$wgArticle = new Article( $wgTitle );
-	$ucsite = ucfirst( $site );
+    # Initialise external storage
+    if ( $wgDefaultExternalStore && preg_match( '!^DB://(.*)$!', $wgDefaultExternalStore, $m ) ) {
+        print "Initialising external storage...\n";
+        require_once 'ExternalStoreDB.php';
+        global $wgDBuser, $wgDBpassword, $wgExternalServers;
+        $cluster = $m[1];
 
-	$wgArticle->insertNewArticle( "
+        # Hack
+        $wgExternalServers[$cluster][0]['user'] = $wgDBuser;
+        $wgExternalServers[$cluster][0]['password'] = $wgDBpassword;
+
+        $store = new ExternalStoreDB;
+        $extdb =& $store->getMaster( $cluster );
+        $extdb->query( "SET table_type=InnoDB" );
+        $extdb->query( "CREATE DATABASE $dbName" );
+        $extdb->selectDB( $dbName );
+        dbsource( "$maintenance/storage/blobs.sql", $extdb );
+        $extdb->immediateCommit();
+    }
+
+    $wgTitle = Title::newMainPage();
+    $wgArticle = new Article( $wgTitle );
+    $ucsite = ucfirst( $site );
+
+    $wgArticle->insertNewArticle( "
 ==This subdomain is reserved for the creation of a $ucsite in '''[[:en:{$name}|{$name}]]''' language==
 
 If you can write in this language and want to collaborate in the creation of this encyclopedia then '''you''' can make it.
@@ -181,30 +181,29 @@ See the [http://www.wikipedia.org Wikipedia portal] for other language Wikipedia
 [[zu:]]
 ", '', false, false );
 
-	print "Adding to dblists\n";
+    print "Adding to dblists\n";
 
-	# Add to dblist
-	$file = fopen( "$common/all.dblist", "a" );
-	fwrite( $file, "$dbName\n" );
-	fclose( $file );
+    # Add to dblist
+    $file = fopen( "$common/all.dblist", "a" );
+    fwrite( $file, "$dbName\n" );
+    fclose( $file );
 
-	# Update the sublists
-	system("cd $common && ./refresh-dblist");
+    # Update the sublists
+    system("cd $common && ./refresh-dblist");
 
-	print "Constructing interwiki SQL\n";
-	# Rebuild interwiki tables
-	$sql = getRebuildInterwikiSQL();
-	$tempname = tempnam( '/tmp', 'addwiki' );
-	$file = fopen( $tempname, 'w' );
-	if ( !$file ) {
-		wfDie( "Error, unable to open temporary file $tempname\n" );
-	}
-	fwrite( $file, $sql );
-	fclose( $file );
-	print "Sourcing interwiki SQL\n";
-	dbsource( $tempname, $dbw );
-	unlink( $tempname );
+    print "Constructing interwiki SQL\n";
+    # Rebuild interwiki tables
+    $sql = getRebuildInterwikiSQL();
+    $tempname = tempnam( '/tmp', 'addwiki' );
+    $file = fopen( $tempname, 'w' );
+    if (!$file) {
+        wfDie( "Error, unable to open temporary file $tempname\n" );
+    }
+    fwrite( $file, $sql );
+    fclose( $file );
+    print "Sourcing interwiki SQL\n";
+    dbsource( $tempname, $dbw );
+    unlink( $tempname );
 
-	print "Script ended. You now want to run sync-common-all to publish *dblist files (check them for duplicates first)\n";
+    print "Script ended. You now want to run sync-common-all to publish *dblist files (check them for duplicates first)\n";
 }
-?>

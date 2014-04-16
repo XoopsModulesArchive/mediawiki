@@ -56,7 +56,6 @@ $wgAllMessagesEt = array(
 'category_header' => 'Selles kategoorias on "$1" artiklit',
 'subcategories' => 'Alamkategooriad',
 
-
 "linktrail"		=> "/^([a-z]+)(.*)\$/sD",
 "mainpage"		=> "Esileht",
 "mainpagetext"	=> "Wiki tarkvara installeeritud.",
@@ -156,7 +155,6 @@ Vaata $1.",
 'restorelink' => "Kustutatud muudatuste arv: $1",
 'feedlinks' => 'Sööde:', # See sõna ei meeldi, aga paremat ei tea.
 
-
 # Short words for each namespace, by default used in the 'article' tab in monobook
 'nstab-main' => 'Artikkel',
 'nstab-user' => 'Kasutaja',
@@ -175,7 +173,6 @@ Vaata $1.",
 "nosuchactiontext" => "Wiki ei tunne sellele aadressile vastavat toimingut.",
 "nosuchspecialpage" => "Sellist erilehekülge pole.",
 "nospecialpagetext" => "Wiki ei tunne sellist erilehekülge.",
-
 
 # General errors
 #
@@ -229,15 +226,12 @@ mitmesuguseid põhjusi, vaata palun artiklit
 [[{{ns:4}}:Lukustatud lehekülg]].
 Sa saad aga vaadata ja kopeerida selle lehekülje lähteteksti --",
 
-
-
-
 # Login and logout pages
 #
 "logouttitle"	=> "Väljalogimine",
 "logouttext"	=> "Te olete välja loginud.
 Võite kasutada süsteemi anonüümselt, aga ka sama või mõne teise kasutajana uuesti sisse logida.",
-	 # rookisin Vikipeedia välja, {{SITENAME}} oleks õige, aga vajab ümbersõnastamist.
+     # rookisin Vikipeedia välja, {{SITENAME}} oleks õige, aga vajab ümbersõnastamist.
 
 "welcomecreation" => "<h2>Tere tulemast, $1!</h2><p>Teie konto on loodud. Ärge unustage seada oma eelistusi.",
 
@@ -285,7 +279,6 @@ Pärast parooli saamist logige palun sisse.",
 'loginend'              => '',
 'mailerror' => "Viga kirja saatmisel: $1",
 'acct_creation_throttle_hit' => 'Vabandame, aga te olete loonud juba $1 kontot. Rohkem te ei saa.',
-
 
 # Edit page toolbar
 'bold_sample'=>'Rasvane kiri',
@@ -439,7 +432,6 @@ Otsing nimeruumidest :<br />
 $1<br />
 $2 Loetle ümbersuunamisi &nbsp; Otsi $3 $9",
 
-
 # Preferences page
 #
 "preferences"	=> "Teie eelistused",
@@ -476,7 +468,6 @@ sisse logida.",
 "timezonetext"	=> "Kohaliku aja ja serveri aja (maailmaaja) vahe tundides.",
 "localtime"	=> "Kohalik aeg",
 "timezoneoffset" => "Ajavahe",
-
 
 # Recent changes
 #
@@ -826,6 +817,3 @@ kasutajaks ja [[Special:Userlogin|sisse logima]]",
  'mw_math_mathml' => 'MathML',
 
 );
-
-
-?>

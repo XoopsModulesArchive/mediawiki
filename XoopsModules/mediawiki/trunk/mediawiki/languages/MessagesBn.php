@@ -102,6 +102,3 @@ $wgAllMessagesBn = array(
 'hidetoc' => 'সরিয়ে রাখ',
 
 );
-
-
-?>

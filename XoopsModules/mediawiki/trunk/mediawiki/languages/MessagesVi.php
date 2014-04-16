@@ -1,6 +1,5 @@
 <?php
 
-
 /* private */ $wgAllMessagesVi = array(
 # User Toggles
 
@@ -390,13 +389,11 @@ Bạn vẫn dùng {{SITENAME}} được như người vô danh, hoặc đăng nh
 'nextdiff' => 'So với sau &rarr;',
 'nextrevision' => 'Bản sau &rarr;',
 
-
 # Category pages
 #
 'categoriespagetext' => "Các thể loại :",
 'categoryarticlecount' => "Có $1 bài trong thể loại này.",
 'categoryarticlecount1' => "Có $1 bài trong thể loại này.",
-
 
 #  Diffs
 #
@@ -404,7 +401,6 @@ Bạn vẫn dùng {{SITENAME}} được như người vô danh, hoặc đăng nh
 'loadingrev' => 'đang lấy các bản để so sánh',
 'lineno'  => 'Dòng $1:',
 'editcurrent' => 'Sửa bản hiện nay',
-
 
 # Search results
 #
@@ -614,7 +610,6 @@ Con số này không bao gồm các trang [[{{ns:4}}:Trang_thảo_luận|thảo 
 'mispeelings'           => 'Trang sai chính tả',
 'mispeelingstext'               => 'Những trang sau có lỗi chính tả thường gặp, được liệt kê trong $1. Chính tả đúng phải là.',
 'mispeelingspage'       => 'Lỗi chính tả thường gặp',
-
 
 'missinglanguagelinks'  => 'Liên kết liên ngôn ngữ bị thiếu',
 'missinglanguagelinksbutton'    => 'Tìm liên kết liên ngôn ngữ bị thiếu',
@@ -915,7 +910,6 @@ Hãy gõ tên của thành viên cần phong quyền quản lý vào ô này và
 'user_rights_set'   => "<b>Quyền hạn thành viên của \"$1\" đã được cập nhật</b>",
 'set_rights_fail'   => "<b>Quyền hạn thành viên của \"$1\" không thể xác lập được. (Liệu bạn có gõ sai tên không?)</b>",'makesysop'         => 'Phong một thành viên làm quản lý',
 
-
 # Spam
 'spamprotectiontitle' => 'Bộ lọc chống thư rác',
 'spamprotectiontext' => 'Trang bạn muốn lưu bị bộ lọc thư rác chặn lại. Đây có thể do một liên kết dẫn tới một địa chỉ bên ngoài.',
@@ -1116,7 +1110,6 @@ ta[\'ca-nstab-template\'] = new Array(\'c\',\'Xem tiêu bản\');
 ta[\'ca-nstab-help\'] = new Array(\'c\',\'Xem trang trợ giúp\');
 ta[\'ca-nstab-category\'] = new Array(\'c\',\'Xem trang thể loại\');',
 
-
 # EXIF
 'exif-imagewidth' => 'Bề ngang',
 'exif-imagelength' => 'Chiều cao',
@@ -1164,7 +1157,6 @@ ta[\'ca-nstab-category\'] = new Array(\'c\',\'Xem trang thể loại\');',
 'exif-customrendered' => 'Sửa hình thủ công',
 'exif-customrendered-0' => 'Thường',
 'exif-customrendered-1' => 'Thủ công',
-
 
 # Info
 "infosubtitle" => "Thông tin về trang",
@@ -1303,6 +1295,3 @@ Bài với tên "[[$1]]" đã tồn tại. Bạn có muốn xóa nó để di ch
 // exifgps:
 
 );
-
-
-?>

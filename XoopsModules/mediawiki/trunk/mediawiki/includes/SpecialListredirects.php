@@ -13,57 +13,60 @@
  * @subpackage SpecialPage
  */
 
-class ListredirectsPage extends QueryPage {
+class ListredirectsPage extends QueryPage
+{
+    function getName() { return( 'Listredirects' ); }
+    function isExpensive() { return( true ); }
+    function isSyndicated() { return( false ); }
+    function sortDescending() { return( false ); }
 
-	function getName() { return( 'Listredirects' ); }
-	function isExpensive() { return( true ); }
-	function isSyndicated() { return( false ); }
-	function sortDescending() { return( false ); }
+    function getSQL()
+    {
+        $dbr =& wfGetDB( DB_SLAVE );
+        $page = $dbr->tableName( 'page' );
+        $sql = "SELECT 'Listredirects' AS type, page_title AS title, page_namespace AS namespace, 0 AS value FROM $page WHERE page_is_redirect = 1";
 
-	function getSQL() {
-		$dbr =& wfGetDB( DB_SLAVE );
-		$page = $dbr->tableName( 'page' );
-		$sql = "SELECT 'Listredirects' AS type, page_title AS title, page_namespace AS namespace, 0 AS value FROM $page WHERE page_is_redirect = 1";
-		return( $sql );
-	}
+        return( $sql );
+    }
 
-	function formatResult( $skin, $result ) {
-		global $wgContLang;
-	
-		# Make a link to the redirect itself
-		$rd_title = Title::makeTitle( $result->namespace, $result->title );
-		$rd_link = $skin->makeKnownLinkObj( $rd_title, '', 'redirect=no' );
+    function formatResult( $skin, $result )
+    {
+        global $wgContLang;
 
-		# Find out where the redirect leads
-		$revision = Revision::newFromTitle( $rd_title );
-		if( $revision ) {
-			# Make a link to the destination page
-			$target = Title::newFromRedirect( $revision->getText() );
-			if( $target ) {
-				$targetLink = $skin->makeLinkObj( $target );
-			} else {
-				/** @todo Put in some decent error display here */
-				$targetLink = '*';
-			}
-		} else {
-			/** @todo Put in some decent error display here */
-			$targetLink = '*';
-		}
+        # Make a link to the redirect itself
+        $rd_title = Title::makeTitle( $result->namespace, $result->title );
+        $rd_link = $skin->makeKnownLinkObj( $rd_title, '', 'redirect=no' );
 
-		# Check the language; RTL wikis need a &larr;
-		$arr = $wgContLang->isRTL() ? ' &larr; ' : ' &rarr; ';
+        # Find out where the redirect leads
+        $revision = Revision::newFromTitle( $rd_title );
+        if ($revision) {
+            # Make a link to the destination page
+            $target = Title::newFromRedirect( $revision->getText() );
+            if ($target) {
+                $targetLink = $skin->makeLinkObj( $target );
+            } else {
+                /** @todo Put in some decent error display here */
+                $targetLink = '*';
+            }
+        } else {
+            /** @todo Put in some decent error display here */
+            $targetLink = '*';
+        }
 
-		# Format the whole thing and return it
-		return( $rd_link . $arr . $targetLink );
+        # Check the language; RTL wikis need a &larr;
+        $arr = $wgContLang->isRTL() ? ' &larr; ' : ' &rarr; ';
 
-	}
+        # Format the whole thing and return it
+
+        return( $rd_link . $arr . $targetLink );
+
+    }
 
 }
 
-function wfSpecialListredirects() {
-	list( $limit, $offset ) = wfCheckLimits();
-	$lrp = new ListredirectsPage();
-	$lrp->doQuery( $offset, $limit );
+function wfSpecialListredirects()
+{
+    list( $limit, $offset ) = wfCheckLimits();
+    $lrp = new ListredirectsPage();
+    $lrp->doQuery( $offset, $limit );
 }
-
-?>

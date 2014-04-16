@@ -1,6 +1,5 @@
 <?php
 
-
 /* private */ $wgAllMessagesOs = array(
 'titlematches' => 'Статьяты сæргæндты æмцаутæ',
 'toc' => 'Сæргæндтæ',
@@ -175,6 +174,3 @@ $3",
 'yourrealname' => "Дæ æцæг ном*",
 
 );
-
-
-?>

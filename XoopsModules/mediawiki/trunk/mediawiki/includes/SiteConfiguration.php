@@ -14,108 +14,119 @@ if (!defined('SITE_CONFIGURATION')) {
 define('SITE_CONFIGURATION', 1);
 
 /** @package MediaWiki */
-class SiteConfiguration {
-	var $suffixes = array();
-	var $wikis = array();
-	var $settings = array();
-	var $localVHosts = array();
+class SiteConfiguration
+{
+    var $suffixes = array();
+    var $wikis = array();
+    var $settings = array();
+    var $localVHosts = array();
 
-	/** */
-	function get( $setting, $wiki, $suffix, $params = array() ) {
-		if ( array_key_exists( $setting, $this->settings ) ) {
-			if ( array_key_exists( $wiki, $this->settings[$setting] ) ) {
-				$retval = $this->settings[$setting][$wiki];
-			} elseif ( array_key_exists( $suffix, $this->settings[$setting] ) ) {
-				$retval = $this->settings[$setting][$suffix];
-			} elseif ( array_key_exists( 'default', $this->settings[$setting] ) ) {
-				$retval = $this->settings[$setting]['default'];
-			} else {
-				$retval = NULL;
-			}
-		} else {
-			$retval = NULL;
-		}
+    /** */
+    function get( $setting, $wiki, $suffix, $params = array() )
+    {
+        if ( array_key_exists( $setting, $this->settings ) ) {
+            if ( array_key_exists( $wiki, $this->settings[$setting] ) ) {
+                $retval = $this->settings[$setting][$wiki];
+            } elseif ( array_key_exists( $suffix, $this->settings[$setting] ) ) {
+                $retval = $this->settings[$setting][$suffix];
+            } elseif ( array_key_exists( 'default', $this->settings[$setting] ) ) {
+                $retval = $this->settings[$setting]['default'];
+            } else {
+                $retval = NULL;
+            }
+        } else {
+            $retval = NULL;
+        }
 
-		if ( !is_null( $retval ) && count( $params ) ) {
-			foreach ( $params as $key => $value ) {
-				$retval = str_replace( '$' . $key, $value, $retval );
-			}
-		}
-		return $retval;
-	}
+        if ( !is_null( $retval ) && count( $params ) ) {
+            foreach ($params as $key => $value) {
+                $retval = str_replace( '$' . $key, $value, $retval );
+            }
+        }
 
-	/** */
-	function getAll( $wiki, $suffix, $params ) {
-		$localSettings = array();
-		foreach ( $this->settings as $varname => $stuff ) {
-			$value = $this->get( $varname, $wiki, $suffix, $params );
-			if ( !is_null( $value ) ) {
-				$localSettings[$varname] = $value;
-			}
-		}
-		return $localSettings;
-	}
+        return $retval;
+    }
 
-	/** */
-	function getBool( $setting, $wiki, $suffix ) {
-		return (bool)($this->get( $setting, $wiki, $suffix ));
-	}
+    /** */
+    function getAll( $wiki, $suffix, $params )
+    {
+        $localSettings = array();
+        foreach ($this->settings as $varname => $stuff) {
+            $value = $this->get( $varname, $wiki, $suffix, $params );
+            if ( !is_null( $value ) ) {
+                $localSettings[$varname] = $value;
+            }
+        }
 
-	/** */
-	function &getLocalDatabases() {
-		return $this->wikis;
-	}
+        return $localSettings;
+    }
 
-	/** */
-	function initialise() {
-	}
+    /** */
+    function getBool( $setting, $wiki, $suffix )
+    {
+        return (bool) ($this->get( $setting, $wiki, $suffix ));
+    }
 
-	/** */
-	function extractVar( $setting, $wiki, $suffix, &$var, $params ) {
-		$value = $this->get( $setting, $wiki, $suffix, $params );
-		if ( !is_null( $value ) ) {
-			$var = $value;
-		}
-	}
+    /** */
+    function &getLocalDatabases() {
+        return $this->wikis;
+    }
 
-	/** */
-	function extractGlobal( $setting, $wiki, $suffix, $params ) {
-		$value = $this->get( $setting, $wiki, $suffix, $params );
-		if ( !is_null( $value ) ) {
-			$GLOBALS[$setting] = $value;
-		}
-	}
+    /** */
+    function initialise()
+    {
+    }
 
-	/** */
-	function extractAllGlobals( $wiki, $suffix, $params ) {
-		foreach ( $this->settings as $varName => $setting ) {
-			$this->extractGlobal( $varName, $wiki, $suffix, $params );
-		}
-	}
+    /** */
+    function extractVar( $setting, $wiki, $suffix, &$var, $params )
+    {
+        $value = $this->get( $setting, $wiki, $suffix, $params );
+        if ( !is_null( $value ) ) {
+            $var = $value;
+        }
+    }
 
-	/**
-	 * Work out the site and language name from a database name
-	 * @param $db
-	 */
-	function siteFromDB( $db ) {
-		$site = NULL;
-		$lang = NULL;
-		foreach ( $this->suffixes as $suffix ) {
-			if ( substr( $db, -strlen( $suffix ) ) == $suffix ) {
-				$site = $suffix == 'wiki' ? 'wikipedia' : $suffix;
-				$lang = substr( $db, 0, strlen( $db ) - strlen( $suffix ) );
-				break;
-			}
-		}
-		$lang = str_replace( '_', '-', $lang );
-		return array( $site, $lang );
-	}
+    /** */
+    function extractGlobal( $setting, $wiki, $suffix, $params )
+    {
+        $value = $this->get( $setting, $wiki, $suffix, $params );
+        if ( !is_null( $value ) ) {
+            $GLOBALS[$setting] = $value;
+        }
+    }
 
-	/** */
-	function isLocalVHost( $vhost ) {
-		return in_array( $vhost, $this->localVHosts );
-	}
+    /** */
+    function extractAllGlobals( $wiki, $suffix, $params )
+    {
+        foreach ($this->settings as $varName => $setting) {
+            $this->extractGlobal( $varName, $wiki, $suffix, $params );
+        }
+    }
+
+    /**
+     * Work out the site and language name from a database name
+     * @param $db
+     */
+    function siteFromDB( $db )
+    {
+        $site = NULL;
+        $lang = NULL;
+        foreach ($this->suffixes as $suffix) {
+            if ( substr( $db, -strlen( $suffix ) ) == $suffix ) {
+                $site = $suffix == 'wiki' ? 'wikipedia' : $suffix;
+                $lang = substr( $db, 0, strlen( $db ) - strlen( $suffix ) );
+                break;
+            }
+        }
+        $lang = str_replace( '_', '-', $lang );
+
+        return array( $site, $lang );
+    }
+
+    /** */
+    function isLocalVHost( $vhost )
+    {
+        return in_array( $vhost, $this->localVHosts );
+    }
 }
 }
-
-?>

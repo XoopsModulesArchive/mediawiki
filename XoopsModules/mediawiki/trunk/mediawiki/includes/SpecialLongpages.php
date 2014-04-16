@@ -8,22 +8,24 @@
 /**
  *
  */
-require_once( 'SpecialShortpages.php' );
+require_once 'SpecialShortpages.php';
 
 /**
  *
  * @package MediaWiki
  * @subpackage SpecialPage
  */
-class LongPagesPage extends ShortPagesPage {
+class LongPagesPage extends ShortPagesPage
+{
+    function getName()
+    {
+        return "Longpages";
+    }
 
-	function getName() {
-		return "Longpages";
-	}
-
-	function sortDescending() {
-		return true;
-	}
+    function sortDescending()
+    {
+        return true;
+    }
 }
 
 /**
@@ -37,5 +39,3 @@ function wfSpecialLongpages()
 
     $lpp->doQuery( $offset, $limit );
 }
-
-?>

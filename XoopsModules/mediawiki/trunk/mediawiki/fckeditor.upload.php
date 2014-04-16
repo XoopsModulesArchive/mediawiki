@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * FCKeditor adapter for XOOPS
  *
@@ -15,9 +15,8 @@ include_once $mainfile;
 
 define("MEDIAWIKI_DISABLE_UPLOAD", 0);
 
-if(defined("MEDIAWIKI_DISABLE_UPLOAD") && constant("MEDIAWIKI_DISABLE_UPLOAD")){
-	define("FCKUPLOAD_DISABLED", 1);
+if (defined("MEDIAWIKI_DISABLE_UPLOAD") && constant("MEDIAWIKI_DISABLE_UPLOAD")) {
+    define("FCKUPLOAD_DISABLED", 1);
 }
 define("XOOPS_FCK_FOLDER", $xoopsModule->getVar("dirname"));
 include XOOPS_ROOT_PATH."/class/xoopseditor/FCKeditor/editor/filemanager/upload/php/upload.php";
-?>

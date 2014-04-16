@@ -8,32 +8,34 @@
 /**
  *
  */
-require_once( "SpecialUncategorizedpages.php" );
+require_once 'SpecialUncategorizedpages.php';
 
 /**
  *
  * @package MediaWiki
  * @subpackage SpecialPage
  */
-class UncategorizedCategoriesPage extends UncategorizedPagesPage {
-	function UncategorizedCategoriesPage() {
-		$this->requestedNamespace = NS_CATEGORY;
-	}
+class UncategorizedCategoriesPage extends UncategorizedPagesPage
+{
+    function UncategorizedCategoriesPage()
+    {
+        $this->requestedNamespace = NS_CATEGORY;
+    }
 
-	function getName() {
-		return "Uncategorizedcategories";
-	}
+    function getName()
+    {
+        return "Uncategorizedcategories";
+    }
 }
 
 /**
  * constructor
  */
-function wfSpecialUncategorizedcategories() {
-	list( $limit, $offset ) = wfCheckLimits();
+function wfSpecialUncategorizedcategories()
+{
+    list( $limit, $offset ) = wfCheckLimits();
 
-	$lpp = new UncategorizedCategoriesPage();
+    $lpp = new UncategorizedCategoriesPage();
 
-	return $lpp->doQuery( $offset, $limit );
+    return $lpp->doQuery( $offset, $limit );
 }
-
-?>

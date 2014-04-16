@@ -16,37 +16,40 @@
  */
 require_once 'LanguageRo.php';
 
-
 if (!$wgCachedMessageArrays) {
-	require_once('MessagesRmy.php');
+    require_once 'MessagesRmy.php';
 }
 
-class LanguageRmy extends LanguageRo {
-	private $mMessagesRmy = null;
+class LanguageRmy extends LanguageRo
+{
+    private $mMessagesRmy = null;
 
-	function __construct() {
-		parent::__construct();
+    function __construct()
+    {
+        parent::__construct();
 
-		global $wgAllMessagesRmy;
-		$this->mMessagesRmy =& $wgAllMessagesRmy;
+        global $wgAllMessagesRmy;
+        $this->mMessagesRmy =& $wgAllMessagesRmy;
 
-	}
+    }
 
-	function getMessage( $key ) {
-		if( isset( $this->mMessagesRmy[$key] ) ) {
-			return $this->mMessagesRmy[$key];
-		} else {
-			return parent::getMessage( $key );
-		}
-	}
+    function getMessage( $key )
+    {
+        if ( isset( $this->mMessagesRmy[$key] ) ) {
+            return $this->mMessagesRmy[$key];
+        } else {
+            return parent::getMessage( $key );
+        }
+    }
 
-	function getAllMessages() {
-		return $this->mMessagesRmy;
-	}
+    function getAllMessages()
+    {
+        return $this->mMessagesRmy;
+    }
 
-	function getFallbackLanguage() {
-		return 'ro';
-	}
+    function getFallbackLanguage()
+    {
+        return 'ro';
+    }
 
 }
-?>

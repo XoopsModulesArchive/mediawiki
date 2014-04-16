@@ -8,9 +8,7 @@
  */
 
 /** */
-require_once( "commandLine.inc" );
-require_once( "convertLinks.inc" );
+require_once 'commandLine.inc';
+require_once 'convertLinks.inc';
 
 convertLinks();
-
-?>

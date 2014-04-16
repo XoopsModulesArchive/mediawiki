@@ -713,6 +713,3 @@ La tô identitât e je stade creade. No stâ dismenteâti di gambiâ lis prefere
 'yourrealname'		=> "Non vêr *",
 'yourvariant' => 'Varietât',
 );
-
-
-?>

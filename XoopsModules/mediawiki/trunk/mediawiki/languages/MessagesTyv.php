@@ -3,7 +3,6 @@
 /** Tyvan localization (Тыва дыл) */
 # From friends at tyvawiki.org
 
-
 /* private */ $wgAllMessagesTyv = array(
 
 # User preference toggles
@@ -80,7 +79,6 @@
 'mytalk'		=> 'Мээң чугаалажырым', //My talk чугааm?
 'anontalk'		=> 'Бо ИП-адрестиң чугаа', //Talk for this IP
 'navigation' => 'Навигация', //Navigation
-
 
 'errorpagetitle' => "Частырыг", //Error
 'returnto'		=> "{{grammar:directive1|$1}} дедир.", //Return to $1.
@@ -214,7 +212,6 @@ $1', //Sorry! The wiki is experiencing some technical difficulties, and cannot c
 'spheading'		=> 'Шупту ажыглакчыниң тускай арыннар', //Special pages for all users
 'newpages'		=> 'Чаа Арыннар', //New pages
 
-
 # Special:Allpages
 'allarticles'		=> 'Шупту чүүлдер', //All articles
 'allpagesprev'		=> 'Пертинде', //Previous
@@ -259,4 +256,3 @@ $1', //Sorry! The wiki is experiencing some technical difficulties, and cannot c
 'specialloguserlabel' => 'Ажыглакчы: ', //User:
 
 );
-?>

@@ -30,61 +30,60 @@
 
 function &mediawiki_search($queryarray, $andor, $limit, $offset, $userid)
 {
-	global $xoopsDB;
-	
-	global $wgContLang;
-	if(!defined('MEDIAWIKI')):
-	define( 'MEDIAWIKI', true );
-	require_once XOOPS_ROOT_PATH."/modules/mediawiki/LocalSettings.php";
-	require_once XOOPS_ROOT_PATH."/modules/mediawiki/includes/GlobalFunctions.php";
-	require_once XOOPS_ROOT_PATH."/modules/mediawiki/include/functions.php";
-	endif;
-		
-	
-	$where = array("(rc_minor = 0)");
-	if ( is_array($queryarray) && $count = count($queryarray) ) {
-		$str_query = array();
-		for($i = 0; $i < $count; $i ++){
-			$query = mediawiki_encoding_xoops2mediawiki($queryarray[$i]);
-			$str_query[] = "(rc_title LIKE '%".$query."%' OR rc_comment LIKE '%".$query."%')";
-		}
-		$where[] = "(".implode(" $andor ", $str_query).")";
-	}
-	if ($userid) {
-		$userid = intval($userid);
-		$where[] = "(rc_user=".$userid.")";
-	}
-	
-	$version = mysql_get_server_info();
-	if(version_compare( $version, "4.1.0", "ge" ) ):
-	$sql = "SELECT DISTINCT rc_cur_id, rc_timestamp AS rc_update, rc_title, rc_type, rc_namespace, rc_comment, rc_user, rc_user_text, rc_this_oldid  FROM " . $xoopsDB->prefix("mediawiki_recentchanges").
-		" WHERE rc_timestamp = ( SELECT MAX(aa.rc_timestamp) FROM " . $xoopsDB->prefix("mediawiki_recentchanges")." AS aa WHERE aa.rc_cur_id = " . $xoopsDB->prefix("mediawiki_recentchanges").".rc_cur_id)".
-		(($where)?" AND ".implode(" AND ", $where):"").
-		" ORDER BY rc_update DESC";
-	else:
-	$sql = "SELECT DISTINCT rc_cur_id, rc_timestamp AS rc_update, rc_title, rc_type, rc_namespace, rc_comment, rc_user, rc_user_text, rc_this_oldid  FROM " . $xoopsDB->prefix("mediawiki_recentchanges").
-		(($where)?" WHERE ".implode(" AND ", $where):"").
-		" ORDER BY rc_update DESC";
-	endif;
-	$ret = array();
+    global $xoopsDB;
+
+    global $wgContLang;
+    if(!defined('MEDIAWIKI')):
+    define( 'MEDIAWIKI', true );
+    require_once XOOPS_ROOT_PATH."/modules/mediawiki/LocalSettings.php";
+    require_once XOOPS_ROOT_PATH."/modules/mediawiki/includes/GlobalFunctions.php";
+    require_once XOOPS_ROOT_PATH."/modules/mediawiki/include/functions.php";
+    endif;
+
+    $where = array("(rc_minor = 0)");
+    if ( is_array($queryarray) && $count = count($queryarray) ) {
+        $str_query = array();
+        for ($i = 0; $i < $count; $i ++) {
+            $query = mediawiki_encoding_xoops2mediawiki($queryarray[$i]);
+            $str_query[] = "(rc_title LIKE '%".$query."%' OR rc_comment LIKE '%".$query."%')";
+        }
+        $where[] = "(".implode(" $andor ", $str_query).")";
+    }
+    if ($userid) {
+        $userid = intval($userid);
+        $where[] = "(rc_user=".$userid.")";
+    }
+
+    $version = mysql_get_server_info();
+    if(version_compare( $version, "4.1.0", "ge" ) ):
+    $sql = "SELECT DISTINCT rc_cur_id, rc_timestamp AS rc_update, rc_title, rc_type, rc_namespace, rc_comment, rc_user, rc_user_text, rc_this_oldid  FROM " . $xoopsDB->prefix("mediawiki_recentchanges").
+        " WHERE rc_timestamp = ( SELECT MAX(aa.rc_timestamp) FROM " . $xoopsDB->prefix("mediawiki_recentchanges")." AS aa WHERE aa.rc_cur_id = " . $xoopsDB->prefix("mediawiki_recentchanges").".rc_cur_id)".
+        (($where) ? " AND ".implode(" AND ", $where) : "").
+        " ORDER BY rc_update DESC";
+    else:
+    $sql = "SELECT DISTINCT rc_cur_id, rc_timestamp AS rc_update, rc_title, rc_type, rc_namespace, rc_comment, rc_user, rc_user_text, rc_this_oldid  FROM " . $xoopsDB->prefix("mediawiki_recentchanges").
+        (($where) ? " WHERE ".implode(" AND ", $where) : "").
+        " ORDER BY rc_update DESC";
+    endif;
+    $ret = array();
     if (!$result = $xoopsDB->query($sql, $limit, $offset)) {
         return $ret;
     }
-	$myts =& MyTextSanitizer::getInstance();
-	$rec = array();
-	while($row = $xoopsDB->fetchArray($result)){
-		//if(isset($rec[$row["rc_cur_id"]])) continue;
-		$rec[$row["rc_cur_id"]] = 1;
-	    $_item = array();
-	    $_item["new"] = ($row["rc_type"] == 1);
-	    $_item["title"] = htmlspecialchars(mediawiki_encoding_mediawiki2xoops(str_replace("_", " ", $row["rc_title"])));
-	    $_item["link"] = XOOPS_URL."/modules/mediawiki/index.php?title=".wfUrlencode(str_replace(" ", "_", $row["rc_title"]))."&amp;curid=".$row["rc_cur_id"]."&amp;oldid=".$row["rc_this_oldid"];
-	    $_item["time"] = wfTimestamp( TS_UNIX, $row["rc_update"] );
-	    $_item["uid"] = $row["rc_user"];
-	    $ret[] = $_item;
-	    unset($_item);
-	}
-	unset($rec);
-	return $ret;
+    $myts =& MyTextSanitizer::getInstance();
+    $rec = array();
+    while ($row = $xoopsDB->fetchArray($result)) {
+        //if(isset($rec[$row["rc_cur_id"]])) continue;
+        $rec[$row["rc_cur_id"]] = 1;
+        $_item = array();
+        $_item["new"] = ($row["rc_type"] == 1);
+        $_item["title"] = htmlspecialchars(mediawiki_encoding_mediawiki2xoops(str_replace("_", " ", $row["rc_title"])));
+        $_item["link"] = XOOPS_URL."/modules/mediawiki/index.php?title=".wfUrlencode(str_replace(" ", "_", $row["rc_title"]))."&amp;curid=".$row["rc_cur_id"]."&amp;oldid=".$row["rc_this_oldid"];
+        $_item["time"] = wfTimestamp( TS_UNIX, $row["rc_update"] );
+        $_item["uid"] = $row["rc_user"];
+        $ret[] = $_item;
+        unset($_item);
+    }
+    unset($rec);
+
+    return $ret;
 }
-?>
