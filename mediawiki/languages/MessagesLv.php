@@ -216,7 +216,7 @@ $1',
 'editinginterface'      => '\'\'\'Brīdinājums:\'\'\' Tu izmaini lapu, kuras saturu izmanto wiki programmatūras lietotāja saskarnē (\'\'interfeisā\'\'). Šīs lapas izmaiņas ietekmēs lietotāja saskarni citiem lietotājiem.',
 'logouttitle'           => 'Lietotāja iziešana',
 'logouttext'            => 'Tu esi izgājis no {{grammar:ģenitīvs|{{SITENAME}}}}.
-Vari turpināt to izmantot anonīmi, vari atgriezties kā cits lietotājs vai varbūt tas pats. 
+Vari turpināt to izmantot anonīmi, vari atgriezties kā cits lietotājs vai varbūt tas pats.
 Ņem vērā, ka arī pēc iziešanas no {{grammar:ģenitīvs|{{SITENAME}}}} dažas lapas var tikt parādītas tā, it kā tu vēl būtu iekšā, līdz tiks iztīrīta pārlūka kešatmiņa.',
 'welcomecreation'       => '== Laipni lūdzam, $1! ==
 
@@ -356,7 +356,7 @@ Tava IP adrese ir $3. Lūdzu iekļauj to visos turpmākajos pieprasījumos.',
 'storedversion'         => 'Saglabātā versija',
 'editingold'            => '<strong>BRĪDINĀJUMS: Saglabājot šo lapu, tu izmainīsi šīs lapas novecojušu versiju, un ar to tiks dzēstas visas izmaiņas, kas izdarītas pēc šīs versijas.</strong>',
 'yourdiff'              => 'Atšķirības',
-'copyrightwarning'      => 'Lūdzu, ņem vērā, ka viss ieguldījums, kas veikts {{grammar:lokatīvs|{{SITENAME}}}}, ir uzskatāms par publiskotu saskaņā ar $2 (vairāk info skat. $1). 
+'copyrightwarning'      => 'Lūdzu, ņem vērā, ka viss ieguldījums, kas veikts {{grammar:lokatīvs|{{SITENAME}}}}, ir uzskatāms par publiskotu saskaņā ar $2 (vairāk info skat. $1).
 Ja nevēlies, lai Tevis rakstīto kāds rediģē un izplata tālāk, tad, lūdzu, nepievieno to šeit!<br />
 
 Izvēloties "Saglabāt lapu", Tu apliecini, ka šo rakstu esi rakstījis vai papildinājis pats vai izmantojis informāciju no darba, ko neaizsargā autortiesības, vai tamlīdzīga brīvi pieejama resursa.<br />
@@ -385,9 +385,9 @@ Tu apliecini, ka šo rakstu esi rakstījis vai papildinājis pats vai izmantojis
 'next'                  => 'nākamais',
 'last'                  => 'ar iepriekšējo',
 'histlegend'            => 'Atšķirību izvēle: atzīmē vajadzīgo versiju apaļās pogas un spied "Salīdzināt izvēlētās versijas".<br />
-Apzīmējumi: 
+Apzīmējumi:
 "ar pašreizējo" = salīdzināt ar pašreizējo versiju,
-"ar iepriekšējo" = salīdzināt ar iepriekšējo versiju, 
+"ar iepriekšējo" = salīdzināt ar iepriekšējo versiju,
 m = maznozīmīgs labojums.',
 'histfirst'             => 'Senākās',
 'histlast'              => 'Jaunākās',
@@ -508,8 +508,8 @@ Spied pogu \'\'\'Augšuplādēt\'\'\', lai pabeigtu augšupielādi.
 Tas var ieilgt, ja tavs interneta pieslēgums ir lēns.
 
 Ieteicamie formāti ir:
-* JPEG - ja tā ir fotogrāfija, 
-* PNG - ja tas ir zīmējums vai kāda ikona, un 
+* JPEG - ja tā ir fotogrāfija,
+* PNG - ja tas ir zīmējums vai kāda ikona, un
 * OGG - ja tas ir skaņas fails.
 
 Lūdzu, pārliecinies, ka faila nosaukums ir pietiekami aprakstošs, lai izvairītos no neskaidrībām. Lai attēlu pēc tam ievietotu kādā lapā, izmanto šādi noformētu linkus:
@@ -568,7 +568,7 @@ Lūdzu, dodies uz šo lapu - $2 - un aizpildi faila aprakstu, piemēram, no kuri
 'revertimg'             => 'atjaunot',
 'deleteimg'             => 'dzēst',
 'deleteimgcompletely'   => 'Dzēst visas versijas',
-'imghistlegend'         => 'Apzīmējumi: (pašreizējais) = šā attēla pašreizējā versija, (dzēst) = dzēst šo veco versiju, 
+'imghistlegend'         => 'Apzīmējumi: (pašreizējais) = šā attēla pašreizējā versija, (dzēst) = dzēst šo veco versiju,
 (atjaunot) = nomainīt pret šo veco versiju.
 <br /><i>Klikšķini uz datuma, lai aplūkotu tajā datumā augšuplādēto failu.</i>.',
 'imagelinks'            => 'Attēlu saites',
@@ -948,4 +948,3 @@ Ja tu *neesi* registrejis sadu lietotaja vardu, nespied uz saites. Si apstiprina
 'articletitles'         => 'Raksti, kas sākas ar \'\'$1\'\'',
 'hideresults'           => 'Paslēpt rezultātus',
 );
-?>

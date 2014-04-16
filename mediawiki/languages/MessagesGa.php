@@ -1,6 +1,5 @@
 <?php
 
-
 #-------------------------------------------------------------------
 # Default messages
 #-------------------------------------------------------------------
@@ -71,7 +70,6 @@
 'oct' => 'DFómh',
 'nov' => 'Samh',
 'dec' => 'Noll',
-
 
 # Bits of text used by many pages:
 #
@@ -188,7 +186,6 @@ See $1.',
 
 'versionrequired' => 'Tá leagan $1 de MediaWiki de dhíth',
 'versionrequiredtext' => 'Tá an leagan $1 de MediaWiki riachtanach chun an leathanach seo a úsáid. Féach ar [[Speisialta:Version]]',
-
 
 "nbytes"	=> "$1 beart",
 "go"	    => "Téir",
@@ -839,7 +836,6 @@ dócha go taispeántar an litriú ceart (mar sin).",
 "missinglanguagelinkstext"      => "<i>Ní</i> nascaíonn na hailt seo chuig a macasamhail sa $1. <i>Ní</i>
 taispeántar athsheolaidh nó fo-leathanaigh.",
 
-
 # Miscellaneous special pages
 #
 "orphans"       => "Leathanaigh dhílleachtacha",
@@ -992,12 +988,11 @@ vicí: $PAGEEDITOR_WIKI
 
 I gcás athruithe eile, ní bheidh aon fhógra eile muna dtéann tú go dtí an leathanach seo. Ba féidir leat na bratacha fógraithe a athrú do gach leathanach ar do liosta faire.
 
-	     Is mise le meas,
-	     An fógrachóras uathoibríoch ag {{SITENAME}}
+         Is mise le meas,
+         An fógrachóras uathoibríoch ag {{SITENAME}}
 
 --
-Chun do chuid socruithe a athrú maidir leis an liosta faire, teir go dtí
-{{SERVER}}{{localurl:Speisialta:Watchlist/edit}}
+Chun do { chuid socruithe a athrú maidir leis an liosta faire, teir go dtí{SERVER}}{{localurl:Speisialta:Watchlist/edit}}
 
 Aiseolas agus a thuilleadh cabhrach:
 {{SERVER}}{{localurl:Help:Contents}}',
@@ -1073,7 +1068,6 @@ leathanaigh go huathoibríoch.",
 "undeletedarticle" => "Díscriosadh \"$1\" ar ais",
 "undeletedtext"   => "Díscriosadh an alt [[:$1|$1]] go rathúil.
 Féach ar [[{{ns:4}}:Cuntas_scriosaidh]] chun cuntas de scriosaidh agus athchóirithe deireanacha a fháil.",
-
 
 # Namespace form on various pages
 'namespace' => 'Ainmspás:',
@@ -1312,7 +1306,6 @@ ní féidir uaslódála staire díreacha a dhéanamh faoi láthair.',
 'tooltip-compareselectedversions' => 'Féach na difríochtaí idir an dhá leagain roghnaithe den leathanach seo. [alt-l]',
 'tooltip-watch' => 'Cuir an leathanach seo ar do liosta faire [alt-f]',
 'tooltip-diff' => 'Taispeáin na difríochtaí áirithe a rinne tú don téacs [alt-d]',
-
 
 # stylesheets
 
@@ -1787,6 +1780,3 @@ seo as feidhm ag $4.",
 'scarytranscludetoolong' => '[Tá an URL ró-fhada; tá brón orainn]',
 
 );
-
-
-?>

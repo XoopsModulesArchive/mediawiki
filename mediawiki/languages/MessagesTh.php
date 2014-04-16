@@ -1,6 +1,5 @@
 <?php
 
-
 /* private */ $wgAllMessagesTh = array(
 
 # User Toggles
@@ -23,7 +22,6 @@
 "tog-minordefault" => "กำหนด default ให้การแก้ไขทุกครั้งเป็นการแก้ไขย่อย",
 "tog-previewontop" => "แสดง preview ก่อนกล่องสำหรับการแก้ไข",
 "tog-nocache" => "ไม่นำหน้าต่าง ๆ มาใส่ใน cache",
-
 
 # Dates
 #
@@ -185,6 +183,3 @@ If you are here by mistake, just click your browser's '''back''' button.",
 "updated"		=> "(ได้รับการแก้ไขแล้ว)",
 
 );
-
-
-?>

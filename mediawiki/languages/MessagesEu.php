@@ -1,6 +1,5 @@
 <?php
 
-
 /* private */ $wgAllMessagesEu = array(
 '1movedto2' => '$1 izenburua $2-en truke aldatu da.',
 'about' => 'buruz',
@@ -166,6 +165,3 @@ Ez ahaztu zure hobespenak pertsonalizatu.',
 'yourtext' => 'Zure testua',
 
 );
-
-
-?>

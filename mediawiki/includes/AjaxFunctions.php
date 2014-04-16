@@ -3,7 +3,7 @@
 if( !defined( 'MEDIAWIKI' ) )
         die( 1 );
 
-require_once('WebRequest.php');
+require_once 'WebRequest.php';
 
 /**
  * Function converts an Javascript escaped string back into a string with
@@ -14,7 +14,8 @@ require_once('WebRequest.php');
  * @param $iconv_to String destination character set will be used as second paramether in the iconv function. Default is UTF-8.
  * @return string
  */
-function js_unescape($source, $iconv_to = 'UTF-8') {
+function js_unescape($source, $iconv_to = 'UTF-8')
+{
    $decodedStr = '';
    $pos = 0;
    $len = strlen ($source);
@@ -30,15 +31,13 @@ function js_unescape($source, $iconv_to = 'UTF-8') {
                $unicode = hexdec ($unicodeHexVal);
                $decodedStr .= code2utf($unicode);
                $pos += 4;
-           }
-           else {
+           } else {
                // we have an escaped ascii character
                $hexVal = substr ($source, $pos, 2);
                $decodedStr .= chr (hexdec ($hexVal));
                $pos += 2;
            }
-       }
-       else {
+       } else {
            $decodedStr .= $charAt;
            $pos++;
        }
@@ -47,7 +46,7 @@ function js_unescape($source, $iconv_to = 'UTF-8') {
    if ($iconv_to != "UTF-8") {
        $decodedStr = iconv("UTF-8", $iconv_to, $decodedStr);
    }
-  
+
    return $decodedStr;
 }
 
@@ -58,100 +57,105 @@ function js_unescape($source, $iconv_to = 'UTF-8') {
  * @param $num Integer
  * @return utf8char
  */
-function code2utf($num){
+function code2utf($num)
+{
    if ( $num<128 )
-   	return chr($num);
+       return chr($num);
    if ( $num<2048 )
-   	return chr(($num>>6)+192).chr(($num&63)+128);
+       return chr(($num>>6)+192).chr(($num&63)+128);
    if ( $num<65536 )
-   	return chr(($num>>12)+224).chr((($num>>6)&63)+128).chr(($num&63)+128);
+       return chr(($num>>12)+224).chr((($num>>6)&63)+128).chr(($num&63)+128);
    if ( $num<2097152 )
-   	return chr(($num>>18)+240).chr((($num>>12)&63)+128).chr((($num>>6)&63)+128) .chr(($num&63)+128);
+       return chr(($num>>18)+240).chr((($num>>12)&63)+128).chr((($num>>6)&63)+128) .chr(($num&63)+128);
    return '';
 }
 
-class AjaxCachePolicy {
-	var $policy;
+class AjaxCachePolicy
+{
+    var $policy;
 
-	function AjaxCachePolicy( $policy = null ) {
-		$this->policy = $policy;
-	}
+    function AjaxCachePolicy( $policy = null )
+    {
+        $this->policy = $policy;
+    }
 
-	function setPolicy( $policy ) {
-		$this->policy = $policy;
-	}
+    function setPolicy( $policy )
+    {
+        $this->policy = $policy;
+    }
 
-	function writeHeader() {
-		header ("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
-		if ( is_null( $this->policy ) ) {
-			// Bust cache in the head
-			header ("Expires: Mon, 26 Jul 1997 05:00:00 GMT");    // Date in the past
-			// always modified
-			header ("Cache-Control: no-cache, must-revalidate");  // HTTP/1.1
-			header ("Pragma: no-cache");                          // HTTP/1.0
-		} else {
-			header ("Expires: " . gmdate( "D, d M Y H:i:s", time() + $this->policy ) . " GMT");
-			header ("Cache-Control: s-max-age={$this->policy},public,max-age={$this->policy}");
-		}
-	}
-}
-			
-
-function wfSajaxSearch( $term ) {
-	global $wgContLang, $wgAjaxCachePolicy, $wgOut;
-	$limit = 16;
-	
-	$l = new Linker;
-
-	$term = str_replace( ' ', '_', $wgContLang->ucfirst( 
-			$wgContLang->checkTitleEncoding( $wgContLang->recodeInput( js_unescape( $term ) ) )
-		) );
-
-	if ( strlen( str_replace( '_', '', $term ) )<3 )
-		return;
-
-	$wgAjaxCachePolicy->setPolicy( 30*60 );
-
-	$db =& wfGetDB( DB_SLAVE );
-	$res = $db->select( 'page', 'page_title',
-			array(  'page_namespace' => 0,
-				"page_title LIKE '". $db->strencode( $term) ."%'" ),
-				"wfSajaxSearch",
-				array( 'LIMIT' => $limit+1 )
-			);
-
-	$r = "";
-
-	$i=0;
-	while ( ( $row = $db->fetchObject( $res ) ) && ( ++$i <= $limit ) ) {
-		$nt = Title::newFromDBkey( $row->page_title );
-		$r .= '<li>' . $l->makeKnownLinkObj( $nt ) . "</li>\n";
-	}
-	if ( $i > $limit ) {
-		$more = '<i>' .  $l->makeKnownLink( $wgContLang->specialPage( "Allpages" ),
-		                                wfMsg('moredotdotdot'),
-		                                "namespace=0&from=" . wfUrlEncode ( $term ) ) .
-			'</i>';
-	} else {
-		$more = '';
-	}
-
-	$subtitlemsg = ( Title::newFromText($term) ? 'searchsubtitle' : 'searchsubtitleinvalid' );
-	$subtitle = $wgOut->parse( wfMsg( $subtitlemsg, wfEscapeWikiText($term) ) );
-
-	$term = htmlspecialchars( $term );
-	return '<div style="float:right; border:solid 1px black;background:gainsboro;padding:2px;"><a onclick="Searching_Hide_Results();">' 
-		. wfMsg( 'hideresults' ) . '</a></div>'
-		. '<h1 class="firstHeading">'.wfMsg('search')
-		. '</h1><div id="contentSub">'. $subtitle . '</div><ul><li>'
-		. $l->makeKnownLink( $wgContLang->specialPage( 'Search' ),
-					wfMsg( 'searchcontaining', $term ),
-					"search=$term&fulltext=Search" )
-		. '</li><li>' . $l->makeKnownLink( $wgContLang->specialPage( 'Search' ),
-					wfMsg( 'searchnamed', $term ) ,
-					"search=$term&go=Go" )
-		. "</li></ul><h2>" . wfMsg( 'articletitles', $term ) . "</h2>"
-		. '<ul>' .$r .'</ul>'.$more;
+    function writeHeader()
+    {
+        header ("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+        if ( is_null( $this->policy ) ) {
+            // Bust cache in the head
+            header ("Expires: Mon, 26 Jul 1997 05:00:00 GMT");    // Date in the past
+            // always modified
+            header ("Cache-Control: no-cache, must-revalidate");  // HTTP/1.1
+            header ("Pragma: no-cache");                          // HTTP/1.0
+        } else {
+            header ("Expires: " . gmdate( "D, d M Y H:i:s", time() + $this->policy ) . " GMT");
+            header ("Cache-Control: s-max-age={$this->policy},public,max-age={$this->policy}");
+        }
+    }
 }
 
-?>
+
+function wfSajaxSearch( $term )
+{
+    global $wgContLang, $wgAjaxCachePolicy, $wgOut;
+    $limit = 16;
+
+    $l = new Linker;
+
+    $term = str_replace( ' ', '_', $wgContLang->ucfirst(
+            $wgContLang->checkTitleEncoding( $wgContLang->recodeInput( js_unescape( $term ) ) )
+        ) );
+
+    if ( strlen( str_replace( '_', '', $term ) )<3 )
+        return;
+
+    $wgAjaxCachePolicy->setPolicy( 30*60 );
+
+    $db =& wfGetDB( DB_SLAVE );
+    $res = $db->select( 'page', 'page_title',
+            array(  'page_namespace' => 0,
+                "page_title LIKE '". $db->strencode( $term) ."%'" ),
+                "wfSajaxSearch",
+                array( 'LIMIT' => $limit+1 )
+            );
+
+    $r = "";
+
+    $i=0;
+    while ( ( $row = $db->fetchObject( $res ) ) && ( ++$i <= $limit ) ) {
+        $nt = Title::newFromDBkey( $row->page_title );
+        $r .= '<li>' . $l->makeKnownLinkObj( $nt ) . "</li>\n";
+    }
+    if ($i > $limit) {
+        $more = '<i>' .  $l->makeKnownLink( $wgContLang->specialPage( "Allpages" ),
+                                        wfMsg('moredotdotdot'),
+                                        "namespace=0&from=" . wfUrlEncode ( $term ) ) .
+            '</i>';
+    } else {
+        $more = '';
+    }
+
+    $subtitlemsg = ( Title::newFromText($term) ? 'searchsubtitle' : 'searchsubtitleinvalid' );
+    $subtitle = $wgOut->parse( wfMsg( $subtitlemsg, wfEscapeWikiText($term) ) );
+
+    $term = htmlspecialchars( $term );
+
+    return '<div style="float:right; border:solid 1px black;background:gainsboro;padding:2px;"><a onclick="Searching_Hide_Results();">'
+        . wfMsg( 'hideresults' ) . '</a></div>'
+        . '<h1 class="firstHeading">'.wfMsg('search')
+        . '</h1><div id="contentSub">'. $subtitle . '</div><ul><li>'
+        . $l->makeKnownLink( $wgContLang->specialPage( 'Search' ),
+                    wfMsg( 'searchcontaining', $term ),
+                    "search=$term&fulltext=Search" )
+        . '</li><li>' . $l->makeKnownLink( $wgContLang->specialPage( 'Search' ),
+                    wfMsg( 'searchnamed', $term ) ,
+                    "search=$term&go=Go" )
+        . "</li></ul><h2>" . wfMsg( 'articletitles', $term ) . "</h2>"
+        . '<ul>' .$r .'</ul>'.$more;
+}

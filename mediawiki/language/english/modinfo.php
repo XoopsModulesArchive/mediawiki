@@ -13,4 +13,3 @@ define("_MI_MEDIAWIKI_BLOCK_SIDEBAR", "MediaWiki Sidebar");
 define("_MI_MEDIAWIKI_BLOCK_RECENTCHANGES", "MediaWiki Recent changes");
 define("_MI_MEDIAWIKI_BLOCK_TOP", "Most revisions");
 define("_MI_MEDIAWIKI_BLOCK_HOT", "Hot contents");
-?>

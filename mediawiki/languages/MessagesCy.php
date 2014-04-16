@@ -1,6 +1,5 @@
 <?php
 
-
 /* private */ $wgAllMessagesCy = array(
 # User Toggles
 
@@ -54,7 +53,6 @@
 'oct' => 'Hyd',
 'nov' => 'Tach',
 'dec' => 'Rhag',
-
 
 # Bits of text used by many pages:
 #
@@ -365,7 +363,6 @@ $1<br />
 $2 Rhestrwch ail-cyfeiriadau &nbsp; Chwiliwch am $3 $9",
 "searchdisabled" => "<p>Mae'r peiriant chwilio'r holl databas wedi cael eu troi i ffwrdd i gwneud pethau'n hawddach ar y gwasanaethwr. Gobeithiwn fydd yn bosibl i troi'r peiriant ymlaen cyn bo hir, ond yn y cyfamser mae'n posibl gofyn Google:</p>",
 "blanknamespace" => "(Prif)",
-
 
 # Preferences page
 #
@@ -721,7 +718,6 @@ y rhestr o blociau a gwaharddiadau sydd yn effeithiol rwan.",
 "ipb_expiry_invalid" => "Amser diwedd ddim yn dilys.",
 "ip_range_invalid" => "Dewis IP annilys.",
 
-
 # Make sysop
 "makesysoptitle" => "Gwnewch sysop allan o defnyddiwr",
 "makesysoptext"	=> "Defnyddiwch y ffurflen hon i troi defnyddiwr cyffredin i gweinyddwr.
@@ -793,6 +789,3 @@ amusement.",
 'mw_math_mathml' => 'MathML',
 
 );
-
-
-?>

@@ -13,16 +13,16 @@
 
 require_once 'LanguageZh_cn.php';
 
-class LanguageZa extends LanguageZh_cn {
+class LanguageZa extends LanguageZh_cn
+{
+    function getFallbackLanguage()
+    {
+        return 'zh-cn';
+    }
 
-	function getFallbackLanguage() {
-		return 'zh-cn';
-	}
-
-	function getAllMessages() {
-		return null;
-	}
+    function getAllMessages()
+    {
+        return null;
+    }
 
 }
-
-?>

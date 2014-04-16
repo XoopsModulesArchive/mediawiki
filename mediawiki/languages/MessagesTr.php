@@ -351,7 +351,7 @@ Yukarıdaki yazı sayfanın şu anki halini göstermektedir.
 Sizin değişiklikleriniz alta gösterilmiştir. Son değişiklerinizi yazının içine eklemeniz gerekecektir. "Sayfayı kaydet"e bastığınızda <b>sadece</b> yukarıdaki yazı kaydedilecektir. <br />',
 'yourtext'              => 'Sizin metniniz',
 'storedversion'         => 'Kaydedilmiş metin',
-'editingold'            => '<strong>DİKKAT: Sayfanın eski bir sürümünde değişiklik yapmaktasınız. 
+'editingold'            => '<strong>DİKKAT: Sayfanın eski bir sürümünde değişiklik yapmaktasınız.
 Kaydettiğinizde bu tarihli sürümden günümüze kadar olan değişiklikler yok olacaktır.</strong>',
 'yourdiff'              => 'Karşılaştırma',
 'copyrightwarning'      => '<strong>Lütfen dikkat:</strong> {{SITENAME}} sitesine yapılan bütün katkılar <i>$2</i>
@@ -636,7 +636,7 @@ Toplam sayfa görüntülenme sayısı \'\'\'$3\'\'\', değişiklik başına gör
 'alphaindexline'        => '$1 \'den $2\'e',
 'version'               => 'Sürüm',
 'log'                   => 'Kayıtlar',
-'alllogstext'           => '[[Special:Log/upload|Yükleme]], [[Special:Log/delete|silme]], [[Special:Log/move|taşıma]], [[Special:Log/protect|koruma altına alma]], [[Special:Log/newusers|yeni kullanıcı]], [[Special:Log/renameuser|kullanıcıların yeniden adlandırmaları]], [[Special:Log/block|erişim engelleme]], [[Special:Log/rights|yönetici hareketlerinin]] ve [[Special:Log/makebot|botların durumunun]] tümünün kayıtları. 
+'alllogstext'           => '[[Special:Log/upload|Yükleme]], [[Special:Log/delete|silme]], [[Special:Log/move|taşıma]], [[Special:Log/protect|koruma altına alma]], [[Special:Log/newusers|yeni kullanıcı]], [[Special:Log/renameuser|kullanıcıların yeniden adlandırmaları]], [[Special:Log/block|erişim engelleme]], [[Special:Log/rights|yönetici hareketlerinin]] ve [[Special:Log/makebot|botların durumunun]] tümünün kayıtları.
 
 Kayıt tipini, kullanıcı ismini, sayfa ismini girerek listeyi daraltabilirsiniz.',
 'logempty'              => 'Kayıtlarda eşleşen bilgi yok.',
@@ -654,9 +654,9 @@ Kayıt tipini, kullanıcı ismini, sayfa ismini girerek listeyi daraltabilirsini
 'mailnologintext'       => 'Diğer kullanıcılara e-posta gönderebilmeniz için [[Special:Userlogin|oturum aç]]malısınız ve [[Special:Preferences|tercihler]] sayfasında geçerli bir e-posta adresiniz olmalı.',
 'emailuser'             => 'Kullanıcıya e-posta gönder',
 'emailpage'             => 'Kullanıcıya e-posta gönder',
-'emailpagetext'         => 'Aşağıdaki form kullanıcı hesabıyla ilişkilendirilmiş geçerli bir e-posta 
+'emailpagetext'         => 'Aşağıdaki form kullanıcı hesabıyla ilişkilendirilmiş geçerli bir e-posta
 adresi olduğu takdirde ilgili kişiye bir e-posta gönderecek.
- 
+
 Yanıt alabilmeniz için "From" (Kimden) kısmına tercih formunda belirttiğiniz e-posta adresi eklenecek.',
 'defemailsubject'       => '{{SITENAME}} e-posta',
 'noemailtitle'          => 'e-posta adresi yok',
@@ -694,7 +694,7 @@ Sayfayı izleme listenizden çıkarmak istediğinizde "sayfayı izlemeyi durdur"
 'unwatchthispage'       => 'Sayfa izlemeyi durdur',
 'watchnochange'         => 'Gösterilen zaman aralığında izleme listenizdeki sayfaların hiçbiri güncellenmemiş.',
 'watchdetails'          => '* Tartışma sayfaları hariç $1 sayfa izleme listenizdedir.
-* [[Special:Watchlist/edit|İzleme listesinin tamamını göster ve yapılandır]] 
+* [[Special:Watchlist/edit|İzleme listesinin tamamını göster ve yapılandır]]
 * [[Special:Watchlist/clear|İzleme listesini tamamen boşalt]]',
 'wlheader-enotif'       => '* E-mail ile haber verme açılmıştır.',
 'wlheader-showupdated'  => '* Son ziyaretinizden sonraki sayfa değişikleri \'\'\'kalın\'\'\' olarak gösterilmiştir.',
@@ -702,9 +702,9 @@ Sayfayı izleme listenizden çıkarmak istediğinizde "sayfayı izlemeyi durdur"
 'watchmethod-list'      => 'izleme listenizdeki sayfalar kontrol ediliyor',
 'removechecked'         => 'İşaretli sayfaları izleme listesinden sil',
 'watchlistcontains'     => 'İzleme listenizde $1 sayfa var.',
-'watcheditlist'         => 'İzlediğiniz sayfaların alfabetik listesi aşağıdadır. 
+'watcheditlist'         => 'İzlediğiniz sayfaların alfabetik listesi aşağıdadır.
 Sayfaları izleme listesinden çıkarmak için yanlarındaki
-kutucukları işaretleyip sayfanın altındaki \'işaretlenenleri sil\' 
+kutucukları işaretleyip sayfanın altındaki \'işaretlenenleri sil\'
 düğmesini tıklayınız.',
 'removingchecked'       => 'İşaretlenen sayfalar izleme listesinden siliniyor...',
 'wlnote'                => '{{CURRENTTIME}} {{CURRENTMONTHNAME}} {{CURRENTDAY}} (UTC) tarihinde son <b>$2</b> saatte yapılan $1 değişiklik aşağıdadır.',
@@ -1054,7 +1054,7 @@ In the latter case you can also use a link, e.g. [[Special:Export/{{int:Mainpage
 'confirmemail'          => 'E-posta adresini onayla',
 'confirmemail_text'     => 'Viki\'nin e-posta işlevlerini kullanmadan önce e-posta adresinizin
 doğrulanması gerekiyor. Adresinize onay e-postası göndermek için aşağıdaki
-butonu tıklayın. Gönderilecek iletide adresinizi onaylamak için tarayıcınızla 
+butonu tıklayın. Gönderilecek iletide adresinizi onaylamak için tarayıcınızla
 erişebileceğiniz, onay kodu içeren bir bağlantı olacak.',
 'confirmemail_send'     => 'Onay kodu gönder',
 'confirmemail_sent'     => 'Onay e-postası gönderildi.',
@@ -1065,12 +1065,12 @@ erişebileceğiniz, onay kodu içeren bir bağlantı olacak.',
 'confirmemail_loggedin' => 'E-posta adresiniz onaylandı.',
 'confirmemail_error'    => 'Onayınız bilinmeyen bir hata nedeniyle kaydedilemedi.',
 'confirmemail_subject'  => '{{SITENAME}} e-posta adres onayı.',
-'confirmemail_body'     => '$1 internet adresinden yapılan erişimle {{SITENAME}} sitesinde 
-bu e-posta adresi ile ilişkilendirilen $2 kullanıcı hesabı 
-açıldı.  
+'confirmemail_body'     => '$1 internet adresinden yapılan erişimle {{SITENAME}} sitesinde
+bu e-posta adresi ile ilişkilendirilen $2 kullanıcı hesabı
+açıldı.
 
 Bu e-posta adresinin bahsi geçen kullanıcı hesabına ait olduğunu
-onaylamak ve {{SITENAME}} sitesindeki e-posta işlevlerini aktif hale 
+onaylamak ve {{SITENAME}} sitesindeki e-posta işlevlerini aktif hale
 getirmek için aşağıdakı bağlantıyı tıklayın.
 
 $3
@@ -1088,4 +1088,3 @@ Bu onay kodu $4 tarihine kadar geçerli olacak.',
 'articletitles'         => '\'\'$1\'\' ile başlayan maddeler',
 'displaytitle'          => '(Bu sayfaya [[$1]] olarak bağlan)',
 );
-?>

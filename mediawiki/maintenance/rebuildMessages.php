@@ -7,36 +7,36 @@
 
 /** */
 $options = array( 'update' => null, 'rebuild' => null );
-require_once( "commandLine.inc" );
-include_once( "InitialiseMessages.inc" );
+require_once 'commandLine.inc';
+include_once 'InitialiseMessages.inc';
 
 $wgTitle = Title::newFromText( "Rebuild messages script" );
 
 if ( isset( $args[0] ) ) {
-	# Retain script compatibility
-	$response = array_shift( $args );
-	if ( $response == "update" ) {
-		$response = 1;
-	} elseif ( $response == "rebuild" ) {
-		$response = 2;
-	}
+    # Retain script compatibility
+    $response = array_shift( $args );
+    if ($response == "update") {
+        $response = 1;
+    } elseif ($response == "rebuild") {
+        $response = 2;
+    }
 } else {
-	$response = 0;
+    $response = 0;
 }
 if ( isset( $args[0] ) ) {
-	$messages = loadLanguageFile( array_shift( $args ) );
+    $messages = loadLanguageFile( array_shift( $args ) );
 } else {
-	$messages = false;
+    $messages = false;
 }
 if( isset( $options['update'] ) ) $response = 1;
 if( isset( $options['rebuild'] ) ) $response = 2;
 
-if ( $response == 0 ) {
-	$dbr =& wfGetDB( DB_SLAVE );
-	$row = $dbr->selectRow( "page", array("count(*) as c"), array("page_namespace" => NS_MEDIAWIKI) );
-	print "Current namespace size: {$row->c}\n";
+if ($response == 0) {
+    $dbr =& wfGetDB( DB_SLAVE );
+    $row = $dbr->selectRow( "page", array("count(*) as c"), array("page_namespace" => NS_MEDIAWIKI) );
+    print "Current namespace size: {$row->c}\n";
 
-	print <<<END
+    print <<<END
 Usage:   php rebuildMessages.php <action> [filename]
 
 Action must be one of:
@@ -49,18 +49,16 @@ PHP associative array, as produced by dumpMessages.php.
 
 
 END;
-	exit(0);
+    exit(0);
 }
 
-switch ( $response ) {
-	case 1:
-		initialiseMessages( false, $messages );
-		break;
-	case 2:
-		initialiseMessages( true, $messages );
-		break;
+switch ($response) {
+    case 1:
+        initialiseMessages( false, $messages );
+        break;
+    case 2:
+        initialiseMessages( true, $messages );
+        break;
 }
 
 exit();
-
-?>

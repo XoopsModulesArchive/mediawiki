@@ -64,7 +64,7 @@ class FiveUpgrade {
 	function &newConnection() {
 		global $wgDBadminuser, $wgDBadminpassword;
 		global $wgDBserver, $wgDBname;
-		$db =& new Database( $wgDBserver, $wgDBadminuser, $wgDBadminpassword, $wgDBname );
+		$db = new Database( $wgDBserver, $wgDBadminuser, $wgDBadminpassword, $wgDBname );
 		return $db;
 	}
 
@@ -131,7 +131,7 @@ class FiveUpgrade {
 			0x9F => 0x0178,	#LATIN CAPITAL LETTER Y WITH DIAERESIS
 			);
 		$pairs = array();
-		for( $i = 0; $i < 0x100; $i++ ) {
+		for( $i = 0; $i < 0x100; ++$i ) {
 			$unicode = isset( $cp1252[$i] ) ? $cp1252[$i] : $i;
 			$pairs[chr( $i )] = codepointToUtf8( $unicode );
 		}
@@ -591,7 +591,7 @@ CREATE TABLE $pagelinks (
 
 		$tabledef = <<<END
 CREATE TABLE $1 (
-  user_id int(5) unsigned NOT NULL auto_increment,
+  user_id int(5) unsigned NOT NULL,
   user_name varchar(255) binary NOT NULL default '',
   user_real_name varchar(255) binary NOT NULL default '',
   user_password tinyblob NOT NULL default '',
@@ -911,14 +911,14 @@ END;
 			$now = $this->dbw->timestamp();
 			$add[] = array(
 				'wl_user'      =>                        $row->wl_user,
-				'wl_namespace' => Namespace::getSubject( $row->wl_namespace ),
+				'wl_namespace' => MWNamespace::getSubject( $row->wl_namespace ),
 				'wl_title'     =>           $this->conv( $row->wl_title ),
 				'wl_notificationtimestamp' =>            '0' );
 			$this->addChunk( $add );
 
 			$add[] = array(
 				'wl_user'      =>                        $row->wl_user,
-				'wl_namespace' =>    Namespace::getTalk( $row->wl_namespace ),
+				'wl_namespace' =>    MWNamespace::getTalk( $row->wl_namespace ),
 				'wl_title'     =>           $this->conv( $row->wl_title ),
 				'wl_notificationtimestamp' =>            '0' );
 			$this->addChunk( $add );

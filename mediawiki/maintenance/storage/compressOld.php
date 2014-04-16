@@ -32,22 +32,22 @@
  */
 
 $optionsWithArgs = array( 't', 'c', 's', 'f', 'h', 'extdb', 'endid' );
-require_once( "../commandLine.inc" );
-require_once( "compressOld.inc" );
+require_once '../commandLine.inc';
+require_once 'compressOld.inc';
 
-if( !function_exists( "gzdeflate" ) ) {
-	print "You must enable zlib support in PHP to compress old revisions!\n";
-	print "Please see http://www.php.net/manual/en/ref.zlib.php\n\n";
-	wfDie();
+if ( !function_exists( "gzdeflate" ) ) {
+    print "You must enable zlib support in PHP to compress old revisions!\n";
+    print "Please see http://www.php.net/manual/en/ref.zlib.php\n\n";
+    wfDie();
 }
 
 $defaults = array(
-	't' => 'concat',
-	'c' => 20,
-	's' => 0,
-	'f' => 5,
-	'h' => 100,
-	'b' => '',
+    't' => 'concat',
+    'c' => 20,
+    's' => 0,
+    'f' => 5,
+    'h' => 100,
+    'b' => '',
     'e' => '',
     'extdb' => '',
     'endid' => false,
@@ -55,28 +55,26 @@ $defaults = array(
 
 $options = $options + $defaults;
 
-if ( $options['t'] != 'concat' && $options['t'] != 'gzip' ) {
-	print "Type \"{$options['t']}\" not supported\n";
+if ($options['t'] != 'concat' && $options['t'] != 'gzip') {
+    print "Type \"{$options['t']}\" not supported\n";
 }
 
-if ( $options['extdb'] != '' ) {
-	print "Compressing database $wgDBname to external cluster {$options['extdb']}\n" . str_repeat('-', 76) . "\n\n";
+if ($options['extdb'] != '') {
+    print "Compressing database $wgDBname to external cluster {$options['extdb']}\n" . str_repeat('-', 76) . "\n\n";
 } else {
-	print "Compressing database $wgDBname\n" . str_repeat('-', 76) . "\n\n";
+    print "Compressing database $wgDBname\n" . str_repeat('-', 76) . "\n\n";
 }
 
 $success = true;
-if ( $options['t'] == 'concat' ) {
+if ($options['t'] == 'concat') {
     $success = compressWithConcat( $options['s'], $options['c'], $options['f'], $options['h'], $options['b'],
         $options['e'], $options['extdb'], $options['endid'] );
 } else {
-	compressOldPages( $options['s'], $options['extdb'] );
+    compressOldPages( $options['s'], $options['extdb'] );
 }
 
-if ( $success ) {
-	print "Done.\n";
+if ($success) {
+    print "Done.\n";
 }
 
 exit();
-
-?>

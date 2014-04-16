@@ -1015,15 +1015,15 @@ Bekreft at du har til hensikt å gjøre dette.',
 'already_steward'       => 'Denne brukeren er allerede steward',
 'rightsnone'            => '(ingen)',
 'movepage'              => 'Flytt side',
-'movepagetext'          => 'Når du bruker skjemaet under, vil du få omdøpt en 
+'movepagetext'          => 'Når du bruker skjemaet under, vil du få omdøpt en
 side og flyttet hele historikken til det nye navnet.
 Den gamle tittelen vil bli en omdirigeringsside til den nye tittelen.
 Lenker til den gamle tittelen vil ikke bli endret. Eventuelle omdirigeringer vil bli brutt.
 
 <font color="red"><b>Det er <u>ditt ansvar</u> å rette alle omdirigeringer (bruk «Lenker hit» for å finne dem) hvis du flytter en side!</b></font>
 
-Legg merke til at siden \'\'\'ikke\'\'\' kan flyttes hvis det allerede finnes en side 
-med den nye tittelen, med mindre den siden er tom eller er en omdirigering 
+Legg merke til at siden \'\'\'ikke\'\'\' kan flyttes hvis det allerede finnes en side
+med den nye tittelen, med mindre den siden er tom eller er en omdirigering
 uten noen historikk. Det betyr at du kan flytte en side tilbake dit
 den kom fra hvis du gjør en feil.
 
@@ -1315,4 +1315,3 @@ $1
 'displaytitle'          => '(Lenke til denne siden som [[$1]])',
 'loginlanguagelabel'    => 'Språk: $1',
 );
-?>

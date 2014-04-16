@@ -1,6 +1,5 @@
 <?php
 
-
 /* private */ $wgAllMessagesHu = array(
 
 # User Toggles
@@ -23,7 +22,6 @@
 "tog-minordefault" => "Alapból minden szerkesztést jelöljön aprónak",
 "tog-previewontop" => "Előnézet a szerkesztőterület előtt és nem utána",
 "tog-nocache" => "Lapok gyorstárazásának letiltása",
-
 
 # Dates
 #
@@ -575,7 +573,6 @@ Ebből <b>$2</b> darab adminisztrátor (lásd $3).",
 "disambiguationspage" => "{{ns:project}}:Egyértelműsítő lapok",
 "mispeelingspage"	=> "{{ns:project}}:Gyakori elírások listája",
 
-
 # Miscellaneous special pages
 #
 "orphans"		=> "Árva lapok",
@@ -760,6 +757,3 @@ rendszerbe való importálásra, átalakításra vagy a saját szórakoztatásod
 'mw_math_modern' => "Modern böngészőknek ajánlott beállítás",
 'mw_math_mathml' => 'MathML',
 );
-
-
-?>

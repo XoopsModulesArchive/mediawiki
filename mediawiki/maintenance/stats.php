@@ -1,5 +1,5 @@
 <?php
-require_once('commandLine.inc');
+require_once 'commandLine.inc';
 
 print "Requests\n";
 $session = intval($wgMemc->get("$wgDBname:stats:request_with_session"));
@@ -8,7 +8,6 @@ $total = $session + $noSession;
 printf( "with session:      %-10d %6.2f%%\n", $session, $session/$total*100 );
 printf( "without session:   %-10d %6.2f%%\n", $noSession, $noSession/$total*100 );
 printf( "total:             %-10d %6.2f%%\n", $total, 100 );
-
 
 print "\nParser cache\n";
 $hits = intval($wgMemc->get("$wgDBname:stats:pcache_hit"));
@@ -41,5 +40,3 @@ print("\nDiff cache\n");
 printf( "hits:              %-10d %6.2f%%\n", $hits, $hits/$total*100 );
 printf( "misses:            %-10d %6.2f%%\n", $misses, $misses/$total*100 );
 printf( "uncacheable:       %-10d %6.2f%%\n", $uncacheable, $uncacheable/$total*100 );
-
-?>

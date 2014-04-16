@@ -11,17 +11,17 @@
 define( 'MEDIAWIKI', true );
 
 if ( isset( $_REQUEST['GLOBALS'] ) ) {
-	echo '<a href="http://www.hardened-php.net/index.76.html">$GLOBALS overwrite vulnerability</a>';
-	die( -1 );
+    echo '<a href="http://www.hardened-php.net/index.76.html">$GLOBALS overwrite vulnerability</a>';
+    die( -1 );
 }
 
-require_once( 'includes/Defines.php' );
-require_once( './LocalSettings.php' );
-require_once( 'includes/Setup.php' );
-require_once( 'includes/StreamFile.php' );
+require_once 'includes/Defines.php';
+require_once './LocalSettings.php';
+require_once 'includes/Setup.php';
+require_once 'includes/StreamFile.php';
 
-if( !isset( $_SERVER['PATH_INFO'] ) ) {
-	wfForbidden();
+if ( !isset( $_SERVER['PATH_INFO'] ) ) {
+    wfForbidden();
 }
 
 # Get filenames/directories
@@ -31,31 +31,30 @@ $imageName = $wgLang->getNsText( NS_IMAGE ) . ":" . basename( $_SERVER['PATH_INF
 
 # Check if the filename is in the correct directory
 if ( substr( $filename, 0, strlen( $realUploadDirectory ) ) != $realUploadDirectory ) {
-	wfForbidden();
+    wfForbidden();
 }
 
 if ( is_array( $wgWhitelistRead ) && !in_array( $imageName, $wgWhitelistRead ) && !$wgUser->getID() ) {
-	wfForbidden();
+    wfForbidden();
 }
 
-if( !file_exists( $filename ) ) {
-	wfForbidden();
+if ( !file_exists( $filename ) ) {
+    wfForbidden();
 }
-if( is_dir( $filename ) ) {
-	wfForbidden();
+if ( is_dir( $filename ) ) {
+    wfForbidden();
 }
 
 # Write file
 wfStreamFile( $filename );
 
-function wfForbidden() {
-	header( 'HTTP/1.0 403 Forbidden' );
-	print
+function wfForbidden()
+{
+    header( 'HTTP/1.0 403 Forbidden' );
+    print
 "<html><body>
 <h1>Access denied</h1>
 <p>You need to log in to access files on this server</p>
 </body></html>";
-	exit;
+    exit;
 }
-
-?>

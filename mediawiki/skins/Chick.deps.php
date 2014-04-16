@@ -5,6 +5,5 @@
 // changed on a subsequent page view.
 // see http://mail.wikipedia.org/pipermail/wikitech-l/2006-January/033660.html
 
-require_once('includes/SkinTemplate.php');
-require_once('MonoBook.php');
-?>
+require_once 'includes/SkinTemplate.php';
+require_once 'MonoBook.php';

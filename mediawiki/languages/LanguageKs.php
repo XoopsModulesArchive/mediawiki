@@ -5,14 +5,14 @@
   * @subpackage Language
   */
 
-require_once( 'LanguageUtf8.php' );
+require_once 'LanguageUtf8.php';
 
-class LanguageKs extends LanguageUtf8 {
-	#FIXME: inherit almost everything for now
+class LanguageKs extends LanguageUtf8
+{
+    #FIXME: inherit almost everything for now
 
-	function isRTL() {
-		return true;
-	}
+    function isRTL()
+    {
+        return true;
+    }
 }
-
-?>

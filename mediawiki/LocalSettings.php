@@ -12,20 +12,20 @@
  * @version		$Id$
  * @package		module::mediawiki
  */
- 
+
 global $xoopsUser, $xoopsModule, $xoopsConfig, $xoopsOption, $xoopsLogger, $xoopsTpl;
 global $wgUsePathInfo;
 
 # If PHP's memory limit is very low, some operations may fail.
-@ini_set( 'memory_limit', '20M' );
+@ini_set( 'memory_limit', '32M' );
 
 $mainfile = dirname(dirname(dirname(__FILE__)))."/mainfile.php";
 include_once $mainfile;
 define("MEDIAWIKI_DIRNAME", basename(dirname(__FILE__)));
-require_once(XOOPS_ROOT_PATH."/modules/".MEDIAWIKI_DIRNAME."/include/functions.php");
+require_once XOOPS_ROOT_PATH."/modules/".MEDIAWIKI_DIRNAME."/include/functions.php";
 
-if(!defined("NS_MAIN")) {
-	require_once(XOOPS_ROOT_PATH."/modules/".MEDIAWIKI_DIRNAME."/includes/Defines.php");
+if (!defined("NS_MAIN")) {
+    require_once XOOPS_ROOT_PATH."/modules/".MEDIAWIKI_DIRNAME."/includes/Defines.php";
 }
 
 // define user name prefix for the module, must be capitalized!
@@ -37,29 +37,29 @@ define("MEDIAWIKI_USERPREFIX", "Xo.");
 
 # If you customize your file layout, set $IP to the directory that contains
 # the other MediaWiki files. It will be used as a base to locate files.
-if( defined( 'MW_INSTALL_PATH' ) ) {
-	$IP = MW_INSTALL_PATH;
+if ( defined( 'MW_INSTALL_PATH' ) ) {
+    $IP = MW_INSTALL_PATH;
 } else {
-	$IP = dirname( __FILE__ );
+    $IP = dirname( __FILE__ );
 }
 
 $path = array( $IP, "$IP/includes", "$IP/languages" );
 set_include_path( implode( PATH_SEPARATOR, $path ) . PATH_SEPARATOR . get_include_path() );
 
-require_once( "includes/DefaultSettings.php" );
+require_once 'includes/DefaultSettings.php';
 
 /** We speak UTF-8 all the time now, unless some oddities happen */
 //$wgInputEncoding	= 'UTF-8';
-$wgOutputEncoding	= empty($GLOBALS["xlanguage"]['charset_base'])?_CHARSET:$GLOBALS["xlanguage"]['charset_base'];
+$wgOutputEncoding	= empty($GLOBALS["xlanguage"]['charset_base']) ? _CHARSET : $GLOBALS["xlanguage"]['charset_base'];
 //$wgEditEncoding		= '';
 
-if ( $wgCommandLineMode ) {
-	if ( isset( $_SERVER ) && array_key_exists( 'REQUEST_METHOD', $_SERVER ) ) {
-		//die( "This script must be run from the command line\n" );
-	}
+if ($wgCommandLineMode) {
+    if ( isset( $_SERVER ) && array_key_exists( 'REQUEST_METHOD', $_SERVER ) ) {
+        //die( "This script must be run from the command line\n" );
+    }
 } elseif ( empty( $wgNoOutputBuffer ) ) {
-	## Compress output if the browser supports it
-	//if( !ini_get( 'zlib.output_compression' ) ) @ob_start( 'ob_gzhandler' );
+    ## Compress output if the browser supports it
+    //if( !ini_get( 'zlib.output_compression' ) ) @ob_start( 'ob_gzhandler' );
 }
 
 $wgSitename         = mediawiki_encoding_xoops2mediawiki($xoopsConfig["sitename"]);
@@ -75,17 +75,17 @@ $wgRedirectScript   = "$wgScriptPath/redirect.php";
 ## For more information on customizing the URLs please see:
 ## http://meta.wikimedia.org/wiki/Eliminating_index.php_from_the_url
 ## If using PHP as a CGI module, the ?title= style usually must be used.
-if($wgUsePathInfo){
-	$wgArticlePath      = "$wgScript/$1";
-	
-	// $_SERVER['PATH_INFO'] used in WebRequest::WebRequest() would escape trailing "delimitors"
-	if(!empty($_SERVER['PATH_INFO'])){
-		if(preg_match("/([\.\?]+)$/", $_SERVER['REQUEST_URI'], $matches)){
-			$_SERVER['PATH_INFO'] .= $matches[1];
-		}
-	}
-}else{
-	$wgArticlePath      = "$wgScript?title=$1";
+if ($wgUsePathInfo) {
+    $wgArticlePath      = "$wgScript/$1";
+
+    // $_SERVER['PATH_INFO'] used in WebRequest::WebRequest() would escape trailing "delimitors"
+    if (!empty($_SERVER['PATH_INFO'])) {
+        if (preg_match("/([\.\?]+)$/", $_SERVER['REQUEST_URI'], $matches)) {
+            $_SERVER['PATH_INFO'] .= $matches[1];
+        }
+    }
+} else {
+    $wgArticlePath      = "$wgScript?title=$1";
 }
 $wgStylePath        = "$wgScriptPath/skins";
 $wgStyleDirectory   = "$IP/skins";
@@ -99,10 +99,10 @@ $wgUploadDirectory  = XOOPS_UPLOAD_PATH."/".MEDIAWIKI_DIRNAME;
  * database traffic on public sites.
  * Must set $wgShowIPinHeader = false
  */
-$wgUseFileCache = @(mediawiki_getStyle())?false: ( is_object($xoopsModule) && $xoopsModule->getVar('dirname') == MEDIAWIKI_DIRNAME && @$xoopsConfig['module_cache'][$xoopsModule->getVar('mid')] > 0 );
+$wgUseFileCache = @(mediawiki_getStyle()) ? false : ( is_object($xoopsModule) && $xoopsModule->getVar('dirname') == MEDIAWIKI_DIRNAME && @$xoopsConfig['module_cache'][$xoopsModule->getVar('mid')] > 0 );
 /** Directory where the cached page will be saved */
 $wgFileCacheDirectory = XOOPS_CACHE_PATH."/".MEDIAWIKI_DIRNAME;
-if($wgUseFileCache && !$xoopsUser && !file_exists($wgFileCacheDirectory)) { mkdir($wgFileCacheDirectory,0775); } # create if necessary
+if ($wgUseFileCache && !$xoopsUser && !file_exists($wgFileCacheDirectory)) { mkdir($wgFileCacheDirectory,0775); } # create if necessary
 
 $wgShowIPinHeader	= false; # For non-logged in users
 
@@ -130,6 +130,10 @@ $wgDBtype           = "mysql";
 $wgDBport           = "5432";
 
 # Experimental charset support for MySQL 4.1/5.0.
+/**
+ * Enabling the parameter will call "SET NAMES 'utf8'" in database connection, which could cause conflicts with xoopsDB->conn,
+ * so just disable it and leave MySQL 4.1/5.0 handling to XOOPS
+ */
 $wgDBmysql5 = false;
 
 ## Shared memory settings
@@ -138,7 +142,7 @@ $wgMemCachedServers = array();
 
 ## To enable image uploads, make sure the 'images' directory
 ## is writable, then set this to true:
-$wgEnableUploads		= true;
+$wgEnableUploads		= FALSE;
 $wgUseImageResize		= true;
 # $wgUseImageMagick = true;
 # $wgImageMagickConvertCommand = "/usr/bin/convert";
@@ -240,22 +244,24 @@ $wgGroupPermissions['bureaucrat']['userrights'] = true;
  * for anonymous users and new user accounts.
  *
  */
-$timeoffset_xoops = empty($xoopsUser)?$xoopsConfig['default_TZ']:$xoopsUser->getVar("timezone_offset");
+$timeoffset_xoops = empty($xoopsUser) ? $xoopsConfig['default_TZ'] : $xoopsUser->getVar("timezone_offset");
 $wgLocalTZoffset = @(floatval($timeoffset_xoops) + floatval($xoopsConfig['server_TZ']));
 
-/* Installing this extension may lead to security and technical problems 
+/* Installing this extension may lead to security and technical problems
  * as well as data corruption.
  */
-require_once("extensions/FCKeditor.php");
-
-$wgFCKUseEditor          = true;      // When set to 'true' the FCKeditor is the default editor.
+if (! @include_once "extensions/FCKeditor.php") {
+    $wgFCKUseEditor          = false;      // DO NOT CHANGE IT !!!
+} else {
+    $wgFCKUseEditor          = false;      // When set to 'true' the FCKeditor is the default editor.
+}
 $wgFCKEditorDir          = XOOPS_URL."/class/xoopseditor/FCKeditor";
-$wgFCKEditorToken        = "__USE_EDITOR__";  
+$wgFCKEditorToken        = "__USE_EDITOR__";
 $wgFCKEditorToolbarSet   = "Wiki";
 $wgFCKEditorHeight       = "600";
-$wgFCKEditorAllow_a_tags      = true; // <a> </a>   : Set this to true if you want to use the **external** link 
+$wgFCKEditorAllow_a_tags      = true; // <a> </a>   : Set this to true if you want to use the **external** link
                                        // generator of the FCKeditor.
-$wgFCKEditorAllow_img_tags    = true; // <img />    : Set this to true if you want to use the 
+$wgFCKEditorAllow_img_tags    = true; // <img />    : Set this to true if you want to use the
                                        // file browser and/or the smilies of the FCKeditor.
 $wgFCKexcludedNamespaces = array(8,1,-1);    // eg. "8" for disabling the editor within the MediaWiki namespace.
 
@@ -264,4 +270,5 @@ $wgFCKexcludedNamespaces = array(8,1,-1);    // eg. "8" for disabling the editor
  */
 $wgUseAjax = true;
 $wgAjaxExportList[] = 'wfSajaxSearchImageFCKeditor';
-?>
+
+$wgAllowExternalImages = true;

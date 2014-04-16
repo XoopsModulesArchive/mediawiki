@@ -20,8 +20,8 @@
 $options = array( 'fix' );
 
 /** */
-require_once( 'commandLine.inc' );
-require_once( 'maintenance/userDupes.inc' );
+require_once 'commandLine.inc';
+require_once 'maintenance/userDupes.inc';
 
 $wgTitle = Title::newFromText( 'Dupe user entry cleanup script' );
 
@@ -30,12 +30,10 @@ $dbw =& wfGetDB( DB_MASTER );
 $duper = new UserDupes( $dbw );
 $retval = $duper->checkDupes( $fix );
 
-if( $retval ) {
-	echo "\nLooks good!\n";
-	exit( 0 );
+if ($retval) {
+    echo "\nLooks good!\n";
+    exit( 0 );
 } else {
-	echo "\nOh noeees\n";
-	exit( -1 );
+    echo "\nOh noeees\n";
+    exit( -1 );
 }
-
-?>

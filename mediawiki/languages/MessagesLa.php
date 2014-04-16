@@ -140,7 +140,7 @@ Vide $1.',
 'viewsource'            => 'Fontem videre',
 'logouttitle'           => 'Finis conventi',
 'logouttext'            => 'Conventum tuum finivisti.
-{{SITENAME}} sine nomine continuare usare potes, aut conventum 
+{{SITENAME}} sine nomine continuare usare potes, aut conventum
 novum aperire cum idem nomine aut ut alio usore.',
 'welcomecreation'       => '<h2>Salve, $1!</h2>
 <p>Ratio tua iam creata est.
@@ -172,7 +172,7 @@ Noli oblivisci praeferentias tuas mutare.',
 'noname'                => 'Nominem usoris ratum non designavisti.',
 'loginsuccesstitle'     => 'Conventum prospere apertum est.',
 'loginsuccess'          => 'In {{SITENAME}} agnosceris ut "$1".',
-'nosuchuser'            => 'Nomen usoris "$1" non est. 
+'nosuchuser'            => 'Nomen usoris "$1" non est.
 Orthographiam confirma, aut novam rationem usoris crea.',
 'wrongpassword'         => 'Tessera quam scripsisti non constat. Conare denuo.',
 'mailmypassword'        => 'Nova tessera per cursum publicum electronicum rogare',
@@ -227,7 +227,7 @@ Considera paginam in partes minores frangere.',
 'revhistory'            => 'Historia formarum',
 'nohistory'             => 'Haec pagina historiam non habet.',
 'revnotfound'           => 'Emendatio non inventa.',
-'revnotfoundtext'       => 'Emendatio qui rogavisti non inventa est. 
+'revnotfoundtext'       => 'Emendatio qui rogavisti non inventa est.
 Confrima URL paginae.',
 'loadhist'              => 'Onus historiae paginae',
 'currentrev'            => 'Emendatio recentissima',
@@ -248,7 +248,7 @@ Confrima URL paginae.',
 'badquery'              => 'Investigatio formata male',
 'badquerytext'          => 'Investigatio tua procedere non poterat.
 Fortasse verba minora quam tres litteras longa quaerere conatus es, vel fortasse error in quaestione erat. Conare denuo.',
-'matchtotals'           => 'Investigatio "$1" indicibus $2 rerum 
+'matchtotals'           => 'Investigatio "$1" indicibus $2 rerum
 et verbis $3 rerum congruit.',
 'noexactmatch'             => 'Nullae paginae cum hoc indice exacto est, conari totorum verborum quaerere.',
 'titlematches'          => 'Exaequata indicibus rerum',
@@ -298,7 +298,7 @@ $2 Monstrare redirectiones   Quaerere $3 $9',
 'guesstimezone'         => 'Hora ex navigatro scribere',
 'changes'               => 'mutationes',
 'recentchanges'         => 'Mutationes recentes',
-'recentchangestext'     => 'Mutationes recentiores. 
+'recentchangestext'     => 'Mutationes recentiores.
 Adde quae scis, sed memento addita tua mutari ameliorarique posse ab aliis utentibus. Cave ne aliorum iura (©) violes!',
 'rcnote'                => 'Subter <strong>$1</strong> mutationes recentissimae sunt in <strong>$2</strong> diebus proximis.',
 'rcnotefrom'            => 'Subter <b>$1</b> mutationes recentissimas sunt in proxima <b>$2</b> die.',
@@ -349,7 +349,7 @@ Totae horae in hora moderatri monstrantur (UTC).
 'largefile'             => 'Suasus est qui imagines 100kb non excedunt.',
 'successfulupload'      => 'Oneratum perfectum',
 'fileuploaded'          => 'Fasciculus "$1" sine problema oneratus est.
-Premere hic: ($2) ut paginam descriptionis adire 
+Premere hic: ($2) ut paginam descriptionis adire
 et fasciculum describere.',
 'uploadwarning'         => 'Monitus onerati',
 'savefile'              => 'Servare fasciculum',
@@ -610,58 +610,57 @@ Selege nominem altera.',
 'mw_math_mathml'        => 'MathML',
 'Monobook.js'           => '/* tooltips and access keys */
 var ta = new Object();
-ta[\'pt-userpage\'] = new Array(\'.\',\'Pagina usoris mea\'); 
-ta[\'pt-anonuserpage\'] = new Array(\'.\',\'The user page for the ip you\'re editing as\'); 
-ta[\'pt-mytalk\'] = new Array(\'n\',\'Disputatum meum\'); 
-ta[\'pt-anontalk\'] = new Array(\'n\',\'Discussion about edits from this ip address\'); 
-ta[\'pt-preferences\'] = new Array(\'\',\'Praeferentiae meae\'); 
-ta[\'pt-watchlist\'] = new Array(\'l\',\'Paginae quae custodis\'); 
-ta[\'pt-mycontris\'] = new Array(\'y\',\'Index conlationum mearum\'); 
-ta[\'pt-login\'] = new Array(\'o\',\'Te conventum aperire hortamur, non autem requisitum\'); 
-ta[\'pt-anonlogin\'] = new Array(\'o\',\'Te conventum aperire hortamur, non autem requisitum\'); 
-ta[\'pt-logout\'] = new Array(\'o\',\'Finire conventum\'); 
-ta[\'ca-talk\'] = new Array(\'t\',\'Disputatio de hac pagina\'); 
-ta[\'ca-edit\'] = new Array(\'e\',\'Hanc paginam recensere potes\'); 
-ta[\'ca-addsection\'] = new Array(\'+\',\'Huic disputationi adnotare\'); 
-ta[\'ca-viewsource\'] = new Array(\'e\',\'Haec pagina protecta est\'); 
-ta[\'ca-history\'] = new Array(\'h\',\'Historia huius paginae\'); 
-ta[\'ca-protect\'] = new Array(\'=\',\'Protegere hanc paginam\'); 
-ta[\'ca-delete\'] = new Array(\'d\',\'Delere hanc paginam\'); 
-ta[\'ca-undelete\'] = new Array(\'d\',\'Reficere hanc pagina deleta\'); 
-ta[\'ca-move\'] = new Array(\'m\',\'Movere hanc paginam\'); 
-ta[\'ca-nomove\'] = new Array(\'\',\'Tibi movere hanc paginam non licet\'); 
-ta[\'ca-watch\'] = new Array(\'w\',\'Custodire hanc paginam\'); 
-ta[\'ca-unwatch\'] = new Array(\'w\',\'Decustodire hanc paginam\'); 
-ta[\'search\'] = new Array(\'f\',\'Quaerere hanc wiki\'); 
-ta[\'p-logo\'] = new Array(\'\',\'Pagina prima\'); 
-ta[\'n-mainpage\'] = new Array(\'z\',\'Invisere paginae primae\'); 
-ta[\'n-portal\'] = new Array(\'\',\'De {{SITENAME}}\'); 
-ta[\'n-currentevents\'] = new Array(\'\',\'Eventa novissima\'); 
-ta[\'n-recentchanges\'] = new Array(\'r\',\'Index mutationum recentum\'); 
-ta[\'n-randompage\'] = new Array(\'x\',\'Invisere paginae fortuitae\'); 
-ta[\'n-help\'] = new Array(\'\',\'Adiutatum de hac wiki\'); 
-ta[\'n-sitesupport\'] = new Array(\'\',\'Adiuvare hanc wiki\'); 
-ta[\'t-whatlinkshere\'] = new Array(\'j\',\'Index paginarum quae hic nectunt\'); 
-ta[\'t-recentchangeslinked\'] = new Array(\'k\',\'Mutationes recentes in paginis quae hic nectunt\'); 
-ta[\'feed-rss\'] = new Array(\'\',\'RSS feed\'); 
-ta[\'feed-atom\'] = new Array(\'\',\'Atom feed\'); 
-ta[\'t-contributions\'] = new Array(\'\',\'Index conlationum huius usoris\'); 
-ta[\'t-emailuser\'] = new Array(\'\',\'Mittere cursum publicum electronicum huic usoro\'); 
-ta[\'t-upload\'] = new Array(\'u\',\'Onerare fascicula\'); 
-ta[\'t-specialpages\'] = new Array(\'q\',\'Index paginarum specialium\'); 
-ta[\'ca-nstab-main\'] = new Array(\'c\',\'Videre paginam\'); 
-ta[\'ca-nstab-user\'] = new Array(\'c\',\'Videre paginam usoris\'); 
-ta[\'ca-nstab-media\'] = new Array(\'c\',\'View the media page\'); 
-ta[\'ca-nstab-special\'] = new Array(\'\',\'Haec paginam specialis est, paginam ipsam tibi recensere not licet\'); 
-ta[\'ca-nstab-project\'] = new Array(\'a\',\'View the project page\'); 
-ta[\'ca-nstab-image\'] = new Array(\'c\',\'Videre paginam imaginem\'); 
-ta[\'ca-nstab-mediawiki\'] = new Array(\'c\',\'View the system message\'); 
-ta[\'ca-nstab-template\'] = new Array(\'c\',\'View the template\'); 
-ta[\'ca-nstab-help\'] = new Array(\'c\',\'Videre paginam adiutatam\'); 
+ta[\'pt-userpage\'] = new Array(\'.\',\'Pagina usoris mea\');
+ta[\'pt-anonuserpage\'] = new Array(\'.\',\'The user page for the ip you\'re editing as\');
+ta[\'pt-mytalk\'] = new Array(\'n\',\'Disputatum meum\');
+ta[\'pt-anontalk\'] = new Array(\'n\',\'Discussion about edits from this ip address\');
+ta[\'pt-preferences\'] = new Array(\'\',\'Praeferentiae meae\');
+ta[\'pt-watchlist\'] = new Array(\'l\',\'Paginae quae custodis\');
+ta[\'pt-mycontris\'] = new Array(\'y\',\'Index conlationum mearum\');
+ta[\'pt-login\'] = new Array(\'o\',\'Te conventum aperire hortamur, non autem requisitum\');
+ta[\'pt-anonlogin\'] = new Array(\'o\',\'Te conventum aperire hortamur, non autem requisitum\');
+ta[\'pt-logout\'] = new Array(\'o\',\'Finire conventum\');
+ta[\'ca-talk\'] = new Array(\'t\',\'Disputatio de hac pagina\');
+ta[\'ca-edit\'] = new Array(\'e\',\'Hanc paginam recensere potes\');
+ta[\'ca-addsection\'] = new Array(\'+\',\'Huic disputationi adnotare\');
+ta[\'ca-viewsource\'] = new Array(\'e\',\'Haec pagina protecta est\');
+ta[\'ca-history\'] = new Array(\'h\',\'Historia huius paginae\');
+ta[\'ca-protect\'] = new Array(\'=\',\'Protegere hanc paginam\');
+ta[\'ca-delete\'] = new Array(\'d\',\'Delere hanc paginam\');
+ta[\'ca-undelete\'] = new Array(\'d\',\'Reficere hanc pagina deleta\');
+ta[\'ca-move\'] = new Array(\'m\',\'Movere hanc paginam\');
+ta[\'ca-nomove\'] = new Array(\'\',\'Tibi movere hanc paginam non licet\');
+ta[\'ca-watch\'] = new Array(\'w\',\'Custodire hanc paginam\');
+ta[\'ca-unwatch\'] = new Array(\'w\',\'Decustodire hanc paginam\');
+ta[\'search\'] = new Array(\'f\',\'Quaerere hanc wiki\');
+ta[\'p-logo\'] = new Array(\'\',\'Pagina prima\');
+ta[\'n-mainpage\'] = new Array(\'z\',\'Invisere paginae primae\');
+ta[\'n-portal\'] = new Array(\'\',\'De {{SITENAME}}\');
+ta[\'n-currentevents\'] = new Array(\'\',\'Eventa novissima\');
+ta[\'n-recentchanges\'] = new Array(\'r\',\'Index mutationum recentum\');
+ta[\'n-randompage\'] = new Array(\'x\',\'Invisere paginae fortuitae\');
+ta[\'n-help\'] = new Array(\'\',\'Adiutatum de hac wiki\');
+ta[\'n-sitesupport\'] = new Array(\'\',\'Adiuvare hanc wiki\');
+ta[\'t-whatlinkshere\'] = new Array(\'j\',\'Index paginarum quae hic nectunt\');
+ta[\'t-recentchangeslinked\'] = new Array(\'k\',\'Mutationes recentes in paginis quae hic nectunt\');
+ta[\'feed-rss\'] = new Array(\'\',\'RSS feed\');
+ta[\'feed-atom\'] = new Array(\'\',\'Atom feed\');
+ta[\'t-contributions\'] = new Array(\'\',\'Index conlationum huius usoris\');
+ta[\'t-emailuser\'] = new Array(\'\',\'Mittere cursum publicum electronicum huic usoro\');
+ta[\'t-upload\'] = new Array(\'u\',\'Onerare fascicula\');
+ta[\'t-specialpages\'] = new Array(\'q\',\'Index paginarum specialium\');
+ta[\'ca-nstab-main\'] = new Array(\'c\',\'Videre paginam\');
+ta[\'ca-nstab-user\'] = new Array(\'c\',\'Videre paginam usoris\');
+ta[\'ca-nstab-media\'] = new Array(\'c\',\'View the media page\');
+ta[\'ca-nstab-special\'] = new Array(\'\',\'Haec paginam specialis est, paginam ipsam tibi recensere not licet\');
+ta[\'ca-nstab-project\'] = new Array(\'a\',\'View the project page\');
+ta[\'ca-nstab-image\'] = new Array(\'c\',\'Videre paginam imaginem\');
+ta[\'ca-nstab-mediawiki\'] = new Array(\'c\',\'View the system message\');
+ta[\'ca-nstab-template\'] = new Array(\'c\',\'View the template\');
+ta[\'ca-nstab-help\'] = new Array(\'c\',\'Videre paginam adiutatam\');
 ta[\'ca-nstab-category\'] = new Array(\'c\',\'Videre paginam categoriam\');',
 'newimages'             => 'Pinacotheca imaginum novarum',
 'exif-pixelxdimension'  => 'Valind image height',
 'watchlistall1'         => 'omnes',
 'watchlistall2'         => 'omnes',
 );
-?>

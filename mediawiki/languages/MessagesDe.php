@@ -10,7 +10,7 @@ $wgAllMessagesDe = array(
 .portlet h6,
 #p-personal ul,
 #p-cactions li a {
-	text-transform: none;
+    text-transform: none;
 }',
 
 # User preference toggles
@@ -55,7 +55,6 @@ $wgAllMessagesDe = array(
 
 'skinpreview' => '(Vorschau)',
 
-
 # Dates
 'sunday' => "Sonntag",
 'monday' => "Montag",
@@ -88,7 +87,6 @@ $wgAllMessagesDe = array(
 'oct' => "Okt",
 'nov' => "Nov",
 'dec' => "Dez",
-
 
 # Bits of text used by many pages:
 #
@@ -299,7 +297,6 @@ Abfrage: $2',
 'protectedinterface'	=> 'Diese Seite enthält Text für die Benutzeroberfläche der MediaWiki-Software und ist gesperrt, um Missbrauch zu verhindern.',
 'editinginterface'	=> '\'\'\'Warnung:\'\'\' Diese Seite enthält von der MediaWiki-Software benutzten Text. Änderungen wirken sich auf die Benutzeroberfläche aus.',
 'sqlhidden'		=> '(SQL-Abfrage versteckt)',
-
 
 # Login and logout pages
 #
@@ -536,7 +533,7 @@ Vielleicht wurde sie aus dem Wiki gelöscht oder verschoben.
 [[{{ns:special}}:Search|Durchsuchen]] Sie das Wiki für passende neue Seiten.',
 'revisiondelete'		=> 'Versionen löschen/wiederherstellen',
 'revdelete-selected'		=> 'Ausgewählte Version von [[:$1]]:',
-'revdelete-text'		=> 'Der Inhalt oder andere Bestandteile gelöschter Versionen sind nicht mehr öffentlich einsehbar, erscheinen jedoch weiterhin als Einträge in der Versionsgeschichte. 
+'revdelete-text'		=> 'Der Inhalt oder andere Bestandteile gelöschter Versionen sind nicht mehr öffentlich einsehbar, erscheinen jedoch weiterhin als Einträge in der Versionsgeschichte.
 
 Administroren können den entfernten Inhalt oder andere entfernte Bestandteile weiterhin einsehen und wiederherstellen, es sei denn, es wurde festgelegt, dass die Zugangsbeschränkungen auch für Administratoren gelten.',
 
@@ -652,7 +649,6 @@ Wenn Sie sich mit dem Thema auskennen, können Sie selbst den Artikel „[[$1]]�
 'number_of_watching_users_pageview'	=> '[$1 beobachtende/r Benutzer]',
 'rc_categories'		=> 'Nur Kategorien (getrennt mit „|“):',
 'rc_categories_any'	=> 'Alle',
-
 
 # Upload
 #
@@ -876,7 +872,6 @@ Davon haben \'\'\'$2\'\'\' (=$4%) Administrator-Rechte (siehe $3).',
 "emailsent"		=> "E-Mail verschickt",
 "emailsenttext" => "Ihre E-Mail wurde verschickt.",
 
-
 # Beobachtungsliste
 #
 "watchlist"		=> "Beobachtungsliste",
@@ -894,7 +889,7 @@ sein, um Ihre Beobachtungsliste zu bearbeiten.',
 "addedwatch"	=> "Zur Beobachtungsliste hinzugefügt",
 'addedwatchtext'	=> 'Der Artikel „$1“ wurde zu Ihrer [[{{ns:special}}:Watchlist|Beobachtungsliste]] hinzugefügt.
 Spätere Änderungen an diesem Artikel und der zugehörigen Diskussionsseite werden dort gelistet und der Artikel wird
-in der Liste der [[{{ns:special}}:Recentchanges|letzten Änderungen]] \'\'\'fett\'\'\' angezeigt. 
+in der Liste der [[{{ns:special}}:Recentchanges|letzten Änderungen]] \'\'\'fett\'\'\' angezeigt.
 
 Wenn Sie den Artikel wieder von Ihrer Beobachtungsliste entfernen wollen, klicken Sie auf „nicht mehr beobachten“.',
 "removedwatch"	=> "Von der Beobachtungsliste entfernt",
@@ -949,9 +944,8 @@ Es werden solange keine weiteren Benachrichtigungsmails gesendet, bis Sie die Se
 
              Ihr freundliches {{SITENAME}} Benachrichtigungssystem
 
--- 
+--
 Um die Einstellungen Ihrer Beobachtungsliste anzupassen besuchen Sie: {{fullurl:Special:Watchlist/edit}}',
-
 
 # Delete/protect/revert
 #
@@ -1694,7 +1688,7 @@ Der Bestätigungscode ist bis zu folgendem Zeitpunkt gültig: $4
 
 Wenn diese E-Mail-Adresse *nicht* zu dem genannten Benutzerkonto gehört, folgen Sie diesem Link bitte *nicht*.
 
--- 
+--
 {{SITENAME}}: {{fullurl:{{Mediawiki:mainpage}}}}',
 
 # Inputbox extension, may be useful in other contexts as well
@@ -1805,6 +1799,3 @@ ta[\'ca-nstab-category\'] = new Array(\'c\',\'Kategorieseite anzeigen\');',
 'loginlanguagelabel'	=> 'Sprache: $1',
 
 );
-
-
-?>

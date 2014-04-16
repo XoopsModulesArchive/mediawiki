@@ -1,6 +1,6 @@
 <?php
 if ( ! defined( 'MEDIAWIKI' ) )
-	die( -1 );
+    die( -1 );
 /**
  * A basic extension that's used by the parser tests to test date magic words
  *
@@ -18,9 +18,9 @@ if ( ! defined( 'MEDIAWIKI' ) )
 
 $wgHooks['ParserGetVariableValueTs'][] = 'wfParserTimeSetup';
 
-function wfParserTimeSetup( &$parser, &$ts ) {
-	$ts = 123; //$ perl -le 'print scalar localtime 123' ==> Thu Jan  1 00:02:03 1970
-	
-	return true;
+function wfParserTimeSetup( &$parser, &$ts )
+{
+    $ts = 123; //$ perl -le 'print scalar localtime 123' ==> Thu Jan  1 00:02:03 1970
+
+    return true;
 }
-?>

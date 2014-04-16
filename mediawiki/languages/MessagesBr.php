@@ -1,6 +1,5 @@
 <?php
 
-
 /* private */ $wgAllMessagesBr = array(
 
 # User Toggles
@@ -24,7 +23,6 @@
 'tog-usenewrc' => 'Kemmoù nevez gwellaet<br /> (gant merdeerioù zo hepken)',
 'tog-underline' => 'Liammoù islinennet',
 'tog-watchdefault' => 'Evezhiañ ar pennadoù savet pe kemmet ganin',
-
 
 # Dates
 
@@ -59,7 +57,6 @@
 'oct' => 'Her',
 'nov' => 'Du',
 'dec' => 'Kzu',
-
 
 # Bits of text used by many pages:
 #
@@ -237,7 +234,6 @@ Goulenn : $2',
 'versionrequired' => 'Rekis eo Stumm $1 MediaWiki',
 'versionrequiredtext' => 'Rekis eo stumm $1 MediaWiki evit implijout ar bajenn-mañ. Sellit ouzh [[Special:Version]]',
 
-
 # Login and logout pages
 #
 'logouttitle'	=> 'Dilugañ',
@@ -386,13 +382,11 @@ N'eus nemet an implijerien ganto ar statud a verourien a c'hall degas kemmoù en
 'nextdiff' => 'Diforc\'h war-lerc\'h →',
 'nextrevision' => 'Stumm war-lerc\'h →',
 
-
 # Category pages
 #
 'categoriespagetext' => "War ar wiki emañ ar rummadoù da-heul :",
 'categoryarticlecount' => "$1 pennad zo er rummad-mañ.",
 'categoryarticlecount1' => "N'eus pennad ebet er rummad-mañ.",
-
 
 #  Diffs
 #
@@ -400,7 +394,6 @@ N'eus nemet an implijerien ganto ar statud a verourien a c'hall degas kemmoù en
 'loadingrev' => 'o kargañ ar stumm kent evit keñveriañ',
 'lineno'  => 'Linenn $1:',
 'editcurrent' => 'Kemmañ stumm red ar bajenn-mañ',
-
 
 # Search results
 #
@@ -578,7 +571,6 @@ Gwiriit anezhi mar plij.",
 'fileexists' => "Ur restr all gant an anv-se zo c'hoazh. Trugarez da wiriañ $1. Ha sur oc'h da gaout c'hoant da gemmañ ar restr-mañ ?",
 'filemissing' => 'Restr ezvezant',
 
-
 # Image list
 #
 'imagelist'  => 'Roll ar skeudennoù',
@@ -619,7 +611,6 @@ Ar pezh a ra ur geidenn a <b>$5</b> (g/c\'h)kemm dre bajenn ha <b>$6</b> sellade
 "userstatstext" => "<b>$1</b> implijer enrollet zo.
 En o zouez, <b>$2</b> zo ganto ar statud merour (sellet ouzh $3).',
 
-
 # Maintenance Page
 #
 'maintenance'		=> 'Pajenn drezalc\'h',
@@ -642,7 +633,6 @@ En o zouez, <b>$2</b> zo ganto ar statud merour (sellet ouzh $3).',
 'missinglanguagelinks'  => 'Liammoù etreyezhel a vank',
 'missinglanguagelinksbutton'    => 'N\'eus ket bet kavet liamm/yezh ebet evit ar bajenn-mañ',
 'missinglanguagelinkstext'      => "N'eo ket liammet ar pennadoù-se ouzh ar 'pennadoù par' e $1. N'emañ ket war wel an adkasoù hag al liammoù anezho.",
-
 
 # Miscellaneous special pages
 #
@@ -791,8 +781,6 @@ Ar c'hemm diwezhañ a oa gant [[User:$3|$3]] ([[User talk:$3|Talk]]). ", //Looxi
 'unprotectcomment' => 'Abeg an distankañ',
 'protectmoveonly' => 'Gwareziñ an adkasoù hepken',
 
-
-
 # Groups
 #
 'addgroup' => 'Ouzhpennañ ur strollad',
@@ -909,7 +897,6 @@ Lakait anv an implijer er voest ha pouezit war ar bouton evit reiñ ar gwirioù 
 'set_rights_fail'	=> "<b>N'eus ket bet gallet lakaat e plas gwirioù an implijer(ez) \"$1\". (Ha skrivet hoc'h eus an anv evel m'eo dleet?)</b>",
 'makesysop'         => 'Reiñ ar gwirioù merañ d\'un implijer(ez)',
 
-
 # Spam
 #
 'spamprotectionmatch' => "Dihunet eo bet an detektour Spam: $1 gant an destenn-mañ",
@@ -958,7 +945,6 @@ Dibabit unan all mar plij.",
 'talkpagenotmoved' => '<strong>N\'eo ket bet</strong> dilec\'hiet ar bajenn gaozeal stag.',
 '1movedto2' => '$1 adkaset war-du $2',
 'movereason' => 'Abeg an adkas',
-
 
 # Export page
 'export'	=> 'Ezporzhiañ pajennoù',
@@ -1027,7 +1013,6 @@ $3
 
 Ma n\'eo ket bet graet ganeoc\'h na zigorit ket al liamm. Mont a raio ar c\'hod-mañ d\'e dermen d\'an/ar $4.',
 
-
 # Math
 'mw_math_png' => "Produiñ atav ur skeudenn PNG",
 'mw_math_simple' => "HTML m'eo eeun-kenañ, a-hend-all ober gant PNG",
@@ -1035,7 +1020,6 @@ Ma n\'eo ket bet graet ganeoc\'h na zigorit ket al liamm. Mont a raio ar c\'hod-
 'mw_math_source' => "Leuskel ar c'hod TeX orin",
 'mw_math_modern' => "Evit ar merdeerioù arnevez",
 'mw_math_mathml' => 'MathML',
-
 
 'usercssjsyoucanpreview' => "'''Tun:''' grit gant ar bouton '''Rakwelet''' evit testiñ ho follenn css/js nevez a-raok enrollañ anezhi.",
 'usercsspreview' => "'''Dalc'hit soñj emaoc'h o rakwelet ho follenn css deoc'h ha n'eo ket bet enrollet c'hoazh!'''",
@@ -1076,10 +1060,6 @@ Ma n\'eo ket bet graet ganeoc\'h na zigorit ket al liamm. Mont a raio ar c\'hod-
 'exif-orientation-8' => 'Troet eus 90° a-gleiz',
 'exif-componentsconfiguration-0' => 'n\'eus ket anezhi',
 
-
 // exifgps:
 
 );
-
-
-?>

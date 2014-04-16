@@ -62,7 +62,7 @@
 -- tables.
 --
 CREATE TABLE /*$wgDBprefix*/user (
-  user_id int(5) unsigned NOT NULL auto_increment,
+  user_id int(5) unsigned NOT NULL,
   
   -- Usernames must be unique, must not be in the form of
   -- an IP address. _Shouldn't_ allow slashes or case
@@ -175,7 +175,7 @@ CREATE TABLE /*$wgDBprefix*/user_newtalk (
 CREATE TABLE /*$wgDBprefix*/page (
   -- Unique identifier number. The page_id will be preserved across
   -- edits and rename operations, but not deletions and recreations.
-  page_id int(8) unsigned NOT NULL auto_increment,
+  page_id int(8) unsigned NOT NULL ,
   
   -- A page name is broken into a namespace and a title.
   -- The namespace keys are UI-language-independent constants,
@@ -233,7 +233,7 @@ CREATE TABLE /*$wgDBprefix*/page (
 -- to the text storage backend.
 --
 CREATE TABLE /*$wgDBprefix*/revision (
-  rev_id int(8) unsigned NOT NULL auto_increment,
+  rev_id int(8) unsigned NOT NULL ,
   
   -- Key to page_id. This should _never_ be invalid.
   rev_page int(8) unsigned NOT NULL,
@@ -290,7 +290,7 @@ CREATE TABLE /*$wgDBprefix*/text (
   -- refer to this number anymore, but to rev_id.
   --
   -- revision.rev_text_id is a key to this column
-  old_id int(8) unsigned NOT NULL auto_increment,
+  old_id int(8) unsigned NOT NULL ,
   
   -- Depending on the contents of the old_flags field, the text
   -- may be convenient plain text, or it may be funkily encoded.
@@ -868,7 +868,7 @@ CREATE TABLE /*$wgDBprefix*/searchindex (
   FULLTEXT si_title (si_title),
   FULLTEXT si_text (si_text)
 
-) TYPE=MyISAM, DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM, DEFAULT CHARSET=utf8;
 
 --
 -- Recognized interwiki link prefixes

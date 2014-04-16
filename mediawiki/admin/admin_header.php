@@ -27,7 +27,6 @@
 // Author: phppp (D.J.)                                                      //
 // URL: http://xoopsforge.com, http://xoops.org.cn                           //
 // ------------------------------------------------------------------------- //
-include "../../../include/cp_header.php";
+include '../../../include/cp_header.php';
 include_once(XOOPS_ROOT_PATH . "/class/xoopsformloader.php");
 $myts =& MyTextSanitizer::getInstance();
-?>

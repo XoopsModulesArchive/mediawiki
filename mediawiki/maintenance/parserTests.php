@@ -23,9 +23,9 @@
  */
 
 /** */
-require('parserTests.inc');
+require 'parserTests.inc';
 
-if( isset( $options['help'] ) ) {
+if ( isset( $options['help'] ) ) {
     echo <<<END
 MediaWiki $wgVersion parser test suite
 Usage: php parserTests.php [--quick] [--quiet] [--color[=(yes|no|light)]]
@@ -49,16 +49,15 @@ END;
 # refer to $wgTitle directly, but instead use the title
 # passed to it.
 $wgTitle = Title::newFromText( 'Parser test script do not use' );
-$tester =& new ParserTest();
+$tester = new ParserTest();
 
-if( isset( $options['file'] ) ) {
-	$file = $options['file'];
+if ( isset( $options['file'] ) ) {
+    $file = $options['file'];
 } else {
-	# Note: the command line setup changes the current working directory
-	# to the parent, which is why we have to put the subdir here:
-	$file = $IP.'/maintenance/parserTests.txt';
+    # Note: the command line setup changes the current working directory
+    # to the parent, which is why we have to put the subdir here:
+    $file = $IP.'/maintenance/parserTests.txt';
 }
 $ok = $tester->runTestsFromFile( $file );
 
 exit ($ok ? 0 : -1);
-?>

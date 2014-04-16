@@ -313,9 +313,9 @@ class memcached
 
       @$this->stats['delete']++;
       $cmd = "delete $key $time\r\n";
-      if(!$this->_safe_fwrite($sock, $cmd, strlen($cmd)))
-      {
+      if (!$this->_safe_fwrite($sock, $cmd, strlen($cmd))) {
          $this->_dead_sock($sock);
+
          return false;
       }
       $res = trim(fgets($sock));
@@ -389,24 +389,26 @@ class memcached
       wfProfileIn( $fname );
 
       if (!$this->_active) {
-	 wfProfileOut( $fname );
+     wfProfileOut( $fname );
+
          return false;
       }
 
       $sock = $this->get_sock($key);
 
       if (!is_resource($sock)) {
-	 wfProfileOut( $fname );
+     wfProfileOut( $fname );
+
          return false;
       }
 
       @$this->stats['get']++;
 
       $cmd = "get $key\r\n";
-      if (!$this->_safe_fwrite($sock, $cmd, strlen($cmd)))
-      {
+      if (!$this->_safe_fwrite($sock, $cmd, strlen($cmd))) {
          $this->_dead_sock($sock);
-	 wfProfileOut( $fname );
+     wfProfileOut( $fname );
+
          return false;
       }
 
@@ -418,6 +420,7 @@ class memcached
             $this->_debugprint(@sprintf("MemCache: sock %s got %s => %s\r\n", serialize($sock), $k, $v));
 
       wfProfileOut( $fname );
+
       return @$val[$key];
    }
 
@@ -439,13 +442,11 @@ class memcached
 
       $this->stats['get_multi']++;
 
-      foreach ($keys as $key)
-      {
+      foreach ($keys as $key) {
          $sock = $this->get_sock($key);
          if (!is_resource($sock)) continue;
          $key = is_array($key) ? $key[1] : $key;
-         if (!isset($sock_keys[$sock]))
-         {
+         if (!isset($sock_keys[$sock])) {
             $sock_keys[$sock] = array();
             $socks[] = $sock;
          }
@@ -453,28 +454,23 @@ class memcached
       }
 
       // Send out the requests
-      foreach ($socks as $sock)
-      {
+      foreach ($socks as $sock) {
          $cmd = "get";
-         foreach ($sock_keys[$sock] as $key)
-         {
+         foreach ($sock_keys[$sock] as $key) {
             $cmd .= " ". $key;
          }
          $cmd .= "\r\n";
 
-         if ($this->_safe_fwrite($sock, $cmd, strlen($cmd)))
-         {
+         if ($this->_safe_fwrite($sock, $cmd, strlen($cmd))) {
             $gather[] = $sock;
-         } else
-         {
+         } else {
             $this->_dead_sock($sock);
          }
       }
 
       // Parse responses
       $val = array();
-      foreach ($gather as $sock)
-      {
+      foreach ($gather as $sock) {
          $this->_load_items($sock, $val);
       }
 
@@ -547,8 +543,7 @@ class memcached
       if (!$this->_safe_fwrite($sock, $cmd, strlen($cmd)))
          return array();
 
-      while (true)
-      {
+      while (true) {
          $res = fgets($sock);
          $ret[] = $res;
          if (preg_match('/^END/', $res))
@@ -556,6 +551,7 @@ class memcached
          if (strlen($res) == 0)
             break;
       }
+
       return $ret;
    }
 
@@ -683,17 +679,16 @@ class memcached
    function _connect_sock (&$sock, $host, $timeout = 0.25)
    {
       list ($ip, $port) = explode(":", $host);
-      if ($this->_persistant == 1)
-      {
+      if ($this->_persistant == 1) {
          $sock = @pfsockopen($ip, $port, $errno, $errstr, $timeout);
-      } else
-      {
+      } else {
          $sock = @fsockopen($ip, $port, $errno, $errstr, $timeout);
       }
 
       if (!$sock) {
          if ($this->_debug)
             $this->_debugprint( "Error connecting to $host: $errstr\n" );
+
          return false;
       }
 
@@ -740,21 +735,18 @@ class memcached
 
       if ($this->_single_sock !== null) {
          $this->_flush_read_buffer($this->_single_sock);
+
          return $this->sock_to_host($this->_single_sock);
       }
 
       $hv = is_array($key) ? intval($key[0]) : $this->_hashfunc($key);
 
-      if ($this->_buckets === null)
-      {
-         foreach ($this->_servers as $v)
-         {
-            if (is_array($v))
-            {
-               for ($i=0; $i<$v[1]; $i++)
+      if ($this->_buckets === null) {
+         foreach ($this->_servers as $v) {
+            if (is_array($v)) {
+               for ($i=0; $i<$v[1]; ++$i)
                   $bu[] = $v[0];
-            } else
-            {
+            } else {
                $bu[] = $v;
             }
          }
@@ -763,12 +755,12 @@ class memcached
       }
 
       $realkey = is_array($key) ? $key[1] : $key;
-      for ($tries = 0; $tries<20; $tries++)
-      {
+      for ($tries = 0; $tries<20; $tries++) {
          $host = $this->_buckets[$hv % $this->_bucketcount];
          $sock = $this->sock_to_host($host);
          if (is_resource($sock)) {
             $this->_flush_read_buffer($sock);
+
             return $sock;
          }
          $hv += $this->_hashfunc($tries . $realkey);
@@ -793,6 +785,7 @@ class memcached
       # Hash function must on [0,0x7ffffff]
       # We take the first 31 bits of the MD5 hash, which unlike the hash
       # function used in a previous version of this client, works
+
       return hexdec(substr(md5($key),0,8)) & 0x7fffffff;
    }
 
@@ -843,20 +836,16 @@ class memcached
     */
    function _load_items ($sock, &$ret)
    {
-      while (1)
-      {
+      while (1) {
          $decl = fgets($sock);
-         if ($decl == "END\r\n")
-         {
+         if ($decl == "END\r\n") {
             return true;
-         } elseif (preg_match('/^VALUE (\S+) (\d+) (\d+)\r\n$/', $decl, $match))
-         {
+         } elseif (preg_match('/^VALUE (\S+) (\d+) (\d+)\r\n$/', $decl, $match)) {
             list($rkey, $flags, $len) = array($match[1], $match[2], $match[3]);
             $bneed = $len+2;
             $offset = 0;
 
-            while ($bneed > 0)
-            {
+            while ($bneed > 0) {
                $data = fread($sock, $bneed);
                $n = strlen($data);
                if ($n == 0)
@@ -866,14 +855,14 @@ class memcached
                @$ret[$rkey] .= $data;
             }
 
-            if ($offset != $len+2)
-            {
+            if ($offset != $len+2) {
                // Something is borked!
                if ($this->_debug)
                   $this->_debugprint(sprintf("Something is borked!  key %s expecting %d got %d length\n", $rkey, $len+2, $offset));
 
                unset($ret[$rkey]);
                $this->_close_sock($sock);
+
                return false;
             }
 
@@ -885,9 +874,9 @@ class memcached
             if ($flags & MEMCACHE_SERIALIZED)
                $ret[$rkey] = unserialize($ret[$rkey]);
 
-         } else
-         {
+         } else {
             $this->_debugprint("Error parsing memcached response\n");
+
             return 0;
          }
       }
@@ -920,8 +909,7 @@ class memcached
 
       $flags = 0;
 
-      if (!is_scalar($val))
-      {
+      if (!is_scalar($val)) {
          $val = serialize($val);
          $flags |= MEMCACHE_SERIALIZED;
          if ($this->_debug)
@@ -936,8 +924,7 @@ class memcached
          $c_val = gzcompress($val, 9);
          $c_len = strlen($c_val);
 
-         if ($c_len < $len*(1 - COMPRESSION_SAVINGS))
-         {
+         if ($c_len < $len*(1 - COMPRESSION_SAVINGS)) {
             if ($this->_debug)
                $this->_debugprint(sprintf("client: compressing data; was %d bytes is now %d bytes\n", $len, $c_len));
             $val = $c_val;
@@ -950,8 +937,7 @@ class memcached
 
       $line = trim(fgets($sock));
 
-      if ($this->_debug)
-      {
+      if ($this->_debug) {
          if ($flags & MEMCACHE_COMPRESSED)
             $val = 'compressed data';
          $this->_debugprint(sprintf("MemCache: %s %s => %s (%s)\n", $cmd, $key, $val, $line));
@@ -981,6 +967,7 @@ class memcached
       list ($ip, $port) = explode (":", $host);
       if (isset($this->_host_dead[$host]) && $this->_host_dead[$host] > $now ||
           isset($this->_host_dead[$ip]) && $this->_host_dead[$ip] > $now)
+
          return null;
 
       if (!$this->_connect_sock($sock, $host))
@@ -994,7 +981,8 @@ class memcached
       return $this->_cache_sock[$host];
    }
 
-   function _debugprint($str){
+   function _debugprint($str)
+   {
       print($str);
    }
 
@@ -1004,7 +992,8 @@ class memcached
     * @return bool false on failure, true on success
     */
     /*
-   function _safe_fwrite($f, $buf, $len = false) {
+   function _safe_fwrite($f, $buf, $len = false)
+   {
       stream_set_blocking($f, 0);
 
       if ($len === false) {
@@ -1019,6 +1008,7 @@ class memcached
 
       wfDebug("stream_select returned $n\n");
       stream_set_blocking($f, 1);
+
       return $n == 1;
       return $bytesWritten;
    }*/
@@ -1026,19 +1016,22 @@ class memcached
    /**
     * Original behaviour
     */
-   function _safe_fwrite($f, $buf, $len = false) {
+   function _safe_fwrite($f, $buf, $len = false)
+   {
       if ($len === false) {
          $bytesWritten = fwrite($f, $buf);
       } else {
          $bytesWritten = fwrite($f, $buf, $len);
       }
+
       return $bytesWritten;
    }
 
    /**
     * Flush the read buffer of a stream
     */
-   function _flush_read_buffer($f) {
+   function _flush_read_buffer($f)
+   {
       if (!is_resource($f)) {
          return;
       }
@@ -1057,4 +1050,3 @@ class memcached
 // vim: sts=3 sw=3 et
 
 // }}}
-?>

@@ -357,7 +357,7 @@ L'account è stato creato correttamente. Non dimenticare di personalizzare le pr
 "mailmypassword" => "Invia password via e-mail",
 "passwordremindertitle" => "Servizio Password Reminder di {{SITENAME}}",
 "passwordremindertext" => "Qualcuno (probabilmente tu, con indirizzo IP $1) ha richiesto l'invio di una nuova password di accesso a {{SITENAME}} ($4).
-La password per l'utente \"$2\" è stata impostata a \"$3\". 
+La password per l'utente \"$2\" è stata impostata a \"$3\".
 È opportuno eseguire un accesso quanto prima e cambiare la password immediatamente.
 
 Se non sei stato tu a fare la richiesta, oppure hai ritrovato la password e non desideri più cambiarla, puoi ignorare questo messaggio e continuare a usare la vecchia password.",
@@ -1006,7 +1006,7 @@ Per dare il tuo feedback e ricevere ulteriore assistenza:
 "rollbacklink"		=> "rollback",
 "rollbackfailed"	=> "Rollback non riuscito",
 "cantrollback"	=> "Impossibile annullare le modifiche; l'utente che le ha effettuate è l'unico ad aver contribuito alla pagina.",
-"alreadyrolled"	=> "Non è possibile annullare le modifiche apportate alla pagina [[$1]] da parte di [[User:$2|$2]] ([[User talk:$2|discussione]]); un altro utente ha già modificato la pagina oppure ha effettuato il rollback. 
+"alreadyrolled"	=> "Non è possibile annullare le modifiche apportate alla pagina [[$1]] da parte di [[User:$2|$2]] ([[User talk:$2|discussione]]); un altro utente ha già modificato la pagina oppure ha effettuato il rollback.
 
 La modifica più recente alla pagina è stata apportata da [[User:$3|$3]] ([[User talk:$3|discussione]]).",
 "editcomment"	=> "Il commento alla modifica era: \"<i>$1</i>\".",
@@ -1242,7 +1242,6 @@ In quest'ultimo caso si può anche utilizzare un collegamento, ad esempio [[Spec
 "allmessagesfilter"	=> "Filtro sui messaggi:",
 "allmessagesmodified"	=> "Mostra solo quelli modificati",
 
-
 # Thumbnails
 
 "thumbnail-more"	=> "Ingrandisci",
@@ -1359,54 +1358,54 @@ Tutte le operazioni di importazione trans-wiki sono registrate nel [[Special:Log
 # Monobook.js: tooltips and access keys for monobook
 'Monobook.js' => '/* tooltips and access keys */
  var ta = new Object();
- ta[\'pt-userpage\'] = new Array(\'.\',\'La tua pagina utente\'); 
- ta[\'pt-anonuserpage\'] = new Array(\'.\',\'La pagina utente di questo indirizzo IP\'); 
- ta[\'pt-mytalk\'] = new Array(\'n\',\'La tua pagina di discussione\'); 
- ta[\'pt-anontalk\'] = new Array(\'n\',\'Discussioni sulle modifiche fatte da questo indirizzo IP\'); 
- ta[\'pt-preferences\'] = new Array(\'\',\'Le tue preferenze\'); 
- ta[\'pt-watchlist\'] = new Array(\'l\',\'La lista delle pagine che stai tenendo sotto osservazione\'); 
- ta[\'pt-mycontris\'] = new Array(\'y\',\'L\\\'elenco dei tuoi contributi\'); 
- ta[\'pt-login\'] = new Array(\'o\',\'La registrazione è consigliata, anche se non obbligatoria\'); 
- ta[\'pt-anonlogin\'] = new Array(\'o\',\'La registrazione è consigliata, anche se non obbligatoria\'); 
- ta[\'pt-logout\'] = new Array(\'o\',\'Uscita (logout)\'); 
- ta[\'ca-talk\'] = new Array(\'t\',\'Vedi le discussioni relative a questa pagina\'); 
- ta[\'ca-edit\'] = new Array(\'e\',\'Puoi modificare questa pagina. Per favore usa il pulsante di anteprima prima di salvare\'); 
- ta[\'ca-addsection\'] = new Array(\'+\',\'Aggiungi un commento a questa discussione\'); 
- ta[\'ca-viewsource\'] = new Array(\'e\',\'Questa pagina è protetta, ma puoi vedere il suo codice sorgente\'); 
- ta[\'ca-history\'] = new Array(\'h\',\'Versioni precedenti di questa pagina\'); 
+ ta[\'pt-userpage\'] = new Array(\'.\',\'La tua pagina utente\');
+ ta[\'pt-anonuserpage\'] = new Array(\'.\',\'La pagina utente di questo indirizzo IP\');
+ ta[\'pt-mytalk\'] = new Array(\'n\',\'La tua pagina di discussione\');
+ ta[\'pt-anontalk\'] = new Array(\'n\',\'Discussioni sulle modifiche fatte da questo indirizzo IP\');
+ ta[\'pt-preferences\'] = new Array(\'\',\'Le tue preferenze\');
+ ta[\'pt-watchlist\'] = new Array(\'l\',\'La lista delle pagine che stai tenendo sotto osservazione\');
+ ta[\'pt-mycontris\'] = new Array(\'y\',\'L\\\'elenco dei tuoi contributi\');
+ ta[\'pt-login\'] = new Array(\'o\',\'La registrazione è consigliata, anche se non obbligatoria\');
+ ta[\'pt-anonlogin\'] = new Array(\'o\',\'La registrazione è consigliata, anche se non obbligatoria\');
+ ta[\'pt-logout\'] = new Array(\'o\',\'Uscita (logout)\');
+ ta[\'ca-talk\'] = new Array(\'t\',\'Vedi le discussioni relative a questa pagina\');
+ ta[\'ca-edit\'] = new Array(\'e\',\'Puoi modificare questa pagina. Per favore usa il pulsante di anteprima prima di salvare\');
+ ta[\'ca-addsection\'] = new Array(\'+\',\'Aggiungi un commento a questa discussione\');
+ ta[\'ca-viewsource\'] = new Array(\'e\',\'Questa pagina è protetta, ma puoi vedere il suo codice sorgente\');
+ ta[\'ca-history\'] = new Array(\'h\',\'Versioni precedenti di questa pagina\');
  ta[\'ca-protect\'] = new Array(\'=\',\'Proteggi questa pagina\');
  ta[\'ca-unprotect\'] = new Array(\'=\',\'Sblocca questa pagina\');
- ta[\'ca-delete\'] = new Array(\'d\',\'Cancella questa pagina\'); 
- ta[\'ca-undelete\'] = new Array(\'d\',\'Ripristina la pagina com\\\'era prima della cancellazione\'); 
- ta[\'ca-move\'] = new Array(\'m\',\'Sposta questa pagina (cambia titolo)\'); 
- ta[\'ca-watch\'] = new Array(\'w\',\'Aggiungi questa pagina alla tua lista di osservati speciali\'); 
- ta[\'ca-unwatch\'] = new Array(\'w\',\'Elimina questa pagina dalla tua lista di osservati speciali\'); 
- ta[\'search\'] = new Array(\'f\',\'Cerca all\\\'interno del sito\'); 
- ta[\'p-logo\'] = new Array(\'\',\'Pagina principale\'); 
- ta[\'n-mainpage\'] = new Array(\'z\',\'Visita la pagina principale\'); 
- ta[\'n-portal\'] = new Array(\'\',\'Descrizione del progetto, cosa puoi fare, dove trovare le cose\'); 
- ta[\'n-currentevents\'] = new Array(\'\',\'Informazioni sugli eventi di attualità\'); 
- ta[\'n-recentchanges\'] = new Array(\'r\',\'Elenco delle ultime modifiche del sito\'); 
- ta[\'n-randompage\'] = new Array(\'x\',\'Mostra una pagina a caso\'); 
+ ta[\'ca-delete\'] = new Array(\'d\',\'Cancella questa pagina\');
+ ta[\'ca-undelete\'] = new Array(\'d\',\'Ripristina la pagina com\\\'era prima della cancellazione\');
+ ta[\'ca-move\'] = new Array(\'m\',\'Sposta questa pagina (cambia titolo)\');
+ ta[\'ca-watch\'] = new Array(\'w\',\'Aggiungi questa pagina alla tua lista di osservati speciali\');
+ ta[\'ca-unwatch\'] = new Array(\'w\',\'Elimina questa pagina dalla tua lista di osservati speciali\');
+ ta[\'search\'] = new Array(\'f\',\'Cerca all\\\'interno del sito\');
+ ta[\'p-logo\'] = new Array(\'\',\'Pagina principale\');
+ ta[\'n-mainpage\'] = new Array(\'z\',\'Visita la pagina principale\');
+ ta[\'n-portal\'] = new Array(\'\',\'Descrizione del progetto, cosa puoi fare, dove trovare le cose\');
+ ta[\'n-currentevents\'] = new Array(\'\',\'Informazioni sugli eventi di attualità\');
+ ta[\'n-recentchanges\'] = new Array(\'r\',\'Elenco delle ultime modifiche del sito\');
+ ta[\'n-randompage\'] = new Array(\'x\',\'Mostra una pagina a caso\');
  ta[\'n-help\'] = new Array(\'a\',\'Pagine di aiuto\');
- ta[\'n-sitesupport\'] = new Array(\'\',\'Aiutaci\'); 
- ta[\'t-whatlinkshere\'] = new Array(\'j\',\'Elenco di tutte le pagine che sono collegate a questa\'); 
- ta[\'t-recentchangeslinked\'] = new Array(\'k\',\'Elenco delle ultime modifiche alle pagine collegate a questa\'); 
- ta[\'feed-rss\'] = new Array(\'\',\'Feed RSS per questa pagina\'); 
- ta[\'feed-atom\'] = new Array(\'\',\'Feed Atom per questa pagina\'); 
- ta[\'t-contributions\'] = new Array(\'\',\'Lista dei contributi di questo utente\'); 
- ta[\'t-emailuser\'] = new Array(\'\',\'Invia un messaggio e-mail a questo utente\'); 
- ta[\'t-upload\'] = new Array(\'u\',\'Carica immagini o file multimediali\'); 
- ta[\'t-specialpages\'] = new Array(\'q\',\'Lista di tutte le pagine speciali\'); 
- ta[\'ca-nstab-main\'] = new Array(\'c\',\'Vedi la voce\'); 
- ta[\'ca-nstab-user\'] = new Array(\'c\',\'Vedi la pagina utente\'); 
- ta[\'ca-nstab-media\'] = new Array(\'c\',\'Vedi la pagina del file multimediale\'); 
- ta[\'ca-nstab-special\'] = new Array(\'\',\'Questa è una pagina speciale, non può essere modificata\'); 
- ta[\'ca-nstab-project\'] = new Array(\'c\',\'Vedi la pagina di servizio\'); 
- ta[\'ca-nstab-image\'] = new Array(\'c\',\'Vedi la pagina dell\\\'immagine\'); 
- ta[\'ca-nstab-mediawiki\'] = new Array(\'c\',\'Vedi il messaggio di sistema\'); 
- ta[\'ca-nstab-template\'] = new Array(\'c\',\'Vedi il template\'); 
- ta[\'ca-nstab-help\'] = new Array(\'c\',\'Vedi la pagina di aiuto\'); 
+ ta[\'n-sitesupport\'] = new Array(\'\',\'Aiutaci\');
+ ta[\'t-whatlinkshere\'] = new Array(\'j\',\'Elenco di tutte le pagine che sono collegate a questa\');
+ ta[\'t-recentchangeslinked\'] = new Array(\'k\',\'Elenco delle ultime modifiche alle pagine collegate a questa\');
+ ta[\'feed-rss\'] = new Array(\'\',\'Feed RSS per questa pagina\');
+ ta[\'feed-atom\'] = new Array(\'\',\'Feed Atom per questa pagina\');
+ ta[\'t-contributions\'] = new Array(\'\',\'Lista dei contributi di questo utente\');
+ ta[\'t-emailuser\'] = new Array(\'\',\'Invia un messaggio e-mail a questo utente\');
+ ta[\'t-upload\'] = new Array(\'u\',\'Carica immagini o file multimediali\');
+ ta[\'t-specialpages\'] = new Array(\'q\',\'Lista di tutte le pagine speciali\');
+ ta[\'ca-nstab-main\'] = new Array(\'c\',\'Vedi la voce\');
+ ta[\'ca-nstab-user\'] = new Array(\'c\',\'Vedi la pagina utente\');
+ ta[\'ca-nstab-media\'] = new Array(\'c\',\'Vedi la pagina del file multimediale\');
+ ta[\'ca-nstab-special\'] = new Array(\'\',\'Questa è una pagina speciale, non può essere modificata\');
+ ta[\'ca-nstab-project\'] = new Array(\'c\',\'Vedi la pagina di servizio\');
+ ta[\'ca-nstab-image\'] = new Array(\'c\',\'Vedi la pagina dell\\\'immagine\');
+ ta[\'ca-nstab-mediawiki\'] = new Array(\'c\',\'Vedi il messaggio di sistema\');
+ ta[\'ca-nstab-template\'] = new Array(\'c\',\'Vedi il template\');
+ ta[\'ca-nstab-help\'] = new Array(\'c\',\'Vedi la pagina di aiuto\');
  ta[\'ca-nstab-category\'] = new Array(\'c\',\'Vedi la pagina della categoria\');',
 
 # image deletion
@@ -1582,7 +1581,6 @@ Tutte le operazioni di importazione trans-wiki sono registrate nel [[Special:Log
 "exif-gpsdatestamp"	=> "Data GPS",
 "exif-gpsdifferential"	=> "Correzione differenziale GPS",
 
-
 # Exif attributes
 
 "exif-compression-1"	=> "Nessuno",
@@ -1617,7 +1615,6 @@ Tutte le operazioni di importazione trans-wiki sono registrate nel [[Special:Log
 "exif-componentsconfiguration-5"	=> "G",
 "exif-componentsconfiguration-6"	=> "B",
 
-
 "exif-exposureprogram-0"	=> "Non definito",
 "exif-exposureprogram-1"	=> "Manuale",
 "exif-exposureprogram-2"	=> "Standard",
@@ -1650,7 +1647,7 @@ Tutte le operazioni di importazione trans-wiki sono registrate nel [[Special:Log
 "exif-lightsource-12"	=> "Daylight fluorescent (D 5700 - 7100K)",
 "exif-lightsource-13"	=> "Day white fluorescent (N 4600 - 5400K)",
 "exif-lightsource-14"	=> "Cool white fluorescent (W 3900 - 4500K)",
-"exif-lightsource-15"	=> "White fluorescent (WW 3200 - 3700K)", 
+"exif-lightsource-15"	=> "White fluorescent (WW 3200 - 3700K)",
 "exif-lightsource-17"	=> "Luce standard A",
 "exif-lightsource-18"	=> "Luce standard B",
 "exif-lightsource-19"	=> "Luce standard C",
@@ -1809,6 +1806,3 @@ Per favore, conferma che desideri veramente ricreare questa pagina.",
 "displaytitle"	=> "(Per i collegamenti a questa pagina, usare [[$1]])",
 
 );
-
-
-?>

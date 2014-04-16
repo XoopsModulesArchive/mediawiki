@@ -54,7 +54,6 @@ $wgAllMessagesFy = array(
 'nov' => 'nov',
 'dec' => 'dec',
 
-
 # Bits of text used by many pages:
 #
 "mainpage"		=> "Haadside",
@@ -129,7 +128,6 @@ $wgAllMessagesFy = array(
 "nosuchspecialpage" => "Unbekende side",
 "nospecialpagetext" => "Jo hawwe in Wiki-side opfrege dy't net bekind is by it Wiki-programma.",
 
-
 # General errors
 #
 "error"			=> "Fout",
@@ -177,7 +175,6 @@ miskeppele ynter-taal of ynter-wiki titel.",
 "perfdisabled" 		=> "Sorry! Dit ûnderdiel is tydlik út set om't it de databank sa starich makket
 dat gjinien de wiki brûke kin.",
 "perfdisabledsub" 	=> "Dit is in opsleine ferzje fan \"$1\":",
-
 
 # Login and logout pages
 #
@@ -316,7 +313,6 @@ Gean nei of de keppeling dy jo brûkt hawwe wol goed is.",
 "histlegend"	=> "Utlis: (no) = ferskil mei de side sa't dy no is,
 (doe) = ferskill mei de side sa't er doe wie, foar de feroaring, T = Tekstwiziging",
 
-
 # Diffs
 #
 "difference"	=> "(Ferskil tusken ferzjes)",
@@ -358,8 +354,6 @@ $2 List trochferwizings &nbsp; Sykje nei \"$3\" \"$9\"",
 "searchdisabled" => "<p>Op it stuit stjit it trochsykjen fan tekst net oan, om't de
 tsjinner it net oankin. Mei't we nije apparatuer krije wurdt it nei alle gedanken wer
 mooglik. Foar now kinne jo sykje fia Google:</p>",
-
-
 
 # Preferences page
 #
@@ -564,7 +558,6 @@ Dêr soe ek stean moatte hoe't it (goed skreaun) wurdt.",
 "missinglanguagelinkstext"      => "Dizze siden hawwe gjin taalkeppeling nei deselde side yn taal \"$1\".
 (Ferwizings en oanheake siden binne net <i>net</i> besocht.",
 
-
 # Miscellaneous special pages
 #
 "orphans"		=> "Lossteande siden",
@@ -593,7 +586,6 @@ parten fan it meartaliche projekt mei in keppeling nei in direkte URL nei
 an ôfbyld makke hawwe kinne. Dan wurde se noch brûke, mar stean al in dizze list.",
 
 "alphaindexline" 	=> "$1 oan't $2",
-
 
 # Email this brûker
 #
@@ -656,7 +648,6 @@ Jou oan hokfoar siden jo net mear folgje wolle, en befêstigje dat ûnderoan de 
 "couldntremove" 	=> "Koe \"$1\" net ferjitte ...",
 "iteminvalidname" => "Misse namme: \"$1\" ...",
 "wlnote" 		=> "Dit binne de lêste <strong>$1</strong> feroarings yn de lêste <strong>$2</strong> oeren.",
-
 
 # Delete/protect/revert
 #
@@ -832,6 +823,3 @@ Gearfoegje de oerlissiden hânmjittig.",
 'mw_math_mathml' => 'MathML',
 
 );
-
-
-?>

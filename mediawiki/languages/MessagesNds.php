@@ -1,6 +1,5 @@
 <?php
 
-
 /* private */ $wgAllMessagesNds = array(
 # Schalter för de Brukers
 'tog-underline'               => 'Verwies ünnerstrieken',
@@ -53,7 +52,6 @@
 'oct'       => 'Okt',
 'nov'       => 'Nov',
 'dec'       => 'Dez',
-
 
 # Textdelen, de vun vele Sieten bruukt warrn:
 #
@@ -238,7 +236,6 @@ Query: $2',
 
 Du kannst den Borntext vun disse Siet ankieken un kopeern:',
 
-
 # Login- un Logoutsieten
 #
 'logouttitle'             => 'Bruker-Afmellen',
@@ -291,7 +288,6 @@ Dat Password för Bruker „$2“ is nu „$3“. Bitte mell di nu an un änner 
 'loginend'                          => '',
 'mailerror'             => 'Fehler bi dat Sennen vun de E-Mail: $1',
 'acct_creation_throttle_hit' => 'Du hest al $1 Brukerkontos anleggt. Du kannst nich noch mehr anleggen.',
-
 
 # Sieten ännern
 #
@@ -495,7 +491,6 @@ Disse Siet warrt wiel dat Laden automatsch aktualiseert. Wiest warrn Sieten, de 
 'minoreditletter'    => 'L',
 'newpageletter'      => 'N',
 
-
 # Upload
 #
 'upload'                        => 'Hoochladen',
@@ -577,7 +572,6 @@ disse ole Version, (Trüchsetten) = bruuk weer disse ole Version.',
 'nolinkstoimage'      => 'Kene Siet bruukt dat Bild.',
 'sharedupload'        => 'Disse Datei is en Datei, de mööglicherwies ok vun annere Wikis bruukt warrt.',
 
-
 # Statistik
 #
 'statistics'            => 'Statistik',
@@ -618,7 +612,6 @@ In Klammern angevene Wöör geven de korrekte Schrievwies weer.',
 'missinglanguagelinksbutton' => 'Wies fehlende Spraakverwiesen no',
 'missinglanguagelinkstext'   => 'Disse Sieten hebbt <i>kenen</i> Verwies to ehr Gegenpart in $1. Wiederleiden un Ünnersieten warrn <i>nich</i> wiest.',
 
-
 # Verscheden Spezialsieten
 #
 'orphans'                              => 'Weetsieten',
@@ -657,7 +650,6 @@ Dor kann dat ok mehr Informatschonen över de Böker geven, de di interesseert.
 'log'                           => 'Logböker',
 'alllogstext'               => 'Kombineerte Ansicht vun Hoochlaad-, Lösch-, Schuul-, Block- un Sysop-Logböker.
 Du kannst de List kötter maken, wenn du den Logtyp, den Brukernaam oder de de Siet angiffst.',
-
 
 # E-Mail an'n Bruker
 #
@@ -1058,7 +1050,6 @@ ta[\'ca-nstab-category\'] = new Array(\'c\',\'Kategoriesiet ankieken\');',
 
 'newimages'                             => 'Galeree vun niege Biller',
 
-
 # Schalttafel
 'editgroup'                             => 'Grupp bearbeiden',
 'addgroup'                              => 'Grupp hentofögen',
@@ -1111,6 +1102,3 @@ ta[\'ca-nstab-category\'] = new Array(\'c\',\'Kategoriesiet ankieken\');',
 'allmessagesnotsupportedDB' => 'Special:AllMessages is nich ünnerstütt, vun wegen dat wgUseDatabaseMessages utstellt is.',
 
 );
-
-
-?>

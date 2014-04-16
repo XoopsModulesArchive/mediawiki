@@ -36,7 +36,6 @@ $wgAllMessagesMs = array(
 'underline-default'        => "Lalai pelayar", #'Browser default',
 'skinpreview'              => "Paparkan", #'(Preview)',
 
-
 # Dates
 
 'sunday' => 'Ahad', #'Sunday',
@@ -70,8 +69,6 @@ $wgAllMessagesMs = array(
 'oct' => 'Okt', #'Oct',
 'nov' => 'Nov',
 'dec' => 'Dis', #'Dec',
-
-
 
 # Bits of text used by many pages:
 #
@@ -168,14 +165,12 @@ $wgAllMessagesMs = array(
 "category_header"       => "Rencana dalam kategori \"$1\"",
 "subcategories"         => "Subkategori",
 
-
 # Main script and global functions
 #
 "nosuchaction"                => "Tiada tindakan tersebut", #"No such action",
 "nosuchactiontext"      => "Tindakan yang ditetapkan oleh URL tidak dikenalpasti oleh perisian {{SITENAME}}.",
 "nosuchspecialpage"     => "Tiada halaman istimewa tersebut", #"No such special page",
 "nospecialpagetext"     => "Anda memintai halaman istimewa yang tidak dikenalpasti oleh perisian {{SITENAME}}.",
-
 
 # General errors        =>Ralat umum
 #
@@ -312,12 +307,11 @@ $wgAllMessagesMs = array(
 'nonunicodebrowser'     => "<strong>AMARAN: Pelayar anda tidak mendukung Unikod. Bagaimanapun, terdapatnya kaedah untuk membenarkan anda menyunting rencana dengan selamat: huruf-huruf yang bukan huruf ASCII akan dipaparkan dalam kotak penyuntingan sebagai kod perenambelasan.</strong>", #"<strong>WARNING: Your browser is not unicode compliant. A workaround is in place to allow you to safely edit articles: non-ASCII characters will appear in the edit box as hexadecimal codes.</strong>",
 "editingold" => "<strong>PERINGATAN: Anda menyunting semakan lama. Jika anda menyimpannya, perubahan yang dibuat sejak semakan ini akan hilang.</strong>",
 "yourdiff"            => "Perbezaan", #"Differences",
-"copyrightwarning"      => "Semua sumbangan kepada {{SITENAME}} adalah tertakluk kepada $2 (sila lihat $1 untuk maklumat lanjut). Oleh sebab itu, jika anda tidak ingin rencana anda disunting atau disebarkan secara bebas, jangan hantar rencana anda ke sini. Anda juga perlu mengakui bahawa ini adalah karya anda sendiri, ataupun anda telah menyalinkannya daripada domain umum atau sumber bebas yang serupa. <p><strong>JANGAN HANTAR SEBARANG KARYA HAK CIPTA ORANG LAIN TANPA KEBENARAN.</strong></p>", 
+"copyrightwarning"      => "Semua sumbangan kepada {{SITENAME}} adalah tertakluk kepada $2 (sila lihat $1 untuk maklumat lanjut). Oleh sebab itu, jika anda tidak ingin rencana anda disunting atau disebarkan secara bebas, jangan hantar rencana anda ke sini. Anda juga perlu mengakui bahawa ini adalah karya anda sendiri, ataupun anda telah menyalinkannya daripada domain umum atau sumber bebas yang serupa. <p><strong>JANGAN HANTAR SEBARANG KARYA HAK CIPTA ORANG LAIN TANPA KEBENARAN.</strong></p>",
 "longpagewarning"       => "<strong>AMARAN: Panjangnya halaman ini $1 kilobait. Terdapat beberapa pelayar yang mengalami masalah terhadap penyuntingan halaman yang mendekati ataupun melebihi 32kB. Sila bahagikan rencana ini, jika boleh.</strong>", #"<strong>WARNING: This page is $1 kilobytes long; some browsers may have problems editing pages approaching or longer than 32kb. Please consider breaking the page into smaller sections.</strong>",
 "readonlywarning"       => "<strong>AMARAN: Pangkalan data ini telah dikunci untuk penyelenggaraan. Oleh sebab itu, anda tidak dapat menyimpan suntingan anda buat sekarang. Anda mungkin ingin 'gunting-dan-tampal' teks anda dan menyimpannya dalam fail teks untuk kegunaan kemudian.</strong>", #"<strong>WARNING: The database has been locked for maintenance, so you will not be able to save your edits right now. You may wish to cut-n-paste the text into a text file and save it for later.</strong>",
 "protectedpagewarning" => "<strong>AMARAN: Halaman ini telah dikunci supaya penyelia sahaja yang boleh mengemaskinikannya. Sila mematuhi [[Project:Polisi perlindungan|panduan untuk halaman dilindungi]]</strong>", #"<strong>WARNING:  This page has been locked so that only users with sysop privileges can edit it. Be sure you are following the [[Project:Protected_page_guidelines|protected page guidelines]].</strong>",
 "templatesused"       => "Templat yang digunakan di halaman ini.", #'Templates used on this page:',
-
 
 # History pages
 #
@@ -339,7 +333,6 @@ $wgAllMessagesMs = array(
 "deletedrev"        => "[dipadam]", #'[deleted]',
 "histfirst"         => "Terawal", #'Earliest'
 "histlast"          => "Terkini", #'Latest'
-
 
 # Search results
 #
@@ -365,8 +358,6 @@ $wgAllMessagesMs = array(
 "powersearchtext"  => "Cari dalam ruang nama:<br />$1<br />$2 Paparkan peralihan   Cari $3 $9",
 "searchdisabled"   => "Pencarian {{SITENAME}} telah dimatikan. Anda boleh mencari melalui Google buat sekarang. Sila ambil perhatian bahawa hasil daripada pencarian Google mungkin bukan merupakan halaman yang terkini.",
 "blanknamespace" => "(Utama)",
-
-
 
 # Preferences page
 #
@@ -416,7 +407,6 @@ $wgAllMessagesMs = array(
 "default"             => 'lalai',
 "files"                       => "Fail",
 
-
 # Recent changes
 #
 "changes" => "perubahan",
@@ -432,7 +422,6 @@ $wgAllMessagesMs = array(
 "show"                        => "papar", #"show",
 "minoreditletter"       => "k", #"m",
 "newpageletter"         => "B",
-
 
 # Upload
 #
@@ -473,7 +462,6 @@ $wgAllMessagesMs = array(
 "uploadvirus"       => "Fail in mengandungi virus! Butir-butir: $1",
 "sourcefilename"    => "Sumber nama fail",
 "destfilename"      => "Destinasi nama fail",
-
 
 # Image list
 #
@@ -522,7 +510,6 @@ $wgAllMessagesMs = array(
 "brokenredirects"     => "Peralihan Rosak", #"Broken Redirects",
 "brokenredirectstext" => "Peralihan berikut berpaut ke halaman yang tidak wujud", #"The following redirects link to a non-existing page.",
 
-
 # Miscellaneous special pages
 #
 "lonelypages"           => "Halaman Yatim", #"Orphaned pages",
@@ -567,7 +554,6 @@ $wgAllMessagesMs = array(
 "log"                   => "Log",
 "alllogstext"           => "Paparan gabungan untuk log pemuatan naik, pemadaman, perlindungan, penyekatan, dan penyelia. Anda boleh menyempitkan paparan dengan memilihkan jenis log, nama pengguna ataupun nama halaman yang berkaitan.",
 
-
 # Email this user
 #
 "mailnologin"           => "Tiada alamat emel.", #"No send address",
@@ -586,7 +572,6 @@ $wgAllMessagesMs = array(
 "emailsend"             => "Kirim", #"Send",
 "emailsent"             => "Emel telah dikirim", #"E-mail sent",
 "emailsenttext"           => "Emel anda telah dikirim.", #"Your e-mail message has been sent.",
-
 
 # Watchlist
 #
@@ -664,7 +649,6 @@ $wgAllMessagesMs = array(
 "confirmunprotect"        => "Pengesahan nyahlindung",
 "unprotectcomment"        => "Alasan nyahlindung",
 
-
 # Undelete
 "undelete"          => "Pulihkan halaman terpadam", #"Restore deleted page",
 "undeletepage"      => "Lihat dan pulihkan halaman terpadam", #"View and restore deleted pages",
@@ -680,7 +664,6 @@ $wgAllMessagesMs = array(
 "undeletedarticle"  => "telah dipulih", #"restored \"$1\"",
 "undeletedtext"     => "Pemulihan [[$1]] berjaya. Sila lihat [[Special:Log/delete|log pemadaman]] untuk rekod pemadaman dan pemulihan terkini.",
 
-
 # Contributions
 #
 "contributions"           => "Sumbangan pengguna", #"User contributions",
@@ -691,7 +674,6 @@ $wgAllMessagesMs = array(
 "uclinks"         => "Paparkan $1 perubahan terkini; paparkan $2 hari yang lalu", #"View the last $1 changes; view the last $2 days.",
 "uctop"                   => "(atas)", #"(top)",
 'newbies'           => "Pengguna baru",
-
 
 # What links here
 #
@@ -744,7 +726,6 @@ $wgAllMessagesMs = array(
 'sorbsreason'       => "Alamat IP anda telah disenaraikan sebagai proksi terbuka di [http://www.sorbs.net SORBS] DNSBL.",
 'sorbs_create_account_reason' => "Alamat IP anda telah disenaraikan sebagai proksi terbuka di [http://www.sorbs.net SORBS] DNSBL. Oleh sebab itu, anda tidak dapat membuka akaun.",
 
-
 # Developer tools
 #
 "lockdb"              => "Kuncikan pangkalan data", #"Lock database",
@@ -760,8 +741,6 @@ $wgAllMessagesMs = array(
 "unlockdbsuccesssub" => "Pangkalan data telah dibuka semula", #"Database lock removed",
 "lockdbsuccesstext" => "Pangkalan data {{SITENAME}} telah dikunci.<br />Pastikan anda membukanya semula selepas penyelenggaraan telah selesai.",
 "unlockdbsuccesstext" => "Pangkalan data {{SITENAME}} telah dibuka semula.",
-
-
 
 # Move page
 #
@@ -796,5 +775,3 @@ Rencana destinasi \"[[$1]]\" sudah wujud. Adakah anda ingin memadamkannya supaya
 'selfmove' => "Tajuk sumber dan tajuk destinasi adalah sama; tidak dapat mengalihkan halaman ke halaman kendiri.", #"Source and destination titles are the same; can't move a page over itself.",
 'immobile_namespace' => "Tajuk destinasi merupakan jenis yang istimewa; tidak dapat mengalihkan halaman-halaman ke ruang nama itu.", #"Destination title is of a special type; cannot move pages into that namespace."
 );
-
-?>

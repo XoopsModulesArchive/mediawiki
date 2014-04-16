@@ -783,7 +783,6 @@ Ada sejumlah '''$3''' penampilan halaman, dan sejumlah '''$4''' penyuntingan sej
 "brokenredirects" => "Pengalihan rusak",
 "brokenredirectstext" => "Peralihan halaman berikut berpaut ke halaman yang tidak ada.",
 
-
 # Miscellaneous special pages
 #
 'nbytes'      => '$1 bita',  # no need for plural
@@ -836,13 +835,11 @@ Ada sejumlah '''$3''' penampilan halaman, dan sejumlah '''$4''' penyuntingan sej
 "booksourcetext" => "Di bawah ini adalah daftar pranala ke situs lain yang menjual buku baru dan bekas, dan mungkin juga mempunyai informasi lebih lanjut mengenai buku yang sedang Anda cari. {{SITENAME}} tidak berkepentingan dengan situs-situs web di atas, dan daftar ini seharusnya tidak dianggap sebagai sebuah dukungan.",
 "isbn" => "ISBN",
 
-
 "alphaindexline" => "$1 ke $2",
 "version" => "Versi",
 'log' => 'Log',
 'alllogstext' => 'Di bawah ini adalah gabungan log pemblokiran, perlindungan, perubahan hak akses, penghapusan, pemuatan, pemindahan, impor, dll. Anda dapat melakukan pembatasan tampilan dengan memilih jenis log, nama pengguna, atau nama halaman yang terpengaruh.',
 'logempty' => 'Tidak ditemukan entri log yang sesuai.',
-
 
 # Special:Allpages
 'nextpage'          => 'Halaman berikutnya ($1)',
@@ -951,7 +948,6 @@ Untuk mengubah preferensi daftar pantauan Anda, kunjungi
 
 Masukan dan bantuan lanjutan:
 {{fullurl:{{ns:help}}:Isi}}',
-
 
 # Delete/protect/revert
 #
@@ -1766,7 +1762,6 @@ $1
 'trackbacklink' => 'Lacak balik',
 'trackbackdeleteok' => 'Pelacakan balik berhasil dihapus.',
 
-
 # delete conflict
 
 'deletedwhileediting' => 'Perhatian: Halaman ini telah dihapus setelah Anda mulai melakukan penyuntingan!',
@@ -1800,6 +1795,3 @@ $1",
 'loginlanguagelabel' => 'Bahasa: $1',
 
 );
-
-
-?>

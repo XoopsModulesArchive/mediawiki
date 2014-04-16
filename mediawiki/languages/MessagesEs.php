@@ -138,7 +138,6 @@ Ver $1.",
 "thisisdeleted" => "¿Ver o restaurar $1?",
 "restorelink" => "$1 ediciones borradas",
 
-
 # Main script and global functions
 #
 "nosuchaction"	=> "No existe tal acción",
@@ -461,7 +460,6 @@ Los grupos no seleccionados no cambiarán. Puedes deseleccionar con CTRL + clic 
 'group-steward-name'    => 'Mayordomo (steward)',
 'group-steward-desc'    => 'Acceso completo',
 
-
 # Recent changes
 #
 "changes" => "cambios",
@@ -596,13 +594,11 @@ esta versión antigua, (rev) = revertir a esta versión antigua.
 'noimage-linktext'       => 'subirlo',
 'uploadnewversion-linktext' => 'Subir una nueva versión de este archivo',
 
-
 # Mime search
 #
 'mimesearch' => 'Búsqueda MIME',
 'mimetype' => 'Tipo MIME:',
 'download' => 'descargar',
-
 
 # Unwatchedpages
 #
@@ -644,7 +640,6 @@ de los cuales '''$2''' (o '''$4%''') son administradores (ver $3).",
 "missinglanguagelinks"  => "Enlaces Interleguaje Faltantes",
 "missinglanguagelinksbutton"    => "Encontrar los enlaces interlenguaje que faltan para",
 "missinglanguagelinkstext"      => "Estos artículos <b>no</b> enlazan a sus correspondientes en $1. <b>No</b> se muestran redirecciones ni subpáginas.",
-
 
 # Miscellaneous special pages
 #
@@ -886,7 +881,6 @@ acceso de escritura a una dirección IP previamente bloqueada.",
 <br />Recuerda retirar el bloqueo después de completar las tareas de mantenimiento.",
 "unlockdbsuccesstext" => "La base de datos de {{SITENAME}} ha sido desbloqueada.",
 
-
 # Make sysop
 'makesysoptitle'	=> 'Convertir a este usuario en administrador',
 'makesysoptext'		=> 'Con este formulario los burócratas pueden convertir usuarios normales en administradores.
@@ -908,7 +902,6 @@ Escribe el nombre del usuario en la caja y pulsa el botón para convertir a este
 'already_sysop'     => 'Este usuario ya es un administrador',
 'already_bureaucrat' => 'Este usuario ya es un burócrata',
 'already_steward'   => 'Este usuario ya es un mayordomo (steward)',
-
 
 # Move page
 #
@@ -961,7 +954,6 @@ La página de destino ("[[$1]]") ya existe. ¿Quieres borrarla para dejar paso a
 'selfmove' => "Los títulos de origen y destino son los mismos; no se puede trasladar un página sobre sí misma.",
 'immobile_namespace' => "El título de destino es de un tipo especial; no se pueden trasladar página a ese espacio de nombres.",
 
-
 # Export
 
 'export'		=> 'Exportar páginas',
@@ -1009,7 +1001,6 @@ En el último caso puedes usar un enlace, por ejemplo [[{{ns:Special}}:Export/{{
 'nstab-template' => 'Plantilla',
 'nstab-help' => 'Ayuda',
 'nstab-category' => 'Categoría',
-
 
 # Edit page toolbar
 'bold_sample' => "Texto en negrita",
@@ -1083,7 +1074,6 @@ En el último caso puedes usar un enlace, por ejemplo [[{{ns:Special}}:Export/{{
 
 'passwordtooshort' => 'Tu contraseña es muy corta. Debe tener al menos $1 caracteres.',
 
-
 # Media Warning
 'mediawarning' => '\'\'\'Aviso\'\'\': Este archivo podría contener código malicioso, ejecutándolo tu sistema podría resultar comprometido.
 <hr />',
@@ -1097,7 +1087,6 @@ En el último caso puedes usar un enlace, por ejemplo [[{{ns:Special}}:Export/{{
 'categoriespagetext' => "Existen las siguientes categorías en este wiki.",
 
 'toolbox' => "Herramientas",
-
 
 'tooltip-compareselectedversions' => "Ver las diferencias entre las dos versiones seleccionadas de esta página. [alt-v]",
 'tooltip-minoredit' => "Marcar este cambio como menor [alt-i]",
@@ -1118,7 +1107,6 @@ En el último caso puedes usar un enlace, por ejemplo [[{{ns:Special}}:Export/{{
 'thumbnail-more' => "Aumentar",
 'missingimage'		=> '<b>Falta imagen</b><br /><i>$1</i>',
 'filemissing'		=> 'Falta archivo',
-
 
 #Special:Import
 'import' => "Importar páginas",
@@ -1206,7 +1194,6 @@ ta['ca-nstab-category'] = new Array('c','Ver la página de categoría');",
 'moredotdotdot' => "Más...",
 
 'perfcached' => 'Los siguientes datos están en cache y por tanto pueden estar desactualizados:',
-
 
 # external editor support
 'edit-externally' => 'Editar este archivo usando una aplicación externa',
@@ -1781,7 +1768,6 @@ Consulta: $2',
 'yourdomainname'	=> 'Tu dominio',
 'yourvariant'	=> 'Variante lingüística',
 
-
 '1movedto2'	=> '[[$1]] trasladada a [[$2]]',
 'anontalk'	=> 'Discusión para esta IP',
 'article'	=> 'Artículo',
@@ -1851,7 +1837,6 @@ Consulta: $2',
 'wlheader-enotif'	=> '* La notificación por correo electrónico está habilitada',
 'wrongpasswordempty'	=> 'No has escrito una contraseña, inténtalo de nuevo.',
 
-
 'changed'	=> 'modificada',
 'invalidemailaddress'	=> 'La dirección electrónica no puede ser aceptada pues parece que tiene un formato no válido. Por favor, escribe una dirección bien formada o vacía el campo.',
 'ipbother'	=> 'Especificar caducidad',
@@ -1874,6 +1859,3 @@ Consulta: $2',
 'yourrealname'	=> 'Tu nombre real *',
 
 );
-
-
-?>

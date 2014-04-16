@@ -8,12 +8,12 @@
  */
 
 /** */
-require_once( "commandLine.inc" );
+require_once 'commandLine.inc';
 
 #require_once( "rebuildlinks.inc" );
-require_once( "refreshLinks.inc" );
-require_once( "rebuildtextindex.inc" );
-require_once( "rebuildrecentchanges.inc" );
+require_once 'refreshLinks.inc';
+require_once 'rebuildtextindex.inc';
+require_once 'rebuildrecentchanges.inc';
 
 $database = Database::newFromParams( $wgDBserver, $wgDBadminuser, $wgDBadminpassword, $wgDBname );
 
@@ -35,5 +35,3 @@ refreshLinks( 1 );
 
 print "Done.\n";
 exit();
-
-?>

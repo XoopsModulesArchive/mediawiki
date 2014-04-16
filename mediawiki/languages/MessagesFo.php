@@ -65,5 +65,3 @@ $wgAllMessagesFo = array(
 
 'linktrail' => '/^([áðíóúýæøa-z]+)(.*)$/sDu',
 );
-
-?>

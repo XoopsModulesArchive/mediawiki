@@ -11,21 +11,19 @@
 $oldCwd = getcwd();
 
 $optionsWithArgs = array( "o" );
-include_once( "commandLine.inc" );
-include_once( "rebuildInterwiki.inc" );
+include_once 'commandLine.inc';
+include_once 'rebuildInterwiki.inc';
 chdir( $oldCwd );
 
 $sql = getRebuildInterwikiSQL();
 
 # Output
 if ( isset( $options['o'] ) ) {
-	# To file specified with -o
-	$file = fopen( $options['o'], "w" );
-	fwrite( $file, $sql );
-	fclose( $file );
+    # To file specified with -o
+    $file = fopen( $options['o'], "w" );
+    fwrite( $file, $sql );
+    fclose( $file );
 } else {
-	# To stdout
-	print $sql;
+    # To stdout
+    print $sql;
 }
-
-?>

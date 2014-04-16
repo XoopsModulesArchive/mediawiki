@@ -1,28 +1,25 @@
 <?php
 
-
 /* private */ $wgAllMessagesZh_tw = array(
 
 /* User toggles */
-	"tog-underline" => "下劃鏈結", /* "Underline links", */
-	"tog-highlightbroken" => "毀壞的鏈結格式<a href=\"\" class=\"new\">像這樣</a> (或者像這個<a href=\"\" class=\"internal\">?</a>)", /* "Format broken links <a href=\"\" class=\"new\">like this</a> (alternative: like this<a href=\"\" class=\"internal\">?</a>).", */
-	"tog-justify"	=> "段落對齊", /* "Justify paragraphs", */
-	"tog-hideminor" => "最近更改中隱藏細微修改", /* "Hide minor edits in recent changes", */
-	"tog-usenewrc" => "最近更改增強（只適用部分流覽器）", /* "Enhanced recent changes (not for all browsers)", */
-	"tog-numberheadings" => "標題自動編號",
-	"tog-showtoolbar" => "顯示編輯工具欄",/* "Auto-number headings", */
+    "tog-underline" => "下劃鏈結", /* "Underline links", */
+    "tog-highlightbroken" => "毀壞的鏈結格式<a href=\"\" class=\"new\">像這樣</a> (或者像這個<a href=\"\" class=\"internal\">?</a>)", /* "Format broken links <a href=\"\" class=\"new\">like this</a> (alternative: like this<a href=\"\" class=\"internal\">?</a>).", */
+    "tog-justify"	=> "段落對齊", /* "Justify paragraphs", */
+    "tog-hideminor" => "最近更改中隱藏細微修改", /* "Hide minor edits in recent changes", */
+    "tog-usenewrc" => "最近更改增強（只適用部分流覽器）", /* "Enhanced recent changes (not for all browsers)", */
+    "tog-numberheadings" => "標題自動編號",
+    "tog-showtoolbar" => "顯示編輯工具欄",/* "Auto-number headings", */
    "tog-editondblclick" => "雙擊頁面編輯(JavaScript)",
-	"tog-editsection"=>"允許通過點擊[編輯]鏈結編輯段落",
- 	"tog-editsectiononrightclick"=>"允許右擊標題編輯段落(JavaScript)",
- 	"tog-showtoc"=>"顯示目錄<br />(針對一頁超過3個標題的文章)",
-	"tog-rememberpassword" => "下次登陸記住密碼",/* "Remember password across sessions", */
-	"tog-editwidth" => "編輯欄位寬度",/* "Edit box has full width", */
-	"tog-editondblclick" => "雙擊編輯頁面（Javascript）",/* "Edit pages on double click (JavaScript)", */
-	"tog-watchdefault" => "監視新的以及更改過的文章",/* "Watch new and modified articles", */
-	"tog-minordefault" => "細微編輯為默認設置",/* "Mark all edits minor by default", */
-	"tog-previewontop" => "在編輯框上方顯示預覽", /* "Show preview before edit box and not after it" */
-
-
+    "tog-editsection"=>"允許通過點擊[編輯]鏈結編輯段落",
+     "tog-editsectiononrightclick"=>"允許右擊標題編輯段落(JavaScript)",
+     "tog-showtoc"=>"顯示目錄<br />(針對一頁超過3個標題的文章)",
+    "tog-rememberpassword" => "下次登陸記住密碼",/* "Remember password across sessions", */
+    "tog-editwidth" => "編輯欄位寬度",/* "Edit box has full width", */
+    "tog-editondblclick" => "雙擊編輯頁面（Javascript）",/* "Edit pages on double click (JavaScript)", */
+    "tog-watchdefault" => "監視新的以及更改過的文章",/* "Watch new and modified articles", */
+    "tog-minordefault" => "細微編輯為默認設置",/* "Mark all edits minor by default", */
+    "tog-previewontop" => "在編輯框上方顯示預覽", /* "Show preview before edit box and not after it" */
 
 # Bits of text used by many pages:
 #
@@ -66,7 +63,7 @@
 "unprotectthispage" => "解除保護",
 "newpage" => "新頁面",
 "talkpage"		=> "討論本頁",
-	 "postcomment"   => "發表評論",
+     "postcomment"   => "發表評論",
 "articlepage"	=> "查看文章",
 "subjectpage"	=> "查看主題", # For compatibility
 "userpage" => "查看用戶頁",
@@ -96,7 +93,7 @@
 "editold"=>"編輯",
 "toc" => "目錄",
 "showtoc" => "顯示",
- 	 "hidetoc" => "隱藏",
+      "hidetoc" => "隱藏",
 
 # weekdays, month names
 'sunday'    => "星期日",
@@ -235,13 +232,13 @@ MySQL返回錯誤 \"<tt>$3: $4</tt>\"。",
 "blockedtext"	=> "您的用戶名或網址已被$1封。
 理由是：<br />'''$2'''<p>您可以與$1向其他任何[[{{ns:project}}:管理員|管理員]]詢問。",
  "whitelistedittitle" => "登錄後才可編輯",
- 	 "whitelistedittext" => "您必須先[[特殊:登錄]]才可編輯頁面。",
- 	 "whitelistreadtitle" => "登錄後才可閱讀",
- 	 "whitelistreadtext" => "您必須先[[特殊:登錄]]才可閱讀頁面。",
- 	 "whitelistacctitle" => "您被禁止建立帳號",
- 	 "whitelistacctext" => "在本維基中建立帳號您必須先[[特殊:登錄]]並擁有相關權限。",
- 	 "accmailtitle" => "密碼寄出",
- 	 "accmailtext" => "'$1'的密碼已經寄到$2。",
+      "whitelistedittext" => "您必須先[[特殊:登錄]]才可編輯頁面。",
+      "whitelistreadtitle" => "登錄後才可閱讀",
+      "whitelistreadtext" => "您必須先[[特殊:登錄]]才可閱讀頁面。",
+      "whitelistacctitle" => "您被禁止建立帳號",
+      "whitelistacctext" => "在本維基中建立帳號您必須先[[特殊:登錄]]並擁有相關權限。",
+      "accmailtitle" => "密碼寄出",
+      "accmailtext" => "'$1'的密碼已經寄到$2。",
 "newarticle"	=> "（新）",
 "newarticletext" =>
 "您從一個鏈接進入了一個並不存在的頁面。
@@ -594,20 +591,20 @@ MySQL返回錯誤 \"<tt>$3: $4</tt>\"。",
 "watchthispage"	=> "監視本頁",
 "unwatchthispage" => "停止監視",
 "notanarticle"	=> "不是條目",
-	 "watchnochange" => "在顯示的時間段內您所監視的頁面沒有更改。",
- 	 "watchdetails" => "($1個頁面（不含對話頁）被監視；
- 	 總共$2個頁面被編輯；
- 	 $3...
- 	 [$4 顯示並編輯完整列表].)",
- 	 "watchmethod-recent" => "檢查被監視頁面的最近編輯",
- 	 "watchmethod-list" => "checking watched pages for recent edits",
- 	 "removechecked" => "將被選頁面從監視列表中移除",
- 	 "watchlistcontains" => "您的監視列表包含$1個頁面。",
- 	 "watcheditlist" => "這裏是您所監視的頁面的列表。要移除某一頁面，只要選擇該頁面然後點擊”移除頁面“按鈕。",
- 	 "removingchecked" => "移除頁面...",
- 	 "couldntremove" => "無法移除'$1'...",
- 	 "iteminvalidname" => "頁面'$1'錯誤，無效命名...",
- 	 "wlnote" => "以下是最近<b>$2</b>小時內的最後$1次修改。",
+     "watchnochange" => "在顯示的時間段內您所監視的頁面沒有更改。",
+      "watchdetails" => "($1個頁面（不含對話頁）被監視；
+      總共$2個頁面被編輯；
+      $3...
+      [$4 顯示並編輯完整列表].)",
+      "watchmethod-recent" => "檢查被監視頁面的最近編輯",
+      "watchmethod-list" => "checking watched pages for recent edits",
+      "removechecked" => "將被選頁面從監視列表中移除",
+      "watchlistcontains" => "您的監視列表包含$1個頁面。",
+      "watcheditlist" => "這裏是您所監視的頁面的列表。要移除某一頁面，只要選擇該頁面然後點擊”移除頁面“按鈕。",
+      "removingchecked" => "移除頁面...",
+      "couldntremove" => "無法移除'$1'...",
+      "iteminvalidname" => "頁面'$1'錯誤，無效命名...",
+      "wlnote" => "以下是最近<b>$2</b>小時內的最後$1次修改。",
 
 # Delete/protect/revert
 #
@@ -754,7 +751,6 @@ MySQL返回錯誤 \"<tt>$3: $4</tt>\"。",
 "talkpagemoved" => "相應的對話頁也已經移動。",
 "talkpagenotmoved" => "相應的對話頁<strong>沒有</strong>被移動。",
 
-
 # some untranslated messages as of 1.4 beta1
 '1movedto2' => "$1移動到$2", //"$1 moved to $2",
 '1movedto2_redir' => "$1重定向到$2", //"$1 moved to $2 over redirect",
@@ -824,6 +820,3 @@ email address to them, and it can be used to send you a new password if you forg
 "copyright" => "本站所有內容允許以下方式利用: $1",
 "loginprompt" => "您必須允許瀏覽器紀錄Cookie才能成功登入 {{SITENAME}} 並順利進行操作",
 );
-
-
-?>

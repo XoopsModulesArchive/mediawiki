@@ -15,12 +15,12 @@ if( ! defined( 'XOOPS_ROOT_PATH' ) ) exit ;
 
 $modversion['name'] = _MI_MEDIAWIKI_NAME;
 $modversion['description'] = _MI_MEDIAWIKI_DESC;
-$modversion['version'] = "1.71";
+$modversion['version'] = "1.71b";
 $modversion['credits'] = "MediaWiki DEV (http://wikimedia.org/); A.D.Horse (test, http://www.cctv3g.com)";
 $modversion['author'] = "D.J. (phppp, http://xoops.org.cn, http://xoopsforge.com)";
 $modversion['license'] = "GPL see LICENSE";
 $modversion['image'] = "images/mediawiki.png";
-$modversion['dirname'] = "mediawiki";
+$modversion['dirname'] = basename(dirname(__FILE__));
 
 // status
 $modversion['codename'] = "";
@@ -36,39 +36,39 @@ $modversion['templates'][0]['description'] = '';
 //$modversion['sqlfile']['mysql'] = "";
 
 $modversion['tables'] = array(
-	"mediawiki_user",
-	"mediawiki_user_groups",
-	"mediawiki_user_newtalk",
-	"mediawiki_page",
-	"mediawiki_revision",
-	"mediawiki_text",
-	"mediawiki_archive",
-	"mediawiki_pagelinks",
-	"mediawiki_imagelinks",
-	"mediawiki_categorylinks",
-	"mediawiki_site_stats",
-	"mediawiki_hitcounter",
-	"mediawiki_ipblocks",
-	"mediawiki_image",
-	"mediawiki_oldimage",
-	"mediawiki_recentchanges",
-	"mediawiki_watchlist",
-	"mediawiki_math",
-	"mediawiki_searchindex",
-	"mediawiki_interwiki",
-	"mediawiki_querycache",
-	"mediawiki_objectcache",
-	//"mediawiki_validate",
-	"mediawiki_logging",
-	"mediawiki_trackbacks",
-	"mediawiki_transcache",
-	"mediawiki_externallinks",
-	"mediawiki_job",
-	"mediawiki_templatelinks",
-	"mediawiki_langlinks",
-	"mediawiki_filearchive",
-	"mediawiki_querycache_info",
-	);
+    "mediawiki_user",
+    "mediawiki_user_groups",
+    "mediawiki_user_newtalk",
+    "mediawiki_page",
+    "mediawiki_revision",
+    "mediawiki_text",
+    "mediawiki_archive",
+    "mediawiki_pagelinks",
+    "mediawiki_imagelinks",
+    "mediawiki_categorylinks",
+    "mediawiki_site_stats",
+    "mediawiki_hitcounter",
+    "mediawiki_ipblocks",
+    "mediawiki_image",
+    "mediawiki_oldimage",
+    "mediawiki_recentchanges",
+    "mediawiki_watchlist",
+    "mediawiki_math",
+    "mediawiki_searchindex",
+    "mediawiki_interwiki",
+    "mediawiki_querycache",
+    "mediawiki_objectcache",
+    //"mediawiki_validate",
+    "mediawiki_logging",
+    "mediawiki_trackbacks",
+    "mediawiki_transcache",
+    "mediawiki_externallinks",
+    "mediawiki_job",
+    "mediawiki_templatelinks",
+    "mediawiki_langlinks",
+    "mediawiki_filearchive",
+    "mediawiki_querycache_info",
+    );
 
 // Search
 $modversion['hasSearch'] = 1;
@@ -79,7 +79,7 @@ $modversion['search']['func'] = "mediawiki_search";
 $i=0;
 $modversion["blocks"] = array();
 
-$i++;
+++$i;
 $modversion["blocks"][$i]["file"] = "block.php";
 $modversion["blocks"][$i]["name"] = _MI_MEDIAWIKI_BLOCK_RECENTCHANGES;
 $modversion["blocks"][$i]["description"] = "";
@@ -88,7 +88,7 @@ $modversion["blocks"][$i]["options"] = "10"; // MaxItems
 $modversion["blocks"][$i]["edit_func"] = "mediawiki_recentchanges_edit";
 $modversion["blocks"][$i]["template"] = "mediawiki_block_recentchanges.html";
 
-$i++;
+++$i;
 $modversion["blocks"][$i]["file"] = "block.php";
 $modversion["blocks"][$i]["name"] = _MI_MEDIAWIKI_BLOCK_TOP;
 $modversion["blocks"][$i]["description"] = "";
@@ -97,7 +97,7 @@ $modversion["blocks"][$i]["options"] = "10"; // MaxItems
 $modversion["blocks"][$i]["edit_func"] = "mediawiki_top_edit";
 $modversion["blocks"][$i]["template"] = "mediawiki_block_top.html";
 
-$i++;
+++$i;
 $modversion["blocks"][$i]["file"] = "block.php";
 $modversion["blocks"][$i]["name"] = _MI_MEDIAWIKI_BLOCK_HOT;
 $modversion["blocks"][$i]["description"] = "";
@@ -116,12 +116,11 @@ $modversion['hasMain'] = 1;
 $modversion['hasconfig'] = 1;
 
 $modversion['config'][] = array(
-	'name'			=> 'style' ,
-	'title'			=> '_MI_MEDIAWIKI_STYLE' ,
-	'description'	=> '_MI_MEDIAWIKI_STYLE_DESC' ,
-	'formtype'		=> 'select' ,
-	'valuetype'		=> 'int' ,
-	'default'		=> 0,
-	'options'		=> array("XOOPS"=>1, "mediawiki"=>2, "Selectable"=>0) 
+    'name'			=> 'style' ,
+    'title'			=> '_MI_MEDIAWIKI_STYLE' ,
+    'description'	=> '_MI_MEDIAWIKI_STYLE_DESC' ,
+    'formtype'		=> 'select' ,
+    'valuetype'		=> 'int' ,
+    'default'		=> 0,
+    'options'		=> array("XOOPS"=>1, "mediawiki"=>2, "Selectable"=>0)
 );
-?>

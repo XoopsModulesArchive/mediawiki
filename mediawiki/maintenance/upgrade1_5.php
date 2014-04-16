@@ -14,11 +14,9 @@
 
 $options = array( 'step', 'noimages' );
 
-require_once( 'commandLine.inc' );
-require_once( 'FiveUpgrade.inc' );
+require_once 'commandLine.inc';
+require_once 'FiveUpgrade.inc';
 
 $upgrade = new FiveUpgrade();
 $step = isset( $options['step'] ) ? $options['step'] : null;
 $upgrade->upgrade( $step );
-
-?>

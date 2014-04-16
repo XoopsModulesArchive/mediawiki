@@ -30,74 +30,77 @@
 
 $optionsWithArgs = array( 'report' );
 
-require_once( 'commandLine.inc' );
-require_once( 'SpecialImport.php' );
+require_once 'commandLine.inc';
+require_once 'SpecialImport.php';
 
-class DumpRenderer {
-	function __construct( $dir ) {
-		$this->stderr = fopen( "php://stderr", "wt" );
-		$this->outputDirectory = $dir;
-		$this->count = 0;
-	}
+class DumpRenderer
+{
+    function __construct( $dir )
+    {
+        $this->stderr = fopen( "php://stderr", "wt" );
+        $this->outputDirectory = $dir;
+        $this->count = 0;
+    }
 
-	function handleRevision( $rev ) {
-		$title = $rev->getTitle();
-		if (!$title) {
-			fprintf( $this->stderr, "Got bogus revision with null title!" );
-			return;
-		}
-		$display = $title->getPrefixedText();
-		
-		$this->count++;
-		
-		$sanitized = rawurlencode( $display );
-		$filename = sprintf( "%s/wiki-%07d-%s.html", 
-			$this->outputDirectory,
-			$this->count,
-			$sanitized );
-		fprintf( $this->stderr, "%s\n", $filename, $display );
-		
-		// fixme
-		$user = new User();
-		$parser = new Parser();
-		$options = ParserOptions::newFromUser( $user );
-		
-		$output = $parser->parse( $rev->getText(), $title, $options );
-		
-		file_put_contents( $filename,
-			"<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" " .
-			"\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n" .
-			"<html xmlns=\"http://www.w3.org/1999/xhtml\">\n" .
-			"<head>\n" .
-			"<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n" .
-			"<title>" . htmlspecialchars( $display ) . "</title>\n" .
-			"</head>\n" . 
-			"<body>\n" .
-			$output->getText() .
-			"</body>\n" .
-			"</html>" );
-	}
+    function handleRevision( $rev )
+    {
+        $title = $rev->getTitle();
+        if (!$title) {
+            fprintf( $this->stderr, "Got bogus revision with null title!" );
 
-	function run() {
-		$this->startTime = wfTime();
+            return;
+        }
+        $display = $title->getPrefixedText();
 
-		$file = fopen( 'php://stdin', 'rt' );
-		$source = new ImportStreamSource( $file );
-		$importer = new WikiImporter( $source );
+        $this->count++;
 
-		$importer->setRevisionCallback(
-			array( &$this, 'handleRevision' ) );
+        $sanitized = rawurlencode( $display );
+        $filename = sprintf( "%s/wiki-%07d-%s.html",
+            $this->outputDirectory,
+            $this->count,
+            $sanitized );
+        fprintf( $this->stderr, "%s\n", $filename, $display );
 
-		return $importer->doImport();
-	}
+        // fixme
+        $user = new User();
+        $parser = new Parser();
+        $options = ParserOptions::newFromUser( $user );
+
+        $output = $parser->parse( $rev->getText(), $title, $options );
+
+        file_put_contents( $filename,
+            "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" " .
+            "\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n" .
+            "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n" .
+            "<head>\n" .
+            "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n" .
+            "<title>" . htmlspecialchars( $display ) . "</title>\n" .
+            "</head>\n" .
+            "<body>\n" .
+            $output->getText() .
+            "</body>\n" .
+            "</html>" );
+    }
+
+    function run()
+    {
+        $this->startTime = wfTime();
+
+        $file = fopen( 'php://stdin', 'rt' );
+        $source = new ImportStreamSource( $file );
+        $importer = new WikiImporter( $source );
+
+        $importer->setRevisionCallback(
+            array( &$this, 'handleRevision' ) );
+
+        return $importer->doImport();
+    }
 }
 
-if( isset( $options['output-dir'] ) ) {
-	$dir = $options['output-dir'];
+if ( isset( $options['output-dir'] ) ) {
+    $dir = $options['output-dir'];
 } else {
-	wfDie( "Must use --output-dir=/some/dir\n" );
+    wfDie( "Must use --output-dir=/some/dir\n" );
 }
 $render = new DumpRenderer( $dir );
 $render->run();
-
-?>

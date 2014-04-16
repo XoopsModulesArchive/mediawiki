@@ -864,4 +864,3 @@ $1',
 'confirm_purge_button'  => '확인',
 'articletitles'         => '\'\'$1\'\'로 시작하는 문서들',
 );
-?>

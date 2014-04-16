@@ -337,8 +337,7 @@ lub twojej strony dyskusji bez potrzeby ujawniania twoich danych identyfikacyjny
 'mailmypassword' => 'Wyślij mi nowe hasło',
 'passwordremindertitle' => '{{SITENAME}} przypomina o haśle',
 'passwordremindertext' => 'Ktoś (prawdopodobnie Ty, spod adresu $1)
-poprosił od nas o wysłanie nowego hasła dostępu do serwisu
-{{SITENAME}} ($4).
+poprosił od nas o wysłanie nowego hasła dostępu do { serwisu{SITENAME}} ($4).
 Aktualne hasło dla użytkownika "$2" to "$3".
 Najlepiej będzie jak zalogujesz się teraz i od razu zmienisz hasło.',
 'noemail' => 'W bazie nie ma adresu e-mailowego dla użytkownika "$1".',
@@ -742,7 +741,6 @@ Ilość przesłanych plików: <b>$8</b>',
 'brokenredirects' => 'Zerwane przekierowania',
 'brokenredirectstext' => 'Poniższe przekierowania wskazują na nieistniejące artykuły.',
 
-
 # Miscellaneous special pages
 #
 'nbytes' => '$1 {{PLURAL:$1|bajt|bajtów}}',
@@ -796,7 +794,6 @@ Ilość przesłanych plików: <b>$8</b>',
 'log' => 'Rejestry operacji',
 'alllogstext' => 'Połączone rejestry przesłanych plików, skasowanych stron, zabezpieczania, blokowania i nadawania uprawnień. Możesz zawęzić wynik przez wybranie typu rejestru, nazwy użytkownika albo nazwy interesującej Cię strony.',
 'logempty' => 'Brak pozycji w rejestrze.',
-
 
 # Special:Allpages
 'nextpage' => 'Następna strona ($1)',
@@ -1204,54 +1201,54 @@ Można również użyć łącza, np. [[{{ns:Special}}:Export/{{Mediawiki:mainpag
 # Monobook.js: tooltips and access keys for monobook
 'Monobook.js' => '
 var ta = new Object();
-ta[\'pt-userpage\'] = new Array(\'.\',\'Moja osobista strona\'); 
-ta[\'pt-anonuserpage\'] = new Array(\'.\',\'Strona użytkownika numeru IP spod którego edytujesz\'); 
-ta[\'pt-mytalk\'] = new Array(\'n\',\'Moja strona dyskusji\'); 
-ta[\'pt-anontalk\'] = new Array(\'n\',\'Dyskusja o edycjach z tego numeru IP\'); 
-ta[\'pt-preferences\'] = new Array(\'\',\'Moje preferencje\'); 
-ta[\'pt-watchlist\'] = new Array(\'l\',\'Lista stron obserwowanych\'); 
-ta[\'pt-mycontris\'] = new Array(\'y\',\'Lista moich edycji\'); 
-ta[\'pt-login\'] = new Array(\'o\',\'Zachęcamy do zalogowania się, choć nie jest to obowiązkowe.\'); 
-ta[\'pt-anonlogin\'] = new Array(\'o\',\'Zachęcamy do zalogowania się, choć nie jest to obowiązkowe\'); 
-ta[\'pt-logout\'] = new Array(\'o\',\'Wylogowanie\'); 
-ta[\'ca-talk\'] = new Array(\'t\',\'Dyskusja o zawartości tej strony.\'); 
-ta[\'ca-edit\'] = new Array(\'e\',\'Możesz edytować tę stronę. Przed zapisaniem zmian użyj przycisku podgląd.\'); 
-ta[\'ca-addsection\'] = new Array(\'+\',\'Dodaj swój komentarz do dyskusji\'); 
-ta[\'ca-viewsource\'] = new Array(\'e\',\'Ta strona jest zabezpieczona. Możesz zobaczyć tekst źródłowy.\'); 
-ta[\'ca-history\'] = new Array(\'h\',\'Starsze wersje tej strony.\'); 
-ta[\'ca-protect\'] = new Array(\'=\',\'Zabezpiecz tę stronę.\'); 
-ta[\'ca-delete\'] = new Array(\'d\',\'Usuń tę stronę\'); 
-ta[\'ca-undelete\'] = new Array(\'d\',\'Przywróć wersję tej strony sprzed usunięcia\'); 
-ta[\'ca-move\'] = new Array(\'m\',\'Przenieś tę stronę.\'); 
-ta[\'ca-nomove\'] = new Array(\'\',\'Nie masz wystarczających uprawnień do przeniesienia tej strony\'); 
-ta[\'ca-watch\'] = new Array(\'w\',\'Dodaj tę stronę do listy obserwowanych\'); 
-ta[\'ca-unwatch\'] = new Array(\'w\',\'Usuń tę stronę z listy obserwowanych\'); 
-ta[\'search\'] = new Array(\'f\',\'Szukaj w wiki\'); 
-ta[\'p-logo\'] = new Array(\'\',\'Strona główna\'); 
-ta[\'n-mainpage\'] = new Array(\'z\',\'Zobacz stronę główną\'); 
-ta[\'n-portal\'] = new Array(\'\',\'O projekcie, co możesz zrobić, gdzie możesz znaleźć informacje\'); 
-ta[\'n-currentevents\'] = new Array(\'\',\'Informacje o aktualnych wydarzeniach\'); 
-ta[\'n-recentchanges\'] = new Array(\'r\',\'Lista ostatnich zmian w artykułach\'); 
-ta[\'n-randompage\'] = new Array(\'x\',\'Pokaż losowo wybraną stronę\'); 
-ta[\'n-help\'] = new Array(\'\',\'Zapoznaj się z obsługą wiki\'); 
-ta[\'n-sitesupport\'] = new Array(\'\',\'Wesprzyj nas\'); 
-ta[\'t-whatlinkshere\'] = new Array(\'j\',\'Pokaż listę stron linkujących do tego artykułu\'); 
-ta[\'t-recentchangeslinked\'] = new Array(\'k\',\'Ostatnie zmiany w stronach linkujących do tej strony\'); 
-ta[\'feed-rss\'] = new Array(\'\',\'Kanał RSS dla tej strony\'); 
-ta[\'feed-atom\'] = new Array(\'\',\'Kanał Atom dla tej strony\'); 
-ta[\'t-contributions\'] = new Array(\'\',\'Pokaż listę edycji tego użytkownika\'); 
-ta[\'t-emailuser\'] = new Array(\'\',\'Wyślij e-mail do tego użytkownika\'); 
-ta[\'t-upload\'] = new Array(\'u\',\'Wyślij plik na serwer\'); 
-ta[\'t-specialpages\'] = new Array(\'q\',\'Lista wszystkich specjalnych stron\'); 
-ta[\'ca-nstab-main\'] = new Array(\'c\',\'Zobacz stronę artykułu\'); 
-ta[\'ca-nstab-user\'] = new Array(\'c\',\'Zobacz stronę osobistą użytkownika\'); 
-ta[\'ca-nstab-media\'] = new Array(\'c\',\'Pokaż stronę pliku\'); 
-ta[\'ca-nstab-special\'] = new Array(\'\',\'To jest specjalna strona. Nie możesz jej edytować.\'); 
+ta[\'pt-userpage\'] = new Array(\'.\',\'Moja osobista strona\');
+ta[\'pt-anonuserpage\'] = new Array(\'.\',\'Strona użytkownika numeru IP spod którego edytujesz\');
+ta[\'pt-mytalk\'] = new Array(\'n\',\'Moja strona dyskusji\');
+ta[\'pt-anontalk\'] = new Array(\'n\',\'Dyskusja o edycjach z tego numeru IP\');
+ta[\'pt-preferences\'] = new Array(\'\',\'Moje preferencje\');
+ta[\'pt-watchlist\'] = new Array(\'l\',\'Lista stron obserwowanych\');
+ta[\'pt-mycontris\'] = new Array(\'y\',\'Lista moich edycji\');
+ta[\'pt-login\'] = new Array(\'o\',\'Zachęcamy do zalogowania się, choć nie jest to obowiązkowe.\');
+ta[\'pt-anonlogin\'] = new Array(\'o\',\'Zachęcamy do zalogowania się, choć nie jest to obowiązkowe\');
+ta[\'pt-logout\'] = new Array(\'o\',\'Wylogowanie\');
+ta[\'ca-talk\'] = new Array(\'t\',\'Dyskusja o zawartości tej strony.\');
+ta[\'ca-edit\'] = new Array(\'e\',\'Możesz edytować tę stronę. Przed zapisaniem zmian użyj przycisku podgląd.\');
+ta[\'ca-addsection\'] = new Array(\'+\',\'Dodaj swój komentarz do dyskusji\');
+ta[\'ca-viewsource\'] = new Array(\'e\',\'Ta strona jest zabezpieczona. Możesz zobaczyć tekst źródłowy.\');
+ta[\'ca-history\'] = new Array(\'h\',\'Starsze wersje tej strony.\');
+ta[\'ca-protect\'] = new Array(\'=\',\'Zabezpiecz tę stronę.\');
+ta[\'ca-delete\'] = new Array(\'d\',\'Usuń tę stronę\');
+ta[\'ca-undelete\'] = new Array(\'d\',\'Przywróć wersję tej strony sprzed usunięcia\');
+ta[\'ca-move\'] = new Array(\'m\',\'Przenieś tę stronę.\');
+ta[\'ca-nomove\'] = new Array(\'\',\'Nie masz wystarczających uprawnień do przeniesienia tej strony\');
+ta[\'ca-watch\'] = new Array(\'w\',\'Dodaj tę stronę do listy obserwowanych\');
+ta[\'ca-unwatch\'] = new Array(\'w\',\'Usuń tę stronę z listy obserwowanych\');
+ta[\'search\'] = new Array(\'f\',\'Szukaj w wiki\');
+ta[\'p-logo\'] = new Array(\'\',\'Strona główna\');
+ta[\'n-mainpage\'] = new Array(\'z\',\'Zobacz stronę główną\');
+ta[\'n-portal\'] = new Array(\'\',\'O projekcie, co możesz zrobić, gdzie możesz znaleźć informacje\');
+ta[\'n-currentevents\'] = new Array(\'\',\'Informacje o aktualnych wydarzeniach\');
+ta[\'n-recentchanges\'] = new Array(\'r\',\'Lista ostatnich zmian w artykułach\');
+ta[\'n-randompage\'] = new Array(\'x\',\'Pokaż losowo wybraną stronę\');
+ta[\'n-help\'] = new Array(\'\',\'Zapoznaj się z obsługą wiki\');
+ta[\'n-sitesupport\'] = new Array(\'\',\'Wesprzyj nas\');
+ta[\'t-whatlinkshere\'] = new Array(\'j\',\'Pokaż listę stron linkujących do tego artykułu\');
+ta[\'t-recentchangeslinked\'] = new Array(\'k\',\'Ostatnie zmiany w stronach linkujących do tej strony\');
+ta[\'feed-rss\'] = new Array(\'\',\'Kanał RSS dla tej strony\');
+ta[\'feed-atom\'] = new Array(\'\',\'Kanał Atom dla tej strony\');
+ta[\'t-contributions\'] = new Array(\'\',\'Pokaż listę edycji tego użytkownika\');
+ta[\'t-emailuser\'] = new Array(\'\',\'Wyślij e-mail do tego użytkownika\');
+ta[\'t-upload\'] = new Array(\'u\',\'Wyślij plik na serwer\');
+ta[\'t-specialpages\'] = new Array(\'q\',\'Lista wszystkich specjalnych stron\');
+ta[\'ca-nstab-main\'] = new Array(\'c\',\'Zobacz stronę artykułu\');
+ta[\'ca-nstab-user\'] = new Array(\'c\',\'Zobacz stronę osobistą użytkownika\');
+ta[\'ca-nstab-media\'] = new Array(\'c\',\'Pokaż stronę pliku\');
+ta[\'ca-nstab-special\'] = new Array(\'\',\'To jest specjalna strona. Nie możesz jej edytować.\');
 ta[\'ca-nstab-project\'] = new Array(\'a\',\'Zobacz stronę projektu\');
-ta[\'ca-nstab-image\'] = new Array(\'c\',\'Zobacz stronę grafiki\'); 
-ta[\'ca-nstab-mediawiki\'] = new Array(\'c\',\'Zobacz komunikat systemowy\'); 
-ta[\'ca-nstab-template\'] = new Array(\'c\',\'Zobacz szablon\'); 
-ta[\'ca-nstab-help\'] = new Array(\'c\',\'Zobacz stronę pomocy\'); 
+ta[\'ca-nstab-image\'] = new Array(\'c\',\'Zobacz stronę grafiki\');
+ta[\'ca-nstab-mediawiki\'] = new Array(\'c\',\'Zobacz komunikat systemowy\');
+ta[\'ca-nstab-template\'] = new Array(\'c\',\'Zobacz szablon\');
+ta[\'ca-nstab-help\'] = new Array(\'c\',\'Zobacz stronę pomocy\');
 ta[\'ca-nstab-category\'] = new Array(\'c\',\'Zobacz stronę kategorii\');',
 
 # image deletion
@@ -1529,7 +1526,7 @@ ta[\'ca-nstab-category\'] = new Array(\'c\',\'Zobacz stronę kategorii\');',
 'confirmemail_body' => 'Ktoś łącząc się z komputera o adresie IP $1 zarejestrował w serwisie
 {{SITENAME}} konto "$2" podając niniejszy adres email.
 
-Aby potwierdzić, że to Ty zarejestrowałeś/aś to konto oraz aby włączyć 
+Aby potwierdzić, że to Ty zarejestrowałeś/aś to konto oraz aby włączyć
 wszystkie funkcje wymagające działającego adresu email, otwórz w swojej
 przeglądarce ten link:
 
@@ -1580,6 +1577,3 @@ $1',
 'displaytitle' => '(Link do tej strony to [[:$1|$1]])',
 
 );
-
-
-?>

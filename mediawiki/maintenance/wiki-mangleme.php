@@ -37,7 +37,7 @@ Usage:
 */
 
 # This is a command line script, load mediawiki env:
-include('commandLine.inc');
+include 'commandLine.inc';
 
 // Configuration:
 
@@ -56,13 +56,12 @@ define("VALIDATE_ON_WEB", false);
 # URL to use to validate our output:
 define("VALIDATOR_URL",  "http://validator.w3.org/check");
 
-
 // If it goes wrong, we want to know about it.
 error_reporting(E_ALL);
 
 /////////////////////  DEFINE THE DATA THAT WILL BE USED //////////////////////
-/* Note: Only some HTML tags are understood by MediaWiki, the rest is ignored. 
-         The tags that are ignored have been commented out below. */ 
+/* Note: Only some HTML tags are understood by MediaWiki, the rest is ignored.
+         The tags that are ignored have been commented out below. */
 
 $data = array();
 // $data["A"] = array("NAME", "HREF", "REF", "REV", "TITLE", "TARGET", "SHAPE", "onLoad", "STYLE");
@@ -142,7 +141,6 @@ $data["ins"]     = array("CLASS", "ID", "onLoad", "STYLE");
 $data["sub"]     = array("CLASS", "ID", "onLoad", "STYLE");
 $data["ol"]      = array("CLASS", "ID", "onLoad", "STYLE");
 
-
 // The types of the HTML that we will be testing were defined above
 $types = array_keys($data);
 
@@ -151,17 +149,17 @@ $other = array("&","=",":","?","\"","\n","%n%n%n%n%n%n%n%n%n%n%n%n","\\");
 $ints = array("0","-1","127","7897","89000","808080","90928345","74326794236234","0xfffffff","ffff");
 
 ///////////////////////////////// WIKI-SYNTAX ///////////////////////////
-/* Note: Defines various wiki-related bits of syntax, that can potentially cause 
+/* Note: Defines various wiki-related bits of syntax, that can potentially cause
          MediaWiki to do something other than just print that literal text */
 $ext = array(
-"[[", "]]", "\n{|", "|}", "{{", "}}", "|", "[[image:", "[", "]", 
-"=", "==", "===", "====", "=====", "======", "\n*", "*", "\n:", ":", 
-"{{{", "}}}", 
-"\n", "\n#", "#", "\n;", ";", "\n ", 
-"----", "\n----", 
-"|]]", "~~~", "#REDIRECT [[", "'''", "''", 
+"[[", "]]", "\n{|", "|}", "{{", "}}", "|", "[[image:", "[", "]",
+"=", "==", "===", "====", "=====", "======", "\n*", "*", "\n:", ":",
+"{{{", "}}}",
+"\n", "\n#", "#", "\n;", ";", "\n ",
+"----", "\n----",
+"|]]", "~~~", "#REDIRECT [[", "'''", "''",
 "ISBN 2", "\n|-", "| ", "\n| ",
-"<!--", "-->", 
+"<!--", "-->",
 "\"", "'",
 ">",
 "http://","https://","url://","ftp://","file://","irc://","javascript:",
@@ -208,15 +206,15 @@ $ext = array(
 '{{MSG:',
 '{{MSGNW:',
 '__END__',
-'{{INT:',        
-'{{SITENAME}}',        
-'{{NS:',        
-'{{LOCALURL:',        
-'{{LOCALURLE:',        
-'{{SCRIPTPATH}}',        
-'{{GRAMMAR:',        
-'__NOTITLECONVERT__',        
-'__NOCONTENTCONVERT__',    
+'{{INT:',
+'{{SITENAME}}',
+'{{NS:',
+'{{LOCALURL:',
+'{{LOCALURLE:',
+'{{SCRIPTPATH}}',
+'{{GRAMMAR:',
+'__NOTITLECONVERT__',
+'__NOCONTENTCONVERT__',
 "<!--MWTEMPLATESECTION=",
 "<!--LINK 987-->",
 "<!--IWLINK 987-->",
@@ -236,75 +234,80 @@ $ext = array(
 "</math>"
 );
 
-
 /////////////////////  A CLASS THAT GENERATES RANDOM STRINGS OF DATA //////////////////////
 
-class htmler {
-	var $maxparams = 4;
-	var $maxtypes = 40;
+class htmler
+{
+    var $maxparams = 4;
+    var $maxtypes = 40;
 
-	function randnum($finish,$start=0) {
-		return mt_rand($start,$finish);
-	}
+    function randnum($finish,$start=0)
+    {
+        return mt_rand($start,$finish);
+    }
 
-	function randstring() {
-		global $ext;
-		$thestring = "";
-		
-		for ($i=0; $i<40; $i++) {
-			$what = $this->randnum(1);
-			
-			if ($what == 0) { // include some random wiki syntax
-				$which = $this->randnum(count($ext) - 1);
-				$thestring .= $ext[$which];
-			}
-			else { // include some random text
-				$char = chr(INCLUDE_BINARY ? $this->randnum(255) : $this->randnum(126,32));
-				if ($char == "<") $char = ""; // we don't want the '<' character, it stuffs us up.
-				$length = $this->randnum(8);
-				$thestring .= str_repeat ($char, $length);
-			}
-		}
-		return $thestring;
-	}
+    function randstring()
+    {
+        global $ext;
+        $thestring = "";
 
-	function makestring() {
-		global $ints, $other;
-		$what = $this->randnum(2);
-		if ($what == 0) {
-			return $this->randstring();
-		}
-		elseif ($what == 1) {
-			return $ints[$this->randnum(count($ints) - 1)];
-		}
-		else {
-			return $other[$this->randnum(count($other) - 1)];
-		}
-	}
+        for ($i=0; $i<40; ++$i) {
+            $what = $this->randnum(1);
 
-    function loop() {
-		global $types, $data;
-		$string = "";
-		$i = $this->randnum(count($types) - 1);
-		$t = $types[$i];
-		$arr = $data[$t];
-		$string .= "<" . $types[$i] . " ";
-		for ($z=0; $z<$this->maxparams; $z++) {
-			$badparam = $arr[$this->randnum(count($arr) - 1)];
-			$badstring = $this->makestring();
-			$string .= $badparam . "=" . $badstring . " ";
-		}
-		$string .= ">\n";
-		return $string;
-		}
+            if ($what == 0) { // include some random wiki syntax
+                $which = $this->randnum(count($ext) - 1);
+                $thestring .= $ext[$which];
+            } else { // include some random text
+                $char = chr(INCLUDE_BINARY ? $this->randnum(255) : $this->randnum(126,32));
+                if ($char == "<") $char = ""; // we don't want the '<' character, it stuffs us up.
+                $length = $this->randnum(8);
+                $thestring .= str_repeat ($char, $length);
+            }
+        }
 
-    function main() {
-		$page = "";
-		for ($k=0; $k<$this->maxtypes; $k++) {
-			$page .= $this->loop();
-		}
-		return $page;
-		}
+        return $thestring;
+    }
+
+    function makestring()
+    {
+        global $ints, $other;
+        $what = $this->randnum(2);
+        if ($what == 0) {
+            return $this->randstring();
+        } elseif ($what == 1) {
+            return $ints[$this->randnum(count($ints) - 1)];
+        } else {
+            return $other[$this->randnum(count($other) - 1)];
+        }
+    }
+
+    function loop()
+    {
+        global $types, $data;
+        $string = "";
+        $i = $this->randnum(count($types) - 1);
+        $t = $types[$i];
+        $arr = $data[$t];
+        $string .= "<" . $types[$i] . " ";
+        for ($z=0; $z<$this->maxparams; $z++) {
+            $badparam = $arr[$this->randnum(count($arr) - 1)];
+            $badstring = $this->makestring();
+            $string .= $badparam . "=" . $badstring . " ";
+        }
+        $string .= ">\n";
+
+        return $string;
+        }
+
+    function main()
+    {
+        $page = "";
+        for ($k=0; $k<$this->maxtypes; $k++) {
+            $page .= $this->loop();
+        }
+
+        return $page;
+        }
 }
 
 
@@ -314,10 +317,11 @@ class htmler {
 /**
 ** @desc: Utility function for saving a file. Currently has no error checking.
 */
-function saveFile($string, $name) {
-	$fp = fopen ( DIRECTORY . "/" . $name, "w");
-	fwrite($fp, $string);
-	fclose ($fp);
+function saveFile($string, $name)
+{
+    $fp = fopen ( DIRECTORY . "/" . $name, "w");
+    fwrite($fp, $string);
+    fclose ($fp);
 }
 
 
@@ -326,41 +330,41 @@ function saveFile($string, $name) {
 /*
 ** @desc: Asks MediaWiki for a preview of a string. Returns the HTML.
 */
-function wikiPreview($text) {
+function wikiPreview($text)
+{
+    $params = array (
+        "action"      => "submit",
+        "wpMinoredit" => "1",
+        "wpPreview"   => "Show preview",
+        "wpSection"   => "new",
+        "wpEdittime"  => "",
+        "wpSummary"   => "This is a test",
+        "wpTextbox1"  => $text
+    );
 
-	$params = array (
-		"action"      => "submit",
-		"wpMinoredit" => "1",
-		"wpPreview"   => "Show preview",
-		"wpSection"   => "new",
-		"wpEdittime"  => "",
-		"wpSummary"   => "This is a test",
-		"wpTextbox1"  => $text
-	);
+    if ( function_exists('curl_init') ) {
+        $ch = curl_init();
+    } else {
+        die("Could not found 'curl_init' function. Is curl extension enabled ?\n");
+    }
 
-	if( function_exists('curl_init') ) {
-		$ch = curl_init();
-	} else {
-		die("Could not found 'curl_init' function. Is curl extension enabled ?\n");
-	}
+    curl_setopt($ch, CURLOPT_POST, 1);                    // save form using a POST
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $params);        // load the POST variables
+    curl_setopt($ch, CURLOPT_URL, WIKI_URL);              // set url to post to
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);           // return into a variable
 
-	curl_setopt($ch, CURLOPT_POST, 1);                    // save form using a POST
-	curl_setopt($ch, CURLOPT_POSTFIELDS, $params);        // load the POST variables
-	curl_setopt($ch, CURLOPT_URL, WIKI_URL);              // set url to post to
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);           // return into a variable
+    $result=curl_exec ($ch);
 
-	$result=curl_exec ($ch);
+    // if we encountered an error, then log it, and exit.
+    if (curl_error($ch)) {
+        trigger_error("Curl error #: " . curl_errno($ch) . " - " . curl_error ($ch) );
+        print "Curl error #: " . curl_errno($ch) . " - " . curl_error ($ch) . " - exiting.\n";
+        exit();
+    }
 
-	// if we encountered an error, then log it, and exit.
-	if (curl_error($ch)) {
-		trigger_error("Curl error #: " . curl_errno($ch) . " - " . curl_error ($ch) );
-		print "Curl error #: " . curl_errno($ch) . " - " . curl_error ($ch) . " - exiting.\n";
-		exit();
-	}
+    curl_close ($ch);
 
-	curl_close ($ch);
-
-	return $result;
+    return $result;
 }
 
 
@@ -369,31 +373,31 @@ function wikiPreview($text) {
 /*
 ** @desc: Asks the validator whether this is valid HTML, or not.
 */
-function validateHTML($text) {
+function validateHTML($text)
+{
+    $params = array ("fragment"   => $text);
 
-	$params = array ("fragment"   => $text);
+    $ch = curl_init();
 
-	$ch = curl_init();
+    curl_setopt($ch, CURLOPT_POST, 1);                    // save form using a POST
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $params);        // load the POST variables
+    curl_setopt($ch, CURLOPT_URL, VALIDATOR_URL);         // set url to post to
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);           // return into a variable
 
-	curl_setopt($ch, CURLOPT_POST, 1);                    // save form using a POST
-	curl_setopt($ch, CURLOPT_POSTFIELDS, $params);        // load the POST variables
-	curl_setopt($ch, CURLOPT_URL, VALIDATOR_URL);         // set url to post to
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);           // return into a variable
+    $result=curl_exec ($ch);
 
-	$result=curl_exec ($ch);
+    // if we encountered an error, then log it, and exit.
+    if (curl_error($ch)) {
+        trigger_error("Curl error #: " . curl_errno($ch) . " - " . curl_error ($ch) );
+        print "Curl error #: " . curl_errno($ch) . " - " . curl_error ($ch) . " - exiting.\n";
+        exit();
+    }
 
-	// if we encountered an error, then log it, and exit.
-	if (curl_error($ch)) {
-		trigger_error("Curl error #: " . curl_errno($ch) . " - " . curl_error ($ch) );
-		print "Curl error #: " . curl_errno($ch) . " - " . curl_error ($ch) . " - exiting.\n";
-		exit();
-	}
+    curl_close ($ch);
 
-	curl_close ($ch);
+    $valid = (strpos($result, "Failed validation") === false ? true : false);
 
-	$valid = (strpos($result, "Failed validation") === false ? true : false);
-
-	return array($valid, $result);
+    return array($valid, $result);
 }
 
 
@@ -401,94 +405,96 @@ function validateHTML($text) {
 /**
 ** @desc: checks the string to see if tags are balanced.
 */
-function checkOpenCloseTags($string, $filename) {
-	$valid = true;
+function checkOpenCloseTags($string, $filename)
+{
+    $valid = true;
 
-	$lines = explode("\n", $string);
+    $lines = explode("\n", $string);
 
-	$num_lines = count($lines);
-	// print "Num lines: " . $num_lines . "\n";
+    $num_lines = count($lines);
+    // print "Num lines: " . $num_lines . "\n";
 
-	foreach ($lines as $line_num => $line) {
+    foreach ($lines as $line_num => $line) {
 
-		// skip mediawiki's own unbalanced lines.
-		if ($line_num == 15) continue;
-		if ($line == "\t\t<style type=\"text/css\">/*<![CDATA[*/") continue;
-		if ($line == "<textarea tabindex='1' accesskey=\",\" name=\"wpTextbox1\" id=\"wpTextbox1\" rows='25'") continue;
+        // skip mediawiki's own unbalanced lines.
+        if ($line_num == 15) continue;
+        if ($line == "\t\t<style type=\"text/css\">/*<![CDATA[*/") continue;
+        if ($line == "<textarea tabindex='1' accesskey=\",\" name=\"wpTextbox1\" id=\"wpTextbox1\" rows='25'") continue;
 
-		if ($line == "/*<![CDATA[*/") continue;
-		if ($line == "/*]]>*/") continue;
-		if (ereg("^<form id=\"editform\" name=\"editform\" method=\"post\" action=\"", $line)) continue;
-		if (ereg("^enctype=\"multipart/form-data\"><input type=\"hidden\" name=\"wikidb_session\" value=\"", $line)) continue; // line num and content changes.
-		if ($line == "<textarea tabindex='1' accesskey=\",\" name=\"wpTextbox1\" rows='25'") continue;
-		if (ereg("^cols='80'>", $line)) continue; //  line num and content changes.
+        if ($line == "/*<![CDATA[*/") continue;
+        if ($line == "/*]]>*/") continue;
+        if (ereg("^<form id=\"editform\" name=\"editform\" method=\"post\" action=\"", $line)) continue;
+        if (ereg("^enctype=\"multipart/form-data\"><input type=\"hidden\" name=\"wikidb_session\" value=\"", $line)) continue; // line num and content changes.
+        if ($line == "<textarea tabindex='1' accesskey=\",\" name=\"wpTextbox1\" rows='25'") continue;
+        if (ereg("^cols='80'>", $line)) continue; //  line num and content changes.
 
-		if ($num_lines - $line_num == 246) continue;
-		if ($num_lines - $line_num == 65) continue;
-		if ($num_lines - $line_num == 62) continue;
-		if ($num_lines - $line_num == 52) continue;
-		if ($num_lines - $line_num == 50) continue;
-		if ($num_lines - $line_num == 29) continue;
-		if ($num_lines - $line_num == 28) continue;
-		if ($num_lines - $line_num == 27) continue;
-		if ($num_lines - $line_num == 23) continue;
+        if ($num_lines - $line_num == 246) continue;
+        if ($num_lines - $line_num == 65) continue;
+        if ($num_lines - $line_num == 62) continue;
+        if ($num_lines - $line_num == 52) continue;
+        if ($num_lines - $line_num == 50) continue;
+        if ($num_lines - $line_num == 29) continue;
+        if ($num_lines - $line_num == 28) continue;
+        if ($num_lines - $line_num == 27) continue;
+        if ($num_lines - $line_num == 23) continue;
 
-		if (substr_count($line, "<") > substr_count($line, ">")) {
-			print "\nUnclosed tag in " . DIRECTORY . "/" . $filename . " on line: " . ($line_num + 1) . " \n$line\n";
-			$valid = false;
-		}
-	}
-	return $valid;
+        if (substr_count($line, "<") > substr_count($line, ">")) {
+            print "\nUnclosed tag in " . DIRECTORY . "/" . $filename . " on line: " . ($line_num + 1) . " \n$line\n";
+            $valid = false;
+        }
+    }
+
+    return $valid;
 }
-
 
 /**
 ** @desc: Get tidy to check for no HTML errors in the output file (e.g. unescaped strings).
 */
-function tidyCheckFile($name) {
-	$file = DIRECTORY . "/" . $name;
-	$x = `tidy -errors -quiet --show-warnings false $file 2>&1`;
-	if (trim($x) != "") {
-		print "Tidy errors found in $file:\n$x";
-		return false;
-	} else {
-		return true;
-	}
-}
+function tidyCheckFile($name)
+{
+    $file = DIRECTORY . "/" . $name;
+    $x = `tidy -errors -quiet --show-warnings false $file 2>&1`;
+    if (trim($x) != "") {
+        print "Tidy errors found in $file:\n$x";
 
+        return false;
+    } else {
+        return true;
+    }
+}
 
 ////////////////////// TESTING FUNCTION ////////////////////////
 /**
 ** @desc: takes a wiki markup string, and tests it for security or validation problems.
 */
-function testWikiMarkup($raw_markup, $testname) {
+function testWikiMarkup($raw_markup, $testname)
+{
+       // don't overwrite a previous test of the same name.
+       while (file_exists(DIRECTORY . "/" . $testname . ".raw_markup.txt")) {
+               $testname .= "-" . mt_rand(0,9);
+       }
 
-	   // don't overwrite a previous test of the same name.
-	   while (file_exists(DIRECTORY . "/" . $testname . ".raw_markup.txt")) {
-			   $testname .= "-" . mt_rand(0,9);
-	   }
+        // upload to MediaWiki install.
+        $wiki_preview = wikiPreview($raw_markup);
 
-		// upload to MediaWiki install.
-		$wiki_preview = wikiPreview($raw_markup);
+        // save output files
+        saveFile($raw_markup,  $testname . ".raw_markup.txt");
+        saveFile($wiki_preview,  $testname . ".wiki_preview.html");
 
-		// save output files
-		saveFile($raw_markup,  $testname . ".raw_markup.txt");
-		saveFile($wiki_preview,  $testname . ".wiki_preview.html");
-
-		// validate result
-		$valid = true;
-		if (VALIDATE_ON_WEB) list ($valid, $validator_output) = validateHTML($wiki_preview);
-		$valid = $valid && checkOpenCloseTags ($wiki_preview, $testname . ".wiki_preview.html");
-		$valid = $valid && tidyCheckFile( $testname . ".wiki_preview.html" );
+        // validate result
+        $valid = true;
+        if (VALIDATE_ON_WEB) list ($valid, $validator_output) = validateHTML($wiki_preview);
+        $valid = $valid && checkOpenCloseTags ($wiki_preview, $testname . ".wiki_preview.html");
+        $valid = $valid && tidyCheckFile( $testname . ".wiki_preview.html" );
 
 
-		if( $valid ) {
-				// Remove valid tests:
-				unlink( DIRECTORY . "/" . $testname . ".raw_markup.txt" );
-				unlink( DIRECTORY . "/" . $testname . ".wiki_preview.html");
-		} elseif( VALIDATE_ON_WEB ) {
-				saveFile($validator_output,  $testname . ".validator_output.html");
-		}
+        if ($valid) {
+                // Remove valid tests:
+                unlink( DIRECTORY . "/" . $testname . ".raw_markup.txt" );
+                unlink( DIRECTORY . "/" . $testname . ".wiki_preview.html");
+        } elseif (VALIDATE_ON_WEB) {
+                saveFile($validator_output,  $testname . ".validator_output.html");
+        }
 }
 
 
@@ -496,35 +502,35 @@ function testWikiMarkup($raw_markup, $testname) {
 
 // Make directory if doesn't exist
 if (!is_dir(DIRECTORY)) {
-	mkdir (DIRECTORY, 0700 );
+    mkdir (DIRECTORY, 0700 );
 }
 // otherwise, retest the things that we have found in previous runs
 else {
-	   print "Retesting previously found problems.\n";
+       print "Retesting previously found problems.\n";
 
-	   // create a handler for the directory
-	   $handler = opendir(DIRECTORY);
+       // create a handler for the directory
+       $handler = opendir(DIRECTORY);
 
-	   // keep going until all files in directory have been read
-	   while ($file = readdir($handler)) {
+       // keep going until all files in directory have been read
+       while ($file = readdir($handler)) {
 
-			   // if file is not raw markup, or is a retest, then skip it.
-			   if (!ereg("\.raw_markup.txt$", $file)) continue;
-				if ( ereg("^retest-", $file)) continue;
+               // if file is not raw markup, or is a retest, then skip it.
+               if (!ereg("\.raw_markup.txt$", $file)) continue;
+                if ( ereg("^retest-", $file)) continue;
 
-				print "Retesting " . DIRECTORY . "/" . $file . "\n";
+                print "Retesting " . DIRECTORY . "/" . $file . "\n";
 
-			   // get file contents
-			   $markup = file_get_contents(DIRECTORY . "/" . $file);
+               // get file contents
+               $markup = file_get_contents(DIRECTORY . "/" . $file);
 
-			   // run retest
-			   testWikiMarkup($markup, "retest-" . $file);
-	   }
+               // run retest
+               testWikiMarkup($markup, "retest-" . $file);
+       }
 
-	   // tidy up: close the handler
-	   closedir($handler);
+       // tidy up: close the handler
+       closedir($handler);
 
-	   print "Done retesting.\n";
+       print "Done retesting.\n";
 }
 
 // seed the random number generator
@@ -536,18 +542,17 @@ $h = new htmler();
 print "Beginning main loop. Results are stored in the ".DIRECTORY." directory.\n";
 print "Press CTRL+C to stop testing.\n";
 for ($count=0; true /*$count<10000 */ ; $count++) { // while (true)
-	switch( $count % 4 ) {
-		case '0': print "\r/"; break;
-		case '1': print "\r-"; break;
-		case '2': print "\r\\"; break;
-		case '3': print "\r|"; break;
-	}
-	print " $count";
+    switch ($count % 4) {
+        case '0': print "\r/"; break;
+        case '1': print "\r-"; break;
+        case '2': print "\r\\"; break;
+        case '3': print "\r|"; break;
+    }
+    print " $count";
 
-	// generate and save text to test.
-	$raw_markup = $h->main();
+    // generate and save text to test.
+    $raw_markup = $h->main();
 
-	// test this wiki markup
-	testWikiMarkup($raw_markup, $count);
+    // test this wiki markup
+    testWikiMarkup($raw_markup, $count);
 }
-?>

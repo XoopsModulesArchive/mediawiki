@@ -29,9 +29,9 @@
 # Variables / Configuration
 #
 
-if( php_sapi_name() != 'cli' ) {
-	echo 'Run me from the command line.';
-	die( -1 );
+if ( php_sapi_name() != 'cli' ) {
+    echo 'Run me from the command line.';
+    die( -1 );
 }
 
 /** Figure out the base directory for MediaWiki location */
@@ -66,13 +66,15 @@ $command = $doxygenBin;
 # Functions
 #
 
-function readaline( $prompt = '') {
-	print $prompt;
-	$fp = fopen( "php://stdin", "r" );
-	$resp = trim( fgets( $fp, 1024 ) );
-	fclose( $fp );
-	return $resp;
-	}
+function readaline( $prompt = '')
+{
+    print $prompt;
+    $fp = fopen( "php://stdin", "r" );
+    $resp = trim( fgets( $fp, 1024 ) );
+    fclose( $fp );
+
+    return $resp;
+    }
 
 /**
  * Generate a configuration file given user parameters and return the temporary filename.
@@ -81,29 +83,30 @@ function readaline( $prompt = '') {
  * @param $stripFromPath String: path that should be stripped out (usually mediawiki base path).
  * @param $input String: Path to analyze.
  */
-function generateConfigFile($doxygenTemplate, $outputDirectory, $stripFromPath, $input) {
-	global $tmpPath ;
+function generateConfigFile($doxygenTemplate, $outputDirectory, $stripFromPath, $input)
+{
+    global $tmpPath ;
 
-	$template = file_get_contents($doxygenTemplate);
+    $template = file_get_contents($doxygenTemplate);
 
-	// Replace template placeholders by correct values.	
-	$tmpCfg = str_replace(
-			array(
-				'{{OUTPUT_DIRECTORY}}',
-				'{{STRIP_FROM_PATH}}',
-				'{{INPUT}}',
-			),
-			array(
-				$outputDirectory,
-				$stripFromPath,
-				$input,
-			),
-			$template
-		);
-	$tmpFileName = $tmpPath . 'mwdocgen'. rand() .'.tmp';
-	file_put_contents( $tmpFileName , $tmpCfg ) or die("Could not write doxygen configuration to file $tmpFileName\n");
+    // Replace template placeholders by correct values.
+    $tmpCfg = str_replace(
+            array(
+                '{{OUTPUT_DIRECTORY}}',
+                '{{STRIP_FROM_PATH}}',
+                '{{INPUT}}',
+            ),
+            array(
+                $outputDirectory,
+                $stripFromPath,
+                $input,
+            ),
+            $template
+        );
+    $tmpFileName = $tmpPath . 'mwdocgen'. rand() .'.tmp';
+    file_put_contents( $tmpFileName , $tmpCfg ) or die("Could not write doxygen configuration to file $tmpFileName\n");
 
-	return $tmpFileName;
+    return $tmpFileName;
 }
 
 #
@@ -112,23 +115,23 @@ function generateConfigFile($doxygenTemplate, $outputDirectory, $stripFromPath, 
 
 unset( $file );
 
-if( is_array( $argv ) && isset( $argv[1] ) ) {
-	switch( $argv[1] ) {
-	case '--all':         $input = 0; break;
-	case '--includes':    $input = 1; break;
-	case '--languages':   $input = 2; break;
-	case '--maintenance': $input = 3; break;
-	case '--skins':       $input = 4; break;
-	case '--file':
-		$input = 5;
-		if( isset( $argv[2] ) ) {
-			$file = $argv[2];
-		}
-		break;
-	}
+if ( is_array( $argv ) && isset( $argv[1] ) ) {
+    switch ($argv[1]) {
+    case '--all':         $input = 0; break;
+    case '--includes':    $input = 1; break;
+    case '--languages':   $input = 2; break;
+    case '--maintenance': $input = 3; break;
+    case '--skins':       $input = 4; break;
+    case '--file':
+        $input = 5;
+        if ( isset( $argv[2] ) ) {
+            $file = $argv[2];
+        }
+        break;
+    }
 }
 
-if( $input === '' ) {
+if ($input === '') {
 ?>Several documentation possibilities:
  0 : whole documentation (1 + 2 + 3 + 4)
  1 : only includes
@@ -136,36 +139,35 @@ if( $input === '' ) {
  3 : only maintenance
  4 : only skins
  5 : only a given file<?php
-	while ( !is_numeric($input) )
-	{
-		$input = readaline( "\nEnter your choice [0]:" );
-		if($input == '') {
-			$input = 0;
-		}
-	}
+    while ( !is_numeric($input) ) {
+        $input = readaline( "\nEnter your choice [0]:" );
+        if ($input == '') {
+            $input = 0;
+        }
+    }
 }
 /*
 switch ($input) {
 case 0:
-	$command .= " -f $mwBaseFiles -d $mwPathI,$mwPathL,$mwPathM,$mwPathS";
-	break;
+    $command .= " -f $mwBaseFiles -d $mwPathI,$mwPathL,$mwPathM,$mwPathS";
+    break;
 case 1:
-	$command .= "-d $mwPathI";
-	break;
+    $command .= "-d $mwPathI";
+    break;
 case 2:
-	$command .= "-d $mwPathL";
-	break;
+    $command .= "-d $mwPathL";
+    break;
 case 3:
-	$command .= "-d $mwPathM";
-	break;
+    $command .= "-d $mwPathM";
+    break;
 case 4:
-	$command .= "-d $mwPathS";
-	break;
+    $command .= "-d $mwPathS";
+    break;
 case 5:
-	if( !isset( $file ) ) {
-		$file = readaline("Enter file name $mwPath");
-	}
-	$command .= ' -f '.$mwPath.$file;
+    if ( !isset( $file ) ) {
+        $file = readaline("Enter file name $mwPath");
+    }
+    $command .= ' -f '.$mwPath.$file;
 }
 
 $command .= " -t $pdOutput ".$pdOthers;
@@ -201,5 +203,3 @@ You might want to deleted the temporary file <?php echo $generatedConf; ?>
 # phpdoc -d ./mediawiki/includes/ ./mediawiki/maintenance/ -f ./mediawiki/*php -t ./mwdoc/ -dn 'MediaWiki' --title 'MediaWiki generated documentation' -o 'HTML:frames:DOM/earthli'
 
 # phpdoc -f ./mediawiki/includes/GlobalFunctions.php -t ./mwdoc/ -dn 'MediaWiki' --title 'MediaWiki generated documentation' -o 'HTML:frames:DOM/earthli'
-
-?>

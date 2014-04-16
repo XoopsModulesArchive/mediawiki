@@ -53,7 +53,6 @@ $wgAllMessagesPt_br = array(
 'nov' => 'Nov',
 'dec' => 'Dez',
 
-
 # Bits of text used by many pages:
 #
 "categories" => "Page categories",
@@ -543,7 +542,6 @@ Destes, <b>$2</b> são administradores (veja $3).",
 "missinglanguagelinksbutton"    => "Find missing language links for",
 "missinglanguagelinkstext"      => "These articles do <i>not</i> link to their counterpart in $1. Redirects and subpages are <i>not</i> shown.",
 
-
 # Miscellaneous special pages
 #
 "orphans"       => "Páginas órfãns",
@@ -629,7 +627,6 @@ $3...
 "couldntremove" => "Não consegui remover o item '$1'...",
 "iteminvalidname" => "Problema com item '$1', nome inválido...",
 "wlnote" => "Segue as últimas $1 mudanças nas últimas <b>$2</b> horas.",
-
 
 # Delete/protect/revert
 #
@@ -786,6 +783,3 @@ Por favor, escolha outro nome.",
 'mw_math_mathml' => 'MathML',
 
 );
-
-
-?>

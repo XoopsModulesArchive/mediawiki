@@ -946,4 +946,3 @@ esantį mygtuką \'Išmesti iš stebimų\'.',
 'yourrealname' => 'Jūsų tikras vardas*',
 'yourtext' => 'Jūsų tekstas',
 );
-?>

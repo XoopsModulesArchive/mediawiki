@@ -1,6 +1,5 @@
 <?php
 
-
 $wgAllMessagesSr_ec = array(
 '1movedto2' => 'чланку [[$1]] је промењено име у [[$2]]',
 '1movedto2_redir' => 'чланку [[$1]] је промењено име у [[$2]] путем преусмерења',
@@ -1501,6 +1500,3 @@ $3...)<br />
 'variantname-sr-jl' => 'jekav',
 'variantname-sr' => 'disable',
 );
-
-
-?>

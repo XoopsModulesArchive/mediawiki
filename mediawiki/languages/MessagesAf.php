@@ -1,5 +1,4 @@
-<?php 
-
+<?php
 
 /* private */ $wgAllMessagesAf = array(
 # User Toggles
@@ -50,7 +49,6 @@
 'oct' => '10',
 'nov' => '11',
 'dec' => '12',
-
 
 # Bits of text used by many pages:
 #
@@ -104,7 +102,6 @@
 "protectedpage" => "Beskermde bladsy",
 "administrators" => "{{ns:4}}:Administreerders",
 "sysoptitle"	=> "Sisopregte verlang",
-
 
 "sysoptext"		=> "Die wysiging waarvoor jy gevra het kan slegs deur iemand wat \"sisop\"regte het, gedoen word. Lees $1.",
 "developertitle" => "Ontwerperregte verlang",
@@ -298,7 +295,6 @@ Search in namespaces :<br />
 $1<br />
 $2 List redirects   Search for $3 $9", #fixMe
 
-
 # Preferences page
 #
 "preferences"	=> "Voorkeure",
@@ -465,7 +461,6 @@ Dit werk uit op gemiddeld <b>$5</b> veranderings per bladsy, en bladsye word <b>
 "missinglanguagelinks"  => "Weggelate taalskakels",
 "missinglanguagelinksbutton"    => "Het weggelate taalskakels gevind vir",
 "missinglanguagelinkstext"      => "Hierdie artikels skakel <i>nie</i> na hul eweknie in $1. Aansture en subbladsye word <i>nie</i> gewys nie.",
-
 
 # Miscellaneous special pages
 #
@@ -682,7 +677,3 @@ Kies asseblief 'n ander naam.",
 'mw_math_mathml' => 'MathML',
 
 );
-
-
-
-?>

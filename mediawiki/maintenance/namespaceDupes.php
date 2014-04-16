@@ -20,10 +20,10 @@
 $options = array( 'fix', 'suffix', 'help' );
 
 /** */
-require_once( 'commandLine.inc' );
+require_once 'commandLine.inc';
 #require_once( 'maintenance/userDupes.inc' );
 
-if(isset( $options['help'] ) ) {
+if (isset( $options['help'] ) ) {
 print <<<END
 usage: namespaceDupes.php [--fix] [--suffix=<text>] [--help]
     --help          : this help message
@@ -35,138 +35,153 @@ END;
 die;
 }
 
-class NamespaceConflictChecker {
-	function NamespaceConflictChecker( &$db ) {
-		$this->db =& $db;
-	}
+class NamespaceConflictChecker
+{
+    function NamespaceConflictChecker( &$db )
+    {
+        $this->db =& $db;
+    }
 
-	function checkAll( $fix, $suffix = '' ) {
-		global $wgContLang;
-		$spaces = $wgContLang->getNamespaces();
-		$ok = true;
-		foreach( $spaces as $ns => $name ) {
-			$ok = $this->checkNamespace( $ns, $name, $fix, $suffix ) && $ok;
-		}
-		return $ok;
-	}
+    function checkAll( $fix, $suffix = '' )
+    {
+        global $wgContLang;
+        $spaces = $wgContLang->getNamespaces();
+        $ok = true;
+        foreach ($spaces as $ns => $name) {
+            $ok = $this->checkNamespace( $ns, $name, $fix, $suffix ) && $ok;
+        }
 
-	function checkNamespace( $ns, $name, $fix, $suffix = '' ) {
-		echo "Checking namespace $ns: \"$name\"\n";
-		if( $name == '' ) {
-			echo "... skipping article namespace\n";
-			return true;
-		}
+        return $ok;
+    }
 
-		$conflicts = $this->getConflicts( $ns, $name );
-		$count = count( $conflicts );
-		if( $count == 0 ) {
-			echo "... no conflicts detected!\n";
-			return true;
-		}
+    function checkNamespace( $ns, $name, $fix, $suffix = '' )
+    {
+        echo "Checking namespace $ns: \"$name\"\n";
+        if ($name == '') {
+            echo "... skipping article namespace\n";
 
-		echo "... $count conflicts detected:\n";
-		$ok = true;
-		foreach( $conflicts as $row ) {
-			$resolvable = $this->reportConflict( $row, $suffix );
-			$ok = $ok && $resolvable;
-			if( $fix && ( $resolvable || $suffix != '' ) ) {
-				$ok = $this->resolveConflict( $row, $resolvable, $suffix ) && $ok;
-			}
-		}
-		return $ok;
-	}
-	
-	/**
-	 * @fixme: do this for reals
-	 */
-	function checkPrefix( $key, $prefix, $fix, $suffix = '' ) {
-		echo "Checking prefix \"$prefix\" vs namespace $key\n";
-		return $this->checkNamespace( $key, $prefix, $fix, $suffix );
-	}
+            return true;
+        }
 
-	function getConflicts( $ns, $name ) {
-		$page  = $this->newSchema() ? 'page' : 'cur';
-		$table = $this->db->tableName( $page );
+        $conflicts = $this->getConflicts( $ns, $name );
+        $count = count( $conflicts );
+        if ($count == 0) {
+            echo "... no conflicts detected!\n";
 
-		$prefix     = $this->db->strencode( $name );
-		$likeprefix = str_replace( '_', '\\_', $prefix);
+            return true;
+        }
 
-		$sql = "SELECT {$page}_id                                  AS id,
-		               {$page}_title                               AS oldtitle,
-		               $ns                                         AS namespace,
-		               TRIM(LEADING '$prefix:' FROM {$page}_title) AS title
-		          FROM {$table}
-		         WHERE {$page}_namespace=0
-		           AND {$page}_title LIKE '$likeprefix:%'";
+        echo "... $count conflicts detected:\n";
+        $ok = true;
+        foreach ($conflicts as $row) {
+            $resolvable = $this->reportConflict( $row, $suffix );
+            $ok = $ok && $resolvable;
+            if ( $fix && ( $resolvable || $suffix != '' ) ) {
+                $ok = $this->resolveConflict( $row, $resolvable, $suffix ) && $ok;
+            }
+        }
 
-		$result = $this->db->query( $sql, 'NamespaceConflictChecker::getConflicts' );
+        return $ok;
+    }
 
-		$set = array();
-		while( $row = $this->db->fetchObject( $result ) ) {
-			$set[] = $row;
-		}
-		$this->db->freeResult( $result );
+    /**
+     * @fixme: do this for reals
+     */
+    function checkPrefix( $key, $prefix, $fix, $suffix = '' )
+    {
+        echo "Checking prefix \"$prefix\" vs namespace $key\n";
 
-		return $set;
-	}
+        return $this->checkNamespace( $key, $prefix, $fix, $suffix );
+    }
 
-	function reportConflict( $row, $suffix ) {
-		$newTitle = Title::makeTitle( $row->namespace, $row->title );
-		printf( "... %d (0,\"%s\") -> (%d,\"%s\") [[%s]]\n",
-			$row->id,
-			$row->oldtitle,
-			$row->namespace,
-			$row->title,
-			$newTitle->getPrefixedText() );
+    function getConflicts( $ns, $name )
+    {
+        $page  = $this->newSchema() ? 'page' : 'cur';
+        $table = $this->db->tableName( $page );
 
-		$id = $newTitle->getArticleId();
-		if( $id ) {
-			echo "...  *** cannot resolve automatically; page exists with ID $id ***\n";
-			return false;
-		} else {
-			return true;
-		}
-	}
+        $prefix     = $this->db->strencode( $name );
+        $likeprefix = str_replace( '_', '\\_', $prefix);
 
-	function resolveConflict( $row, $resolvable, $suffix ) {
-		if( !$resolvable ) {
-			$row->title .= $suffix;
-			$title = Title::makeTitle( $row->namespace, $row->title );
-			echo "...  *** using suffixed form [[" . $title->getPrefixedText() . "]] ***\n";
-		}
-		$tables = $this->newSchema()
-			? array( 'page' )
-			: array( 'cur', 'old' );
-		foreach( $tables as $table ) {
-			$this->resolveConflictOn( $row, $table );
-		}
-		return true;
-	}
+        $sql = "SELECT {$page}_id                                  AS id,
+                       {$page}_title                               AS oldtitle,
+                       $ns                                         AS namespace,
+                       TRIM(LEADING '$prefix:' FROM {$page}_title) AS title
+                  FROM {$table}
+                 WHERE {$page}_namespace=0
+                   AND {$page}_title LIKE '$likeprefix:%'";
 
-	function resolveConflictOn( $row, $table ) {
-		$fname = 'NamespaceConflictChecker::resolveConflictOn';
-		echo "... resolving on $table... ";
-		$this->db->update( $table,
-			array(
-				"{$table}_namespace" => $row->namespace,
-				"{$table}_title"     => $row->title,
-			),
-			array(
-				"{$table}_namespace" => 0,
-				"{$table}_title"     => $row->oldtitle,
-			),
-			$fname );
-		echo "ok.\n";
-		return true;
-	}
+        $result = $this->db->query( $sql, 'NamespaceConflictChecker::getConflicts' );
 
-	function newSchema() {
-		return class_exists( 'Revision' );
-	}
+        $set = array();
+        while ( $row = $this->db->fetchObject( $result ) ) {
+            $set[] = $row;
+        }
+        $this->db->freeResult( $result );
+
+        return $set;
+    }
+
+    function reportConflict( $row, $suffix )
+    {
+        $newTitle = Title::makeTitle( $row->namespace, $row->title );
+        printf( "... %d (0,\"%s\") -> (%d,\"%s\") [[%s]]\n",
+            $row->id,
+            $row->oldtitle,
+            $row->namespace,
+            $row->title,
+            $newTitle->getPrefixedText() );
+
+        $id = $newTitle->getArticleId();
+        if ($id) {
+            echo "...  *** cannot resolve automatically; page exists with ID $id ***\n";
+
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function resolveConflict( $row, $resolvable, $suffix )
+    {
+        if (!$resolvable) {
+            $row->title .= $suffix;
+            $title = Title::makeTitle( $row->namespace, $row->title );
+            echo "...  *** using suffixed form [[" . $title->getPrefixedText() . "]] ***\n";
+        }
+        $tables = $this->newSchema()
+            ? array( 'page' )
+            : array( 'cur', 'old' );
+        foreach ($tables as $table) {
+            $this->resolveConflictOn( $row, $table );
+        }
+
+        return true;
+    }
+
+    function resolveConflictOn( $row, $table )
+    {
+        $fname = 'NamespaceConflictChecker::resolveConflictOn';
+        echo "... resolving on $table... ";
+        $this->db->update( $table,
+            array(
+                "{$table}_namespace" => $row->namespace,
+                "{$table}_title"     => $row->title,
+            ),
+            array(
+                "{$table}_namespace" => 0,
+                "{$table}_title"     => $row->oldtitle,
+            ),
+            $fname );
+        echo "ok.\n";
+
+        return true;
+    }
+
+    function newSchema()
+    {
+        return class_exists( 'Revision' );
+    }
 }
-
-
-
 
 $wgTitle = Title::newFromText( 'Namespace title conflict cleanup script' );
 
@@ -177,18 +192,16 @@ $key = isset( $options['key'] ) ? intval( $options['key'] ) : 0;
 $dbw =& wfGetDB( DB_MASTER );
 $duper = new NamespaceConflictChecker( $dbw );
 
-if( $prefix ) {
-	$retval = $duper->checkPrefix( $key, $prefix, $fix, $suffix );
+if ($prefix) {
+    $retval = $duper->checkPrefix( $key, $prefix, $fix, $suffix );
 } else {
-	$retval = $duper->checkAll( $fix, $suffix );
+    $retval = $duper->checkAll( $fix, $suffix );
 }
 
-if( $retval ) {
-	echo "\nLooks good!\n";
-	exit( 0 );
+if ($retval) {
+    echo "\nLooks good!\n";
+    exit( 0 );
 } else {
-	echo "\nOh noeees\n";
-	exit( -1 );
+    echo "\nOh noeees\n";
+    exit( -1 );
 }
-
-?>

@@ -19,9 +19,9 @@
  */
 
 # This is not a valid entry point, perform no further processing unless MEDIAWIKI is defined
-if( !defined( 'MEDIAWIKI' ) ) {
-	echo "This file is part of MediaWiki and is not a valid entry point\n";
-	die( -1 );
+if ( !defined( 'MEDIAWIKI' ) ) {
+    echo "This file is part of MediaWiki and is not a valid entry point\n";
+    die( -1 );
 }
 
 /**
@@ -41,20 +41,19 @@ $wgSitename         = 'MediaWiki';
 /** Will be same as you set @see $wgSitename */
 $wgMetaNamespace    = FALSE;
 
-
 /** URL of the server. It will be automatically built including https mode */
 $wgServer = '';
 
-if( isset( $_SERVER['SERVER_NAME'] ) ) {
-	$wgServerName = $_SERVER['SERVER_NAME'];
-} elseif( isset( $_SERVER['HOSTNAME'] ) ) {
-	$wgServerName = $_SERVER['HOSTNAME'];
-} elseif( isset( $_SERVER['HTTP_HOST'] ) ) {
-	$wgServerName = $_SERVER['HTTP_HOST'];
-} elseif( isset( $_SERVER['SERVER_ADDR'] ) ) {
-	$wgServerName = $_SERVER['SERVER_ADDR'];
+if ( isset( $_SERVER['SERVER_NAME'] ) ) {
+    $wgServerName = $_SERVER['SERVER_NAME'];
+} elseif ( isset( $_SERVER['HOSTNAME'] ) ) {
+    $wgServerName = $_SERVER['HOSTNAME'];
+} elseif ( isset( $_SERVER['HTTP_HOST'] ) ) {
+    $wgServerName = $_SERVER['HTTP_HOST'];
+} elseif ( isset( $_SERVER['SERVER_ADDR'] ) ) {
+    $wgServerName = $_SERVER['SERVER_ADDR'];
 } else {
-	$wgServerName = 'localhost';
+    $wgServerName = 'localhost';
 }
 
 # check if server use https:
@@ -63,13 +62,12 @@ $wgProto = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 'https' : '
 $wgServer = $wgProto.'://' . $wgServerName;
 # If the port is a non-standard one, add it to the URL
 if(    isset( $_SERVER['SERVER_PORT'] )
-	&& !strpos( $wgServerName, ':' )
+    && !strpos( $wgServerName, ':' )
     && (    ( $wgProto == 'http' && $_SERVER['SERVER_PORT'] != 80 )
-	 || ( $wgProto == 'https' && $_SERVER['SERVER_PORT'] != 443 ) ) ) {
+     || ( $wgProto == 'https' && $_SERVER['SERVER_PORT'] != 443 ) ) ) {
 
-	$wgServer .= ":" . $_SERVER['SERVER_PORT'];
+    $wgServer .= ":" . $_SERVER['SERVER_PORT'];
 }
-
 
 /**
  * The path we should point to.
@@ -82,7 +80,6 @@ $wgScriptPath	    = '/wiki';
  * @global bool $wgUsePathInfo
  */
 $wgUsePathInfo		= ( strpos( php_sapi_name(), 'cgi' ) === false );
-
 
 /**#@+
  * Script users will request to get articles
@@ -99,7 +96,6 @@ $wgScript           = "{$wgScriptPath}/index.php";
  */
 $wgRedirectScript   = "{$wgScriptPath}/redirect.php";
 /**#@-*/
-
 
 /**#@+
  * @global string
@@ -126,7 +122,6 @@ $wgMathDirectory    = "{$wgUploadDirectory}/math";
 $wgTmpDirectory     = "{$wgUploadDirectory}/tmp";
 $wgUploadBaseUrl    = "";
 /**#@-*/
-
 
 /**
  * By default deleted files are simply discarded; to save them and
@@ -175,21 +170,20 @@ $wgFileStore['deleted']['hash'] = 3;         // 3-level subdirectory split
  */
 $wgLegalTitleChars = " %!\"$&'()*,\\-.\\/0-9:;=?@A-Z\\\\^_`a-z~\\x80-\\xFF";
 
-
 /**
  * The external URL protocols
  */
 $wgUrlProtocols = array(
-	'http://',
-	'https://',
-	'ftp://',
-	'irc://',
-	'gopher://',
-	'telnet://', // Well if we're going to support the above.. -ævar
-	'nntp://', // @bug 3808 RFC 1738
-	'worldwind://',
-	'mailto:',
-	'news:'
+    'http://',
+    'https://',
+    'ftp://',
+    'irc://',
+    'gopher://',
+    'telnet://', // Well if we're going to support the above.. -ævar
+    'nntp://', // @bug 3808 RFC 1738
+    'worldwind://',
+    'mailto:',
+    'news:'
 );
 
 /** internal name of virus scanner. This servers as a key to the $wgAntivirusSetup array.
@@ -226,33 +220,33 @@ $wgAntivirus= NULL;
  */
 $wgAntivirusSetup= array(
 
-	#setup for clamav
-	'clamav' => array (
-		'command' => "clamscan --no-summary ",
+    #setup for clamav
+    'clamav' => array (
+        'command' => "clamscan --no-summary ",
 
-		'codemap'=> array (
-			"0"=>  AV_NO_VIRUS, #no virus
-			"1"=>  AV_VIRUS_FOUND, #virus found
-			"52"=> AV_SCAN_ABORTED, #unsupported file format (probably imune)
-			"*"=>  AV_SCAN_FAILED, #else scan failed
-		),
+        'codemap'=> array (
+            "0"=>  AV_NO_VIRUS, #no virus
+            "1"=>  AV_VIRUS_FOUND, #virus found
+            "52"=> AV_SCAN_ABORTED, #unsupported file format (probably imune)
+            "*"=>  AV_SCAN_FAILED, #else scan failed
+        ),
 
-		'messagepattern'=> '/.*?:(.*)/sim',
-	),
+        'messagepattern'=> '/.*?:(.*)/sim',
+    ),
 
-	#setup for f-prot
-	'f-prot' => array (
-		'command' => "f-prot ",
+    #setup for f-prot
+    'f-prot' => array (
+        'command' => "f-prot ",
 
-		'codemap'=> array (
-			"0"=> AV_NO_VIRUS, #no virus
-			"3"=> AV_VIRUS_FOUND, #virus found
-			"6"=> AV_VIRUS_FOUND, #virus found
-			"*"=> AV_SCAN_FAILED, #else scan failed
-		),
+        'codemap'=> array (
+            "0"=> AV_NO_VIRUS, #no virus
+            "3"=> AV_VIRUS_FOUND, #virus found
+            "6"=> AV_VIRUS_FOUND, #virus found
+            "*"=> AV_SCAN_FAILED, #else scan failed
+        ),
 
-		'messagepattern'=> '/.*?Infection:(.*)$/m',
-	),
+        'messagepattern'=> '/.*?Infection:(.*)$/m',
+    ),
 );
 
 
@@ -600,7 +594,6 @@ $wgInterwikiMagic = true;
 /** Hide interlanguage links from the sidebar */
 $wgHideInterlanguageLinks = false;
 
-
 /** We speak UTF-8 all the time now, unless some oddities happen */
 $wgInputEncoding  = 'UTF-8';
 $wgOutputEncoding = 'UTF-8';
@@ -651,7 +644,6 @@ $wgAmericanDates    = false;
  */
 $wgTranslateNumerals = true;
 
-
 # Translation using MediaWiki: namespace
 # This will increase load times by 25-60% unless memcached is installed
 # Interface messages will be loaded from the database.
@@ -691,20 +683,20 @@ $wgLocalInterwiki   = 'w';
 $wgInterwikiExpiry = 10800; # Expiry time for cache of interwiki table
 
 /** Interwiki caching settings.
-	$wgInterwikiCache specifies path to constant database file
-		This cdb database is generated by dumpInterwiki from maintenance
-		and has such key formats:
-			dbname:key - a simple key (e.g. enwiki:meta)
-			_sitename:key - site-scope key (e.g. wiktionary:meta)
-			__global:key - global-scope key (e.g. __global:meta)
-			__sites:dbname - site mapping (e.g. __sites:enwiki)
-		Sites mapping just specifies site name, other keys provide
-			"local url" data layout.
-	$wgInterwikiScopes specify number of domains to check for messages:
-		1 - Just wiki(db)-level
-		2 - wiki and global levels
-		3 - site levels
-	$wgInterwikiFallbackSite - if unable to resolve from cache
+    $wgInterwikiCache specifies path to constant database file
+        This cdb database is generated by dumpInterwiki from maintenance
+        and has such key formats:
+            dbname:key - a simple key (e.g. enwiki:meta)
+            _sitename:key - site-scope key (e.g. wiktionary:meta)
+            __global:key - global-scope key (e.g. __global:meta)
+            __sites:dbname - site mapping (e.g. __sites:enwiki)
+        Sites mapping just specifies site name, other keys provide
+            "local url" data layout.
+    $wgInterwikiScopes specify number of domains to check for messages:
+        1 - Just wiki(db)-level
+        2 - wiki and global levels
+        3 - site levels
+    $wgInterwikiFallbackSite - if unable to resolve from cache
 */
 $wgInterwikiCache = false;
 $wgInterwikiScopes = 3;
@@ -723,7 +715,6 @@ $wgInterwikiFallbackSite = 'wiki';
  * the URL.
  */
 $wgRedirectSources = false;
-
 
 $wgShowIPinHeader	= true; # For non-logged in users
 $wgMaxNameChars		= 255;  # Maximum number of bytes in username
@@ -842,7 +833,7 @@ $wgBlockAllowsUTEdit    = false; # Blocks allow users to edit their own user tal
 # directory name unguessable, or use .htaccess to protect it.
 $wgWhitelistRead = false;
 
-/** 
+/**
  * Should editors be required to have a validated e-mail
  * address before being allowed to edit?
  */
@@ -956,8 +947,6 @@ $wgAutoConfirmAge = 0;
 //$wgAutoConfirmAge = 600;     // ten minutes
 //$wgAutoConfirmAge = 3600*24; // one day
 
-
-
 # Proxy scanner settings
 #
 
@@ -1000,7 +989,6 @@ $wgCachePages       = true;
  *   date +%Y%m%d%H%M%S
  */
 $wgCacheEpoch = '20030516000000';
-
 
 # Server-side caching:
 
@@ -1249,27 +1237,27 @@ $wgFileExtensions = array( 'png', 'gif', 'jpg', 'jpeg' );
 
 /** Files with these extensions will never be allowed as uploads. */
 $wgFileBlacklist = array(
-	# HTML may contain cookie-stealing JavaScript and web bugs
-	'html', 'htm', 'js', 'jsb',
-	# PHP scripts may execute arbitrary code on the server
-	'php', 'phtml', 'php3', 'php4', 'phps',
-	# Other types that may be interpreted by some servers
-	'shtml', 'jhtml', 'pl', 'py', 'cgi',
-	# May contain harmful executables for Windows victims
-	'exe', 'scr', 'dll', 'msi', 'vbs', 'bat', 'com', 'pif', 'cmd', 'vxd', 'cpl' );
+    # HTML may contain cookie-stealing JavaScript and web bugs
+    'html', 'htm', 'js', 'jsb',
+    # PHP scripts may execute arbitrary code on the server
+    'php', 'phtml', 'php3', 'php4', 'phps',
+    # Other types that may be interpreted by some servers
+    'shtml', 'jhtml', 'pl', 'py', 'cgi',
+    # May contain harmful executables for Windows victims
+    'exe', 'scr', 'dll', 'msi', 'vbs', 'bat', 'com', 'pif', 'cmd', 'vxd', 'cpl' );
 
 /** Files with these mime types will never be allowed as uploads
  * if $wgVerifyMimeType is enabled.
  */
 $wgMimeTypeBlacklist= array(
-	# HTML may contain cookie-stealing JavaScript and web bugs
-	'text/html', 'text/javascript', 'text/x-javascript',  'application/x-shellscript',
-	# PHP scripts may execute arbitrary code on the server
-	'application/x-php', 'text/x-php',
-	# Other types that may be interpreted by some servers
-	'text/x-python', 'text/x-perl', 'text/x-bash', 'text/x-sh', 'text/x-csh',
-	# Windows metafile, client-side vulnerability on some systems
-	'application/x-msmetafile'
+    # HTML may contain cookie-stealing JavaScript and web bugs
+    'text/html', 'text/javascript', 'text/x-javascript',  'application/x-shellscript',
+    # PHP scripts may execute arbitrary code on the server
+    'application/x-php', 'text/x-php',
+    # Other types that may be interpreted by some servers
+    'text/x-python', 'text/x-perl', 'text/x-bash', 'text/x-sh', 'text/x-csh',
+    # Windows metafile, client-side vulnerability on some systems
+    'application/x-msmetafile'
 );
 
 /** This is a flag to determine whether or not to check file extensions on upload. */
@@ -1291,19 +1279,19 @@ $wgPasswordSalt = true;
  * See Language.php for a list of namespaces.
  */
 $wgNamespacesWithSubpages = array(
-	NS_TALK           => true,
-	NS_USER           => true,
-	NS_USER_TALK      => true,
-	NS_PROJECT_TALK   => true,
-	NS_IMAGE_TALK     => true,
-	NS_MEDIAWIKI_TALK => true,
-	NS_TEMPLATE_TALK  => true,
-	NS_HELP_TALK      => true,
-	NS_CATEGORY_TALK  => true
+    NS_TALK           => true,
+    NS_USER           => true,
+    NS_USER_TALK      => true,
+    NS_PROJECT_TALK   => true,
+    NS_IMAGE_TALK     => true,
+    NS_MEDIAWIKI_TALK => true,
+    NS_TEMPLATE_TALK  => true,
+    NS_HELP_TALK      => true,
+    NS_CATEGORY_TALK  => true
 );
 
 $wgNamespacesToBeSearchedDefault = array(
-	NS_MAIN           => true,
+    NS_MAIN           => true,
 );
 
 /** If set, a bold ugly notice will show up at the top of every page. */
@@ -1346,12 +1334,12 @@ $wgCustomConvertCommand = false;
 #
 # An external program is required to perform this conversion:
 $wgSVGConverters = array(
-	'ImageMagick' => '$path/convert -background white -geometry $width $input $output',
-	'sodipodi' => '$path/sodipodi -z -w $width -f $input -e $output',
-	'inkscape' => '$path/inkscape -z -w $width -f $input -e $output',
-	'batik' => 'java -Djava.awt.headless=true -jar $path/batik-rasterizer.jar -w $width -d $output $input',
-	'rsvg' => '$path/rsvg -w$width -h$height $input $output',
-	);
+    'ImageMagick' => '$path/convert -background white -geometry $width $input $output',
+    'sodipodi' => '$path/sodipodi -z -w $width -f $input -e $output',
+    'inkscape' => '$path/inkscape -z -w $width -f $input -e $output',
+    'batik' => 'java -Djava.awt.headless=true -jar $path/batik-rasterizer.jar -w $width -d $output $input',
+    'rsvg' => '$path/rsvg -w$width -h$height $input $output',
+    );
 /** Pick one of the above */
 $wgSVGConverter = 'ImageMagick';
 /** If not in the executable PATH, specify */
@@ -1386,19 +1374,18 @@ $wgThumbnailEpoch = '20030516000000';
 $wgIgnoreImageErrors = false;
 
 /**
- * Allow thumbnail rendering on page view. If this is false, a valid 
- * thumbnail URL is still output, but no file will be created at 
- * the target location. This may save some time if you have a 
- * thumb.php or 404 handler set up which is faster than the regular 
- * webserver(s).  
+ * Allow thumbnail rendering on page view. If this is false, a valid
+ * thumbnail URL is still output, but no file will be created at
+ * the target location. This may save some time if you have a
+ * thumb.php or 404 handler set up which is faster than the regular
+ * webserver(s).
  */
 $wgGenerateThumbnailOnParse = true;
 
 /** Set $wgCommandLineMode if it's not set already, to avoid notices */
-if( !isset( $wgCommandLineMode ) ) {
-	$wgCommandLineMode = false;
+if ( !isset( $wgCommandLineMode ) ) {
+    $wgCommandLineMode = false;
 }
-
 
 #
 # Recent changes settings
@@ -1413,7 +1400,6 @@ $wgPutIPinRC = true;
  * For one week : 7 * 24 * 3600
  */
 $wgRCMaxAge = 7 * 24 * 3600;
-
 
 # Send RC updates via UDP
 $wgRC2UDPAddress = false;
@@ -1459,8 +1445,6 @@ $wgMaxCredits = 0;
  * Otherwise, link to a separate credits page. */
 $wgShowCreditsIfMax = true;
 
-
-
 /**
  * Set this to false to avoid forcing the first letter of links to capitals.
  * WARNING: may break links! This makes links COMPLETELY case-sensitive. Links
@@ -1503,7 +1487,6 @@ $wgExportAllowHistory = true;
 $wgExportMaxHistory = 0;
 
 $wgExportAllowListContributors = false ;
-
 
 /** Text matching this regular expression will be recognised as spam
  * See http://en.wikipedia.org/wiki/Regular_expression */
@@ -1568,7 +1551,7 @@ $wgAllowRealName = true;
 $wgUseXMLparser = false ;
 
 /*****************************************************************************
- *  Extensions 
+ *  Extensions
  */
 
 /**
@@ -1577,7 +1560,7 @@ $wgUseXMLparser = false ;
 $wgExtensionFunctions = array();
 
 /**
- * Extension functions for initialisation of skins. This is called somewhat earlier 
+ * Extension functions for initialisation of skins. This is called somewhat earlier
  * than $wgExtensionFunctions.
  */
 $wgSkinExtensionFunctions = array();
@@ -1585,7 +1568,7 @@ $wgSkinExtensionFunctions = array();
 /**
  * List of valid skin names.
  * The key should be the name in all lower case, the value should be a display name.
- * The default skins will be added later, by Skin::getSkinNames(). Use 
+ * The default skins will be added later, by Skin::getSkinNames(). Use
  * Skin::getSkinNames() as an accessor if you wish to have access to the full list.
  */
 $wgValidSkinNames = array();
@@ -1594,7 +1577,7 @@ $wgValidSkinNames = array();
  * Special page list.
  * See the top of SpecialPage.php for documentation.
  */
-$wgSpecialPages = array(); 
+$wgSpecialPages = array();
 
 /**
  * Array mapping class names to filenames, for autoloading.
@@ -1673,7 +1656,6 @@ $wgFeedCacheTimeout = 60;
  * pages larger than this size. */
 $wgFeedDiffCutoff = 32768;
 
-
 /**
  * Additional namespaces. If the namespaces defined in Language.php and
  * Namespace.php are insufficient, you can create new ones here, for example,
@@ -1699,12 +1681,12 @@ $wgExtraNamespaces = NULL;
  * list of settings the user can choose from:
  */
 $wgImageLimits = array (
-	array(320,240),
-	array(640,480),
-	array(800,600),
-	array(1024,768),
-	array(1280,1024),
-	array(10000,10000) );
+    array(320,240),
+    array(640,480),
+    array(800,600),
+    array(1024,768),
+    array(1280,1024),
+    array(10000,10000) );
 
 /**
  * Adjust thumbnails on image pages according to a user setting. In order to
@@ -1712,12 +1694,12 @@ $wgImageLimits = array (
  * list of settings the user can choose from:
  */
 $wgThumbLimits = array(
-	120,
-	150,
-	180,
-	200,
-	250,
-	300
+    120,
+    150,
+    180,
+    200,
+    250,
+    300
 );
 
 /**
@@ -1736,33 +1718,33 @@ $wgCategoryPagingLimit = 200;
  * Contains a list of regexps : "/regexp/"  matching problematic browsers
  */
 $wgBrowserBlackList = array(
-	/**
-	 * Netscape 2-4 detection
-	 * The minor version may contain strings such as "Gold" or "SGoldC-SGI"
-	 * Lots of non-netscape user agents have "compatible", so it's useful to check for that
-	 * with a negative assertion. The [UIN] identifier specifies the level of security 
-	 * in a Netscape/Mozilla browser, checking for it rules out a number of fakers. 
-	 * The language string is unreliable, it is missing on NS4 Mac.
-	 * 
-	 * Reference: http://www.psychedelix.com/agents/index.shtml
-	 */
-	'/^Mozilla\/2\.[^ ]+ .*?\((?!compatible).*; [UIN]/',
-	'/^Mozilla\/3\.[^ ]+ .*?\((?!compatible).*; [UIN]/',
-	'/^Mozilla\/4\.[^ ]+ .*?\((?!compatible).*; [UIN]/',
-	
-	/**
-	 * MSIE on Mac OS 9 is teh sux0r, converts þ to <thorn>, ð to <eth>, Þ to <THORN> and Ð to <ETH>
-	 *
-	 * Known useragents:
-	 * - Mozilla/4.0 (compatible; MSIE 5.0; Mac_PowerPC)
-	 * - Mozilla/4.0 (compatible; MSIE 5.15; Mac_PowerPC)
-	 * - Mozilla/4.0 (compatible; MSIE 5.23; Mac_PowerPC)
-	 * - [...]
-	 *
-	 * @link http://en.wikipedia.org/w/index.php?title=User%3A%C6var_Arnfj%F6r%F0_Bjarmason%2Ftestme&diff=12356041&oldid=12355864
-	 * @link http://en.wikipedia.org/wiki/Template%3AOS9
-	 */
-	'/^Mozilla\/4\.0 \(compatible; MSIE \d+\.\d+; Mac_PowerPC\)/'
+    /**
+     * Netscape 2-4 detection
+     * The minor version may contain strings such as "Gold" or "SGoldC-SGI"
+     * Lots of non-netscape user agents have "compatible", so it's useful to check for that
+     * with a negative assertion. The [UIN] identifier specifies the level of security
+     * in a Netscape/Mozilla browser, checking for it rules out a number of fakers.
+     * The language string is unreliable, it is missing on NS4 Mac.
+     *
+     * Reference: http://www.psychedelix.com/agents/index.shtml
+     */
+    '/^Mozilla\/2\.[^ ]+ .*?\((?!compatible).*; [UIN]/',
+    '/^Mozilla\/3\.[^ ]+ .*?\((?!compatible).*; [UIN]/',
+    '/^Mozilla\/4\.[^ ]+ .*?\((?!compatible).*; [UIN]/',
+
+    /**
+     * MSIE on Mac OS 9 is teh sux0r, converts þ to <thorn>, ð to <eth>, Þ to <THORN> and Ð to <ETH>
+     *
+     * Known useragents:
+     * - Mozilla/4.0 (compatible; MSIE 5.0; Mac_PowerPC)
+     * - Mozilla/4.0 (compatible; MSIE 5.15; Mac_PowerPC)
+     * - Mozilla/4.0 (compatible; MSIE 5.23; Mac_PowerPC)
+     * - [...]
+     *
+     * @link http://en.wikipedia.org/w/index.php?title=User%3A%C6var_Arnfj%F6r%F0_Bjarmason%2Ftestme&diff=12356041&oldid=12355864
+     * @link http://en.wikipedia.org/wiki/Template%3AOS9
+     */
+    '/^Mozilla\/4\.0 \(compatible; MSIE \d+\.\d+; Mac_PowerPC\)/'
 );
 
 /**
@@ -1800,7 +1782,6 @@ $wgLocaltimezone = null;
  */
 $wgLocalTZoffset = null;
 
-
 /**
  * When translating messages with wfMsg(), it is not always clear what should be
  * considered UI messages and what shoud be content messages.
@@ -1817,7 +1798,6 @@ $wgLocalTZoffset = null;
  * $wgForceUIMsgAsContentMsg = array( 'mainpage', 'portal-url' );
  */
 $wgForceUIMsgAsContentMsg = array();
-
 
 /**
  * Authentication plugin.
@@ -1842,13 +1822,13 @@ $wgHooks = array();
  * log type.
  */
 $wgLogTypes = array( '',
-	'block',
-	'protect',
-	'rights',
-	'delete',
-	'upload',
-	'move',
-	'import' );
+    'block',
+    'protect',
+    'rights',
+    'delete',
+    'upload',
+    'move',
+    'import' );
 
 /**
  * Lists the message key string for each log type. The localized messages
@@ -1857,14 +1837,14 @@ $wgLogTypes = array( '',
  * Extensions with custom log types may add to this array.
  */
 $wgLogNames = array(
-	''        => 'log',
-	'block'   => 'blocklogpage',
-	'protect' => 'protectlogpage',
-	'rights'  => 'rightslog',
-	'delete'  => 'dellogpage',
-	'upload'  => 'uploadlogpage',
-	'move'    => 'movelogpage',
-	'import'  => 'importlogpage' );
+    ''        => 'log',
+    'block'   => 'blocklogpage',
+    'protect' => 'protectlogpage',
+    'rights'  => 'rightslog',
+    'delete'  => 'dellogpage',
+    'upload'  => 'uploadlogpage',
+    'move'    => 'movelogpage',
+    'import'  => 'importlogpage' );
 
 /**
  * Lists the message key string for descriptive text to be shown at the
@@ -1873,14 +1853,14 @@ $wgLogNames = array(
  * Extensions with custom log types may add to this array.
  */
 $wgLogHeaders = array(
-	''        => 'alllogstext',
-	'block'   => 'blocklogtext',
-	'protect' => 'protectlogtext',
-	'rights'  => 'rightslogtext',
-	'delete'  => 'dellogpagetext',
-	'upload'  => 'uploadlogpagetext',
-	'move'    => 'movelogpagetext',
-	'import'  => 'importlogpagetext', );
+    ''        => 'alllogstext',
+    'block'   => 'blocklogtext',
+    'protect' => 'protectlogtext',
+    'rights'  => 'rightslogtext',
+    'delete'  => 'dellogpagetext',
+    'upload'  => 'uploadlogpagetext',
+    'move'    => 'movelogpagetext',
+    'import'  => 'importlogpagetext', );
 
 /**
  * Lists the message key string for formatting individual events of each
@@ -1889,20 +1869,20 @@ $wgLogHeaders = array(
  * Extensions with custom log types may add to this array.
  */
 $wgLogActions = array(
-	'block/block'       => 'blocklogentry',
-	'block/unblock'     => 'unblocklogentry',
-	'protect/protect'   => 'protectedarticle',
-	'protect/unprotect' => 'unprotectedarticle',
-	'rights/rights'     => 'rightslogentry',
-	'delete/delete'     => 'deletedarticle',
-	'delete/restore'    => 'undeletedarticle',
-	'delete/revision'   => 'revdelete-logentry',
-	'upload/upload'     => 'uploadedimage',
-	'upload/revert'     => 'uploadedimage',
-	'move/move'         => '1movedto2',
-	'move/move_redir'   => '1movedto2_redir',
-	'import/upload'     => 'import-logentry-upload',
-	'import/interwiki'  => 'import-logentry-interwiki' );
+    'block/block'       => 'blocklogentry',
+    'block/unblock'     => 'unblocklogentry',
+    'protect/protect'   => 'protectedarticle',
+    'protect/unprotect' => 'unprotectedarticle',
+    'rights/rights'     => 'rightslogentry',
+    'delete/delete'     => 'deletedarticle',
+    'delete/restore'    => 'undeletedarticle',
+    'delete/revision'   => 'revdelete-logentry',
+    'upload/upload'     => 'uploadedimage',
+    'upload/revert'     => 'uploadedimage',
+    'move/move'         => '1movedto2',
+    'move/move_redir'   => '1movedto2_redir',
+    'import/upload'     => 'import-logentry-upload',
+    'import/interwiki'  => 'import-logentry-interwiki' );
 
 /**
  * Experimental preview feature to fetch rendered text
@@ -2009,23 +1989,23 @@ $wgProxyWhitelist = array();
  * Requires memcached.
  */
 $wgRateLimits = array(
-	'edit' => array(
-		'anon'   => null, // for any and all anonymous edits (aggregate)
-		'user'   => null, // for each logged-in user
-		'newbie' => null, // for each recent account; overrides 'user'
-		'ip'     => null, // for each anon and recent account
-		'subnet' => null, // ... with final octet removed
-		),
-	'move' => array(
-		'user'   => null,
-		'newbie' => null,
-		'ip'     => null,
-		'subnet' => null,
-		),
-	'mailpassword' => array(
-		'anon' => NULL,
-		),
-	);
+    'edit' => array(
+        'anon'   => null, // for any and all anonymous edits (aggregate)
+        'user'   => null, // for each logged-in user
+        'newbie' => null, // for each recent account; overrides 'user'
+        'ip'     => null, // for each anon and recent account
+        'subnet' => null, // ... with final octet removed
+        ),
+    'move' => array(
+        'user'   => null,
+        'newbie' => null,
+        'ip'     => null,
+        'subnet' => null,
+        ),
+    'mailpassword' => array(
+        'anon' => NULL,
+        ),
+    );
 
 /**
  * Set to a filename to log rate limiter hits.
@@ -2064,7 +2044,7 @@ $wgExternalServers = array();
  * The place to put new revisions, false to put them in the local text table.
  * Part of a URL, e.g. DB://cluster1
  *
- * Can be an array instead of a single string, to enable data distribution. Keys 
+ * Can be an array instead of a single string, to enable data distribution. Keys
  * must be consecutive integers, starting at zero. Example:
  *
  * $wgDefaultExternalStore = array( 'DB://cluster1', 'DB://cluster2' );
@@ -2083,12 +2063,12 @@ $wgDefaultExternalStore = false;
 * [[media:...]] links for non-trusted formats.
 */
 $wgTrustedMediaFormats= array(
-	MEDIATYPE_BITMAP, //all bitmap formats
-	MEDIATYPE_AUDIO,  //all audio formats
-	MEDIATYPE_VIDEO,  //all plain video formats
-	"image/svg",  //svg (only needed if inline rendering of svg is not supported)
-	"application/pdf",  //PDF files
-	#"application/x-shockwafe-flash", //flash/shockwave movie
+    MEDIATYPE_BITMAP, //all bitmap formats
+    MEDIATYPE_AUDIO,  //all audio formats
+    MEDIATYPE_VIDEO,  //all plain video formats
+    "image/svg",  //svg (only needed if inline rendering of svg is not supported)
+    "application/pdf",  //PDF files
+    #"application/x-shockwafe-flash", //flash/shockwave movie
 );
 
 /**
@@ -2183,8 +2163,6 @@ $wgAllowTitlesInSVG = false;
 $wgContentNamespaces = array( NS_MAIN );
 
 /**
- * Maximum amount of virtual memory available to shell processes under linux, in KB. 
+ * Maximum amount of virtual memory available to shell processes under linux, in KB.
  */
 $wgMaxShellMemory = 102400;
-
-?>

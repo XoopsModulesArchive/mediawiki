@@ -55,7 +55,6 @@ $wgAllMessagesIa = array(
 'nov' => 'nov',
 'dec' => 'dec',
 
-
 # Bits of text used by many pages:
 #
 "linktrail"		=> "/^([a-z]+)(.*)\$/sD",
@@ -332,7 +331,6 @@ Recerca in contextos :<br />
 $1<br />
 $2 Listar redireciones &nbsp; Recercar pro $3 $9",
 
-
 # Preferences page
 #
 "preferences"	=> "Preferentias",
@@ -543,7 +541,6 @@ al qual le prime redirection deberea referer se.",
 "missinglanguagelinks"  => "Ligamines interlinguistic absente",
 "missinglanguagelinksbutton"    => "Trovar ligamines interlinguistic mancante pro",
 "missinglanguagelinkstext"      => "Iste articulos <i>non</i> se liga a lor equivalentes in $1. Redirectiones e subpaginas <i>non</i> es monstrate.",
-
 
 # Miscellaneous special pages
 #
@@ -797,6 +794,3 @@ nove titulo. Per favor fusiona los manualmente.",
 'mw_math_mathml' => 'MathML',
 
 );
-
-
-?>

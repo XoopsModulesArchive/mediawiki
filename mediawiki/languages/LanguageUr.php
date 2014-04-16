@@ -5,41 +5,46 @@
  * @subpackage Language
  */
 
-require_once( "LanguageUtf8.php" );
+require_once 'LanguageUtf8.php';
 
-class LanguageUr extends LanguageUtf8 {
-	private $mMessagesUr = null;
+class LanguageUr extends LanguageUtf8
+{
+    private $mMessagesUr = null;
 
-	function __construct() {
-		parent::__construct();
+    function __construct()
+    {
+        parent::__construct();
 
-		global $wgAllMessagesUr;
-		$this->mMessagesUr =& $wgAllMessagesUr;
-	}
+        global $wgAllMessagesUr;
+        $this->mMessagesUr =& $wgAllMessagesUr;
+    }
 
-	function getMessage( $key ) {
-		if( isset( $this->mMessagesUr[$key] ) ) {
-			return $this->mMessagesUr[$key];
-		} else {
-			return parent::getMessage( $key );
-		}
-	}
+    function getMessage( $key )
+    {
+        if ( isset( $this->mMessagesUr[$key] ) ) {
+            return $this->mMessagesUr[$key];
+        } else {
+            return parent::getMessage( $key );
+        }
+    }
 
-	function getAllMessages() {
-		return $this->mMessagesUr;
-	}
+    function getAllMessages()
+    {
+        return $this->mMessagesUr;
+    }
 
-	function getDefaultUserOptions() {
-		$opt = parent::getDefaultUserOptions();
-		$opt["quickbar"] = 2; # Right-to-left
-		$opt["underline"] = 0; # Underline is hard to read in Arabic script
-		return $opt;
-	}
+    function getDefaultUserOptions()
+    {
+        $opt = parent::getDefaultUserOptions();
+        $opt["quickbar"] = 2; # Right-to-left
+        $opt["underline"] = 0; # Underline is hard to read in Arabic script
 
-	# For right-to-left language support
-	function isRTL() {
-		return true;
-	}
+        return $opt;
+    }
+
+    # For right-to-left language support
+    function isRTL()
+    {
+        return true;
+    }
 }
-
-?>

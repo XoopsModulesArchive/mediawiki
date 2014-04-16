@@ -175,7 +175,7 @@ $wgAllMessagesSq = array(
 'developertitle'        => 'Nevojitet titulli "zhvillues"',
 'developertext'         => 'Veprimi që kërkuat mund bëhet vetëm nga një përdorues me titullin "zhvillues". Shikoni $1.',
 'badaccess'             => 'Gabim leje',
-'badaccesstext'         => 'Ky veprim është i lejuar vetëm për përdoruesit me titullin $2. 
+'badaccesstext'         => 'Ky veprim është i lejuar vetëm për përdoruesit me titullin $2.
 Shiko $1',
 'versionrequired'       => 'Nevojitet versioni $1 i MediaWiki-it',
 'versionrequiredtext'   => 'Nevojitet versioni $1 i MediaWiki-it për përdorimin e kësaj faqeje. Shikoni [[Special:Version|versionin]] tuaj.',
@@ -188,7 +188,7 @@ Shiko $1',
 'newmessagesdifflink'   => 'ndryshimi i fundit',
 'editsection'           => 'redaktoni',
 'editold'               => 'redaktoni',
-'editsectionhint'       => 'Redaktoni seksionin: 
+'editsectionhint'       => 'Redaktoni seksionin:
 Edit section: $1',
 'toc'                   => 'Tabela e përmbajtjeve',
 'showtoc'               => 'trego',
@@ -416,7 +416,7 @@ i',
 'copyrightwarning'      => 'Kontributet tek {{SITENAME}} janë të konsideruara të dhëna nën licensën $2 (shikoni $1 për hollësirat).<BR>
 \'\'\'NDALOHET DHËNIA E PUNIMEVE PA PASUR LEJE NGA AUTORI NË MOSPËRPUTHJE ME KËTË LICENSË!\'\'\'<BR>',
 'copyrightwarning2'     => 'Ju lutem vini re se të gjitha kontributet tek {{SITENAME}} mund të redaktohen, ndryshohen apo fshihen nga përdorues të tjerë. Në qoftë se nuk dëshironi që shkrimet tuaja të redaktohen pa mëshirë mos i jepni këtu.<br />
-Po na premtoni që ç\'ka po jepni këtu e keni kontributin tuaj ose e keni kopjuar nga domeni publik apo nga burime të tjera të lira sipas ligjeve përkatëse (shikoni $1 për hollësirat). 
+Po na premtoni që ç\'ka po jepni këtu e keni kontributin tuaj ose e keni kopjuar nga domeni publik apo nga burime të tjera të lira sipas ligjeve përkatëse (shikoni $1 për hollësirat).
 <strong>NDALOHET DHËNIA E PUNIMEVE PA PASUR LEJE NGA AUTORI NË MOSPËRPUTHJE ME KËTË LICENSË!</strong>',
 'longpagewarning'       => 'KUJDES: Kjo faqe është $1 kilobytes e gjatë; disa
 shfletues mund të kenë probleme për të redaktuar faqe që afrohen ose janë akoma më shumë se 32kb.
@@ -457,7 +457,7 @@ Ky version i faqes është shlyer nga arkivi publik i faqes.
 Shiko tek [{{fullurl:{{ns:special}}:Log/delete|page={{PAGENAMEE}}}} regjistri i grisjeve], ndoshta gjenden atje më shumë informacione rreth kësaj.
 </div>',
 'rev-deleted-text-view' => '<div class="mw-warning plainlinks">
-Ky version i faqes është shlyer nga arkivi publik i faqes. Ju si Administrator mund ta shikoni akoma këtë. 
+Ky version i faqes është shlyer nga arkivi publik i faqes. Ju si Administrator mund ta shikoni akoma këtë.
 Shiko tek [{{fullurl:{{ns:special}}:Log/delete|page={{PAGENAMEE}}}} regjistri i grisjeve], ndoshta gjenden atje më shumë informacione rreth kësaj.
 </div>',
 'rev-delundel'          => 'trego/fshih',
@@ -621,7 +621,7 @@ Për të parë ose për të kërkuar figurat e dhëna më parë,
 shkoni tek [[{{ns:special}}:Imagelist|lista e figurave të dhëna]].
 Dhëniet dhe grisjet janë të regjistruara në [[{{ns:special}}:Log|faqen e regjistrave]].
 
-Përdorni formularin e më poshtëm për të dhënë skeda të figurave të reja për tu përdorur në ilustrimet e artikujve. Për shumicën e shfletuesve, do të shihni një buton "Browse...", i cili do të hapi dialogun standard të skedave të sistemit operativ që përdorni. 
+Përdorni formularin e më poshtëm për të dhënë skeda të figurave të reja për tu përdorur në ilustrimet e artikujve. Për shumicën e shfletuesve, do të shihni një buton "Browse...", i cili do të hapi dialogun standard të skedave të sistemit operativ që përdorni.
 
 Për të vendosur një figurë në një artikull, përdorni lidhjen sipas formës
 * \'\'\'<nowiki>[[{{ns:image}}:Skeda.jpg]]</nowiki>\'\'\'
@@ -799,7 +799,7 @@ një figurë me një URL në mënyrë direkte, kështuqë ka mundësi që këto 
 'mailnologintext'       => 'Duhet të keni [[{ns:special}}:Userlogin|hyrë brenda]] dhe të keni një adresë të saktë në [[{ns:special}}:Preferences|parapëlqimet]] tuaja për tu dërguar email përdoruesve të tjerë.',
 'emailuser'             => 'Email përdoruesit',
 'emailpage'             => 'Dërgo email përdoruesve',
-'emailpagetext'         => 'Në qoftë se ky përdorues ka dhënë një adresë të saktë në parapëlqimet, formulari më poshtë do t\'i dërgojë një mesazh. 
+'emailpagetext'         => 'Në qoftë se ky përdorues ka dhënë një adresë të saktë në parapëlqimet, formulari më poshtë do t\'i dërgojë një mesazh.
 
 Adresa e email-it që keni dhënë në parapëlqimet do të duket si pjesa "From" e adresës së mesazhit, kështuqë marrësi do të ketë mundësi tu përgjigjet.',
 'usermailererror'       => 'Objekti postal ktheu gabimin:',
@@ -1188,54 +1188,54 @@ Për të eksportuar faqe, thjesht shtypni një emër për çdo rresht, ose krijo
 'markedaspatrollederrortext'=> 'Duhet të përcaktoni versionin për tu shënuar i patrulluar.',
 'Monobook.js'           => '/* tooltips and access keys */
 var ta = new Object();
-ta[\'pt-userpage\'] = new Array(\'.\',\'Faqja juaj e përdoruesit\'); 
-ta[\'pt-anonuserpage\'] = new Array(\'.\',\'Faqja e përdoruesve anonim nga kjo adresë IP\'); 
-ta[\'pt-mytalk\'] = new Array(\'n\',\'Faqja juaj e diskutimeve\'); 
-ta[\'pt-anontalk\'] = new Array(\'n\',\'Faqja e diskutimeve të përdoruesve anonim për këtë adresë IP\'); 
-ta[\'pt-preferences\'] = new Array(\'\',\'Parapëlqimet tuaja\'); 
-ta[\'pt-watchlist\'] = new Array(\'l\',\'Lista e faqeve nën mbikqyrjen tuaj.\'); 
-ta[\'pt-mycontris\'] = new Array(\'y\',\'Lista e kontributeve tuaja\'); 
-ta[\'pt-login\'] = new Array(\'o\',\'Të hysh brenda nuk është e detyrueshme, por ka shumë përparësi.\'); 
-ta[\'pt-anonlogin\'] = new Array(\'o\',\'Të hysh brenda nuk është e detyrueshme, por ka shumë përparësi.\'); 
-ta[\'pt-logout\'] = new Array(\'o\',\'Dalje\'); 
-ta[\'ca-talk\'] = new Array(\'t\',\'Diskuto për përmbajtjen e faqes\'); 
-ta[\'ca-edit\'] = new Array(\'e\',\'Ju mund ta redaktoni këtë faqe. Përdorni butonin >>Trego parapamjen<< para se t\'i kryeni ndryshimet.\'); 
-ta[\'ca-addsection\'] = new Array(\'+\',\'Fillo një temë të re diskutimi.\'); 
-ta[\'ca-viewsource\'] = new Array(\'e\',\'Kjo faqe është e mbrojtur. Ju mundeni vetëm ta shikoni burimin e tekstit.\'); 
-ta[\'ca-history\'] = new Array(\'h\',\'Versione të mëparshme të artikullit.\'); 
-ta[\'ca-protect\'] = new Array(\'=\',\'Mbroje këtë faqe\'); 
-ta[\'ca-delete\'] = new Array(\'d\',\'Grise këtë faqe\'); 
-ta[\'ca-undelete\'] = new Array(\'d\',\'Faqja u restaurua\'); 
-ta[\'ca-move\'] = new Array(\'m\',\'Me anë të zhvendosjes mund ta ndryshoni titullin e artikullit\'); 
-ta[\'ca-nomove\'] = new Array(\'\',\'Ti nuk ke të drejtë ta zhvendosish këtë faqe\'); 
-ta[\'ca-watch\'] = new Array(\'w\',\'Shtoje faqen në lisën e faqeve nën mbikqyrje\'); 
-ta[\'ca-unwatch\'] = new Array(\'w\',\'Hiqe faqen nga lista e faqeve nën mbikqyrje.\'); 
-ta[\'search\'] = new Array(\'f\',\'Kërko në projekt\'); 
-ta[\'p-logo\'] = new Array(\'\',\'Figura e Faqes Kryesore\'); 
-ta[\'n-mainpage\'] = new Array(\'z\',\'Vizitoni Faqen kryesore\'); 
-ta[\'n-portal\'] = new Array(\'\',\'Mbi projektin, çka mund të bëni për të dhe ku gjenden faqet.\'); 
-ta[\'n-currentevents\'] = new Array(\'\',\'Informacion rreth ngjarjeve aktuale.\'); 
-ta[\'n-recentchanges\'] = new Array(\'r\',\'Lista e ndryshimeve së fundmi në projekt\'); 
-ta[\'n-randompage\'] = new Array(\'x\',\'Shikoni një artikull të rastit.\'); 
-ta[\'n-help\'] = new Array(\'\',\'Vendi ku mund të gjeni ndihmë.\'); 
-ta[\'n-sitesupport\'] = new Array(\'\',\'Përkrahni projektin\'); 
-ta[\'t-whatlinkshere\'] = new Array(\'j\',\'Lista e faqeve që lidhen tek kjo faqe\'); 
-ta[\'t-recentchangeslinked\'] = new Array(\'k\',\'Lista e ndryshimeve të faqeve që lidhen tek kjo faqe\'); 
-ta[\'feed-rss\'] = new Array(\'\',\'Burimi ushqyes "RSS" për këtë faqe \'); 
-ta[\'feed-atom\'] = new Array(\'\',\'Burimi ushqyes "Atom" për këtë faqe\'); 
-ta[\'t-contributions\'] = new Array(\'\',\'Shiko listën e kontributeve për përdoruesin në fjalë\'); 
-ta[\'t-emailuser\'] = new Array(\'\',\'Dërgoni një email përdoruesit\'); 
-ta[\'t-upload\'] = new Array(\'u\',\'Ngarkoni figura ose skeda të tjera\'); 
-ta[\'t-specialpages\'] = new Array(\'q\',\'Lista e të gjitha faqeve speciale.\'); 
-ta[\'ca-nstab-main\'] = new Array(\'c\',\'Shikoni përmbajtjen e atikullit.\'); 
-ta[\'ca-nstab-user\'] = new Array(\'c\',\'Shikoni faqen e përdoruesit\'); 
-ta[\'ca-nstab-media\'] = new Array(\'c\',\'Shikoni faqen e skedës\'); 
-ta[\'ca-nstab-special\'] = new Array(\'\',\'Kjo është një faqe speciale. Ju nuk mundeni ta redaktoni këtë faqe\'); 
-ta[\'ca-nstab-project\'] = new Array(\'c\',\'Shikoni faqen e projektit\'); 
-ta[\'ca-nstab-image\'] = new Array(\'c\',\'Shikoni faqen e figurës\'); 
-ta[\'ca-nstab-mediawiki\'] = new Array(\'c\',\'Shikoni mesazhet e sistemit\'); 
-ta[\'ca-nstab-template\'] = new Array(\'c\',\'Shikoni stampën\'); 
-ta[\'ca-nstab-help\'] = new Array(\'c\',\'Shikoni faqet ndihmëse\'); 
+ta[\'pt-userpage\'] = new Array(\'.\',\'Faqja juaj e përdoruesit\');
+ta[\'pt-anonuserpage\'] = new Array(\'.\',\'Faqja e përdoruesve anonim nga kjo adresë IP\');
+ta[\'pt-mytalk\'] = new Array(\'n\',\'Faqja juaj e diskutimeve\');
+ta[\'pt-anontalk\'] = new Array(\'n\',\'Faqja e diskutimeve të përdoruesve anonim për këtë adresë IP\');
+ta[\'pt-preferences\'] = new Array(\'\',\'Parapëlqimet tuaja\');
+ta[\'pt-watchlist\'] = new Array(\'l\',\'Lista e faqeve nën mbikqyrjen tuaj.\');
+ta[\'pt-mycontris\'] = new Array(\'y\',\'Lista e kontributeve tuaja\');
+ta[\'pt-login\'] = new Array(\'o\',\'Të hysh brenda nuk është e detyrueshme, por ka shumë përparësi.\');
+ta[\'pt-anonlogin\'] = new Array(\'o\',\'Të hysh brenda nuk është e detyrueshme, por ka shumë përparësi.\');
+ta[\'pt-logout\'] = new Array(\'o\',\'Dalje\');
+ta[\'ca-talk\'] = new Array(\'t\',\'Diskuto për përmbajtjen e faqes\');
+ta[\'ca-edit\'] = new Array(\'e\',\'Ju mund ta redaktoni këtë faqe. Përdorni butonin >>Trego parapamjen<< para se t\'i kryeni ndryshimet.\');
+ta[\'ca-addsection\'] = new Array(\'+\',\'Fillo një temë të re diskutimi.\');
+ta[\'ca-viewsource\'] = new Array(\'e\',\'Kjo faqe është e mbrojtur. Ju mundeni vetëm ta shikoni burimin e tekstit.\');
+ta[\'ca-history\'] = new Array(\'h\',\'Versione të mëparshme të artikullit.\');
+ta[\'ca-protect\'] = new Array(\'=\',\'Mbroje këtë faqe\');
+ta[\'ca-delete\'] = new Array(\'d\',\'Grise këtë faqe\');
+ta[\'ca-undelete\'] = new Array(\'d\',\'Faqja u restaurua\');
+ta[\'ca-move\'] = new Array(\'m\',\'Me anë të zhvendosjes mund ta ndryshoni titullin e artikullit\');
+ta[\'ca-nomove\'] = new Array(\'\',\'Ti nuk ke të drejtë ta zhvendosish këtë faqe\');
+ta[\'ca-watch\'] = new Array(\'w\',\'Shtoje faqen në lisën e faqeve nën mbikqyrje\');
+ta[\'ca-unwatch\'] = new Array(\'w\',\'Hiqe faqen nga lista e faqeve nën mbikqyrje.\');
+ta[\'search\'] = new Array(\'f\',\'Kërko në projekt\');
+ta[\'p-logo\'] = new Array(\'\',\'Figura e Faqes Kryesore\');
+ta[\'n-mainpage\'] = new Array(\'z\',\'Vizitoni Faqen kryesore\');
+ta[\'n-portal\'] = new Array(\'\',\'Mbi projektin, çka mund të bëni për të dhe ku gjenden faqet.\');
+ta[\'n-currentevents\'] = new Array(\'\',\'Informacion rreth ngjarjeve aktuale.\');
+ta[\'n-recentchanges\'] = new Array(\'r\',\'Lista e ndryshimeve së fundmi në projekt\');
+ta[\'n-randompage\'] = new Array(\'x\',\'Shikoni një artikull të rastit.\');
+ta[\'n-help\'] = new Array(\'\',\'Vendi ku mund të gjeni ndihmë.\');
+ta[\'n-sitesupport\'] = new Array(\'\',\'Përkrahni projektin\');
+ta[\'t-whatlinkshere\'] = new Array(\'j\',\'Lista e faqeve që lidhen tek kjo faqe\');
+ta[\'t-recentchangeslinked\'] = new Array(\'k\',\'Lista e ndryshimeve të faqeve që lidhen tek kjo faqe\');
+ta[\'feed-rss\'] = new Array(\'\',\'Burimi ushqyes "RSS" për këtë faqe \');
+ta[\'feed-atom\'] = new Array(\'\',\'Burimi ushqyes "Atom" për këtë faqe\');
+ta[\'t-contributions\'] = new Array(\'\',\'Shiko listën e kontributeve për përdoruesin në fjalë\');
+ta[\'t-emailuser\'] = new Array(\'\',\'Dërgoni një email përdoruesit\');
+ta[\'t-upload\'] = new Array(\'u\',\'Ngarkoni figura ose skeda të tjera\');
+ta[\'t-specialpages\'] = new Array(\'q\',\'Lista e të gjitha faqeve speciale.\');
+ta[\'ca-nstab-main\'] = new Array(\'c\',\'Shikoni përmbajtjen e atikullit.\');
+ta[\'ca-nstab-user\'] = new Array(\'c\',\'Shikoni faqen e përdoruesit\');
+ta[\'ca-nstab-media\'] = new Array(\'c\',\'Shikoni faqen e skedës\');
+ta[\'ca-nstab-special\'] = new Array(\'\',\'Kjo është një faqe speciale. Ju nuk mundeni ta redaktoni këtë faqe\');
+ta[\'ca-nstab-project\'] = new Array(\'c\',\'Shikoni faqen e projektit\');
+ta[\'ca-nstab-image\'] = new Array(\'c\',\'Shikoni faqen e figurës\');
+ta[\'ca-nstab-mediawiki\'] = new Array(\'c\',\'Shikoni mesazhet e sistemit\');
+ta[\'ca-nstab-template\'] = new Array(\'c\',\'Shikoni stampën\');
+ta[\'ca-nstab-help\'] = new Array(\'c\',\'Shikoni faqet ndihmëse\');
 ta[\'ca-nstab-category\'] = new Array(\'c\',\'Shikoni faqen e kategorisë\');',
 'deletedrevision'       => 'Gris versionin e vjetër $1.',
 'previousdiff'          => '← Ndryshimi më para',
@@ -1365,4 +1365,3 @@ $1',
 'hideresults'           => 'Fshih rezultatet',
 'displaytitle'          => '(Lidhje te kjo faqe si [[$1]])',
 );
-?>

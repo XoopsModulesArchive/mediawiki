@@ -1,6 +1,5 @@
 <?php
 
-
 $wgAllMessagesSr_el = array(
 '1movedto2' => 'članku [[$1]] je promenjeno ime u [[$2]]',
 '1movedto2_redir' => 'članku [[$1]] je promenjeno ime u [[$2]] putem preusmerenja',
@@ -1501,6 +1500,3 @@ Pretraga: $2',
 'variantname-sr-jl' => 'jekav',
 'variantname-sr' => 'disable',
 );
-
-
-?>

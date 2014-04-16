@@ -1,6 +1,5 @@
 <?php
 
-
 /* private */ $wgAllMessagesZh_cn = array(
 # User Toggles
 
@@ -59,9 +58,9 @@
 # Bits of text used by many pages:
 #
 "categories" => "页面分类",
- 	 "category" => "分类",
- 	 "category_header" => "类别”$1“中的条目",
- 	 "subcategories" => "附分类",
+      "category" => "分类",
+      "category_header" => "类别”$1“中的条目",
+      "subcategories" => "附分类",
 "linktrail"		=> "/^([a-z]+)(.*)\$/sD",
 "mainpage"		=> "首页",
 "about"			=> "关于",
@@ -99,7 +98,7 @@
 "unprotectthispage" => "解除保护",
 "newpage" => "新页面",
 "talkpage"		=> "讨论本页",
-	 "postcomment"   => "发表评论",
+     "postcomment"   => "发表评论",
 "articlepage"	=> "查看文章",
 "subjectpage"	=> "查看主题", # For compatibility
 "userpage" => "查看用户页",
@@ -232,13 +231,13 @@ MySQL返回错误 \"<tt>$3: $4</tt>\"。",
 "blockedtext"	=> "您的用户名或IP地址已被$1封。
 理由是：<br />'''$2'''<p>您可以与$1向其他任何[[{{ns:project}}:管理员|管理员]]询问。",
  "whitelistedittitle" => "登录后才可编辑",
- 	 "whitelistedittext" => "您必须先[[Special:Userlogin|登录]]才可编辑页面。",
- 	 "whitelistreadtitle" => "登录后才可阅读",
- 	 "whitelistreadtext" => "您必须先[[Special:Userlogin|登录]]才可阅读页面。",
- 	 "whitelistacctitle" => "您被禁止建立帐号",
- 	 "whitelistacctext" => "在本Wiki中建立帐号您必须先[[Special:Userlogin|登录]]并拥有相关权限。",
- 	 "accmailtitle" => "密码寄出",
- 	 "accmailtext" => "'$1'的密码已经寄到$2。",
+      "whitelistedittext" => "您必须先[[Special:Userlogin|登录]]才可编辑页面。",
+      "whitelistreadtitle" => "登录后才可阅读",
+      "whitelistreadtext" => "您必须先[[Special:Userlogin|登录]]才可阅读页面。",
+      "whitelistacctitle" => "您被禁止建立帐号",
+      "whitelistacctext" => "在本Wiki中建立帐号您必须先[[Special:Userlogin|登录]]并拥有相关权限。",
+      "accmailtitle" => "密码寄出",
+      "accmailtext" => "'$1'的密码已经寄到$2。",
 "newarticle"	=> "（新）",
 "newarticletext" =>
 "您从一个链接进入了一个并不存在的页面。
@@ -521,7 +520,6 @@ MySQL返回错误 \"<tt>$3: $4</tt>\"。",
 "missinglanguagelinkstext"      => "这些条目<i>没有</i>链接到$1。
 重定向页与副页<b>并没有</b>包括在内。",
 
-
 # Miscellaneous special pages
 #
 "orphans"		=> "孤立条目",
@@ -597,20 +595,20 @@ MySQL返回错误 \"<tt>$3: $4</tt>\"。",
 "watchthispage"	=> "监视本页",
 "unwatchthispage" => "停止监视",
 "notanarticle"	=> "不是条目",
-	 "watchnochange" => "在显示的时间段内您所监视的页面没有更改。",
- 	 "watchdetails" => "($1个页面（不含对话页）被监视；
- 	 总共$2个页面被编辑；
- 	 $3...
- 	 [$4 显示并编辑完整列表].)",
- 	 "watchmethod-recent" => "检查被监视页面的最近编辑",
- 	 "watchmethod-list" => "checking watched pages for recent edits",
- 	 "removechecked" => "将被选页面从监视列表中移除",
- 	 "watchlistcontains" => "您的监视列表包含$1个页面。",
- 	 "watcheditlist" => "这里是您所监视的页面的列表。要移除某一页面，只要选择该页面然后点击”移除页面“按钮。",
- 	 "removingchecked" => "移除页面...",
- 	 "couldntremove" => "无法移除'$1'...",
- 	 "iteminvalidname" => "页面'$1'错误，无效命名...",
- 	 "wlnote" => "以下是最近<b>$2</b>小时内的最后$1次修改。",
+     "watchnochange" => "在显示的时间段内您所监视的页面没有更改。",
+      "watchdetails" => "($1个页面（不含对话页）被监视；
+      总共$2个页面被编辑；
+      $3...
+      [$4 显示并编辑完整列表].)",
+      "watchmethod-recent" => "检查被监视页面的最近编辑",
+      "watchmethod-list" => "checking watched pages for recent edits",
+      "removechecked" => "将被选页面从监视列表中移除",
+      "watchlistcontains" => "您的监视列表包含$1个页面。",
+      "watcheditlist" => "这里是您所监视的页面的列表。要移除某一页面，只要选择该页面然后点击”移除页面“按钮。",
+      "removingchecked" => "移除页面...",
+      "couldntremove" => "无法移除'$1'...",
+      "iteminvalidname" => "页面'$1'错误，无效命名...",
+      "wlnote" => "以下是最近<b>$2</b>小时内的最后$1次修改。",
 
 # Delete/protect/revert
 #
@@ -828,7 +826,3 @@ email address to them, and it can be used to send you a new password if you forg
 'variantname-zh' => '不转换',
 
 );
-
-
-
-?>

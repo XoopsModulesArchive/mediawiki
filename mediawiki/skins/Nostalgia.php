@@ -8,86 +8,88 @@
  */
 
 if( !defined( 'MEDIAWIKI' ) )
-	die( -1 );
+    die( -1 );
 
 /**
  * @todo document
  * @package MediaWiki
  * @subpackage Skins
  */
-class SkinNostalgia extends Skin {
+class SkinNostalgia extends Skin
+{
+    function getStylesheet()
+    {
+        return 'common/nostalgia.css?1';
+    }
+    function getSkinName()
+    {
+        return "nostalgia";
+    }
 
-	function getStylesheet() {
-		return 'common/nostalgia.css?1';
-	}
-	function getSkinName() {
-		return "nostalgia";
-	}
+    function doBeforeContent()
+    {
+        $s = "\n<div id='content'>\n<div id='topbar'>";
+        $s .= $this->logoText( "right" );
 
-	function doBeforeContent() {
+        $s .= $this->pageTitle();
+        $s .= $this->pageSubtitle() . "\n";
 
-		$s = "\n<div id='content'>\n<div id='topbar'>";
-		$s .= $this->logoText( "right" );
+        $s .= $this->topLinks() . "\n<br />";
 
-		$s .= $this->pageTitle();
-		$s .= $this->pageSubtitle() . "\n";
+        $notice = wfGetSiteNotice();
+        if ($notice) {
+            $s .= "\n<div id='siteNotice'>$notice</div>\n";
+        }
+        $s .= $this->pageTitleLinks();
 
-		$s .= $this->topLinks() . "\n<br />";
+        $ol = $this->otherLanguages();
+        if($ol) $s .= "<br />" . $ol;
 
-		$notice = wfGetSiteNotice();
-		if( $notice ) {
-			$s .= "\n<div id='siteNotice'>$notice</div>\n";
-		}
-		$s .= $this->pageTitleLinks();
+        $cat = $this->getCategoryLinks();
+        if($cat) $s .= "<br />" . $cat;
 
-		$ol = $this->otherLanguages();
-		if($ol) $s .= "<br />" . $ol;
+        $s .= "<br clear='all' /><hr />\n</div>\n";
+        $s .= "\n<div id='article'>";
 
-		$cat = $this->getCategoryLinks();
-		if($cat) $s .= "<br />" . $cat;
+        return $s;
+    }
 
-		$s .= "<br clear='all' /><hr />\n</div>\n";
-		$s .= "\n<div id='article'>";
+    function topLinks()
+    {
+        global $wgOut, $wgUser;
+        $sep = " |\n";
 
-		return $s;
-	}
+        $s = $this->mainPageLink() . $sep
+          . $this->specialLink( "recentchanges" );
 
-	function topLinks() {
-		global $wgOut, $wgUser;
-		$sep = " |\n";
+        if ( $wgOut->isArticle() ) {
+            $s .=  $sep . $this->editThisPage()
+              . $sep . $this->historyLink();
+        }
+        if ( $wgUser->isAnon() ) {
+            $s .= $sep . $this->specialLink( "userlogin" );
+        } else {
+            $s .= $sep . $this->specialLink( "userlogout" );
+        }
+        $s .= $sep . $this->specialPagesList();
 
-		$s = $this->mainPageLink() . $sep
-		  . $this->specialLink( "recentchanges" );
+        return $s;
+    }
 
-		if ( $wgOut->isArticle() ) {
-			$s .=  $sep . $this->editThisPage()
-			  . $sep . $this->historyLink();
-		}
-		if ( $wgUser->isAnon() ) {
-			$s .= $sep . $this->specialLink( "userlogin" );
-		} else {
-			$s .= $sep . $this->specialLink( "userlogout" );
-		}
-		$s .= $sep . $this->specialPagesList();
+    function doAfterContent()
+    {
+        $s = "\n</div><br clear='all' />\n";
 
-		return $s;
-	}
+        $s .= "\n<div id='footer'><hr />";
 
-	function doAfterContent() {
-		$s = "\n</div><br clear='all' />\n";
+        $s .= $this->bottomLinks();
+        $s .= "\n<br />" . $this->pageStats();
+        $s .= "\n<br />" . $this->mainPageLink()
+          . " | " . $this->aboutLink()
+          . " | " . $this->searchForm();
 
-		$s .= "\n<div id='footer'><hr />";
+        $s .= "\n</div>\n</div>\n";
 
-		$s .= $this->bottomLinks();
-		$s .= "\n<br />" . $this->pageStats();
-		$s .= "\n<br />" . $this->mainPageLink()
-		  . " | " . $this->aboutLink()
-		  . " | " . $this->searchForm();
-
-		$s .= "\n</div>\n</div>\n";
-
-		return $s;
-	}
+        return $s;
+    }
 }
-
-?>

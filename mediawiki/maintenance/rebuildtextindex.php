@@ -9,8 +9,8 @@
  */
 
 /** */
-require_once( "commandLine.inc" );
-require_once( "rebuildtextindex.inc" );
+require_once 'commandLine.inc';
+require_once 'rebuildtextindex.inc';
 $wgTitle = Title::newFromText( "Rebuild text index script" );
 
 $database = Database::newFromParams( $wgDBserver, $wgDBadminuser, $wgDBadminpassword, $wgDBname );
@@ -21,5 +21,3 @@ createTextIndex( $database );
 
 print "Done.\n";
 exit();
-
-?>

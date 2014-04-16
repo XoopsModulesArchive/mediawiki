@@ -1,6 +1,5 @@
 <?php
 
-
 /* private */ $wgAllMessagesOc = array(
 
 # User Toggles
@@ -58,14 +57,12 @@
 'nov' => 'nov',
 'dec' => 'dec',
 
-
 # Bits of text used by many pages:
 #
 "categories"	=> "Catégories de la page", // Looxix "Page categories",
 "category"	=> "catégorie",			// Looxix "category",
 "category_header" => "Articles dans la catégorie \"$1\"", // Looxix "Articles in category \"$1\"",
 "subcategories"	=> "Sous-catégories", // Looxix "Subcategories",
-
 
 "linktrail"     => "/^([a-zàâçéèêîôû]+)(.*)\$/sDu",
 "mainpage"      => "Accueil",
@@ -297,7 +294,6 @@ vous suivez les [[Project:Page protégée|directives concernant les pages proté
 "lineno"  => "Ligne $1:",
 "editcurrent" => "Modifier la version actuelle de cette page",
 
-
 # Search results
 #
 "searchresults" => "Résultat de la recherche",
@@ -500,7 +496,6 @@ Cela représente une moyenne de <b>$5</b> modifications par page et de <b>$6</b>
 "userstatstext" => "Il y a <b>$1</b> utilisateurs enregistrés.
 Parmi ceux-ci, <b>$2</b> ont le statut d'administrateur (voir $3).",
 
-
 # Maintenance Page
 #
 "maintenance"		=> "Page de maintenance",
@@ -521,7 +516,6 @@ Parmi ceux-ci, <b>$2</b> ont le statut d'administrateur (voir $3).",
 "missinglanguagelinks"  => "Liens inter-langues manquants",
 "missinglanguagelinksbutton"    => "Je n'ai pas trouvé de lien/langue pour cette page",
 "missinglanguagelinkstext"      => "Ces articles ne lient pas à leur 'contrepartie' in $1. Les redirections et les liens ne sont pas affichés.",
-
 
 # Miscellaneous special pages
 #
@@ -583,9 +577,9 @@ L'adresse électronique que vous avez indiquée dans vos préférences apparaît
 pour modifier votre liste.",
 "addedwatch"	=> "Ajouté à la liste",
 "addedwatchtext" => "La page \"$1\" a été ajoutée à votre <a href=\"" .
-		"{{localurle:Special:Watchlist}}\">liste de suivi</a>.
+        "{{localurle:Special:Watchlist}}\">liste de suivi</a>.
 Les prochaines modifications de cette page et de la page discussion associée seront répertoriées ici, et la page apparaîtra <b>en gras</b> dans la <a href=\"" .
-		"{{localurle:Special:Recentchanges}}\">liste des modifications récentes</a> pour être repérée plus facilement.</p>
+        "{{localurle:Special:Recentchanges}}\">liste des modifications récentes</a> pour être repérée plus facilement.</p>
 
 <p>Pour supprimer cette page de votre liste de suivi, cliquez sur \"Ne plus suivre\" dans le cadre de navigation.",
 "removedwatch"	=> "Supprimée de la liste de suivi",
@@ -605,7 +599,6 @@ Les prochaines modifications de cette page et de la page discussion associée se
 "couldntremove" => "Impossible de retirer l'article '$1'...", // Looxix "Couldn't remove item '$1'...",
 "iteminvalidname" => "Problème avec l'article '$1': les nom est invalide...", // Looxix
 "wlnote" => "Ci-dessous se trouve les $1 dernières modifications depuis les <b>$2</b> dernières heures.", // Looxix
-
 
 # Delete/protect/revert
 #
@@ -708,7 +701,6 @@ Donnez ci-dessous une raison précise (par exemple en indiquant les pages qui on
 "contribslink"	=> "contribs",
 "autoblocker"	=> "Autobloqué parce que vous partagez un adresse IP avec \"$1\". Raison : \"$2\".", // Looxix
 
-
 # Developer tools
 #
 "lockdb"  => "Verrouiller la base",
@@ -775,6 +767,3 @@ sous le nouveau nom. S'il vous plait, fusionnez les manuellement.", // Looxix
 'mw_math_mathml' => 'MathML',
 
 );
-
-
-?>

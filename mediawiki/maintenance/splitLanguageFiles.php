@@ -7,7 +7,4 @@
  * Also need to rewrite the wfMsg system / message-cache.
  */
 
-include('commandLine.inc');
-
-
-?>
+include 'commandLine.inc';

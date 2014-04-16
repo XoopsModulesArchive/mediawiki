@@ -1,4 +1,4 @@
-<?php 
+<?php
 // $Id$
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
@@ -29,4 +29,3 @@
 // ------------------------------------------------------------------------- //
 include 'admin_header.php';
 header("location: ".XOOPS_URL."/modules/".$xoopsModule->getVar("dirname")."/index.php");
-?>

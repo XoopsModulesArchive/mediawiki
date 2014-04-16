@@ -1,6 +1,5 @@
 <?php
 
-
 /* private */ $wgAllMessagesSc = array(
 # User Toggles
 
@@ -229,7 +228,6 @@ Se non vuoi che il tuo testo possa essere modificato e ridistribuito da chiunque
 Con l'invio di questo testo stai garantendo, a tua responsabilità, che il testo è stato scritto da te personalmente ed originalmente, oppure che è stato copiato da una fonte di publico dominio, o una simile fonte, oppure che hai ottenuto espressa autorizzazione ad usare questo testo e che puoi dimostrarlo.
 <strong>NON USARE MATERIALE COPERTO DA DIRITTO DI AUTORE (COPYRIGHT - (c)) IN MANCANZA DI ESPRESSA AUTORIZZAZIONE!!!</strong>",*/
 
-
 # History pages
 #
 "revhistory"	=> "Cronologia delle versioni di questa pagina.",
@@ -280,7 +278,6 @@ Per favore, riprova.",
 Cerca fra i campi :<br />
 $1<br />
 $2 Elenca i redirects &nbsp; cerca per $3 $9",
-
 
 # Preferences page
 #
@@ -444,7 +441,6 @@ Questa media rivela che ci sono state una media di  <b>$5</b> modifiche per cias
 "missinglanguagelinksbutton"    => "Trova i Link interlinguistici da aggiungere per",
 "missinglanguagelinkstext"      => "Questi articoli <i>non</i> hanno link verso i corrispondenti articoli in $1. Redirects e sub-pagine <i>non</i> sono elencati.",
 
-
 # Miscellaneous special pages
 #
 "orphans"		=> "Pagine orfane",
@@ -509,7 +505,6 @@ Le future modifiche a questa pagina ed alla relativa pagina di discussione saran
 "watchthispage"	=> "Segui questo articolo",
 "unwatchthispage" => "Smetti di seguire",
 "notanarticle"	=> "Non è un articolo",
-
 
 # Delete/protect/revert
 #
@@ -647,6 +642,3 @@ Scegli, per cortesia, un titolo diverso per l'articolo.",
 "talkpagenotmoved" => "La corrispondente pagina di discussione <strong>non è stata spostata</strong>."
 
 );
-
-
-?>

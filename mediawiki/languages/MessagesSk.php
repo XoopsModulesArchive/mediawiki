@@ -868,7 +868,7 @@ alebo sa rozhodol, že nebude prijímať e-maily od druhých redaktorov.',
 'watchnologin'          => 'Nie ste prihlásený/á',
 'watchnologintext'      => 'Musíte byť [[Special:Userlogin|prihlásený/á]], aby ste mohli modifikovať vaše sledované články.',
 'addedwatch'            => 'Pridaný do sledovaných článkov',
-'addedwatchtext'        => 'Stránka [[$1]] bola pridaná do [[Special:Watchlist|sledovaných článkov]]. Budú tam uvedené ďalšie úpravy tejto stránky a jej diskusie a stránka bude zobrazená \'\'\'tučne\'\'\' v [[Special:Recentchanges|zozname posledných úprav]], aby ste ju ľahšie našli. 
+'addedwatchtext'        => 'Stránka [[$1]] bola pridaná do [[Special:Watchlist|sledovaných článkov]]. Budú tam uvedené ďalšie úpravy tejto stránky a jej diskusie a stránka bude zobrazená \'\'\'tučne\'\'\' v [[Special:Recentchanges|zozname posledných úprav]], aby ste ju ľahšie našli.
 
 Ak budete chcieť neskôr stránku odstrániť zo sledovaných stránok, kliknite na "nesleduj" v horných záložkách.',
 'removedwatch'          => 'Odstránený zo sledovaných článkov',
@@ -1107,7 +1107,7 @@ Potvrďte, že to naozaj chcete urobiť.',
 'lockdbsuccesstext'     => 'Databáza bola dočasne zamknutá.',
 'unlockdbsuccesstext'   => 'Databáza {{GRAMMAR:genitív|{{SITENAME}}}} bola odomknutá.',
 'makesysoptitle'        => 'Urob z redaktora správcu',
-'makesysoptext'         => 'Tento formulár je používaný byrokratmi na zmenu redaktorov na správcov. 
+'makesysoptext'         => 'Tento formulár je používaný byrokratmi na zmenu redaktorov na správcov.
 Do poľa napíšte meno redaktora a potvrďte zmenu redaktora na správcu',
 'makesysopname'         => 'Meno redaktora:',
 'makesysopsubmit'       => 'Urob z tohto redaktora správcu',
@@ -1657,4 +1657,3 @@ $1',
 'hideresults'           => 'Skry výsledky',
 'displaytitle'          => '(Odkazujte na túto stránku ako [[$1]])',
 );
-?>

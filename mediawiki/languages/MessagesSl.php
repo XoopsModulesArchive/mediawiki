@@ -243,7 +243,7 @@ Funkcija: $1<br />
 Iskanje: $2',
 'viewsource'            => 'Izvorno besedilo',
 'viewsourcefor'         => 'za $1',
-'protectedtext'         => '<strong style="font-size:130%">Stran je [[Project:Zaščitena stran|zaščitena]] pred urejanjem.</strong> 
+'protectedtext'         => '<strong style="font-size:130%">Stran je [[Project:Zaščitena stran|zaščitena]] pred urejanjem.</strong>
 
 * \'\'\'Če je stran [[Project:Pravila zaščite strani|popolnoma zaščitena]], jo lahko urejajo le [[Project:Administratorji|administratorji]]; če je [[Project:Delna zaščita|zaščitena delno]], jo lahko urejajo tudi uveljavljeni [[Project:Čemu se registrirati?|registrirani uporabniki]].\'\'\'
 * \'\'\'Odstranitev zaščite lahko zahtevate [[Project:Pod lipo|Pod lipo]]\'\'\'.
@@ -366,7 +366,7 @@ možnosti se e-pošte ne bo pošiljalo.',
 Vzrok:<br />\'\'$2\'\'<br />O blokiranju se lahko pogovorite z $1 ali katerim drugim
 [[Project:Administratorji|administratorjem]].
 
-Vedite, da lahko ukaz »Pošlji uporabniku e-pismo« uporabite le, če ste v nastavitvah vpisali in potrdili svoj elektronski naslov. 
+Vedite, da lahko ukaz »Pošlji uporabniku e-pismo« uporabite le, če ste v nastavitvah vpisali in potrdili svoj elektronski naslov.
 
 Vaš IP-naslov je $3. Prosimo, vključite ga v vse morebitne poizvedbe.',
 'blockedoriginalsource' => 'Izvorno besedilo strani \'\'\'$1\'\'\' je na razpolago spodaj:',
@@ -462,7 +462,7 @@ Napotek: (tren) = primerjava s trenutno redakcijo,
 'rev-deleted-comment'   => '(pripomba je bila odstranjena)',
 'rev-deleted-user'      => '(uporabniško ime je bilo odstranjeno)',
 'rev-deleted-text-permission'=> '<div class="mw-warning plainlinks">
-Prikazana redakcija je bila iz javnih arhivov odstranjena. 
+Prikazana redakcija je bila iz javnih arhivov odstranjena.
 Podrobnosti so morda na razpolago v [{{fullurl:Special:Log/delete|page=Rev-deleted-text-permission dnevniku brisanja}}].
 </div>',
 'rev-deleted-text-view' => '<div class="mw-warning plainlinks">
@@ -654,7 +654,7 @@ Opomba: včasih je zaradi varnostnih težav preprečeno nalaganje sicer dovoljen
 'emptyfile'             => 'Naložena datoteka je morda prazna. Do tega bi lahko prišlo zaradi slovnične napake v imenu. Ali datoteko resnično želite naložiti?',
 'fileexists'            => 'Datoteka s tem imenom že obstaja. Preden jo povozite, preverite stran $1. Da preprečite navzkrižja z že obstoječimi datotekami, uporabljajte za datoteke opisna imena (npr. »Eifflov stolp, Pariz, ponoči.jpg«).',
 'fileexists-forbidden'  => 'Datoteka s tem imenom že obstaja in je ni mogoče prepisati. Poskusite svojo datoteko naložiti pod drugim imenom. [[Image:$1|thumb|center|$1]]',
-'fileexists-shared-forbidden'=> 'Datoteka s tem imenom že obstaja v skupnem repozitoriju datotek. Prosimo, vrnite se in naložite svojo datoteko pod drugim imenom. 
+'fileexists-shared-forbidden'=> 'Datoteka s tem imenom že obstaja v skupnem repozitoriju datotek. Prosimo, vrnite se in naložite svojo datoteko pod drugim imenom.
 [[Image:$1|thumb|center|$1]]',
 'successfulupload'      => 'Datoteko ste uspešno naložili',
 'fileuploaded'          => 'Datoteka »$1« se je uspešno naložila.
@@ -884,10 +884,10 @@ Povratna sporočila in pomoč:
 'confirmdelete'         => 'Potrdi brisanje',
 'deletesub'             => '(Brišem »$1«)',
 'historywarning'        => 'OPOZORILO: stran, ki jo želite izbrisati, ima zgodovino:',
-'confirmdeletetext'     => 'Iz zbirke podatkov boste izbrisali stran ali sliko skupaj z vso njeno zgodovino. 
+'confirmdeletetext'     => 'Iz zbirke podatkov boste izbrisali stran ali sliko skupaj z vso njeno zgodovino.
 Prosimo, \'\'\'potrdite\'\'\', da to resnično želite, da razumete posledice dejanja in da se ravnate po [[Project:Pravila|pravilih]].',
 'actioncomplete'        => 'Poseg je končan',
-'deletedtext'           => '»\'\'\'$1\'\'\'« je bila izbrisana. 
+'deletedtext'           => '»\'\'\'$1\'\'\'« je bila izbrisana.
 Za zapise nedavnih brisanj glej $2.',
 'deletedarticle'        => 'je izbrisal(-a) »$1«',
 'dellogpage'            => 'Dnevnik brisanja',
@@ -1056,7 +1056,7 @@ Da izbranega uporabnika povišate, vpišite njegovo ime v okence in pritisnite g
 'already_steward'       => 'Uporabnik je že upravnik!',
 'rightsnone'            => '(nobeno)',
 'movepage'              => 'Prestavitev strani',
-'movepagetext'          => 'Z naslednjim obrazcem lahko stran preimenujete in hkrati prestavite tudi vso njeno zgodovino. Dosedanja stran se bo spremenila v preusmeritev na prihodnje mesto. 
+'movepagetext'          => 'Z naslednjim obrazcem lahko stran preimenujete in hkrati prestavite tudi vso njeno zgodovino. Dosedanja stran se bo spremenila v preusmeritev na prihodnje mesto.
 
 \'\'\'Povezave na dosedanji naslov strani se ne bodo spremenile, zato vas prosimo, da po prestavitvi strani z uporabo pripomočka »Kaj se povezuje sem« popravite vse dvojne preusmeritve, ki bodo morda nastale.\'\'\' Odgovorni ste, da bodo povezave še naprej kazale na prava mesta.
 
@@ -1102,7 +1102,7 @@ Prestavitev strani je lahko za priljubljeno stran velika in nepričakovana sprem
 
 Če želite izvoziti članke, v spodnje polje vpišite njihove naslove (enega v vsako vrstico) in označite, ali želite le trenutno različico s podatki o trenutnem urejanju ali tudi vse prejšnje z vrsticami o zgodovini strani.
 
-Če gre za slednje, lahko uporabite tudi povezavo, npr. [[Special:Export/{{MediaWiki:Mainpage}}]] za 
+Če gre za slednje, lahko uporabite tudi povezavo, npr. [[Special:Export/{{MediaWiki:Mainpage}}]] za
 članek {{MediaWiki:Mainpage}}.',
 'exportcuronly'         => 'Vključi le trenutno redakcijo, ne pa celotne zgodovine.',
 'exportnohistory'       => '----
@@ -1499,7 +1499,7 @@ Da boste stran lahko shranili, boste morali odstraniti vse na črni listi navede
 'confirmemail_loggedin' => 'Svoj elektronski naslov ste uspešno potrdili.',
 'confirmemail_error'    => 'Vaša potrditev se žal ni shranila.',
 'confirmemail_subject'  => 'Potrditev e-poštnega naslova',
-'confirmemail_body'     => 'Nekdo z IP-naslovom »$1« (verjetno vi) je v {{GRAMMAR:dajalnik|{{SITENAME}}}} ustvaril račun »$2« in zanj vpisal vaš elektronski naslov. Da bi potrdili, da ta resnično pripada vam in s tem lahko začeli uporabljati e-poštne storitve {{GRAMMAR:rodilnik|{{SITENAME}}}}, odprite naslednjo povezavo: 
+'confirmemail_body'     => 'Nekdo z IP-naslovom »$1« (verjetno vi) je v {{GRAMMAR:dajalnik|{{SITENAME}}}} ustvaril račun »$2« in zanj vpisal vaš elektronski naslov. Da bi potrdili, da ta resnično pripada vam in s tem lahko začeli uporabljati e-poštne storitve {{GRAMMAR:rodilnik|{{SITENAME}}}}, odprite naslednjo povezavo:
 
 $3
 
@@ -1518,15 +1518,15 @@ $1
 'trackbacklink'         => 'Sledilnik',
 'trackbackdeleteok'     => 'Sledilnik je uspešno izbrisan.',
 'deletedwhileediting'   => '\'\'Opozorilo:\'\' Med vašim urejanjem je eden izmed administratorjev stran izbrisal. Razloge za to si lahko pogledate v [[Special:Log/delete|dnevniku brisanja]].',
-'confirmrecreate'       => 'Medtem ko ste stran urejali, jo je uporabnik [[User:$1|$1]] ([[User talk:$1|pogovor]]) izbrisal z razlogom: 
-:\'\'$2\'\' 
+'confirmrecreate'       => 'Medtem ko ste stran urejali, jo je uporabnik [[User:$1|$1]] ([[User talk:$1|pogovor]]) izbrisal z razlogom:
+:\'\'$2\'\'
 Prosimo, potrdite, da jo resnično želite znova ustvariti.',
 'recreate'              => 'Ponovno ustvari',
 'tooltip-recreate'      => '<noinclude>Ta stran je namenoma (skoraj) prazna.</noinclude>',
 'unit-pixel'            => ' točk',
 'redirectingto'         => 'Preusmerjam na »[[$1]]« ...',
-'confirm_purge'         => 'Osvežim predpomnjenje strani? 
- 
+'confirm_purge'         => 'Osvežim predpomnjenje strani?
+
 $1',
 'confirm_purge_button'  => 'Osveži',
 'youhavenewmessagesmulti'=> 'Na $1 imate novo sporočilo',
@@ -1536,4 +1536,3 @@ $1',
 'hideresults'           => 'Skrij zadetke',
 'displaytitle'          => '(Poveži na to stran kot [[$1]])',
 );
-?>

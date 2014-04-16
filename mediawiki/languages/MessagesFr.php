@@ -79,7 +79,6 @@ $wgAllMessagesFr = array(
 'nov' => 'nov',
 'dec' => 'déc',
 
-
 # Bits of text used by many pages:
 
 'categories'	=> 'Catégories de la page',
@@ -389,7 +388,7 @@ Nous vous conseillons de vous connecter et de modifier ce mot de passe dès que 
 'whitelistreadtitle' => 'Compte requis pour lire',
 'whitelistreadtext' => 'Vous devez être [[Special:Userlogin|connecté]] pour avoir la permission de lire les articles',
 'whitelistacctitle' => 'Vous n\'êtes pas autorisé à créer un compte',
-'whitelistacctext' => 'Pour avoir la permission de créer un compte sur ce Wiki vous devez être [[Special:Userlogin|connecté]] et avoir les permissions appropriées', 
+'whitelistacctext' => 'Pour avoir la permission de créer un compte sur ce Wiki vous devez être [[Special:Userlogin|connecté]] et avoir les permissions appropriées',
 'confirmedittitle' => 'Validation par courriel requise pour modifier les pages',
 'confirmedittext' => 'Vous devez valider votre adresse de courriel avant de modifier une page. Veuillez entrer et valider votre adresse de courriel grâce à [[Special:Preferences|user preferences]].',
 'loginreqtitle'	=> 'Identification nécessaire',
@@ -688,7 +687,6 @@ Veuillez vérifer le fichier.',
 
 'license' => 'Licence',
 'nolicense' => 'Aucune licence sélectionnée',
-
 
 # Image list
 #
@@ -1025,7 +1023,6 @@ Voir [[{{ns:4}}:Trace des effacements]] pour la liste des suppressions et des re
 'sp-contributions-older'  => '$1 suivants',
 'sp-contributions-newbies-sub' => 'Contributions des nouveaux utilisateurs',
 
-
 # What links here
 
 'whatlinkshere' => 'Pages liées',
@@ -1167,7 +1164,6 @@ L\'article de destination "[[$1]]" existe déjà. Voulez-vous le supprimer pour 
 'delete_and_move_reason' => 'Page supprimée pour permettre le renommage',
 'selfmove' => 'La page source et de destination sont identiques ; il est impossible de renommer une page en elle-même',
 'immobile_namespace' => 'Le titre de destination est d\'un type spécial ; il est impossible de renommer des pages vers cet espace de nom',
-
 
 # Export page
 'export'	=> 'Exporter des pages',
@@ -1487,10 +1483,6 @@ Veuillez confirmer que vous désirez vraiment re-créer cette page.',
 'exif-orientation-8' => 'Tournée de 90° à gauche',
 'exif-componentsconfiguration-0' => 'n\'existe pas',
 
-
 // exifgps:
 
 );
-
-
-?>

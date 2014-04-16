@@ -1,6 +1,5 @@
 <?php
 
-
 /* private */ $wgAllMessagesTt = array(
 
 # week days, months
@@ -37,6 +36,3 @@
 'dec' => "Dek",
 
 );
-
-
-?>

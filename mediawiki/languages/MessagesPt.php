@@ -1,6 +1,5 @@
 <?php
 
-
 /* private */ $wgAllMessagesPt = array(
 
 # User preference toggles
@@ -84,7 +83,6 @@
 'category' => 'Categoria',
 'category_header' => 'Artigos na categoria "$1"',
 'subcategories' => 'Subcategorias',
-
 
 #'linktrail'             => '/^([a-z]+)(.*)$/sD', # ignore list
 #'linkprefix'            => '/^(.*?)([a-zA-Z\x80-\xff]+)$/sD', # ignore list
@@ -1657,7 +1655,6 @@ ta[\'ca-nstab-category\'] = new Array(\'c\',\'Ver a página da categoria\');',
 
 'exif-subjectdistance-value' => '$1 metros',
 
-
 'exif-lightsource-0' => 'Desconhecida',
 'exif-lightsource-1' => 'Luz do dia',
 'exif-lightsource-2' => 'Fluorescente',
@@ -1760,6 +1757,3 @@ Por favor confirme que realmente deseja recriar este artigo.',
 # DISPLAYTITLE
 'displaytitle' => '(Ligar a esta página como [[$1]])',
 );
-
-
-?>

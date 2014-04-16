@@ -130,7 +130,7 @@ Jaga, parobahan na kaca ieu katut kaca obrolanana bakal dibéréndélkeun di din
 'already_steward' => 'Pamaké ieu mémang geus jadi \'\'steward\'\'',
 'already_sysop' => 'Pamaké ieu geus boga kalungguhan kuncén',
 'alreadyloggedin' => '<strong>Pamaké $1, anjeun geus asup log!</strong><br />',
-'alreadyrolled' => 'Teu bisa mulangkeun édit ahir [[$1]] ku [[User:$2|$2]] ([[User talk:$2|Obrolan]]); geus aya nu ngédit atawa mulangkeun kacana. 
+'alreadyrolled' => 'Teu bisa mulangkeun édit ahir [[$1]] ku [[User:$2|$2]] ([[User talk:$2|Obrolan]]); geus aya nu ngédit atawa mulangkeun kacana.
 
 Édit ahir ku [[User:$3|$3]] ([[User talk:$3|Obrolan]]).',
 'ancientpages' => 'Kaca pangheubeulna',
@@ -614,7 +614,7 @@ proceeding.',
 'nchanges' => '$1 parobahan',
 'newarticle' => '(Anyar)',
 'newarticletext' => 'Anjeun geus nuturkeun tumbu ka kaca nu can aya.
-Pikeun nyieun kaca, mimitian ku ngetik jeroeun kotak di handap 
+Pikeun nyieun kaca, mimitian ku ngetik jeroeun kotak di handap
 (tempo [[{{ns:project}}:Pitulung|kaca pitulung]] pikeun leuwih écés).
 Mun anjeun ka dieu teu ngahaja, klik baé tombol \'\'\'back\'\'\' na panyungsi anjeun.',
 'newbies' => 'anyaran',
@@ -1055,6 +1055,3 @@ jumlah-jamléh geus aya \'\'\'$3\'\'\' kaca ulasan sarta \'\'\'$4\'\'\' éditan 
 'yourtext' => 'Tulisan anjeun',
 'yourvariant' => 'Varian basa',
 );
-
-
-?>

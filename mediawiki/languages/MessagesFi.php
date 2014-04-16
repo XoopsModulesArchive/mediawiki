@@ -192,7 +192,6 @@ Taivutusmuodot: {{GRAMMAR:genitive|{{SITENAME}}}} (yön) — {{GRAMMAR:partitive
 'jumptonavigation'    => 'valikkoon',
 'jumptosearch'        => 'hakuun',
 
-
 'sysoptitle'          => 'Vaatii ylläpitäjäoikeudet',
 'sysoptext'           => 'Tämän toiminnon voi suorittaa vain käyttäjä, jolla on ylläpitäjäoikeudet. Katso $1.',
 'developertitle'      => 'Ohjelmiston kehittäjän oikeuksia vaaditaan',
@@ -349,8 +348,6 @@ Taivutusmuodot: {{GRAMMAR:genitive|{{SITENAME}}}} (yön) — {{GRAMMAR:partitive
 'accountcreated'      => 'Käyttäjätunnus luotiin',
 'accountcreatedtext'  => 'Käyttäjän $1 käyttäjätunnus luotiin.',
 
-
-
 # Edit page toolbar
 'bold_sample'         => 'Lihavoitu teksti',
 'bold_tip'            => 'Lihavointi',
@@ -448,7 +445,7 @@ Taivutusmuodot: {{GRAMMAR:genitive|{{SITENAME}}}} (yön) — {{GRAMMAR:partitive
 'nocreatetext'        => 'Et voi luoda uusia sivuja. Voit muokata olemassa olevia sivuja tai luoda [[Special:Userlogin|käyttäjätunnukssen]].',
 
 # History pages
-# 
+#
 'revhistory'          => 'Muutoshistoria',
 'nohistory'           => 'Tällä sivulla ei ole muutoshistoriaa.',
 'revnotfound'         => 'Versiota ei löydy',
@@ -488,7 +485,6 @@ Taivutusmuodot: {{GRAMMAR:genitive|{{SITENAME}}}} (yön) — {{GRAMMAR:partitive
 'revdelete-log'       => 'Lokimerkintä:',
 'revdelete-submit'    => 'Toteuta',
 'revdelete-logentry'  => 'muutti sivun [[$1]] version näkyvyyttä',
-
 
 # Diffs
 #
@@ -610,7 +606,6 @@ Taivutusmuodot: {{GRAMMAR:genitive|{{SITENAME}}}} (yön) — {{GRAMMAR:partitive
 'grouppage-sysop'         => '{{ns:project}}:Ylläpitäjät',
 'grouppage-bureaucrat'    => '{{ns:project}}:Byrokraatit',
 
-
 # Recent changes
 #
 'changes'             => 'muutosta',
@@ -637,7 +632,6 @@ Taivutusmuodot: {{GRAMMAR:genitive|{{SITENAME}}}} (yön) — {{GRAMMAR:partitive
 'number_of_watching_users_pageview' => '[$1 tarkkailevaa käyttäjää]', // TODO sigplu
 'rc_categories'       => 'Vain luokista (erotin on ”|”)',
 'rc_categories_any'   => 'Mikä tahansa',
-
 
 # Upload
 #
@@ -739,7 +733,6 @@ Huomaa, että {{GRAMMAR:inessive|{{SITENAME}}}} muut voivat muokata tai poistaa 
 'unusedtemplatestext' => 'Tässä on lista kaikista mallineista, joita ei ole liitetty toiselle sivulle. Muista tarkistaa onko malline siitä huolimatta käytössä.',
 'unusedtemplateswlh'  => 'muut linkit',
 
-
 # Statistics
 #
 'statistics'          => 'Tilastoja',
@@ -814,7 +807,6 @@ Ohjelmiston ylläpitotöitä on jonossa \'\'\'$7\'\'\' kappaletta.',
 'unwatchedpages'      => 'Tarkkailemattomat sivut',
 'listredirects'       => 'Uudelleenohjaukset',
 'randomredirect'      => 'Satunnainen uudelleenohjaus',
-
 
 # No reason to overwrite
 //  'rfcurl'              => 'http://www.faqs.org/rfcs/rfc$1.html',
@@ -925,7 +917,6 @@ Tarkkailulistan asetuksia voit muuttaa osoitteessa:
 Palaute ja lisäapu osoitteessa:
 {{SERVER}}{{localurl:Help:Sähköposti-ilmoitus}}',
 
-
 # Delete/protect/revert
 #
 'deletepage'          => 'Poista sivu',
@@ -980,7 +971,6 @@ Palaute ja lisäapu osoitteessa:
 # restrictions (nouns)
 'restriction-edit'    => 'muokkaus',
 'restriction-move'    => 'siirto',
-
 
 # Undelete
 'undelete'            => 'Palauta poistettuja sivuja',
@@ -1073,7 +1063,6 @@ Palaute ja lisäapu osoitteessa:
 'sorbsreason'         => 'IP-osoitteesti on listattu avoimena välityspalvelimena [http://www.sorbs.net SORBSin] mustalla listalla.',
 'sorbs_create_account_reason' => 'IP-osoitteesi on listattu avoimena välityspalvelimena [http://www.sorbs.net SORBSin] mustalla listalla. Et voi luoda käyttäjätunnusta.',
 
-
 # Developer tools
 #
 'lockdb'              => 'Lukitse tietokanta',
@@ -1111,7 +1100,6 @@ Palaute ja lisäapu osoitteessa:
 'already_bureaucrat'  => 'Käyttäjä on jo byrokraatti',
 'already_steward'     => 'Käyttäjä on jo ylivalvoja',
 'rightsnone'          => '(ei oikeuksia)',
-
 
 # Move page
 #
@@ -1156,7 +1144,6 @@ Näissä tapauksissa sivut täytyy siirtää tai yhdistää käsin.',
 'exportcuronly'       => 'Liitä mukaan ainoastaan uusin versio, ei koko historiaa.',
 'exportnohistory'     => "----\nSivujen koko historian vienti on estetty suorituskykysyistä.",
 
-
 # Namespace 8 related
 
 'allmessages'         => 'Kaikki järjestelmäviestit',
@@ -1168,7 +1155,6 @@ Näissä tapauksissa sivut täytyy siirtää tai yhdistää käsin.',
 'allmessagesnotsupportedDB' => '{{ns:special}}:Allmessages-sivu ei ole käytössä, koska wgUseDatabaseMessages-asetus on pois päältä.',
 'allmessagesfilter'   => 'Viestiavainsuodatin:',
 'allmessagesmodified' => 'Näytä vain muutetut',
-
 
 # Thumbnails
 
@@ -1188,7 +1174,6 @@ Näissä tapauksissa sivut täytyy siirtää tai yhdistää käsin.',
 'importnosources'     => 'Wikienvälisiä tuontilähteitä ei ole määritelty ja suorat historiatallennukset on poistettu käytöstä.',
 'importnofile'        => 'Mitään tuotavaa tiedostoa ei lähetetty.',
 'importuploaderror'   => 'Tiedoston lähettäminen epäonnistui. Tiedosto saattaa olla liian suuri.',
-
 
 # Keyboard access keys for power users
 'accesskey-search'    => 'f',
@@ -1237,7 +1222,6 @@ Näissä tapauksissa sivut täytyy siirtää tai yhdistää käsin.',
 'spam_reverting'      => 'Palautettu viimeisimpään versioon, joka ei sisällä linkkejä kohteeseen $1.',
 'spam_blanking'       => 'Kaikki versiot sisälsivät linkkejä kohteeseen $1. Sivu tyhjennety.',
 
-
 # Info page
 'infosubtitle'        => 'Tietoja sivusta',
 'numedits'            => 'Sivun muokkausten määrä: $1',
@@ -1264,7 +1248,6 @@ Näissä tapauksissa sivut täytyy siirtää tai yhdistää käsin.',
 'rcpatroldisabledtext'  => 'Tuoreiden muutosten tarkastustoiminto ei ole käytössä.',
 'markedaspatrollederror'     => 'Muutoksen merkitseminen tarkastetuksi epäonnistui.',
 'markedaspatrollederrortext' => 'Tarkastetuksi merkittävää versiota ei ole määritelty.',
-
 
 'Monobook.css' => "/* Tätä sivua muokkaamalla voi muokata koko sivuston Monobook-tyyliä */",
 
@@ -1666,7 +1649,6 @@ $3
 
 Jos tämä tunnus ei ole sinun, ÄLÄ seuraa linkkiä. Varmennuskoodi vanhenee $4.',
 
-
 # Inputbox extension, may be useful in other contexts as well
 'tryexact'            => 'Koita tarkkaa osumaa',
 'searchfulltext'      => 'Etsi koko tekstiä',
@@ -1722,8 +1704,8 @@ Ole hyvä ja varmista, että haluat luoda sivun uudelleen.',
 'history-feed-title'  => 'Muutoshistoria',
 'history-feed-description'    => 'Tämän sivun muutoshistoria',
 'history-feed-item-nocomment' => '$1 ($2)',
-'history-feed-empty'  => 'Pyydettyä sivua ei ole olemassa. 
-Se on saatettu poistaa wikistä tai nimetä uudelleen. 
+'history-feed-empty'  => 'Pyydettyä sivua ei ole olemassa.
+Se on saatettu poistaa wikistä tai nimetä uudelleen.
 Kokeile [[Special:Search|hakua]] löytääksesi asiaan liittyviä sivuja.',
 
 # Shown to the admin after s/he's undeleted a page.
@@ -1733,4 +1715,3 @@ Kokeile [[Special:Search|hakua]] löytääksesi asiaan liittyviä sivuja.',
 'sp-newimages-showfrom' => 'Näytä uudet kuvat alkaen $1',
 
 );
-?>

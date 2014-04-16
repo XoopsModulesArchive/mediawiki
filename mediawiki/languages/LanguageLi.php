@@ -5,89 +5,98 @@
   * @subpackage Language
   */
 
-require_once( 'LanguageUtf8.php' );
+require_once 'LanguageUtf8.php';
 
 if (!$wgCachedMessageArrays) {
-	require_once('MessagesLi.php');
+    require_once 'MessagesLi.php';
 }
 
-class LanguageLi extends LanguageUtf8 {
-	private $mMessagesLi, $mNamespaceNamesLi = null;
+class LanguageLi extends LanguageUtf8
+{
+    private $mMessagesLi, $mNamespaceNamesLi = null;
 
-	private $mQuickbarSettingsLi = array(
-		'Oetgesjakeld', 'Links vas', 'Rechts vas', 'Links zwevend'
-	);
-	
-	private $mSkinNamesLi = array(
-		'standard' => 'Standaard',
-		'nostalgia' => 'Nostalgie',
-		'cologneblue' => 'Keuls blauw',
-	);
+    private $mQuickbarSettingsLi = array(
+        'Oetgesjakeld', 'Links vas', 'Rechts vas', 'Links zwevend'
+    );
 
-	function __construct() {
-		parent::__construct();
+    private $mSkinNamesLi = array(
+        'standard' => 'Standaard',
+        'nostalgia' => 'Nostalgie',
+        'cologneblue' => 'Keuls blauw',
+    );
 
-		global $wgAllMessagesLi;
-		$this->mMessagesLi =& $wgAllMessagesLi;
+    function __construct()
+    {
+        parent::__construct();
 
-		global $wgMetaNamespace;
-		$this->mNamespaceNamesLi = array(
-			NS_MEDIA          => 'Media',
-			NS_SPECIAL        => 'Speciaal',
-			NS_MAIN           => '',
-			NS_TALK           => 'Euverlik',
-			NS_USER           => 'Gebroeker',
-			NS_USER_TALK      => 'Euverlik_gebroeker',
-			NS_PROJECT        => $wgMetaNamespace,
-			NS_PROJECT_TALK   => 'Euverlik_' . $wgMetaNamespace,
-			NS_IMAGE          => 'Aafbeilding',
-			NS_IMAGE_TALK     => 'Euverlik_afbeelding',
-			NS_MEDIAWIKI      => 'MediaWiki',
-			NS_MEDIAWIKI_TALK => 'Euverlik_MediaWiki',
-			NS_TEMPLATE       => 'Sjabloon',
-			NS_TEMPLATE_TALK  => 'Euverlik_sjabloon',
-			NS_HELP           => 'Help',
-			NS_HELP_TALK      => 'Euverlik_help',
-			NS_CATEGORY       => 'Kategorie',
-			NS_CATEGORY_TALK  => 'Euverlik_kategorie'
-		);
-	}
+        global $wgAllMessagesLi;
+        $this->mMessagesLi =& $wgAllMessagesLi;
 
-	function getNamespaces() {
-		return $this->mNamespaceNamesLi + parent::getNamespaces();
-	}
+        global $wgMetaNamespace;
+        $this->mNamespaceNamesLi = array(
+            NS_MEDIA          => 'Media',
+            NS_SPECIAL        => 'Speciaal',
+            NS_MAIN           => '',
+            NS_TALK           => 'Euverlik',
+            NS_USER           => 'Gebroeker',
+            NS_USER_TALK      => 'Euverlik_gebroeker',
+            NS_PROJECT        => $wgMetaNamespace,
+            NS_PROJECT_TALK   => 'Euverlik_' . $wgMetaNamespace,
+            NS_IMAGE          => 'Aafbeilding',
+            NS_IMAGE_TALK     => 'Euverlik_afbeelding',
+            NS_MEDIAWIKI      => 'MediaWiki',
+            NS_MEDIAWIKI_TALK => 'Euverlik_MediaWiki',
+            NS_TEMPLATE       => 'Sjabloon',
+            NS_TEMPLATE_TALK  => 'Euverlik_sjabloon',
+            NS_HELP           => 'Help',
+            NS_HELP_TALK      => 'Euverlik_help',
+            NS_CATEGORY       => 'Kategorie',
+            NS_CATEGORY_TALK  => 'Euverlik_kategorie'
+        );
+    }
 
-	function getQuickbarSettings() {
-		return $this->mQuickbarSettingsLi;
-	}
+    function getNamespaces()
+    {
+        return $this->mNamespaceNamesLi + parent::getNamespaces();
+    }
 
-	function getSkinNames() {
-		return $this->mSkinNamesLi + parent::getSkinNames();
-	}
+    function getQuickbarSettings()
+    {
+        return $this->mQuickbarSettingsLi;
+    }
 
-	function getMessage( $key ) {
-		if( isset( $this->mMessagesLi[$key] ) ) {
-			return $this->mMessagesLi[$key];
-		} else {
-			return parent::getMessage( $key );
-		}
-	}
+    function getSkinNames()
+    {
+        return $this->mSkinNamesLi + parent::getSkinNames();
+    }
 
-	function getAllMessages() {
-		return $this->mMessagesLi;
-	}
+    function getMessage( $key )
+    {
+        if ( isset( $this->mMessagesLi[$key] ) ) {
+            return $this->mMessagesLi[$key];
+        } else {
+            return parent::getMessage( $key );
+        }
+    }
 
-	function timeBeforeDate( ) {
-		return false;
-	}
+    function getAllMessages()
+    {
+        return $this->mMessagesLi;
+    }
 
-	function timeDateSeparator( $format ) {
-		return ' ';
-	}
+    function timeBeforeDate( )
+    {
+        return false;
+    }
 
-	function formatMonth( $month, $format ) {
-		return $this->getMonthAbbreviation( $month );
-	}
+    function timeDateSeparator( $format )
+    {
+        return ' ';
+    }
+
+    function formatMonth( $month, $format )
+    {
+        return $this->getMonthAbbreviation( $month );
+    }
 
 }
-?>

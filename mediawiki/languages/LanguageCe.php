@@ -21,16 +21,16 @@ require_once 'LanguageRu.php';
 /**
  *
  */
-class LanguageCe extends LanguageRu {
+class LanguageCe extends LanguageRu
+{
+    function getFallbackLanguage()
+    {
+        return 'ru';
+    }
 
-	function getFallbackLanguage() {
-		return 'ru';
-	}
-
-	function getAllMessages() {
-		return null;
-	}
+    function getAllMessages()
+    {
+        return null;
+    }
 
 }
-
-?>

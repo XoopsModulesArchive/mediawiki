@@ -9,269 +9,279 @@
  * Entry point
  * @param string $par An article name ??
  */
-function wfSpecialWhatlinkshere($par = NULL) {
-	global $wgRequest;
-	$page = new WhatLinksHerePage( $wgRequest, $par );
-	$page->execute();
+function wfSpecialWhatlinkshere($par = NULL)
+{
+    global $wgRequest;
+    $page = new WhatLinksHerePage( $wgRequest, $par );
+    $page->execute();
 }
 
-class WhatLinksHerePage {
-	var $request, $par;
-	var $limit, $from, $dir, $target;
-	var $selfTitle, $skin;
+class WhatLinksHerePage
+{
+    var $request, $par;
+    var $limit, $from, $dir, $target;
+    var $selfTitle, $skin;
 
-	function WhatLinksHerePage( &$request, $par = null ) {
-		global $wgUser;
-		$this->request =& $request;
-		$this->skin =& $wgUser->getSkin();
-		$this->par = $par;
-	}
+    function WhatLinksHerePage( &$request, $par = null )
+    {
+        global $wgUser;
+        $this->request =& $request;
+        $this->skin =& $wgUser->getSkin();
+        $this->par = $par;
+    }
 
-	function execute() {
-		global $wgOut;
+    function execute()
+    {
+        global $wgOut;
 
-		$this->limit = min( $this->request->getInt( 'limit', 50 ), 5000 );
-		if ( $this->limit <= 0 ) {
-			$this->limit = 50;
-		}
-		$this->from = $this->request->getInt( 'from' );
-		$this->dir = $this->request->getText( 'dir', 'next' );
-		if ( $this->dir != 'prev' ) {
-			$this->dir = 'next';
-		}
+        $this->limit = min( $this->request->getInt( 'limit', 50 ), 5000 );
+        if ($this->limit <= 0) {
+            $this->limit = 50;
+        }
+        $this->from = $this->request->getInt( 'from' );
+        $this->dir = $this->request->getText( 'dir', 'next' );
+        if ($this->dir != 'prev') {
+            $this->dir = 'next';
+        }
 
-		$targetString = isset($this->par) ? $this->par : $this->request->getVal( 'target' );
+        $targetString = isset($this->par) ? $this->par : $this->request->getVal( 'target' );
 
-		if (is_null($targetString)) {
-			$wgOut->showErrorPage( 'notargettitle', 'notargettext' );
-			return;
-		}
+        if (is_null($targetString)) {
+            $wgOut->showErrorPage( 'notargettitle', 'notargettext' );
 
-		$this->target = Title::newFromURL( $targetString );
-		if( !$this->target ) {
-			$wgOut->showErrorPage( 'notargettitle', 'notargettext' );
-			return;
-		}
-		$this->selfTitle = Title::makeTitleSafe( NS_SPECIAL,
-			'Whatlinkshere/' . $this->target->getPrefixedDBkey() );
-		$wgOut->setPagetitle( $this->target->getPrefixedText() );
-		$wgOut->setSubtitle( wfMsg( 'linklistsub' ) );
+            return;
+        }
 
-		$isredir = ' (' . wfMsg( 'isredirect' ) . ")\n";
+        $this->target = Title::newFromURL( $targetString );
+        if (!$this->target) {
+            $wgOut->showErrorPage( 'notargettitle', 'notargettext' );
 
-		$wgOut->addHTML('&lt; '.$this->skin->makeLinkObj($this->target, '', 'redirect=no' )."<br />\n");
+            return;
+        }
+        $this->selfTitle = Title::makeTitleSafe( NS_SPECIAL,
+            'Whatlinkshere/' . $this->target->getPrefixedDBkey() );
+        $wgOut->setPagetitle( $this->target->getPrefixedText() );
+        $wgOut->setSubtitle( wfMsg( 'linklistsub' ) );
 
-		$this->showIndirectLinks( 0, $this->target, $this->limit, $this->from, $this->dir );
-	}
+        $isredir = ' (' . wfMsg( 'isredirect' ) . ")\n";
 
-	/**
-	 * @param int       $level      Recursion level
-	 * @param Title     $target     Target title
-	 * @param int       $limit      Number of entries to display
-	 * @param Title     $from       Display from this article ID
-	 * @param string    $dir        'next' or 'prev', whether $fromTitle is the start or end of the list
-	 * @private
-	 */
-	function showIndirectLinks( $level, $target, $limit, $from = 0, $dir = 'next' ) {
-		global $wgOut;
-		$fname = 'WhatLinksHerePage::showIndirectLinks';
+        $wgOut->addHTML('&lt; '.$this->skin->makeLinkObj($this->target, '', 'redirect=no' )."<br />\n");
 
-		$dbr =& wfGetDB( DB_READ );
+        $this->showIndirectLinks( 0, $this->target, $this->limit, $this->from, $this->dir );
+    }
 
-		extract( $dbr->tableNames( 'pagelinks', 'templatelinks', 'page' ) );
+    /**
+     * @param int    $level  Recursion level
+     * @param Title  $target Target title
+     * @param int    $limit  Number of entries to display
+     * @param Title  $from   Display from this article ID
+     * @param string $dir    'next' or 'prev', whether $fromTitle is the start or end of the list
+     * @private
+     */
+    function showIndirectLinks( $level, $target, $limit, $from = 0, $dir = 'next' )
+    {
+        global $wgOut;
+        $fname = 'WhatLinksHerePage::showIndirectLinks';
 
-		// Some extra validation
-		$from = intval( $from );
-		if ( !$from && $dir == 'prev' ) {
-			// Before start? No make sense
-			$dir = 'next';
-		}
+        $dbr =& wfGetDB( DB_READ );
 
-		// Make the query
-		$plConds = array(
-			'page_id=pl_from',
-			'pl_namespace' => $target->getNamespace(),
-			'pl_title' => $target->getDBkey(),
-		);
+        extract( $dbr->tableNames( 'pagelinks', 'templatelinks', 'page' ) );
 
-		$tlConds = array(
-			'page_id=tl_from',
-			'tl_namespace' => $target->getNamespace(),
-			'tl_title' => $target->getDBkey(),
-		);
+        // Some extra validation
+        $from = intval( $from );
+        if (!$from && $dir == 'prev') {
+            // Before start? No make sense
+            $dir = 'next';
+        }
 
-		if ( $from ) {
-			if ( 'prev' == $dir ) {
-				$offsetCond = "page_id < $from";
-				$options = array( 'ORDER BY page_id DESC' );
-			} else {
-				$offsetCond = "page_id >= $from";
-				$options = array( 'ORDER BY page_id' );
-			}
-		} else {
-			$offsetCond = false;
-			$options = array( 'ORDER BY page_id,is_template DESC' );
-		}
-		// Read an extra row as an at-end check
-		$queryLimit = $limit + 1;
-		$options['LIMIT'] = $queryLimit;
-		if ( $offsetCond ) {
-			$tlConds[] = $offsetCond;
-			$plConds[] = $offsetCond;
-		}
-		$fields = array( 'page_id', 'page_namespace', 'page_title', 'page_is_redirect' );
+        // Make the query
+        $plConds = array(
+            'page_id=pl_from',
+            'pl_namespace' => $target->getNamespace(),
+            'pl_title' => $target->getDBkey(),
+        );
 
-		$plRes = $dbr->select( array( 'pagelinks', 'page' ), $fields,
-			$plConds, $fname, $options );
-		$tlRes = $dbr->select( array( 'templatelinks', 'page' ), $fields,
-			$tlConds, $fname, $options );
+        $tlConds = array(
+            'page_id=tl_from',
+            'tl_namespace' => $target->getNamespace(),
+            'tl_title' => $target->getDBkey(),
+        );
 
-		if ( !$dbr->numRows( $plRes ) && !$dbr->numRows( $tlRes ) ) {
-			if ( 0 == $level ) {
-				$wgOut->addWikiText( wfMsg( 'nolinkshere' ) );
-			}
-			return;
-		}
+        if ($from) {
+            if ('prev' == $dir) {
+                $offsetCond = "page_id < $from";
+                $options = array( 'ORDER BY page_id DESC' );
+            } else {
+                $offsetCond = "page_id >= $from";
+                $options = array( 'ORDER BY page_id' );
+            }
+        } else {
+            $offsetCond = false;
+            $options = array( 'ORDER BY page_id,is_template DESC' );
+        }
+        // Read an extra row as an at-end check
+        $queryLimit = $limit + 1;
+        $options['LIMIT'] = $queryLimit;
+        if ($offsetCond) {
+            $tlConds[] = $offsetCond;
+            $plConds[] = $offsetCond;
+        }
+        $fields = array( 'page_id', 'page_namespace', 'page_title', 'page_is_redirect' );
 
-		// Read the rows into an array and remove duplicates
-		// templatelinks comes second so that the templatelinks row overwrites the
-		// pagelinks row, so we get (inclusion) rather than nothing
-		while ( $row = $dbr->fetchObject( $plRes ) ) {
-			$row->is_template = 0;
-			$rows[$row->page_id] = $row;
-		}
-		$dbr->freeResult( $plRes );
-		while ( $row = $dbr->fetchObject( $tlRes ) ) {
-			$row->is_template = 1;
-			$rows[$row->page_id] = $row;
-		}
-		$dbr->freeResult( $tlRes );
+        $plRes = $dbr->select( array( 'pagelinks', 'page' ), $fields,
+            $plConds, $fname, $options );
+        $tlRes = $dbr->select( array( 'templatelinks', 'page' ), $fields,
+            $tlConds, $fname, $options );
 
-		// Sort by key and then change the keys to 0-based indices
-		ksort( $rows );
-		$rows = array_values( $rows );
+        if ( !$dbr->numRows( $plRes ) && !$dbr->numRows( $tlRes ) ) {
+            if (0 == $level) {
+                $wgOut->addWikiText( wfMsg( 'nolinkshere' ) );
+            }
 
-		$numRows = count( $rows );
+            return;
+        }
 
-		// Work out the start and end IDs, for prev/next links
-		if ( $dir == 'prev' ) {
-			// Descending order
-			if ( $numRows > $limit ) {
-				// More rows available before these ones
-				// Get the ID from the next row past the end of the displayed set
-				$prevId = $rows[$limit]->page_id;
-				// Remove undisplayed rows
-				$rows = array_slice( $rows, 0, $limit );
-			} else {
-				// No more rows available before
-				$prevId = 0;
-			}
-			// Assume that the ID specified in $from exists, so there must be another page
-			$nextId = $from;
+        // Read the rows into an array and remove duplicates
+        // templatelinks comes second so that the templatelinks row overwrites the
+        // pagelinks row, so we get (inclusion) rather than nothing
+        while ( $row = $dbr->fetchObject( $plRes ) ) {
+            $row->is_template = 0;
+            $rows[$row->page_id] = $row;
+        }
+        $dbr->freeResult( $plRes );
+        while ( $row = $dbr->fetchObject( $tlRes ) ) {
+            $row->is_template = 1;
+            $rows[$row->page_id] = $row;
+        }
+        $dbr->freeResult( $tlRes );
 
-			// Reverse order ready for display
-			$rows = array_reverse( $rows );
-		} else {
-			// Ascending
-			if ( $numRows > $limit ) {
-				// More rows available after these ones
-				// Get the ID from the last row in the result set
-				$nextId = $rows[$limit]->page_id;
-				// Remove undisplayed rows
-				$rows = array_slice( $rows, 0, $limit );
-			} else {
-				// No more rows after
-				$nextId = false;
-			}
-			$prevId = $from;
-		}
+        // Sort by key and then change the keys to 0-based indices
+        ksort( $rows );
+        $rows = array_values( $rows );
 
-		if ( 0 == $level ) {
-			$wgOut->addWikiText( wfMsg( 'linkshere' ) );
-		}
-		$isredir = wfMsg( 'isredirect' );
-		$istemplate = wfMsg( 'istemplate' );
+        $numRows = count( $rows );
 
-		if( $level == 0 ) {
-			$prevnext = $this->getPrevNext( $limit, $prevId, $nextId );
-			$wgOut->addHTML( $prevnext );
-		}
+        // Work out the start and end IDs, for prev/next links
+        if ($dir == 'prev') {
+            // Descending order
+            if ($numRows > $limit) {
+                // More rows available before these ones
+                // Get the ID from the next row past the end of the displayed set
+                $prevId = $rows[$limit]->page_id;
+                // Remove undisplayed rows
+                $rows = array_slice( $rows, 0, $limit );
+            } else {
+                // No more rows available before
+                $prevId = 0;
+            }
+            // Assume that the ID specified in $from exists, so there must be another page
+            $nextId = $from;
 
-		$wgOut->addHTML( '<ul>' );
-		foreach ( $rows as $row ) {
-			$nt = Title::makeTitle( $row->page_namespace, $row->page_title );
+            // Reverse order ready for display
+            $rows = array_reverse( $rows );
+        } else {
+            // Ascending
+            if ($numRows > $limit) {
+                // More rows available after these ones
+                // Get the ID from the last row in the result set
+                $nextId = $rows[$limit]->page_id;
+                // Remove undisplayed rows
+                $rows = array_slice( $rows, 0, $limit );
+            } else {
+                // No more rows after
+                $nextId = false;
+            }
+            $prevId = $from;
+        }
 
-			if ( $row->page_is_redirect ) {
-				$extra = 'redirect=no';
-			} else {
-				$extra = '';
-			}
+        if (0 == $level) {
+            $wgOut->addWikiText( wfMsg( 'linkshere' ) );
+        }
+        $isredir = wfMsg( 'isredirect' );
+        $istemplate = wfMsg( 'istemplate' );
 
-			$link = $this->skin->makeKnownLinkObj( $nt, '', $extra );
-			$wgOut->addHTML( '<li>'.$link );
+        if ($level == 0) {
+            $prevnext = $this->getPrevNext( $limit, $prevId, $nextId );
+            $wgOut->addHTML( $prevnext );
+        }
 
-			// Display properties (redirect or template)
-			$props = array();
-			if ( $row->page_is_redirect ) {
-				$props[] = $isredir;
-			}
-			if ( $row->is_template ) {
-				$props[] = $istemplate;
-			}
-			if ( count( $props ) ) {
-				// FIXME? Cultural assumption, hard-coded punctuation
-				$wgOut->addHTML( ' (' . implode( ', ', $props ) . ') ' );
-			}
+        $wgOut->addHTML( '<ul>' );
+        foreach ($rows as $row) {
+            $nt = Title::makeTitle( $row->page_namespace, $row->page_title );
 
-			if ( $row->page_is_redirect ) {
-				if ( $level < 2 ) {
-					$this->showIndirectLinks( $level + 1, $nt, 500 );
-				}
-			}
-			$wgOut->addHTML( "</li>\n" );
-		}
-		$wgOut->addHTML( "</ul>\n" );
+            if ($row->page_is_redirect) {
+                $extra = 'redirect=no';
+            } else {
+                $extra = '';
+            }
 
-		if( $level == 0 ) {
-			$wgOut->addHTML( $prevnext );
-		}
-	}
+            $link = $this->skin->makeKnownLinkObj( $nt, '', $extra );
+            $wgOut->addHTML( '<li>'.$link );
 
-	function makeSelfLink( $text, $query ) {
-		return $this->skin->makeKnownLinkObj( $this->selfTitle, $text, $query );
-	}
+            // Display properties (redirect or template)
+            $props = array();
+            if ($row->page_is_redirect) {
+                $props[] = $isredir;
+            }
+            if ($row->is_template) {
+                $props[] = $istemplate;
+            }
+            if ( count( $props ) ) {
+                // FIXME? Cultural assumption, hard-coded punctuation
+                $wgOut->addHTML( ' (' . implode( ', ', $props ) . ') ' );
+            }
 
-	function getPrevNext( $limit, $prevId, $nextId ) {
-		global $wgLang;
-		$fmtLimit = $wgLang->formatNum( $limit );
-		$prev = wfMsg( 'prevn', $fmtLimit );
-		$next = wfMsg( 'nextn', $fmtLimit );
+            if ($row->page_is_redirect) {
+                if ($level < 2) {
+                    $this->showIndirectLinks( $level + 1, $nt, 500 );
+                }
+            }
+            $wgOut->addHTML( "</li>\n" );
+        }
+        $wgOut->addHTML( "</ul>\n" );
 
-		if ( 0 != $prevId ) {
-			$prevLink = $this->makeSelfLink( $prev, "limit={$limit}&from={$prevId}&dir=prev" );
-		} else {
-			$prevLink = $prev;
-		}
-		if ( 0 != $nextId ) {
-			$nextLink = $this->makeSelfLink( $next, "limit={$limit}&from={$nextId}" );
-		} else {
-			$nextLink = $next;
-		}
-		$nums = $this->numLink( 20, $prevId ) . ' | ' .
-		  $this->numLink( 50, $prevId ) . ' | ' .
-		  $this->numLink( 100, $prevId ) . ' | ' .
-		  $this->numLink( 250, $prevId ) . ' | ' .
-		  $this->numLink( 500, $prevId );
+        if ($level == 0) {
+            $wgOut->addHTML( $prevnext );
+        }
+    }
 
-		return wfMsg( 'viewprevnext', $prevLink, $nextLink, $nums );
-	}
+    function makeSelfLink( $text, $query )
+    {
+        return $this->skin->makeKnownLinkObj( $this->selfTitle, $text, $query );
+    }
 
-	function numLink( $limit, $from ) {
-		global $wgLang;
-		$query = "limit={$limit}&from={$from}";
-		$fmtLimit = $wgLang->formatNum( $limit );
-		return $this->makeSelfLink( $fmtLimit, $query );
-	}
+    function getPrevNext( $limit, $prevId, $nextId )
+    {
+        global $wgLang;
+        $fmtLimit = $wgLang->formatNum( $limit );
+        $prev = wfMsg( 'prevn', $fmtLimit );
+        $next = wfMsg( 'nextn', $fmtLimit );
+
+        if (0 != $prevId) {
+            $prevLink = $this->makeSelfLink( $prev, "limit={$limit}&from={$prevId}&dir=prev" );
+        } else {
+            $prevLink = $prev;
+        }
+        if (0 != $nextId) {
+            $nextLink = $this->makeSelfLink( $next, "limit={$limit}&from={$nextId}" );
+        } else {
+            $nextLink = $next;
+        }
+        $nums = $this->numLink( 20, $prevId ) . ' | ' .
+          $this->numLink( 50, $prevId ) . ' | ' .
+          $this->numLink( 100, $prevId ) . ' | ' .
+          $this->numLink( 250, $prevId ) . ' | ' .
+          $this->numLink( 500, $prevId );
+
+        return wfMsg( 'viewprevnext', $prevLink, $nextLink, $nums );
+    }
+
+    function numLink( $limit, $from )
+    {
+        global $wgLang;
+        $query = "limit={$limit}&from={$from}";
+        $fmtLimit = $wgLang->formatNum( $limit );
+
+        return $this->makeSelfLink( $fmtLimit, $query );
+    }
 }
-
-?>

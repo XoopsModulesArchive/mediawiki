@@ -213,6 +213,3 @@ ta[\'ca-nstab-category\'] = new Array(\'c\',\'View the category page\');',
 'help' => 'Пулăшу',
 'sep' => 'Авн',
 );
-
-
-?>

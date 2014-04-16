@@ -7,17 +7,17 @@
  */
 
 /** */
-require_once( "commandLine.inc" );
+require_once 'commandLine.inc';
 
 # Parameters
 if ( count( $args ) < 2 ) {
-	print "Not enough parameters\n";
-	if ( $wgWikiFarm ) {
-		print "Usage: php attribute.php <language> <site> <source> <destination>\n";
-	} else {
-		print "Usage: php attribute.php <source> <destination>\n";
-	}
-	exit;
+    print "Not enough parameters\n";
+    if ($wgWikiFarm) {
+        print "Usage: php attribute.php <language> <site> <source> <destination>\n";
+    } else {
+        print "Usage: php attribute.php <source> <destination>\n";
+    }
+    exit;
 }
 
 $source = $args[0];
@@ -31,11 +31,11 @@ $eDest = $dbr->strencode( $dest );
 # Get user id
 $res = $dbr->query( "SELECT user_id FROM $user WHERE user_name='$eDest'" );
 $row = $dbr->fetchObject( $res );
-if ( !$row ) {
-	print "Warning: the target name \"$dest\" does not exist";
-	$uid = 0;
+if (!$row) {
+    print "Warning: the target name \"$dest\" does not exist";
+    $uid = 0;
 } else {
-	$uid = $row->user_id;
+    $uid = $row->user_id;
 }
 
 # Initialise files
@@ -60,46 +60,44 @@ FROM $revision,$page
 WHERE rev_user_text='$eSource' and rev_page=page_id" );
 $row = $dbr->fetchObject( $res );
 
-if ( $row ) {
+if ($row) {
 /*
-	if ( $row->old_title=='Votes_for_deletion' && $row->old_namespace == 4 ) {
-		# We don't have that long
-		break;
-	}
+    if ($row->old_title=='Votes_for_deletion' && $row->old_namespace == 4) {
+        # We don't have that long
+        break;
+    }
 */
-	fwrite( $logfile, "**Revision IDs: " );
-	fwrite( $sqlfile, "UPDATE $revision SET rev_user=$uid, rev_user_text='$eDest' WHERE rev_id IN (\n" );
+    fwrite( $logfile, "**Revision IDs: " );
+    fwrite( $sqlfile, "UPDATE $revision SET rev_user=$uid, rev_user_text='$eDest' WHERE rev_id IN (\n" );
 
-	for ( $first=true; $row; $row = $dbr->fetchObject( $res ) ) {
-		$title = Title::makeTitle( $row->page_namespace, $row->page_title );
-		$fullTitle = $title->getPrefixedDbKey();
-		if ( $fullTitle == $omitTitle ) {
-			continue;
-		}
+    for ( $first=true; $row; $row = $dbr->fetchObject( $res ) ) {
+        $title = Title::makeTitle( $row->page_namespace, $row->page_title );
+        $fullTitle = $title->getPrefixedDbKey();
+        if ($fullTitle == $omitTitle) {
+            continue;
+        }
 
-		print "$fullTitle\n";
-		$url = $title->getFullUrl( "oldid={$row->rev_id}" );
+        print "$fullTitle\n";
+        $url = $title->getFullUrl( "oldid={$row->rev_id}" );
 
-		# Output
-		fwrite( $sqlfile, "      " );
-		if ( $first ) {
-			$first = false;
-		} else {
-			fwrite( $sqlfile, ", " );
-			fwrite( $logfile, ", " );
-		}
+        # Output
+        fwrite( $sqlfile, "      " );
+        if ($first) {
+            $first = false;
+        } else {
+            fwrite( $sqlfile, ", " );
+            fwrite( $logfile, ", " );
+        }
 
-		fwrite( $sqlfile, "{$row->rev_id} -- $url\n" );
-		fwrite( $logfile, "[$url {$row->rev_id}]" );
+        fwrite( $sqlfile, "{$row->rev_id} -- $url\n" );
+        fwrite( $logfile, "[$url {$row->rev_id}]" );
 
-	}
-	fwrite( $sqlfile, ");\n" );
-	fwrite( $logfile, "\n" );
+    }
+    fwrite( $sqlfile, ");\n" );
+    fwrite( $logfile, "\n" );
 }
 
 print "\n";
 
 fclose( $sqlfile );
 fclose( $logfile );
-
-?>

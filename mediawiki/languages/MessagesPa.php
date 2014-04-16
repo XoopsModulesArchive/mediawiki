@@ -80,7 +80,6 @@ $wgAllMessagesPa = array(
 
 'currentevents'	=> '-',
 
-
 'disclaimers'		=> 'ਡਿਸਕਲੇਮਰ',
 'disclaimerpage'	=> 'Project:General_disclaimer',
 'errorpagetitle'	=> 'ਗਲਤੀ',
@@ -367,6 +366,3 @@ $1 ਜਾਂ ਕਿਸੇ ਵੀ ਹੋਰ [[{{ns:4}}:ਪ੍ਰਸ਼ਾਸਕ]]
 'numedits'		=> 'ਤਬਦੀਲੀਆਂ ਦੀ ਗਿਣਤੀ (ਲੇਖ ਵਿਚਾਲੇ):',
 'numtalkedits'	=> 'ਤਬਦੀਲੀਆਂ ਦੀ ਗਿਣਤੀ (ਚਰਚਾ-ਪੰਨੇ ਵਿਚਾਲੇ):',
 );
-
-
-?>

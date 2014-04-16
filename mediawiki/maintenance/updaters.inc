@@ -218,7 +218,7 @@ function do_watchlist_update() {
 		echo "Adding missing watchlist talk page rows... ";
 		flush();
 
-		$wgDatabase->insertSelect( 'watchlist', 'watchlist', 
+		$wgDatabase->insertSelect( 'watchlist', 'watchlist',
 			array(
 				'wl_user' => 'wl_user',
 				'wl_namespace' => 'wl_namespace | 1',
@@ -241,7 +241,7 @@ function do_copy_newtalk_to_watchlist() {
 	echo "Now converting ".$num_newtalks." user_newtalk entries to watchlist table entries ... \n";
 
 	$user = new User();
-	for ( $i = 1; $i <= $num_newtalks; $i++ ) {
+	for ( $i = 1; $i <= $num_newtalks; ++$i ) {
 		$wluser = $wgDatabase->fetchObject( $res );
 		if ($wluser->user_id == 0) { # anonymous users ... have IP numbers as "names"
 			if ($user->isIP($wluser->user_ip)) { # do only if it really looks like an IP number (double checked)

@@ -26,45 +26,45 @@ $originalDir = getcwd();
 
 $optionsWithArgs = array( 'pagelist', 'start', 'end' );
 
-require_once( 'commandLine.inc' );
-require_once( 'SpecialExport.php' );
-require_once( 'maintenance/backup.inc' );
+require_once 'commandLine.inc';
+require_once 'SpecialExport.php';
+require_once 'maintenance/backup.inc';
 
 $dumper = new BackupDumper( $argv );
 
-if( isset( $options['quiet'] ) ) {
-	$dumper->reporting = false;
+if ( isset( $options['quiet'] ) ) {
+    $dumper->reporting = false;
 }
 
 if ( isset( $options['pagelist'] ) ) {
-	$olddir = getcwd();
-	chdir( $originalDir );
-	$pages = file( $options['pagelist'] );
-	chdir( $olddir );
-	if ( $pages === false ) {
-		wfDie( "Unable to open file {$options['pagelist']}\n" );
-	}
-	$pages = array_map( 'trim', $pages );
-	$dumper->pages = array_filter( $pages, create_function( '$x', 'return $x !== "";' ) );
+    $olddir = getcwd();
+    chdir( $originalDir );
+    $pages = file( $options['pagelist'] );
+    chdir( $olddir );
+    if ($pages === false) {
+        wfDie( "Unable to open file {$options['pagelist']}\n" );
+    }
+    $pages = array_map( 'trim', $pages );
+    $dumper->pages = array_filter( $pages, create_function( '$x', 'return $x !== "";' ) );
 }
 
-if( isset( $options['start'] ) ) {
-	$dumper->startId = intval( $options['start'] );
+if ( isset( $options['start'] ) ) {
+    $dumper->startId = intval( $options['start'] );
 }
-if( isset( $options['end'] ) ) {
-	$dumper->endId = intval( $options['end'] );
+if ( isset( $options['end'] ) ) {
+    $dumper->endId = intval( $options['end'] );
 }
 $dumper->skipHeader = isset( $options['skip-header'] );
 $dumper->skipFooter = isset( $options['skip-footer'] );
 
 $textMode = isset( $options['stub'] ) ? MW_EXPORT_STUB : MW_EXPORT_TEXT;
 
-if( isset( $options['full'] ) ) {
-	$dumper->dump( MW_EXPORT_FULL, $textMode );
-} elseif( isset( $options['current'] ) ) {
-	$dumper->dump( MW_EXPORT_CURRENT, $textMode );
+if ( isset( $options['full'] ) ) {
+    $dumper->dump( MW_EXPORT_FULL, $textMode );
+} elseif ( isset( $options['current'] ) ) {
+    $dumper->dump( MW_EXPORT_CURRENT, $textMode );
 } else {
-	$dumper->progress( <<<END
+    $dumper->progress( <<<END
 This script dumps the wiki page database into an XML interchange wrapper
 format for export or backup.
 
@@ -95,5 +95,3 @@ Fancy stuff:
 END
 );
 }
-
-?>

@@ -14,55 +14,57 @@
  * @package MediaWiki
  * @subpackage SpecialPage
  */
-class MostrevisionsPage extends QueryPage {
+class MostrevisionsPage extends QueryPage
+{
+    function getName() { return 'Mostrevisions'; }
+    function isExpensive() { return true; }
+    function isSyndicated() { return false; }
 
-	function getName() { return 'Mostrevisions'; }
-	function isExpensive() { return true; }
-	function isSyndicated() { return false; }
+    function getSQL()
+    {
+        $dbr =& wfGetDB( DB_SLAVE );
+        extract( $dbr->tableNames( 'revision', 'page' ) );
 
-	function getSQL() {
-		$dbr =& wfGetDB( DB_SLAVE );
-		extract( $dbr->tableNames( 'revision', 'page' ) );
-		return
-			"
-			SELECT
-				'Mostrevisions' as type,
-				page_namespace as namespace,
-				page_title as title,
-				COUNT(*) as value
-			FROM $revision
-			LEFT JOIN $page ON page_id = rev_page
-			WHERE page_namespace = " . NS_MAIN . "
-			GROUP BY rev_page
-			HAVING COUNT(*) > 1
-			";
-	}
+        return
+            "
+            SELECT
+                'Mostrevisions' as type,
+                page_namespace as namespace,
+                page_title as title,
+                COUNT(*) as value
+            FROM $revision
+            LEFT JOIN $page ON page_id = rev_page
+            WHERE page_namespace = " . NS_MAIN . "
+            GROUP BY rev_page
+            HAVING COUNT(*) > 1
+            ";
+    }
 
-	function formatResult( $skin, $result ) {
-		global $wgLang, $wgContLang;
+    function formatResult( $skin, $result )
+    {
+        global $wgLang, $wgContLang;
 
-		$nt = Title::makeTitle( $result->namespace, $result->title );
-		$text = $wgContLang->convert( $nt->getPrefixedText() );
+        $nt = Title::makeTitle( $result->namespace, $result->title );
+        $text = $wgContLang->convert( $nt->getPrefixedText() );
 
-		$plink = $skin->makeKnownLinkObj( $nt, $text );
+        $plink = $skin->makeKnownLinkObj( $nt, $text );
 
-		$nl = wfMsgExt( 'nrevisions', array( 'parsemag', 'escape'),
-			$wgLang->formatNum( $result->value ) );
-		$nlink = $skin->makeKnownLinkObj( $nt, $nl, 'action=history' );
+        $nl = wfMsgExt( 'nrevisions', array( 'parsemag', 'escape'),
+            $wgLang->formatNum( $result->value ) );
+        $nlink = $skin->makeKnownLinkObj( $nt, $nl, 'action=history' );
 
-		return wfSpecialList($plink, $nlink);
-	}
+        return wfSpecialList($plink, $nlink);
+    }
 }
 
 /**
  * constructor
  */
-function wfSpecialMostrevisions() {
-	list( $limit, $offset ) = wfCheckLimits();
+function wfSpecialMostrevisions()
+{
+    list( $limit, $offset ) = wfCheckLimits();
 
-	$wpp = new MostrevisionsPage();
+    $wpp = new MostrevisionsPage();
 
-	$wpp->doQuery( $offset, $limit );
+    $wpp->doQuery( $offset, $limit );
 }
-
-?>

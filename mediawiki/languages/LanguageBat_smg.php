@@ -9,18 +9,18 @@
  * @author Rob Church <robchur@gmail.com>
  */
 
-require_once( 'LanguageLt.php' );
+require_once 'LanguageLt.php';
 
-class LanguageBat_smg extends LanguageLt {
+class LanguageBat_smg extends LanguageLt
+{
+    function getFallbackLanguage()
+    {
+        return 'lt';
+    }
 
-	function getFallbackLanguage() {
-		return 'lt';
-	}
-
-	function getAllMessages() {
-		return null;
-	}
+    function getAllMessages()
+    {
+        return null;
+    }
 
 }
-
-?>
