@@ -76,7 +76,7 @@ CREATE TABLE /*$wgDBprefix*/user (
   
   -- Note: email should be restricted, not public info.
   -- Same with passwords.
-  user_email tinytext NOT NULL default '',
+  user_email tinytext NOT NULL,
   
   -- Newline-separated list of name=value defining the user
   -- preferences
@@ -848,7 +848,7 @@ CREATE TABLE /*$wgDBprefix*/searchindex (
   si_title varchar(255) NOT NULL default '',
   
   -- Munged version of body text
-  si_text mediumtext NOT NULL default '',
+  si_text mediumtext NOT NULL,
   
   UNIQUE KEY (si_page),
   FULLTEXT si_title (si_title),
