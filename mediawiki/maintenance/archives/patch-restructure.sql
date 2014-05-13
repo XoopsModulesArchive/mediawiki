@@ -51,7 +51,7 @@ CREATE TABLE /*$wgDBprefix*/revision (
 --
 -- CREATE TABLE /*$wgDBprefix*/text (
 --   old_id int(8) unsigned NOT NULL auto_increment,
---   old_text mediumtext NOT NULL default '',
+--   old_text mediumtext NOT NULL,
 --   old_flags tinyblob NOT NULL default '',
 --   
 --   PRIMARY KEY old_id (old_id)
